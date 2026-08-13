@@ -1,0 +1,202 @@
+# Vocabulary starter deck — curated, never generated (ADR-0003).
+#
+# Rules (guide §1.5, §1.3.12):
+# - `stress` is MANDATORY: a word learned without its stress is learned
+#   wrong. Format: de-POS-it (capitals = the stressed syllable).
+# - `gloss_en` is simple English (A2-readable). `gloss_mn` is Mongolian —
+#   ⚠ every Mongolian string needs native-speaker verification before
+#   shipping, same as the rest of the repo.
+# - `example` is a real sentence containing the word — the cloze quiz blanks
+#   the word out of it, so the word must appear verbatim.
+# - decks: core (everyday journaling) · work (geology and mining, stress
+#   list from guide §1.5).
+#
+# Extend by curation: add entries here. Never let a model write directly
+# into this file.
+
+version: 1
+
+words:
+  # ── core ──────────────────────────────────────────────────────────
+  - {word: important, stress: im-POR-tant, pos: adj, level: A2, deck: core,
+     gloss_en: "matters a lot", gloss_mn: "чухал",
+     example: "Safety is the most important thing at the site."}
+  - {word: decision, stress: de-CI-sion, pos: noun, level: B1, deck: core,
+     gloss_en: "a choice you make after thinking", gloss_mn: "шийдвэр",
+     example: "We made a decision about the new schedule."}
+  - {word: improve, stress: im-PROVE, pos: verb, level: B1, deck: core,
+     gloss_en: "to make something better", gloss_mn: "сайжруулах",
+     example: "I want to improve my English every day."}
+  - {word: experience, stress: ex-PE-ri-ence, pos: noun, level: B1, deck: core,
+     gloss_en: "knowledge from doing things", gloss_mn: "туршлага",
+     example: "She has ten years of experience in mining."}
+  - {word: colleague, stress: COL-league, pos: noun, level: B1, deck: core,
+     gloss_en: "a person you work with", gloss_mn: "хамтран ажиллагч",
+     example: "My colleague helped me finish the report."}
+  - {word: meeting, stress: MEET-ing, pos: noun, level: A2, deck: core,
+     gloss_en: "when people come together to talk", gloss_mn: "хурал",
+     example: "The meeting starts at nine in the morning."}
+  - {word: schedule, stress: SCHED-ule, pos: noun, level: B1, deck: core,
+     gloss_en: "a plan of times for doing things", gloss_mn: "хуваарь",
+     example: "The drilling schedule changed because of the weather."}
+  - {word: success, stress: suc-CESS, pos: noun, level: B1, deck: core,
+     gloss_en: "when something goes the way you wanted", gloss_mn: "амжилт",
+     example: "The project was a big success for our team."}
+  - {word: difficult, stress: DIF-fi-cult, pos: adj, level: A2, deck: core,
+     gloss_en: "not easy", gloss_mn: "хэцүү",
+     example: "Reading in English is still difficult for me."}
+  - {word: together, stress: to-GETH-er, pos: adv, level: A2, deck: core,
+     gloss_en: "with each other", gloss_mn: "хамтдаа",
+     example: "We solved the problem together after lunch."}
+  - {word: yesterday, stress: YES-ter-day, pos: adv, level: A1, deck: core,
+     gloss_en: "the day before today", gloss_mn: "өчигдөр",
+     example: "I wrote my first journal entry yesterday."}
+  - {word: tomorrow, stress: to-MOR-row, pos: adv, level: A1, deck: core,
+     gloss_en: "the day after today", gloss_mn: "маргааш",
+     example: "We will check the results tomorrow."}
+  - {word: arrive, stress: ar-RIVE, pos: verb, level: A2, deck: core,
+     gloss_en: "to reach a place", gloss_mn: "хүрэлцэн ирэх",
+     example: "The trucks arrive at the site at six."}
+  - {word: finish, stress: FIN-ish, pos: verb, level: A2, deck: core,
+     gloss_en: "to complete something", gloss_mn: "дуусгах",
+     example: "I finish work at seven most days."}
+  - {word: forget, stress: for-GET, pos: verb, level: A2, deck: core,
+     gloss_en: "to not remember", gloss_mn: "мартах",
+     example: "Don't forget your helmet at the office."}
+  - {word: remember, stress: re-MEM-ber, pos: verb, level: A2, deck: core,
+     gloss_en: "to keep in your mind", gloss_mn: "санах",
+     example: "I remember my first day at the mine."}
+  - {word: understand, stress: un-der-STAND, pos: verb, level: A2, deck: core,
+     gloss_en: "to know what something means", gloss_mn: "ойлгох",
+     example: "Now I understand the rule about articles."}
+  - {word: practice, stress: PRAC-tice, pos: noun, level: B1, deck: core,
+     gloss_en: "doing something many times to learn it", gloss_mn: "дадлага",
+     example: "Daily practice is better than one long lesson."}
+  - {word: question, stress: QUES-tion, pos: noun, level: A1, deck: core,
+     gloss_en: "something you ask", gloss_mn: "асуулт",
+     example: "I asked a question at the end of the meeting."}
+  - {word: answer, stress: AN-swer, pos: noun, level: A1, deck: core,
+     gloss_en: "what you say to a question", gloss_mn: "хариулт",
+     example: "Her answer was short and clear."}
+  - {word: mistake, stress: mis-TAKE, pos: noun, level: A2, deck: core,
+     gloss_en: "something done wrong", gloss_mn: "алдаа",
+     example: "Every mistake teaches me something new."}
+  - {word: habit, stress: HAB-it, pos: noun, level: B1, deck: core,
+     gloss_en: "something you do regularly", gloss_mn: "зуршил",
+     example: "Writing at night became a good habit."}
+  - {word: holiday, stress: HOL-i-day, pos: noun, level: A2, deck: core,
+     gloss_en: "a day or time free from work", gloss_mn: "амралтын өдөр",
+     example: "We planned a short holiday after the project."}
+  - {word: weather, stress: WEATH-er, pos: noun, level: A1, deck: core,
+     gloss_en: "rain, sun, wind and snow", gloss_mn: "цаг агаар",
+     example: "The weather was cold and windy at the camp."}
+  - {word: morning, stress: MORN-ing, pos: noun, level: A1, deck: core,
+     gloss_en: "the early part of the day", gloss_mn: "өглөө",
+     example: "I study English in the morning before work."}
+  - {word: evening, stress: EVE-ning, pos: noun, level: A1, deck: core,
+     gloss_en: "the end part of the day", gloss_mn: "орой",
+     example: "In the evening I write my journal."}
+  - {word: family, stress: FAM-i-ly, pos: noun, level: A1, deck: core,
+     gloss_en: "parents, children, relatives", gloss_mn: "гэр бүл",
+     example: "My family lives in Ulaanbaatar."}
+  - {word: journey, stress: JOUR-ney, pos: noun, level: B1, deck: core,
+     gloss_en: "a trip from one place to another", gloss_mn: "аялал",
+     example: "The journey to the site takes four hours."}
+  - {word: describe, stress: de-SCRIBE, pos: verb, level: B1, deck: core,
+     gloss_en: "to say what something is like", gloss_mn: "дүрслэх",
+     example: "Can you describe the rock you found?"}
+  - {word: explain, stress: ex-PLAIN, pos: verb, level: A2, deck: core,
+     gloss_en: "to make something clear", gloss_mn: "тайлбарлах",
+     example: "Please explain the plan to me again."}
+
+  # ── work (geology & mining — stress list from guide §1.5) ─────────
+  - {word: geology, stress: ge-OL-o-gy, pos: noun, level: B1, deck: work,
+     gloss_en: "the science of the Earth and rocks", gloss_mn: "геологи",
+     example: "She studied geology at university."}
+  - {word: geologist, stress: ge-OL-o-gist, pos: noun, level: B1, deck: work,
+     gloss_en: "a scientist who studies rocks", gloss_mn: "геологич",
+     example: "The geologist logged the core all afternoon."}
+  - {word: geological, stress: ge-o-LOG-i-cal, pos: adj, level: B1, deck: work,
+     gloss_en: "about geology", gloss_mn: "геологийн",
+     example: "The geological map shows three rock units."}
+  - {word: mineral, stress: MIN-er-al, pos: noun, level: B1, deck: work,
+     gloss_en: "a natural solid material from the ground", gloss_mn: "эрдэс",
+     example: "Quartz is the most common mineral here."}
+  - {word: deposit, stress: de-POS-it, pos: noun, level: B1, deck: work,
+     gloss_en: "minerals collected in one place underground", gloss_mn: "орд",
+     example: "They found a new copper deposit last year."}
+  - {word: exploration, stress: ex-plo-RA-tion, pos: noun, level: B1, deck: work,
+     gloss_en: "searching an area for minerals", gloss_mn: "хайгуул",
+     example: "The exploration program starts in spring."}
+  - {word: resource, stress: re-SOURCE, pos: noun, level: B1, deck: work,
+     gloss_en: "useful material that a place has", gloss_mn: "нөөц баялаг",
+     example: "Water is a limited resource at the camp."}
+  - {word: reserve, stress: re-SERVE, pos: noun, level: B1, deck: work,
+     gloss_en: "an amount kept for future use", gloss_mn: "нөөц",
+     example: "The mine has a large coal reserve."}
+  - {word: anomaly, stress: a-NOM-a-ly, pos: noun, level: B2, deck: work,
+     gloss_en: "something different from normal", gloss_mn: "гажиг",
+     example: "The survey showed a magnetic anomaly near the hill."}
+  - {word: lithology, stress: li-THOL-o-gy, pos: noun, level: B2, deck: work,
+     gloss_en: "the physical character of rocks", gloss_mn: "литологи",
+     example: "The lithology changes at eighty metres."}
+  - {word: sedimentary, stress: sed-i-MEN-ta-ry, pos: adj, level: B2, deck: work,
+     gloss_en: "made from settled layers of material", gloss_mn: "тунамал",
+     example: "Sandstone is a sedimentary rock."}
+  - {word: metamorphic, stress: met-a-MOR-phic, pos: adj, level: B2, deck: work,
+     gloss_en: "changed by heat and pressure", gloss_mn: "хувирмал",
+     example: "The metamorphic rocks are harder to drill."}
+  - {word: igneous, stress: IG-ne-ous, pos: adj, level: B2, deck: work,
+     gloss_en: "formed from cooled magma", gloss_mn: "магмын",
+     example: "Granite is an igneous rock."}
+  - {word: overburden, stress: O-ver-bur-den, pos: noun, level: B2, deck: work,
+     gloss_en: "the material above the useful rock", gloss_mn: "хучлага хөрс",
+     example: "We removed the overburden before mining."}
+  - {word: tailings, stress: TAIL-ings, pos: noun, level: B2, deck: work,
+     gloss_en: "waste left after taking the mineral", gloss_mn: "хаягдал",
+     example: "The tailings are stored behind the dam."}
+  - {word: environment, stress: en-VI-ron-ment, pos: noun, level: B1, deck: work,
+     gloss_en: "the natural world around us", gloss_mn: "орчин",
+     example: "The mine must protect the environment."}
+  - {word: analysis, stress: a-NAL-y-sis, pos: noun, level: B1, deck: work,
+     gloss_en: "careful study of something", gloss_mn: "шинжилгээ",
+     example: "The analysis of the samples takes two weeks."}
+  - {word: analyse, stress: AN-a-lyse, pos: verb, level: B1, deck: work,
+     gloss_en: "to study something carefully", gloss_mn: "шинжлэх",
+     example: "We analyse the data every Friday."}
+  - {word: feasibility, stress: fea-si-BIL-i-ty, pos: noun, level: B2, deck: work,
+     gloss_en: "how possible and practical a plan is", gloss_mn: "техник эдийн засгийн үндэслэл",
+     example: "The feasibility study will finish in June."}
+  - {word: geophysics, stress: ge-o-PHYS-ics, pos: noun, level: B2, deck: work,
+     gloss_en: "physics used to study the Earth", gloss_mn: "геофизик",
+     example: "Geophysics helped us find the buried structure."}
+  - {word: sample, stress: SAM-ple, pos: noun, level: A2, deck: work,
+     gloss_en: "a small part taken for testing", gloss_mn: "дээж",
+     example: "Label every sample before shipping it."}
+  - {word: drilling, stress: DRILL-ing, pos: noun, level: B1, deck: work,
+     gloss_en: "making deep holes in the ground", gloss_mn: "өрөмдлөг",
+     example: "Drilling continues day and night this month."}
+  - {word: survey, stress: SUR-vey, pos: noun, level: B1, deck: work,
+     gloss_en: "a careful measurement of an area", gloss_mn: "судалгаа",
+     example: "The survey covered the whole valley."}
+  - {word: estimate, stress: ES-ti-mate, pos: verb, level: B1, deck: work,
+     gloss_en: "to judge a number without exact measuring", gloss_mn: "тооцоолох",
+     example: "We estimate the depth at two hundred metres."}
+  - {word: extraction, stress: ex-TRAC-tion, pos: noun, level: B2, deck: work,
+     gloss_en: "taking something out of the ground", gloss_mn: "олборлолт",
+     example: "Gold extraction starts next quarter."}
+  - {word: equipment, stress: e-QUIP-ment, pos: noun, level: B1, deck: work,
+     gloss_en: "tools and machines for a job", gloss_mn: "тоног төхөөрөмж",
+     example: "The new equipment arrived at the site."}
+  - {word: safety, stress: SAFE-ty, pos: noun, level: A2, deck: work,
+     gloss_en: "being protected from danger", gloss_mn: "аюулгүй байдал",
+     example: "Safety comes first in every operation."}
+  - {word: grade, stress: GRADE, pos: noun, level: B1, deck: work,
+     gloss_en: "how rich the ore is", gloss_mn: "агуулга",
+     example: "The grade improves at depth."}
+  - {word: fault, stress: FAULT, pos: noun, level: B1, deck: work,
+     gloss_en: "a break in the rock where it moved", gloss_mn: "хагарал",
+     example: "The fault runs across the whole license area."}
+  - {word: vein, stress: VEIN, pos: noun, level: B1, deck: work,
+     gloss_en: "a thin band of mineral in rock", gloss_mn: "судал",
+     example: "The quartz vein carries visible gold."}

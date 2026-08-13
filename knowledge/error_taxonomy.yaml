@@ -1,0 +1,287 @@
+# Error taxonomy — 24 categories for the journal app.
+# Owned by linguistics-curator. Categories are a CLOSED enum: the tutor may
+# never invent one. rule_a2 / rule_b1 are the exact wordings the learner reads
+# (the tutor adapts, never authors). `bridge` names what the learner already
+# has in Mongolian that the English form attaches to — the highest-value field.
+# `priority` is predicted from typology (guide §1.8 teaching order + blocking);
+# recompute from real incidence at ~200 entries (scripts/category_frequency.py).
+# blocking: how much the error blocks understanding. frequency: how often
+# Mongolian speakers make it. Two different dimensions — never conflate.
+
+version: 1
+source: knowledge/contrastive-guide.md
+
+categories:
+
+  copula:
+    family: sentence_architecture
+    blocking: high
+    frequency: very_high
+    priority: 1
+    guide_ref: "§1.3.7, §KK 28"
+    rule_a2: "English always needs am / is / are. 'I geologist' needs 'am'."
+    rule_b1: "English never drops the verb 'to be': every sentence needs it, even when Mongolian would omit it."
+    bridge: "Монголоор 'Би геологич' гэж хэлдэг — үйл үг хэрэггүй. Англиар 'am' заавал хэрэгтэй. (Mongolian drops the linking verb; English cannot.)"
+    example: { wrong: "I geologist.", right: "I am a geologist." }
+
+  word_order:
+    family: sentence_architecture
+    blocking: high
+    frequency: very_high
+    priority: 2
+    guide_ref: "§1.3.1, §KK 41–43"
+    rule_a2: "English order: person, then action, then thing. I analysed the samples."
+    rule_b1: "Mongolian builds backwards (SOV); English builds forwards (SVO). The verb comes before its object."
+    bridge: "Би ном уншсан = I book read. One rule covers five error types: Mongolian builds backwards; English builds forwards."
+    example: { wrong: "I the samples analysed.", right: "I analysed the samples." }
+
+  articles:
+    family: nouns_determiners
+    blocking: low
+    frequency: very_high
+    priority: 3
+    guide_ref: "§1.3.2, §M, §KK 1–12"
+    rule_a2: "Almost every single thing-word needs 'a', 'an' or 'the' in front."
+    rule_b1: "A singular countable noun needs an article: 'a/an' for new or general, 'the' for one both people know."
+    bridge: "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)"
+    example: { wrong: "I am geologist.", right: "I am a geologist." }
+
+  verb_agreement:
+    family: verbs
+    blocking: low
+    frequency: very_high
+    priority: 4
+    guide_ref: "§1.3.5, §KK 23–24"
+    rule_a2: "HE, SHE, IT adds -s: he works, she lives, it takes."
+    rule_b1: "Present-simple verbs take -s with a third-person singular subject. Mongolian verbs never change for person, so this must become a reflex."
+    bridge: "Монгол үйл үг хэн үйлдэхээс хамаарч өөрчлөгддөггүй. Англид зөвхөн he/she/it дээр -s нэмэгдэнэ."
+    example: { wrong: "He work here.", right: "He works here." }
+
+  plurals:
+    family: nouns_determiners
+    blocking: low
+    frequency: very_high
+    priority: 5
+    guide_ref: "§1.3.6, §KK 13, 83"
+    rule_a2: "After 2, 3, 4… add -s: three samples. English repeats itself."
+    rule_b1: "English marks the plural even after a numeral. It is redundant — Mongolian is more efficient here — but it is obligatory."
+    bridge: "Гурван ном → three books. Монголд тоо нь олон тоог хэлчихдэг тул -s хэрэггүй; англи давхардуулдаг. Логикгүй ч хүлээн зөвшөөр."
+    example: { wrong: "three sample", right: "three samples" }
+
+  missing_subject:
+    family: sentence_architecture
+    blocking: high
+    frequency: high
+    priority: 6
+    guide_ref: "§C, §KK — 'Is raining'"
+    rule_a2: "Every English sentence needs a subject. Use 'it' or 'there': It is raining. There are three samples."
+    rule_b1: "English cannot tolerate a subjectless sentence, so it invents fake subjects: dummy 'it' and 'there'."
+    bridge: "Монголоор өгүүлэгдэхүүнийг орхиж болно; англиар хэзээ ч болохгүй — 'it/there' гэсэн хиймэл өгүүлэгдэхүүн зохиодог."
+    example: { wrong: "Is raining.", right: "It is raining." }
+
+  topic_fronting:
+    family: sentence_architecture
+    blocking: medium
+    frequency: very_high
+    priority: 7
+    guide_ref: "§C, §1.3.3, §KK 49"
+    rule_a2: "Don't start with 'About X'. Make X the subject: The report is late."
+    rule_b1: "English cannot announce a topic with 'about'. The best repair is to make the topic the subject of the sentence."
+    bridge: "«Тухай» бол нэр үгийн ард ордог дагавар үг. 'About the report, it is late' нь монгол бүтэц — англиар сэдвийг өгүүлэгдэхүүн болго: 'The report is late.'"
+    example: { wrong: "About the report, it is late.", right: "The report is late." }
+
+  prepositions:
+    family: connectors
+    blocking: medium
+    frequency: very_high
+    priority: 8
+    guide_ref: "§A, §R, §KK 50–62"
+    rule_a2: "Small words like at, in, on, to carry the meaning. Don't drop them: at 6:30, on Monday, in July."
+    rule_b1: "English prepositions do the job of Mongolian case suffixes. They are the grammar, not decoration — deleting one deletes the meaning."
+    bridge: "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил."
+    example: { wrong: "We wake up 6:30.", right: "We wake up at 6:30." }
+
+  questions_negation:
+    family: questions_negation
+    blocking: medium
+    frequency: very_high
+    priority: 9
+    guide_ref: "§E, §KK 71–76"
+    rule_a2: "Questions borrow 'do': Where do you work? Negatives too: I don't have time."
+    rule_b1: "Find an auxiliary; if there is one, move it to the front; if not, borrow DO. Inside a longer sentence, a question becomes a statement again: tell me where it is."
+    bridge: "Монголоор асуулт нь уу/үү гэсэн сүүл үгээр бүтдэг, үгийн дараалал өөрчлөгддөггүй. Англи 'do' гэдэг утгагүй туслах үг зээлдэг."
+    example: { wrong: "Where you work?", right: "Where do you work?" }
+
+  tense_aspect:
+    family: verbs
+    blocking: medium
+    frequency: very_high
+    priority: 10
+    guide_ref: "§D, §1.3.8, §KK 25–26, 29, 39"
+    rule_a2: "since / for / already / yet / just → have + done: I have worked here since 2019."
+    rule_b1: "Past simple is a dot in the past; present perfect is an arrow touching today. Trigger words (since, for, already, yet, just, ever, never) cover 80% of uses. Stative verbs (know, want, need, like) never take -ing, and 'will' never follows 'if'."
+    bridge: "-сан нь өнгөрсөн ба одоотой холбоотой хоёуланг нь хэлдэг. Англи хоёрыг ялгадаг: цэг (worked) ба өнөөдрийг хүрсэн сум (have worked)."
+    example: { wrong: "I work here since 2019.", right: "I have worked here since 2019." }
+
+  verb_form:
+    family: verbs
+    blocking: high
+    frequency: high
+    priority: 11
+    guide_ref: "§O, §F, §KK 27, 30–38"
+    rule_a2: "After can/must/should: no 'to'. I can swim. After didn't: base form. I didn't go."
+    rule_b1: "Each slot fixes the verb form: modal + base (can go), did + base (didn't go), enjoy + -ing, look forward to + -ing, was/were + past participle (was written)."
+    bridge: "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой."
+    example: { wrong: "I didn't went.", right: "I didn't go." }
+
+  punctuation:
+    family: mechanics
+    blocking: medium
+    frequency: very_high
+    priority: 12
+    guide_ref: "§Z, §KK 77–78, 81, 84"
+    rule_a2: "Two full sentences cannot join with a comma. Use a full stop: I'm tired. I'll stop."
+    rule_b1: "Cover the comma: if both halves are complete sentences, the comma is illegal. Fix with a full stop, a semicolon, a conjunction, or by subordinating one half."
+    bridge: "Монгол цэг таслал амьсгааг дагадаг; англи цэг таслал дүрмийг дагадаг. Таслал хоёр бүтэн өгүүлбэрийг холбож чадахгүй."
+    example: { wrong: "I'm tired, I'll stop.", right: "I'm tired. I'll stop." }
+
+  pronoun_gender:
+    family: nouns_determiners
+    blocking: medium
+    frequency: very_high
+    priority: 13
+    guide_ref: "§1.3.4, §KK 63"
+    rule_a2: "he = эрэгтэй, she = эмэгтэй. My wife — she."
+    rule_b1: "You know this rule; the error happens at speed because «тэр» never forces the choice. Only timed practice fixes it — not re-reading the rule."
+    bridge: "«Тэр» нь he, she, it гурвууланг нь хэлдэг. Энэ бол мэдлэгийн биш, хурдны асуудал."
+    example: { wrong: "My wife, he works in a school.", right: "My wife — she works in a school." }
+
+  register:
+    family: word_choice_register
+    blocking: low
+    frequency: very_high
+    priority: 14
+    guide_ref: "§1.4, §F, §JJ, §KK 95–98"
+    rule_a2: "To be polite: I'd like… / Could you…? 'I want' sounds too strong."
+    rule_b1: "English politeness lives in modal verbs, not pronouns: more words + more distance = more polite. The ladder: I'd like → Could you → Would you mind → I was wondering whether you might."
+    bridge: "Та гэж хэлснээр эелдэг байдал монголоор илэрхийлэгддэг. Англид 'you' ганцхан тул эелдэг байдал modal үйл үг рүү нүүсэн. Та бүдүүлэг хэлээгүй — орчуулгад л алга болсон."
+    example: { wrong: "I want the report.", right: "I'd like the report." }
+
+  capitalization:
+    family: mechanics
+    blocking: low
+    frequency: very_high
+    priority: 15
+    guide_ref: "§Z, §KK 79–80"
+    rule_a2: "I is always big. Languages too: English, Mongolian. Days: Monday."
+    rule_b1: "Capitalise I, languages, nationalities, days and months — small, mechanical, and instantly noticed by any reader."
+    bridge: "Монголоор 'би' жижиг үсэгтэй; англиар 'I' үргэлж том. Хэлний нэр ч том үсгээр эхэлдэг."
+    example: { wrong: "i study english.", right: "I study English." }
+
+  countability:
+    family: nouns_determiners
+    blocking: low
+    frequency: high
+    priority: 16
+    guide_ref: "§N, §KK 14–22"
+    rule_a2: "Some words never take -s: information, advice, equipment, news, money, work."
+    rule_b1: "About 15 English nouns are uncountable even though they feel countable: information, advice, equipment, research, evidence, news, work, money. Count them with 'a piece of'."
+    bridge: "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff."
+    example: { wrong: "many informations", right: "much information" }
+
+  determiners:
+    family: nouns_determiners
+    blocking: low
+    frequency: high
+    priority: 17
+    guide_ref: "§Y, §KK 64–70"
+    rule_a2: "One pointer word only: my report (not 'the my report'). another + ганц тоо: another sample."
+    rule_b1: "Only one central determiner per noun: 'a my friend' → 'a friend of mine'. 'another' takes a singular noun; 'every' takes a singular noun and verb. its = эзэмшил, it's = it is."
+    bridge: "Монголоор 'миний энэ тайлан' болно; англиар 'the my report' болохгүй — нэг л заагч үг."
+    example: { wrong: "another samples", right: "other samples" }
+
+  collocation:
+    family: word_choice_register
+    blocking: medium
+    frequency: very_high
+    priority: 18
+    guide_ref: "§Q, §KK 51, 54, 62, 85–87, 91"
+    rule_a2: "Words go in fixed pairs: make a decision, do research, heavy rain. Learn the pair, not the rule."
+    rule_b1: "Collocations are fixed partnerships — memorise them as chunks. Verbs that take NO preposition: discuss, enter, approach, marry, lack, mention, answer, reach, join, affect, phone."
+    bridge: "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision."
+    example: { wrong: "do a decision", right: "make a decision" }
+
+  word_choice:
+    family: word_choice_register
+    blocking: high
+    frequency: high
+    priority: 19
+    guide_ref: "§KK 40, 89–90; Bagsh WORD/FF"
+    rule_a2: "Name the real thing: not 'things', say 'exercises'. good → well after a verb."
+    rule_b1: "'Thing' and 'stuff' are the weakest nouns in English — name the actual noun. Watch participial pairs (interested/interesting) and Russian-loan false friends (магазин ≠ magazine, кабинет ≠ cabinet)."
+    bridge: "Орос гаралтай зээл үгс англид өөр утгатай: магазин бол shop, magazine биш; кабинет бол office, cabinet биш."
+    example: { wrong: "I am interesting in geology.", right: "I am interested in geology." }
+
+  modifier_placement:
+    family: connectors
+    blocking: low
+    frequency: high
+    priority: 20
+    guide_ref: "§T, §KK 42, 45–48"
+    rule_a2: "Never put a describing word between the action and the thing: He examined the core carefully."
+    rule_b1: "Adverbs never sit between verb and object. Frequency adverbs go before the main verb but after 'be'. Adjective order: opinion–size–age–shape–colour–origin–material."
+    bridge: "Монголоор дараалал чөлөөтэй — дагавар үүргийг заадаг тул. Англиар байрлал өөрөө үүргийг заадаг."
+    example: { wrong: "He examined carefully the core.", right: "He examined the core carefully." }
+
+  comparatives:
+    family: connectors
+    blocking: medium
+    frequency: medium
+    priority: 21
+    guide_ref: "§A Insight 2, §KK 58"
+    rule_a2: "-er and than travel together: bigger than. Short word → -er, long word → more."
+    rule_b1: "'-er + than' is one inseparable unit. One syllable → -er; three or more → more; never both ('more taller')."
+    bridge: "Монголоор харьцуулалт гарах падежээр бүтдэг: надаас өндөр (миний-аас өндөр). Англид 'than' + -er хоёул хэрэгтэй."
+    example: { wrong: "This deposit is more big than that one.", right: "This deposit is bigger than that one." }
+
+  relative_clauses:
+    family: connectors
+    blocking: medium
+    frequency: medium
+    priority: 22
+    guide_ref: "§1.3.9, §V, §KK 44"
+    rule_a2: "Describe after the thing: the hole that we drilled yesterday."
+    rule_b1: "Mongolian describes before the noun; English describes after it. Build from two simple sentences: I saw a hole. We drilled it yesterday. → I saw the hole that we drilled yesterday."
+    bridge: "Миний уншсан ном = [я уншсан] ном — тодорхойлолт өмнө нь. Англиар ард нь: the book that I read."
+    example: { wrong: "The yesterday drilled hole was deep.", right: "The hole that we drilled yesterday was deep." }
+
+  reported_speech:
+    family: verbs
+    blocking: medium
+    frequency: medium
+    priority: 23
+    guide_ref: "§X, §KK 74, 88"
+    rule_a2: "say + words, tell + person: He told me the results. He said the results were good."
+    rule_b1: "Reported speech steps one tense back, keeps statement word order, and distinguishes say (no person) from tell (person first)."
+    bridge: "Монголоор «гэж» + шууд яриа, цаг хөрвүүлэлт байхгүй. Англи нэг алхам ухраадаг: is → was."
+    example: { wrong: "He said me the results.", right: "He told me the results." }
+
+  spelling:
+    family: mechanics
+    blocking: low
+    frequency: high
+    priority: 24
+    guide_ref: "§1.3.12, §KK — through/though"
+    rule_a2: "English spelling does not follow sound. Learn the written word together with how it sounds."
+    rule_b1: "Cyrillic is nearly phonetic; English spelling is a 500-year-old fossil. Expect errors on words you know perfectly by ear — native speakers misspell too. Never learn a written word without its sound."
+    bridge: "Кирилл үсэг = нэг үсэг, нэг авиа. Англид тийм биш: through, though, thought — гурван өөр дуудлага."
+    example: { wrong: "exercies", right: "exercises" }
+
+# Content that belongs to a professional tier, NOT the journal taxonomy.
+# The journal app must not teach these; listed so nobody re-adds them.
+excluded_from_journal_app:
+  - evidentiality_hedging      # §1.4, §AA — professional/technical reporting tier
+  - technical_report_register  # §CC — JORC/NI 43-101 terminology (ore vs mineralisation, resource vs reserve)
+  - ielts_register             # §BB, §EE–GG — exam framing
+  - mining_vocabulary          # domain examples come from learner_state.domain instead
+  - pronunciation              # app is text-only; word STRESS marking is allowed (it is written)

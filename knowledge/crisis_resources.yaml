@@ -1,0 +1,44 @@
+# Crisis resources — HUMAN-WRITTEN AND HUMAN-VERIFIED ONLY.
+#
+# The model NEVER generates these; they are loaded verbatim by the wellbeing
+# path. Code shows only entries with `verified: true`. A wrong crisis number
+# is worse than none — every number below MUST be checked by a human against
+# an official source (and re-checked yearly) before `verified` is set to true.
+# `last_checked` is the date of that human check.
+#
+# Changes to this file require safety-reviewer approval before commit.
+
+version: 1
+
+resources:
+  - id: mn_emergency
+    country: MN
+    name: "Яаралтай тусламж (Emergency services, Mongolia)"
+    contact: "103"
+    kind: phone
+    language: [mn]
+    verified: false          # TODO(human): verify against an official Mongolian government source
+    last_checked: null
+
+  - id: mn_police
+    country: MN
+    name: "Цагдаа (Police, Mongolia)"
+    contact: "102"
+    kind: phone
+    language: [mn]
+    verified: false          # TODO(human): verify against an official Mongolian government source
+    last_checked: null
+
+  - id: intl_helpline_directory
+    country: INTL
+    name: "Find a Helpline (directory of verified helplines by country)"
+    contact: "https://findahelpline.com"
+    kind: url
+    language: [en]
+    verified: false          # TODO(human): open the site, confirm Mongolia coverage, then flip
+    last_checked: null
+
+# Shown alongside resources; human-written, safe to display always.
+supportive_message:
+  mn: "Та ганцаараа биш. Итгэдэг хүнтэйгээ — найз, гэр бүл, эмчтэйгээ — ярилцаарай."
+  en: "You are not alone. Please talk to someone you trust — a friend, family member, or doctor."

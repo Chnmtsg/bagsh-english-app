@@ -1,0 +1,16 @@
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# secrets — the API key lives in the environment, never in the repo
+.env
+
+# per-learner runtime data (private: journal-derived profiles and SRS state)
+data/profiles/*.json
+data/srs/
+
+# generated eval reports (re-runnable; keep the set, not the outputs)
+evals/reports/*.json
