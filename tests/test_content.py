@@ -13,21 +13,25 @@ LEVELS = {"A1", "A2", "B1", "B2"}
 ALL_LEVELS = {"A1", "A2", "B1", "B2", "C1", "C2"}
 
 
-def test_advanced_grammar_covers_c1_and_c2():
+def test_supplementary_grammar_completes_b1_to_c2():
     topics = load_advanced_grammar()
     by_level = {}
     for t in topics:
-        assert t["cefr"] in ("C1", "C2"), t["id"]
-        assert t["id"].startswith("adv_"), "advanced ids must not collide with categories"
-        assert t["id"] not in categories(), "advanced topics are not error categories"
+        assert t["cefr"] in ("B1", "B2", "C1", "C2"), t["id"]
+        assert t["id"].startswith("adv_"), "supplementary ids must not collide with categories"
+        assert t["id"] not in categories(), "supplementary topics are not error categories"
         assert len(t.get("explain", "")) > 100, f"{t['id']}: explain too thin"
         assert t.get("bridge") and t.get("tip"), t["id"]
+        assert len(t.get("how", [])) >= 3, f"{t['id']}: needs build steps"
+        assert t.get("watch_out"), f"{t['id']}: needs a watch_out"
         assert len(t.get("examples", [])) >= 2, t["id"]
         for q in t.get("quiz", []):
             assert q["wrong"] != q["right"], t["id"]
             assert q.get("explanation"), t["id"]
         by_level.setdefault(t["cefr"], []).append(t["id"])
-    assert len(by_level.get("C1", [])) >= 3
+    assert len(by_level.get("B1", [])) >= 2   # narrative tenses, gerund/infinitive
+    assert len(by_level.get("B2", [])) >= 3   # deduction, wishes, causative
+    assert len(by_level.get("C1", [])) >= 4
     assert len(by_level.get("C2", [])) >= 3
 
 
@@ -56,6 +60,8 @@ def test_every_grammar_lesson_is_complete():
     for name, lesson in load_grammar_lessons().items():
         assert len(lesson.get("explain_b1", "")) > 100, f"{name}: explain_b1 too thin"
         assert lesson.get("explain_a2"), f"{name}: missing explain_a2"
+        assert len(lesson.get("how", [])) >= 3, f"{name}: needs build steps"
+        assert lesson.get("watch_out"), f"{name}: needs a watch_out"
         assert len(lesson.get("extra_examples", [])) >= 2, f"{name}: needs examples"
         for ex in lesson["extra_examples"]:
             assert ex.get("wrong") and ex.get("right"), f"{name}: bad example"

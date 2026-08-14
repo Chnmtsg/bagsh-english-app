@@ -25,6 +25,13 @@ lessons:
       - {wrong: "She happy today.", right: "She is happy today."}
       - {wrong: "Dinner ready.", right: "Dinner is ready."}
       - {wrong: "My office small but warm.", right: "My office is small but warm."}
+    how:
+      - "Read your sentence. Where is the verb? No verb → add am/is/are."
+      - "I → am · he/she/it/нэг юм → is · you/we/they/олон → are."
+      - "Past: was (ганц тоо) / were (олон тоо)."
+    watch_out: >-
+      Questions with 'be' flip the order and need NO do: "Is she happy?" —
+      never "Does she is happy?"
     tip: >-
       Present forms: I am · he/she/it is · you/we/they are. Past: was/were.
 
@@ -44,6 +51,13 @@ lessons:
       - {wrong: "I every day English study.", right: "I study English every day."}
       - {wrong: "We last week my parents visited.", right: "We visited my parents last week."}
       - {wrong: "He the report wrote.", right: "He wrote the report."}
+    how:
+      - "Start with WHO (the subject)."
+      - "The verb comes SECOND — immediately after who."
+      - "Then WHAT, then where, then when: I read the report at home yesterday."
+    watch_out: >-
+      Never put anything between the verb and its object — that slot is
+      welded shut in English.
     tip: >-
       Basic shape: WHO + ACTION + WHAT (+ where + when). Time words go at
       the end or the very beginning — never in the middle.
@@ -66,6 +80,13 @@ lessons:
       - {wrong: "We found new café.", right: "We found a new café."}
       - {wrong: "I saw a rock. A rock was heavy.", right: "I saw a rock. The rock was heavy."}
       - {wrong: "He speaks the English.", right: "He speaks English."}
+    how:
+      - "Singular thing, new or general → a/an: a café, an idea."
+      - "Both people know WHICH one → the: the café we found."
+      - "General plurals and names → nothing: apples, Mongolia, English."
+      - "a or an? Listen to the SOUND: an hour, but a university."
+    watch_out: >-
+      The second mention flips to 'the': I saw a film. THE film was long.
     tip: >-
       Second mention becomes "the": a rock … the rock. Languages and
       countries take no article.
@@ -85,6 +106,14 @@ lessons:
       - {wrong: "My sister work in a bank.", right: "My sister works in a bank."}
       - {wrong: "My boss want the report.", right: "My boss wants the report."}
       - {wrong: "It rain a lot in July.", right: "It rains a lot in July."}
+    how:
+      - "Find the subject of the sentence."
+      - "he / she / it / one person / one thing → verb + s."
+      - "everyone, every X, my boss, the drill → also singular → + s."
+      - "I / you / we / they → no s."
+    watch_out: >-
+      The negative moves the -s onto DO: he doesn't work (never "he don't"
+      or "he doesn't works").
     tip: >-
       Chant it — "HE-SHE-IT adds S." It sounds childish. It works.
 
@@ -103,6 +132,12 @@ lessons:
       - {wrong: "We bought five ticket.", right: "We bought five tickets."}
       - {wrong: "Many student came.", right: "Many students came."}
       - {wrong: "a 500-metres road", right: "a 500-metre road"}
+    how:
+      - "Any number above one → noun + s: three tickets."
+      - "many / several / a few → + s too."
+      - "Number used as a DESCRIPTION before a noun → singular: a three-day trip."
+    watch_out: >-
+      Irregulars refuse -s: children, people, men, women, feet, teeth.
     tip: >-
       After every number bigger than one: -s. Before a noun ("500-metre
       road"): no -s.
@@ -123,6 +158,13 @@ lessons:
       - {wrong: "Is raining today.", right: "It is raining today."}
       - {wrong: "Have three cups on the table.", right: "There are three cups on the table."}
       - {wrong: "Is important to check the data.", right: "It is important to check the data."}
+    how:
+      - "Sentence has no natural doer? Don't start with the verb."
+      - "Weather / time / distance → IT: It is raining. It is late."
+      - "Something exists → THERE is/are: There are three cups."
+    watch_out: >-
+      Match there is/are to the noun AFTER it: there IS a cup, there ARE
+      three cups.
     tip: >-
       Weather, time, distance → "it". Existence → "there is / there are".
 
@@ -141,6 +183,14 @@ lessons:
       - {wrong: "About my English, it is not good.", right: "My English is not good."}
       - {wrong: "About the meeting, it was long.", right: "The meeting was long."}
       - {wrong: "About this phone, the price is high.", right: "This phone has a high price."}
+    how:
+      - "Spot the pattern: your sentence starts with 'About X,'."
+      - "Delete 'About'."
+      - "Make X the subject and give it the verb: The report is late."
+      - "Occasional formal alternative: 'As for X, …' — but repair #1 is better."
+    watch_out: >-
+      This habit returns every time you write about a NEW topic — that is
+      normal, not failure. Re-apply the repair.
     tip: >-
       See "About X, …" in your writing? Delete "About", make X the subject.
 
@@ -159,6 +209,14 @@ lessons:
       - {wrong: "We arrived the airport 8 o'clock.", right: "We arrived at the airport at 8 o'clock."}
       - {wrong: "I was born on July.", right: "I was born in July."}
       - {wrong: "It depends of the weather.", right: "It depends on the weather."}
+    how:
+      - "Learn preposition + noun as ONE word: at-night, on-Monday, in-July."
+      - "Place ladder: AT a point → ON a surface → IN a space."
+      - "Time ladder: AT a clock time → ON a day → IN a month/year."
+      - "Verb pairs are chunks too: listen TO, depend ON, arrive AT."
+    watch_out: >-
+      No preposition before next/last/every/each + time: next week, each
+      day (never "in each day").
     tip: >-
       Place ladder: AT a point (at the door) → ON a surface (on the table)
       → IN a space (in the office). Time: AT 6:30 → ON Monday → IN July.
@@ -180,6 +238,15 @@ lessons:
       - {wrong: "Where you live?", right: "Where do you live?"}
       - {wrong: "She no like coffee.", right: "She doesn't like coffee."}
       - {wrong: "Tell me where is the bus stop.", right: "Tell me where the bus stop is."}
+    how:
+      - "Look for an auxiliary: am/is/are/can/have/will…"
+      - "Found one → move it in front of the subject: Can you swim?"
+      - "None → borrow DO/DOES/DID: Do you work here?"
+      - "Negation uses the same borrowed DO: I don't have time."
+      - "Question INSIDE a sentence → statement order returns: tell me where it IS."
+    watch_out: >-
+      After does/did the main verb returns to base form: Does she work?
+      (never "Does she works?").
     tip: >-
       One rule: find the auxiliary → move it to the front → no auxiliary?
       borrow DO.
@@ -202,6 +269,14 @@ lessons:
       - {wrong: "I am knowing the answer.", right: "I know the answer."}
       - {wrong: "If it will rain, we will stop.", right: "If it rains, we will stop."}
       - {wrong: "I already ate lunch, I eat at 12.", right: "I have already eaten lunch — I ate at 12."}
+    how:
+      - "Finished and disconnected? → past simple (a dot): I worked there in 2019."
+      - "Started before, still true / matters now? → have + done (an arrow): I have worked here since 2019."
+      - "Trigger words choose the arrow: since, for, already, yet, just, ever, never."
+      - "After IF → present tense, never will: If it rains, we will stop."
+    watch_out: >-
+      Stative verbs never take -ing: know, want, need, like, believe,
+      understand — "I am knowing" is impossible.
     tip: >-
       Draw the timeline: dot = past simple, arrow touching today = present
       perfect.
@@ -222,6 +297,15 @@ lessons:
       - {wrong: "She must to finish today.", right: "She must finish today."}
       - {wrong: "The report was wrote yesterday.", right: "The report was written yesterday."}
       - {wrong: "I finished to clean the kitchen.", right: "I finished cleaning the kitchen."}
+    how:
+      - "After can/must/should → base form: can swim."
+      - "After did/didn't → base form: didn't go."
+      - "After have/has/had → third form: have gone."
+      - "In the passive → third form: was written."
+      - "After enjoy/finish/keep and ANY preposition → -ing."
+    watch_out: >-
+      A bare -ing is not a verb: "we setting our plan" needs are — or must
+      become "we set".
     tip: >-
       After a preposition, always -ing — the one rule with no exceptions.
 
@@ -241,6 +325,14 @@ lessons:
       - {wrong: "The results came back, the score is low.", right: "The results came back. The score is low."}
       - {wrong: "It was late, we kept walking.", right: "It was late, but we kept walking."}
       - {wrong: "The tickets, were booked Monday.", right: "The tickets were booked on Monday."}
+    how:
+      - "Cover the comma with a finger."
+      - "Read each half alone. Both complete sentences? The comma is illegal."
+      - "Fix 1: full stop. Fix 2: semicolon. Fix 3: comma + and/but/so."
+      - "Fix 4: make one half depend: Because I'm tired, I'll stop."
+    watch_out: >-
+      'However' cannot glue sentences with commas — it needs a full stop
+      or semicolon before it.
     tip: >-
       Cover-the-comma test: complete sentence + complete sentence → the
       comma is illegal.
@@ -260,6 +352,14 @@ lessons:
       - {wrong: "My mother, he is a teacher.", right: "My mother — she is a teacher."}
       - {wrong: "My manager is kind. She is a good man.", right: "My manager is kind. He is a good man."}
       - {wrong: "The company changed his name.", right: "The company changed its name."}
+    how:
+      - "Female person → she / her. Male person → he / him."
+      - "Thing, animal, company → it / its."
+      - "Train SPEED, not knowledge: describe people around you in 3-second bursts."
+      - "Re-check pronouns in sentence two and three — that's where they slip."
+    watch_out: >-
+      The first pronoun is usually right; the follow-up sentence is where
+      «тэр» strikes. Proofread pronouns separately.
     tip: >-
       Speed drill: point at photos, say he/she in under 3 seconds each.
 
@@ -279,6 +379,14 @@ lessons:
       - {wrong: "Send me the meeting notes.", right: "Could you send me the meeting notes?"}
       - {wrong: "I want a day off tomorrow.", right: "I'd like a day off tomorrow."}
       - {wrong: "Give me five minutes.", right: "Could you give me five minutes?"}
+    how:
+      - "Want something? → I'd like… (not I want)."
+      - "Need someone to act? → Could you…?"
+      - "Bigger favour → Would you mind + -ing…?"
+      - "Email to a boss/client → one step politer than feels natural."
+    watch_out: >-
+      'Please' alone does not rescue a command — "Please send it" still
+      orders. The magic is in Could/Would.
     tip: >-
       More words = more polite. Practise moving one request up and down
       the ladder.
@@ -297,6 +405,13 @@ lessons:
       - {wrong: "i work on mondays.", right: "I work on Mondays."}
       - {wrong: "She speaks mongolian and russian.", right: "She speaks Mongolian and Russian."}
       - {wrong: "we start in september.", right: "We start in September."}
+    how:
+      - "I → always capital, everywhere in the sentence."
+      - "Languages, nationalities, days, months, names → capital letter."
+      - "Before sending, scan the text once ONLY for capitals."
+    watch_out: >-
+      Seasons stay small (summer, winter), and so do school subjects
+      unless they are languages (maths, but English).
     tip: >-
       Before sending anything, scan once just for i / english / monday.
 
@@ -316,6 +431,13 @@ lessons:
       - {wrong: "The equipments arrived.", right: "The equipment arrived."}
       - {wrong: "She gave me many advices.", right: "She gave me a lot of advice."}
       - {wrong: "The news are good.", right: "The news is good."}
+    how:
+      - "Memorise the 15: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff."
+      - "Never a/an, never -s with them."
+      - "Need to count? Use a container: a piece of advice, an item of equipment, three sums of money."
+    watch_out: >-
+      'News' looks plural but takes IS. 'Work' (ажил) is uncountable —
+      'a work' means a work of art.
     tip: >-
       Memorise the list of 15 — reasoning will not help; they simply must
       be known.
@@ -335,6 +457,14 @@ lessons:
       - {wrong: "The my colleague is here.", right: "My colleague is here."}
       - {wrong: "We need another chairs.", right: "We need other chairs."}
       - {wrong: "Its ready.", right: "It's ready."}
+    how:
+      - "One pointer word per noun: my report OR the report — never both."
+      - "another + singular (another cup); other + plural (other cups)."
+      - "every + singular noun + singular verb: every student knows."
+      - "it's = it is; its = эзэмшил. Expand to test: 'it is ready' works → it's."
+    watch_out: >-
+      "a my friend" cannot be repaired with order — it becomes "a friend
+      of mine".
     tip: >-
       it's ready = it IS ready. its name = түүний нэр.
 
@@ -354,6 +484,14 @@ lessons:
       - {wrong: "We did a plan for the trip.", right: "We made a plan for the trip."}
       - {wrong: "Let's discuss about the budget.", right: "Let's discuss the budget."}
       - {wrong: "There was a strong rain last night.", right: "There was heavy rain last night."}
+    how:
+      - "Learn verb + noun as ONE unit: make-a-decision, do-research."
+      - "MAKE: decision, mistake, plan, progress, an effort."
+      - "DO: research, homework, business, your best."
+      - "No preposition after: discuss, enter, marry, answer, reach, phone."
+    watch_out: >-
+      Your instinct will translate the Mongolian pair word-for-word — and
+      be wrong. Trust the memorised chunk, not the feeling.
     tip: >-
       Learn verb + noun as one word: "make-a-decision" is one unit.
 
@@ -373,6 +511,14 @@ lessons:
       - {wrong: "I am boring in meetings.", right: "I am bored in meetings."}
       - {wrong: "I bought it in a magazine.", right: "I bought it in a shop."}
       - {wrong: "We did some data things.", right: "We cleaned and checked the data."}
+    how:
+      - "Caught yourself writing thing/stuff? Stop and name the real noun."
+      - "Feeling inside a person → -ed: I am bored / interested / tired."
+      - "The cause outside → -ing: The film is boring / interesting."
+      - "Russian loanwords: double-check meaning before trusting them."
+    watch_out: >-
+      "I am boring" tells people YOU put them to sleep. One letter, big
+      difference.
     tip: >-
       -ED = the person's feeling. -ING = the thing causing it.
 
@@ -393,6 +539,14 @@ lessons:
       - {wrong: "He checked quickly the readings.", right: "He quickly checked the readings."}
       - {wrong: "Always I start at seven.", right: "I always start at seven."}
       - {wrong: "a black old leather bag", right: "an old black leather bag"}
+    how:
+      - "Adverb wants in? Send it to the END or the FRONT — never between verb and object."
+      - "always/never/often/usually → BEFORE the main verb: I always check."
+      - "…but AFTER be: I am always careful."
+      - "Adjectives queue: opinion–size–age–shape–colour–origin–material."
+    watch_out: >-
+      'Only' changes meaning with position: "Only I saw him" ≠ "I only saw
+      him" ≠ "I saw only him".
     tip: >-
       Never between verb and object — that slot is sacred in English.
 
@@ -411,6 +565,14 @@ lessons:
       - {wrong: "This city is big from that one.", right: "This city is bigger than that one."}
       - {wrong: "The queue is more long.", right: "The queue is longer."}
       - {wrong: "He is tall than me.", right: "He is taller than me."}
+    how:
+      - "Count the syllables of the adjective."
+      - "One → -er + than: deeper than."
+      - "Three or more → more … than: more expensive than."
+      - "Superlative: the -est / the most. Irregulars: good–better–best, bad–worse–worst."
+    watch_out: >-
+      Never stack: "more bigger" and "most best" are double comparatives —
+      one marker only.
     tip: >-
       Short word → -er than. Long word → more … than. Never both.
 
@@ -430,6 +592,14 @@ lessons:
       - {wrong: "The yesterday arrived equipment is broken.", right: "The equipment that arrived yesterday is broken."}
       - {wrong: "The us helping engineer left.", right: "The engineer who was helping us left."}
       - {wrong: "I read the you sent report.", right: "I read the report that you sent."}
+    how:
+      - "Write two short sentences: I met a woman. She teaches maths."
+      - "Replace the repeated person/thing with who (people) or which/that (things)."
+      - "Attach it AFTER the noun: the woman who teaches maths."
+      - "Formal writing bonus: drop 'that is/was' — the email sent this morning."
+    watch_out: >-
+      After a comma, 'that' is forbidden — non-defining clauses take
+      which/who: "The report, WHICH arrived late, …"
     tip: >-
       Stuck? Write two short sentences first, then join them with
       that/who/which.
@@ -449,6 +619,14 @@ lessons:
       - {wrong: "She said me the plan.", right: "She told me the plan."}
       - {wrong: "He asked where did I study.", right: "He asked where I studied."}
       - {wrong: "He said he is tired yesterday.", right: "He said he was tired yesterday."}
+    how:
+      - "Person mentioned? → TELL: he told ME. No person? → SAY: he said (that)…"
+      - "Shift the tense one step back: 'I am tired' → he said he WAS tired."
+      - "Reported question → statement order, no question mark: he asked where I worked."
+      - "Shift time words too: today → that day, tomorrow → the next day."
+    watch_out: >-
+      Still-true facts may keep their tense: "She said the Earth IS
+      round" — backshift is a tool, not a prison.
     tip: >-
       Inside a sentence, a question becomes a statement — no inversion,
       no question mark.
@@ -469,6 +647,13 @@ lessons:
       - {wrong: "I recieved the pakage.", right: "I received the package."}
       - {wrong: "The wether was terrible.", right: "The weather was terrible."}
       - {wrong: "We have alot of work.", right: "We have a lot of work."}
+    how:
+      - "Learn every new word TWICE: how it sounds + how it is written."
+      - "Keep a personal traps list — your five worst words, checked before sending."
+      - "In doubt? Look it up. English spelling is memory, not logic."
+    watch_out: >-
+      The classics: a lot (two words) · receive (i before e except after
+      c) · which/witch · their/there/they're.
     tip: >-
       i before e except after c: receive, believe. And "a lot" is always
       two words.

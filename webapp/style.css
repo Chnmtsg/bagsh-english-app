@@ -103,6 +103,9 @@ input[type=text] {
 .badge.locked { opacity: .45; }
 .badge .ic { font-size: 20px; }
 
+ol.how { padding-left: 22px; margin: 4px 0; }
+ol.how li { margin: 5px 0; }
+
 .bar {
   height: 6px; border-radius: 3px; background: var(--chip);
   margin-top: 5px; overflow: hidden;

@@ -1,14 +1,228 @@
-# Advanced grammar topics — C1 and C2 rungs of the curriculum.
-# These are LESSON topics, not error-taxonomy categories: the journal's
-# closed 24-category enum is untouched (correctors and tutors never see
-# these ids). Sourced from the contrastive guide: §S conditionals &
-# inversion, §W passive, §AA hedging, §C cleft repair, §H register split.
-# Each topic ships 2–3 quiz items for the grammar game.
+# Supplementary grammar topics — the CONSTRUCTIVE syllabus (B1 → C2)
+# that completes the error-driven 24 core categories. These are LESSON
+# topics, not error-taxonomy categories: the journal's closed 24-category
+# enum is untouched (correctors and tutors never see these ids).
+# Sourced from the contrastive guide: §D tenses, §O gerund/infinitive,
+# §F modals, §S conditionals & inversion, §V participles, §W passive,
+# §AA hedging, §C cleft repair, §H register split.
+# Each topic ships 2 quiz items for the grammar game.
 # ⚠ Mongolian strings need native-speaker verification before shipping.
 
-version: 1
+version: 2
 
 topics:
+  - id: adv_past_narrative
+    cefr: B1
+    title: "Telling a story: past tenses together"
+    explain: >-
+      A story in English uses three past tenses as three camera angles.
+      Past simple is the events, one after another: "She opened the door
+      and saw the letter." Past continuous is the background running
+      behind an event: "I was cooking when she arrived" — the cooking was
+      already in progress, the arrival cut into it. Past perfect reaches
+      FURTHER back, to something before the story: "She had already left
+      when I called" — the leaving happened first. Mongolian tells all
+      three with context; English marks each with its own verb form.
+    how:
+      - "Events in order → past simple: opened, saw, said."
+      - "Background action interrupted → was/were + -ing: I was cooking when…"
+      - "Earlier than the story → had + third form: she had already left."
+      - "Test: can you draw it? Line = continuous, dot = simple, dot before the line = past perfect."
+    bridge: >-
+      Монголоор "хоол хийж байтал ирсэн" гэдгийг -ж байтал гэсэн нэг
+      хэлбэр илэрхийлдэг. Англид фон (was cooking) ба үйл явдал (arrived)
+      тус тусдаа хэлбэртэй.
+    examples:
+      - {wrong: "I cooked when she arrived.", right: "I was cooking when she arrived."}
+      - {wrong: "When I called, she already left.", right: "When I called, she had already left."}
+      - {wrong: "While I was walk home, it started to rain.", right: "While I was walking home, it started to rain."}
+    watch_out: >-
+      "When" + past simple usually means the event; "while" + past
+      continuous the background. Mixing them flips your story's meaning.
+    tip: >-
+      One line, one dot: background gets -ing, the interruption gets past
+      simple.
+    quiz:
+      - {wrong: "She watched TV when the phone rang, so she was answering it.", right: "She was watching TV when the phone rang, so she answered it.",
+         explanation: "Background = was watching; events = rang, answered."}
+      - {wrong: "By the time we arrived, the film started.", right: "By the time we arrived, the film had started.",
+         explanation: "'By the time' points further back: had + third form."}
+
+  - id: adv_gerund_infinitive
+    cefr: B1
+    title: "Verb + verb: -ing or to?"
+    explain: >-
+      When two verbs meet, the second one's form depends on the FIRST verb
+      — and there is no logic, only lists. Group 1 takes -ing: enjoy,
+      finish, keep, avoid, suggest, practise, mind ("I enjoy reading").
+      Group 2 takes to: want, decide, hope, plan, promise, agree, learn
+      ("I decided to leave"). A few take both with different meanings:
+      "stop smoking" = quit; "stop to smoke" = pause in order to smoke.
+      The one reliable rule with zero exceptions: after ANY preposition,
+      always -ing — "interested in learning", "look forward to hearing".
+    how:
+      - "Learn the -ing list as a chant: enjoy–finish–keep–avoid–suggest–mind."
+      - "Learn the to-list: want–decide–hope–plan–promise–agree–learn."
+      - "After a preposition (in, of, at, about, to*): ALWAYS -ing."
+      - "Meaning-changers (stop, remember, try, forget): learn each pair as two words."
+    bridge: >-
+      Монголоор "уншиж дуусгах", "унших гэж шийдэх" — дагавар нь ялгадаг.
+      Англид эхний үйл үг нь хоёр дахийнхаа хэлбэрийг шийддэг: жагсаалтыг
+      цээжлэхээс өөр зам байхгүй.
+    examples:
+      - {wrong: "I enjoy to swim in summer.", right: "I enjoy swimming in summer."}
+      - {wrong: "She decided leaving early.", right: "She decided to leave early."}
+      - {wrong: "He stopped to smoke last year. (= quit)", right: "He stopped smoking last year."}
+    watch_out: >-
+      "Look forward to" ends in the PREPOSITION to, not infinitive to —
+      so it takes -ing: looking forward to seeing you.
+    tip: >-
+      Unsure? Check if a preposition sits before the verb — preposition
+      wins, -ing follows.
+    quiz:
+      - {wrong: "I suggested to go by train.", right: "I suggested going by train.",
+         explanation: "suggest is in the -ing group: suggest doing."}
+      - {wrong: "She is good at explain things.", right: "She is good at explaining things.",
+         explanation: "After a preposition (at), always -ing — the no-exception rule."}
+
+  - id: adv_modals_deduction
+    cefr: B2
+    title: "Must be, might be, can't be — guessing with grammar"
+    explain: >-
+      English reuses its modal verbs to show HOW SURE you are about a
+      guess. "The lights are on — he MUST be home" (90% sure, evidence
+      says yes). "He MIGHT/MAY/COULD be in a meeting" (50%, one option
+      among several). "He CAN'T be home — his car is gone" (90% sure the
+      answer is NO). Note the strange pair: the opposite of "must be" is
+      "can't be", not "mustn't be". For past guesses add have + third
+      form: "She must HAVE MISSED the bus."
+    how:
+      - "Evidence says YES → must be / must have done."
+      - "Just possible → might / may / could be."
+      - "Evidence says NO → can't be / can't have done (never 'mustn't be')."
+      - "Guessing about the past → modal + have + third form."
+    bridge: >-
+      Монголоор "гэртээ байгаа байх", "байж магадгүй", "байх боломжгүй"
+      гэж тусдаа үгсээр хэлдэг. Англид ижил ажлыг modal үйл үгс хийдэг —
+      итгэлийн хэмжээгээр шатласан.
+    examples:
+      - {wrong: "The lights are on — he should be home, I am 90% sure.", right: "The lights are on — he must be home."}
+      - {wrong: "He mustn't be at work, his car is here.", right: "He can't be at work — his car is here."}
+      - {wrong: "She must missed the bus.", right: "She must have missed the bus."}
+    watch_out: >-
+      "Mustn't" means FORBIDDEN, not "surely not". The negative of a
+      must-guess is can't.
+    tip: >-
+      Certainty ladder: must be (yes!) → might be (maybe) → can't be (no!).
+    quiz:
+      - {wrong: "The office is dark. They mustn't be there.", right: "The office is dark. They can't be there.",
+         explanation: "Negative deduction takes can't, never mustn't."}
+      - {wrong: "You look tired. You must worked late.", right: "You look tired. You must have worked late.",
+         explanation: "Past guess = modal + have + third form."}
+
+  - id: adv_wish_regret
+    cefr: B2
+    title: "Wishes and regrets"
+    explain: >-
+      English expresses wishes with a tense shift — the same unreality
+      trick as conditionals. A wish about NOW takes the past: "I wish I
+      HAD more time" (I don't). A regret about the PAST takes past
+      perfect: "I wish I HAD STUDIED harder" (I didn't). Annoyance about
+      a habit takes would: "I wish he WOULD stop calling so late."
+      For advice-flavoured regret, "should have" does the work: "I should
+      have asked earlier."
+    how:
+      - "Wish about now → wish + past simple: I wish I knew."
+      - "Regret about the past → wish + had done: I wish I had gone."
+      - "Complaint about behaviour → wish + would: I wish you would listen."
+      - "Self-regret → should have + third form: I should have called."
+    bridge: >-
+      Монголоор "цаг байсан ч болоосой", "явсан бол доо" — болоосой/бол доо
+      хэлбэрүүд. Англид цагийг НЭГ АЛХАМ ухраах нь хүслийг заадаг.
+    examples:
+      - {wrong: "I wish I have more time.", right: "I wish I had more time."}
+      - {wrong: "I wish I studied harder last year.", right: "I wish I had studied harder last year."}
+      - {wrong: "I should ask her when I had the chance.", right: "I should have asked her when I had the chance."}
+    watch_out: >-
+      "I wish I would…" about yourself is impossible — would-wishes aim
+      at OTHER people's behaviour.
+    tip: >-
+      Wish = reality minus one tense step. Now→past, past→past perfect.
+    quiz:
+      - {wrong: "I wish I know the answer.", right: "I wish I knew the answer.",
+         explanation: "A wish about now steps back to past simple."}
+      - {wrong: "I wish I didn't sell my bike last year.", right: "I wish I hadn't sold my bike last year.",
+         explanation: "Past regret: wish + had(n't) + third form."}
+
+  - id: adv_causative
+    cefr: B2
+    title: "Have it done — when others do it for you"
+    explain: >-
+      "I cut my hair" means you held the scissors yourself. When someone
+      does it FOR you, English has a special machine: have/get + thing +
+      third form. "I had my hair cut", "We got the car repaired", "She
+      had her phone fixed". The doer disappears exactly like in the
+      passive; the focus is the arranged service. The same shape with
+      a person after have/get means you arranged for THEM to act: "I had
+      the plumber check the boiler."
+    how:
+      - "Service done for you → have/get + THING + third form: had my hair cut."
+      - "You arranged a person → have + PERSON + base form: had the plumber check it."
+      - "Ask yourself: did I do it with my own hands? No → causative."
+    bridge: >-
+      Монголоор "үсээ засуулсан" гэсэн -уул дагавар яг энэ ажлыг хийдэг!
+      Танд ойлголт нь бий — англи нь have/get + 3-р хэлбэр гэсэн бүтэц.
+    examples:
+      - {wrong: "I cut my hair yesterday at the salon.", right: "I had my hair cut yesterday at the salon."}
+      - {wrong: "We repaired the car at the garage last week.", right: "We had the car repaired at the garage last week."}
+      - {wrong: "She will fix her tooth tomorrow.", right: "She will have her tooth fixed tomorrow."}
+    watch_out: >-
+      Word order carries the meaning: "I had cut my hair" (past perfect,
+      you did it) ≠ "I had my hair cut" (someone else did).
+    tip: >-
+      -уулах/-үүлэх ажиллаж байвал англиар have/get + object + third form.
+    quiz:
+      - {wrong: "I painted my flat by a professional last month.", right: "I had my flat painted by a professional last month.",
+         explanation: "A service done for you: have + thing + third form."}
+      - {wrong: "Where did you repair your watch?", right: "Where did you have your watch repaired?",
+         explanation: "You didn't repair it yourself — causative have."}
+
+  - id: adv_participle_clauses
+    cefr: C1
+    title: "Participle clauses — compression"
+    explain: >-
+      Advanced writing compresses two sentences into one by dropping the
+      subject and turning the verb into a participle. "Because we arrived
+      late, we missed the start" → "Arriving late, we missed the start."
+      "The road, which was blocked by snow, stayed closed" → "Blocked by
+      snow, the road stayed closed." Active meaning → -ing; passive
+      meaning → third form. One law governs everything: the hidden
+      subject of the participle MUST be the subject of the main clause,
+      or you produce the famous dangling modifier: "Walking to work, the
+      rain started" makes the rain walk.
+    how:
+      - "Same subject in both halves? You may compress."
+      - "Active → -ing: Arriving late, we…  Passive → third form: Built in 1950, the bridge…"
+      - "Check for dangling: WHO does the participle? Must be the main subject."
+    bridge: >-
+      Монголын нөхцөл үйл үг (-ж/-аад: ирж, ирээд) яг ийм шахалт хийдэг —
+      "оройтож ирээд, эхлэлийг алдсан". Танил бүтэц, англи хэлбэр л шинэ.
+    examples:
+      - {wrong: "Because we arrived late, so we missed the start.", right: "Arriving late, we missed the start."}
+      - {wrong: "Walking to work, the rain started.", right: "Walking to work, I got caught in the rain."}
+      - {wrong: "Building in 1950, the bridge is old.", right: "Built in 1950, the bridge is one of the city's oldest."}
+    watch_out: >-
+      The dangling modifier is invisible to the writer and glaring to the
+      reader — always ask WHO is doing the -ing.
+    tip: >-
+      -аад/-ж хэлбэрийн ажлыг англиар participle хийдэг: ирээд →
+      arriving, баригдаад → built.
+    quiz:
+      - {wrong: "Being tired, the meeting felt endless to finish.", right: "Being tired, I found the meeting endless.",
+         explanation: "The participle's hidden subject must be the main subject — I was tired, not the meeting."}
+      - {wrong: "Writing in 1990, the report is out of date.", right: "Written in 1990, the report is out of date.",
+         explanation: "Passive meaning (the report was written) takes the third form."}
+
   - id: adv_unreal_conditionals
     cefr: C1
     title: "Unreal conditionals"
@@ -27,6 +241,14 @@ topics:
       - {wrong: "If I would have time, I would come.", right: "If I had time, I would come."}
       - {wrong: "If we left earlier yesterday, we caught the train.", right: "If we had left earlier yesterday, we would have caught the train."}
       - {wrong: "If I was you, I take the job.", right: "If I were you, I would take the job."}
+    how:
+      - "Is the situation real or imagined? Imagined → shift the tense back."
+      - "Unreal NOW → if + past, would + base: If I had time, I would come."
+      - "Unreal PAST → if + had done, would have done."
+      - "Formal touch: If I WERE you (not was)."
+    watch_out: >-
+      "Would" never enters the if-half. If you typed "if … would", delete
+      the would.
     tip: >-
       Never "would" in the if-half. Unreal now → past. Unreal past → had +
       done, would have + done.
@@ -54,6 +276,14 @@ topics:
       - {wrong: "The report was wrote by the team.", right: "The report was written by the team."}
       - {wrong: "The meeting was happened yesterday.", right: "The meeting happened yesterday."}
       - {wrong: "It believes that prices will rise.", right: "It is believed that prices will rise."}
+    how:
+      - "Move the object to the front: Someone closed the road → The road…"
+      - "Add be in the right tense: was / is being / has been."
+      - "Add the third form: closed, written, taken."
+      - "Doer matters? Add by…: …was written by the team. Otherwise drop it."
+    watch_out: >-
+      Verbs without objects (happen, arrive, occur) cannot be passive —
+      "was happened" is impossible.
     tip: >-
       happen, occur, arrive never take the passive — they have no object
       to promote.
@@ -82,6 +312,14 @@ topics:
       - {wrong: "This proves that the method works.", right: "This suggests that the method works."}
       - {wrong: "The figures are wrong.", right: "The figures appear to be inaccurate."}
       - {wrong: "Everyone knows this is the best option.", right: "This is widely considered the strongest option."}
+    how:
+      - "Replace 'proves' with suggests / indicates."
+      - "Replace 'is' with appears to be / seems to be / may be."
+      - "Name your source: according to X, based on the figures."
+      - "Soften totals: 'all' → most, 'never' → rarely."
+    watch_out: >-
+      Don't stack hedges — "it might perhaps possibly seem" reads as
+      having no opinion at all. One hedge per claim.
     tip: >-
       Ladder of certainty: proves → shows → indicates → suggests → hints.
       Choose one step weaker than you feel.
@@ -109,6 +347,14 @@ topics:
       - {wrong: "Never I have seen such a mess.", right: "Never have I seen such a mess."}
       - {wrong: "Not only they finished early, but also cheaply.", right: "Not only did they finish early, but they also finished cheaply."}
       - {wrong: "No sooner we arrived than it started to rain.", right: "No sooner had we arrived than it started to rain."}
+    how:
+      - "Pick the negative opener: Never / Rarely / Not only / No sooner…"
+      - "Then build a QUESTION shape: auxiliary before subject."
+      - "No auxiliary in the sentence? Borrow do/does/did."
+      - "Use it for the one sentence per page that deserves a spotlight."
+    watch_out: >-
+      Inversion without the negative opener is just an error — the
+      trigger word must come first.
     tip: >-
       Negative opener → borrow the question form: Never HAVE I…, Rarely
       DOES he…, Not only DID they…
@@ -136,6 +382,14 @@ topics:
       - {wrong: "The budget killed the project, not the schedule, I emphasize.", right: "It was the budget that killed the project, not the schedule."}
       - {wrong: "We need time is the main thing.", right: "What we need most is time."}
       - {wrong: "About the deadline, that worries me.", right: "What worries me is the deadline."}
+    how:
+      - "Decide what deserves the spotlight."
+      - "Spotlight a doer/thing → It was X that/who…"
+      - "Spotlight a need/feeling → What we need/love/fear is X."
+      - "Say it aloud — the stressed word should land on X."
+    watch_out: >-
+      The verb after "What … " is singular: "What we need IS time" (even
+      though 'we' is plural).
     tip: >-
       To stress WHO/WHAT: "It was X that…". To stress a need or feeling:
       "What … is X".
@@ -164,6 +418,14 @@ topics:
       - {wrong: "We got the results and put off the launch. (formal report)", right: "We obtained the results and postponed the launch."}
       - {wrong: "Please look into the problem. (legal letter)", right: "Please investigate the matter."}
       - {wrong: "The firm asked for more time. (contract)", right: "The firm requested an extension."}
+    how:
+      - "Writing formally? Hunt the phrasal verbs: put off, look into, ask for."
+      - "Swap each for its Latin twin: postpone, investigate, request."
+      - "Speaking casually? Reverse the swap — Latin words chill a chat."
+      - "Build pairs into your vocabulary: get/obtain, buy/purchase, need/require."
+    watch_out: >-
+      Half-swapped sentences sound strangest of all: "We shall buy the
+      stuff" mixes registers — keep one register per sentence.
     tip: >-
       Formal document? Swap the phrasal verb for its one-word Latin twin.
       Everyday talk? Swap back — 'purchase a coffee' sounds absurd.

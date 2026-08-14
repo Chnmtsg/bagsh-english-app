@@ -59,6 +59,12 @@
       "right": "My office is small but warm."
      }
     ],
+    "how": [
+     "Read your sentence. Where is the verb? No verb → add am/is/are.",
+     "I → am · he/she/it/нэг юм → is · you/we/they/олон → are.",
+     "Past: was (ганц тоо) / were (олон тоо)."
+    ],
+    "watch_out": "Questions with 'be' flip the order and need NO do: \"Is she happy?\" — never \"Does she is happy?\"",
     "tip": "Present forms: I am · he/she/it is · you/we/they are. Past: was/were."
    }
   },
@@ -104,6 +110,12 @@
       "right": "He wrote the report."
      }
     ],
+    "how": [
+     "Start with WHO (the subject).",
+     "The verb comes SECOND — immediately after who.",
+     "Then WHAT, then where, then when: I read the report at home yesterday."
+    ],
+    "watch_out": "Never put anything between the verb and its object — that slot is welded shut in English.",
     "tip": "Basic shape: WHO + ACTION + WHAT (+ where + when). Time words go at the end or the very beginning — never in the middle."
    }
   },
@@ -149,6 +161,13 @@
       "right": "He speaks English."
      }
     ],
+    "how": [
+     "Singular thing, new or general → a/an: a café, an idea.",
+     "Both people know WHICH one → the: the café we found.",
+     "General plurals and names → nothing: apples, Mongolia, English.",
+     "a or an? Listen to the SOUND: an hour, but a university."
+    ],
+    "watch_out": "The second mention flips to 'the': I saw a film. THE film was long.",
     "tip": "Second mention becomes \"the\": a rock … the rock. Languages and countries take no article."
    }
   },
@@ -189,6 +208,13 @@
       "right": "It rains a lot in July."
      }
     ],
+    "how": [
+     "Find the subject of the sentence.",
+     "he / she / it / one person / one thing → verb + s.",
+     "everyone, every X, my boss, the drill → also singular → + s.",
+     "I / you / we / they → no s."
+    ],
+    "watch_out": "The negative moves the -s onto DO: he doesn't work (never \"he don't\" or \"he doesn't works\").",
     "tip": "Chant it — \"HE-SHE-IT adds S.\" It sounds childish. It works."
    }
   },
@@ -234,6 +260,12 @@
       "right": "a 500-metre road"
      }
     ],
+    "how": [
+     "Any number above one → noun + s: three tickets.",
+     "many / several / a few → + s too.",
+     "Number used as a DESCRIPTION before a noun → singular: a three-day trip."
+    ],
+    "watch_out": "Irregulars refuse -s: children, people, men, women, feet, teeth.",
     "tip": "After every number bigger than one: -s. Before a noun (\"500-metre road\"): no -s."
    }
   },
@@ -269,6 +301,12 @@
       "right": "It is important to check the data."
      }
     ],
+    "how": [
+     "Sentence has no natural doer? Don't start with the verb.",
+     "Weather / time / distance → IT: It is raining. It is late.",
+     "Something exists → THERE is/are: There are three cups."
+    ],
+    "watch_out": "Match there is/are to the noun AFTER it: there IS a cup, there ARE three cups.",
     "tip": "Weather, time, distance → \"it\". Existence → \"there is / there are\"."
    }
   },
@@ -309,6 +347,13 @@
       "right": "This phone has a high price."
      }
     ],
+    "how": [
+     "Spot the pattern: your sentence starts with 'About X,'.",
+     "Delete 'About'.",
+     "Make X the subject and give it the verb: The report is late.",
+     "Occasional formal alternative: 'As for X, …' — but repair #1 is better."
+    ],
+    "watch_out": "This habit returns every time you write about a NEW topic — that is normal, not failure. Re-apply the repair.",
     "tip": "See \"About X, …\" in your writing? Delete \"About\", make X the subject."
    }
   },
@@ -354,6 +399,13 @@
       "right": "It depends on the weather."
      }
     ],
+    "how": [
+     "Learn preposition + noun as ONE word: at-night, on-Monday, in-July.",
+     "Place ladder: AT a point → ON a surface → IN a space.",
+     "Time ladder: AT a clock time → ON a day → IN a month/year.",
+     "Verb pairs are chunks too: listen TO, depend ON, arrive AT."
+    ],
+    "watch_out": "No preposition before next/last/every/each + time: next week, each day (never \"in each day\").",
     "tip": "Place ladder: AT a point (at the door) → ON a surface (on the table) → IN a space (in the office). Time: AT 6:30 → ON Monday → IN July."
    }
   },
@@ -399,6 +451,14 @@
       "right": "Tell me where the bus stop is."
      }
     ],
+    "how": [
+     "Look for an auxiliary: am/is/are/can/have/will…",
+     "Found one → move it in front of the subject: Can you swim?",
+     "None → borrow DO/DOES/DID: Do you work here?",
+     "Negation uses the same borrowed DO: I don't have time.",
+     "Question INSIDE a sentence → statement order returns: tell me where it IS."
+    ],
+    "watch_out": "After does/did the main verb returns to base form: Does she work? (never \"Does she works?\").",
     "tip": "One rule: find the auxiliary → move it to the front → no auxiliary? borrow DO."
    }
   },
@@ -444,6 +504,13 @@
       "right": "I have already eaten lunch — I ate at 12."
      }
     ],
+    "how": [
+     "Finished and disconnected? → past simple (a dot): I worked there in 2019.",
+     "Started before, still true / matters now? → have + done (an arrow): I have worked here since 2019.",
+     "Trigger words choose the arrow: since, for, already, yet, just, ever, never.",
+     "After IF → present tense, never will: If it rains, we will stop."
+    ],
+    "watch_out": "Stative verbs never take -ing: know, want, need, like, believe, understand — \"I am knowing\" is impossible.",
     "tip": "Draw the timeline: dot = past simple, arrow touching today = present perfect."
    }
   },
@@ -489,6 +556,14 @@
       "right": "I finished cleaning the kitchen."
      }
     ],
+    "how": [
+     "After can/must/should → base form: can swim.",
+     "After did/didn't → base form: didn't go.",
+     "After have/has/had → third form: have gone.",
+     "In the passive → third form: was written.",
+     "After enjoy/finish/keep and ANY preposition → -ing."
+    ],
+    "watch_out": "A bare -ing is not a verb: \"we setting our plan\" needs are — or must become \"we set\".",
     "tip": "After a preposition, always -ing — the one rule with no exceptions."
    }
   },
@@ -534,6 +609,13 @@
       "right": "The tickets were booked on Monday."
      }
     ],
+    "how": [
+     "Cover the comma with a finger.",
+     "Read each half alone. Both complete sentences? The comma is illegal.",
+     "Fix 1: full stop. Fix 2: semicolon. Fix 3: comma + and/but/so.",
+     "Fix 4: make one half depend: Because I'm tired, I'll stop."
+    ],
+    "watch_out": "'However' cannot glue sentences with commas — it needs a full stop or semicolon before it.",
     "tip": "Cover-the-comma test: complete sentence + complete sentence → the comma is illegal."
    }
   },
@@ -569,6 +651,13 @@
       "right": "The company changed its name."
      }
     ],
+    "how": [
+     "Female person → she / her. Male person → he / him.",
+     "Thing, animal, company → it / its.",
+     "Train SPEED, not knowledge: describe people around you in 3-second bursts.",
+     "Re-check pronouns in sentence two and three — that's where they slip."
+    ],
+    "watch_out": "The first pronoun is usually right; the follow-up sentence is where «тэр» strikes. Proofread pronouns separately.",
     "tip": "Speed drill: point at photos, say he/she in under 3 seconds each."
    }
   },
@@ -614,6 +703,13 @@
       "right": "Could you give me five minutes?"
      }
     ],
+    "how": [
+     "Want something? → I'd like… (not I want).",
+     "Need someone to act? → Could you…?",
+     "Bigger favour → Would you mind + -ing…?",
+     "Email to a boss/client → one step politer than feels natural."
+    ],
+    "watch_out": "'Please' alone does not rescue a command — \"Please send it\" still orders. The magic is in Could/Would.",
     "tip": "More words = more polite. Practise moving one request up and down the ladder."
    }
   },
@@ -659,6 +755,12 @@
       "right": "We start in September."
      }
     ],
+    "how": [
+     "I → always capital, everywhere in the sentence.",
+     "Languages, nationalities, days, months, names → capital letter.",
+     "Before sending, scan the text once ONLY for capitals."
+    ],
+    "watch_out": "Seasons stay small (summer, winter), and so do school subjects unless they are languages (maths, but English).",
     "tip": "Before sending anything, scan once just for i / english / monday."
    }
   },
@@ -704,6 +806,12 @@
       "right": "The news is good."
      }
     ],
+    "how": [
+     "Memorise the 15: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff.",
+     "Never a/an, never -s with them.",
+     "Need to count? Use a container: a piece of advice, an item of equipment, three sums of money."
+    ],
+    "watch_out": "'News' looks plural but takes IS. 'Work' (ажил) is uncountable — 'a work' means a work of art.",
     "tip": "Memorise the list of 15 — reasoning will not help; they simply must be known."
    }
   },
@@ -749,6 +857,13 @@
       "right": "It's ready."
      }
     ],
+    "how": [
+     "One pointer word per noun: my report OR the report — never both.",
+     "another + singular (another cup); other + plural (other cups).",
+     "every + singular noun + singular verb: every student knows.",
+     "it's = it is; its = эзэмшил. Expand to test: 'it is ready' works → it's."
+    ],
+    "watch_out": "\"a my friend\" cannot be repaired with order — it becomes \"a friend of mine\".",
     "tip": "it's ready = it IS ready. its name = түүний нэр."
    }
   },
@@ -794,6 +909,13 @@
       "right": "There was heavy rain last night."
      }
     ],
+    "how": [
+     "Learn verb + noun as ONE unit: make-a-decision, do-research.",
+     "MAKE: decision, mistake, plan, progress, an effort.",
+     "DO: research, homework, business, your best.",
+     "No preposition after: discuss, enter, marry, answer, reach, phone."
+    ],
+    "watch_out": "Your instinct will translate the Mongolian pair word-for-word — and be wrong. Trust the memorised chunk, not the feeling.",
     "tip": "Learn verb + noun as one word: \"make-a-decision\" is one unit."
    }
   },
@@ -839,6 +961,13 @@
       "right": "We cleaned and checked the data."
      }
     ],
+    "how": [
+     "Caught yourself writing thing/stuff? Stop and name the real noun.",
+     "Feeling inside a person → -ed: I am bored / interested / tired.",
+     "The cause outside → -ing: The film is boring / interesting.",
+     "Russian loanwords: double-check meaning before trusting them."
+    ],
+    "watch_out": "\"I am boring\" tells people YOU put them to sleep. One letter, big difference.",
     "tip": "-ED = the person's feeling. -ING = the thing causing it."
    }
   },
@@ -884,6 +1013,13 @@
       "right": "an old black leather bag"
      }
     ],
+    "how": [
+     "Adverb wants in? Send it to the END or the FRONT — never between verb and object.",
+     "always/never/often/usually → BEFORE the main verb: I always check.",
+     "…but AFTER be: I am always careful.",
+     "Adjectives queue: opinion–size–age–shape–colour–origin–material."
+    ],
+    "watch_out": "'Only' changes meaning with position: \"Only I saw him\" ≠ \"I only saw him\" ≠ \"I saw only him\".",
     "tip": "Never between verb and object — that slot is sacred in English."
    }
   },
@@ -929,6 +1065,13 @@
       "right": "He is taller than me."
      }
     ],
+    "how": [
+     "Count the syllables of the adjective.",
+     "One → -er + than: deeper than.",
+     "Three or more → more … than: more expensive than.",
+     "Superlative: the -est / the most. Irregulars: good–better–best, bad–worse–worst."
+    ],
+    "watch_out": "Never stack: \"more bigger\" and \"most best\" are double comparatives — one marker only.",
     "tip": "Short word → -er than. Long word → more … than. Never both."
    }
   },
@@ -964,6 +1107,13 @@
       "right": "I read the report that you sent."
      }
     ],
+    "how": [
+     "Write two short sentences: I met a woman. She teaches maths.",
+     "Replace the repeated person/thing with who (people) or which/that (things).",
+     "Attach it AFTER the noun: the woman who teaches maths.",
+     "Formal writing bonus: drop 'that is/was' — the email sent this morning."
+    ],
+    "watch_out": "After a comma, 'that' is forbidden — non-defining clauses take which/who: \"The report, WHICH arrived late, …\"",
     "tip": "Stuck? Write two short sentences first, then join them with that/who/which."
    }
   },
@@ -999,6 +1149,13 @@
       "right": "He said he was tired yesterday."
      }
     ],
+    "how": [
+     "Person mentioned? → TELL: he told ME. No person? → SAY: he said (that)…",
+     "Shift the tense one step back: 'I am tired' → he said he WAS tired.",
+     "Reported question → statement order, no question mark: he asked where I worked.",
+     "Shift time words too: today → that day, tomorrow → the next day."
+    ],
+    "watch_out": "Still-true facts may keep their tense: \"She said the Earth IS round\" — backshift is a tool, not a prison.",
     "tip": "Inside a sentence, a question becomes a statement — no inversion, no question mark."
    }
   },
@@ -1034,6 +1191,12 @@
       "right": "We have a lot of work."
      }
     ],
+    "how": [
+     "Learn every new word TWICE: how it sounds + how it is written.",
+     "Keep a personal traps list — your five worst words, checked before sending.",
+     "In doubt? Look it up. English spelling is memory, not logic."
+    ],
+    "watch_out": "The classics: a lot (two words) · receive (i before e except after c) · which/witch · their/there/they're.",
     "tip": "i before e except after c: receive, believe. And \"a lot\" is always two words."
    }
   }
@@ -1940,6 +2103,114 @@
    "cefr": "A2"
   },
   {
+   "id": "adv_past_narrative_0",
+   "category": "adv_past_narrative",
+   "prompt": "She watched TV when the phone rang, so she was answering it.",
+   "answer": "She was watching TV when the phone rang, so she answered it.",
+   "explanation": "Background = was watching; events = rang, answered.",
+   "bridge": "Монголоор \"хоол хийж байтал ирсэн\" гэдгийг -ж байтал гэсэн нэг хэлбэр илэрхийлдэг. Англид фон (was cooking) ба үйл явдал (arrived) тус тусдаа хэлбэртэй.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_past_narrative_1",
+   "category": "adv_past_narrative",
+   "prompt": "By the time we arrived, the film started.",
+   "answer": "By the time we arrived, the film had started.",
+   "explanation": "'By the time' points further back: had + third form.",
+   "bridge": "Монголоор \"хоол хийж байтал ирсэн\" гэдгийг -ж байтал гэсэн нэг хэлбэр илэрхийлдэг. Англид фон (was cooking) ба үйл явдал (arrived) тус тусдаа хэлбэртэй.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_gerund_infinitive_0",
+   "category": "adv_gerund_infinitive",
+   "prompt": "I suggested to go by train.",
+   "answer": "I suggested going by train.",
+   "explanation": "suggest is in the -ing group: suggest doing.",
+   "bridge": "Монголоор \"уншиж дуусгах\", \"унших гэж шийдэх\" — дагавар нь ялгадаг. Англид эхний үйл үг нь хоёр дахийнхаа хэлбэрийг шийддэг: жагсаалтыг цээжлэхээс өөр зам байхгүй.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_gerund_infinitive_1",
+   "category": "adv_gerund_infinitive",
+   "prompt": "She is good at explain things.",
+   "answer": "She is good at explaining things.",
+   "explanation": "After a preposition (at), always -ing — the no-exception rule.",
+   "bridge": "Монголоор \"уншиж дуусгах\", \"унших гэж шийдэх\" — дагавар нь ялгадаг. Англид эхний үйл үг нь хоёр дахийнхаа хэлбэрийг шийддэг: жагсаалтыг цээжлэхээс өөр зам байхгүй.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_modals_deduction_0",
+   "category": "adv_modals_deduction",
+   "prompt": "The office is dark. They mustn't be there.",
+   "answer": "The office is dark. They can't be there.",
+   "explanation": "Negative deduction takes can't, never mustn't.",
+   "bridge": "Монголоор \"гэртээ байгаа байх\", \"байж магадгүй\", \"байх боломжгүй\" гэж тусдаа үгсээр хэлдэг. Англид ижил ажлыг modal үйл үгс хийдэг — итгэлийн хэмжээгээр шатласан.",
+   "cefr": "B2"
+  },
+  {
+   "id": "adv_modals_deduction_1",
+   "category": "adv_modals_deduction",
+   "prompt": "You look tired. You must worked late.",
+   "answer": "You look tired. You must have worked late.",
+   "explanation": "Past guess = modal + have + third form.",
+   "bridge": "Монголоор \"гэртээ байгаа байх\", \"байж магадгүй\", \"байх боломжгүй\" гэж тусдаа үгсээр хэлдэг. Англид ижил ажлыг modal үйл үгс хийдэг — итгэлийн хэмжээгээр шатласан.",
+   "cefr": "B2"
+  },
+  {
+   "id": "adv_wish_regret_0",
+   "category": "adv_wish_regret",
+   "prompt": "I wish I know the answer.",
+   "answer": "I wish I knew the answer.",
+   "explanation": "A wish about now steps back to past simple.",
+   "bridge": "Монголоор \"цаг байсан ч болоосой\", \"явсан бол доо\" — болоосой/бол доо хэлбэрүүд. Англид цагийг НЭГ АЛХАМ ухраах нь хүслийг заадаг.",
+   "cefr": "B2"
+  },
+  {
+   "id": "adv_wish_regret_1",
+   "category": "adv_wish_regret",
+   "prompt": "I wish I didn't sell my bike last year.",
+   "answer": "I wish I hadn't sold my bike last year.",
+   "explanation": "Past regret: wish + had(n't) + third form.",
+   "bridge": "Монголоор \"цаг байсан ч болоосой\", \"явсан бол доо\" — болоосой/бол доо хэлбэрүүд. Англид цагийг НЭГ АЛХАМ ухраах нь хүслийг заадаг.",
+   "cefr": "B2"
+  },
+  {
+   "id": "adv_causative_0",
+   "category": "adv_causative",
+   "prompt": "I painted my flat by a professional last month.",
+   "answer": "I had my flat painted by a professional last month.",
+   "explanation": "A service done for you: have + thing + third form.",
+   "bridge": "Монголоор \"үсээ засуулсан\" гэсэн -уул дагавар яг энэ ажлыг хийдэг! Танд ойлголт нь бий — англи нь have/get + 3-р хэлбэр гэсэн бүтэц.",
+   "cefr": "B2"
+  },
+  {
+   "id": "adv_causative_1",
+   "category": "adv_causative",
+   "prompt": "Where did you repair your watch?",
+   "answer": "Where did you have your watch repaired?",
+   "explanation": "You didn't repair it yourself — causative have.",
+   "bridge": "Монголоор \"үсээ засуулсан\" гэсэн -уул дагавар яг энэ ажлыг хийдэг! Танд ойлголт нь бий — англи нь have/get + 3-р хэлбэр гэсэн бүтэц.",
+   "cefr": "B2"
+  },
+  {
+   "id": "adv_participle_clauses_0",
+   "category": "adv_participle_clauses",
+   "prompt": "Being tired, the meeting felt endless to finish.",
+   "answer": "Being tired, I found the meeting endless.",
+   "explanation": "The participle's hidden subject must be the main subject — I was tired, not the meeting.",
+   "bridge": "Монголын нөхцөл үйл үг (-ж/-аад: ирж, ирээд) яг ийм шахалт хийдэг — \"оройтож ирээд, эхлэлийг алдсан\". Танил бүтэц, англи хэлбэр л шинэ.",
+   "cefr": "C1"
+  },
+  {
+   "id": "adv_participle_clauses_1",
+   "category": "adv_participle_clauses",
+   "prompt": "Writing in 1990, the report is out of date.",
+   "answer": "Written in 1990, the report is out of date.",
+   "explanation": "Passive meaning (the report was written) takes the third form.",
+   "bridge": "Монголын нөхцөл үйл үг (-ж/-аад: ирж, ирээд) яг ийм шахалт хийдэг — \"оройтож ирээд, эхлэлийг алдсан\". Танил бүтэц, англи хэлбэр л шинэ.",
+   "cefr": "C1"
+  },
+  {
    "id": "adv_unreal_conditionals_0",
    "category": "adv_unreal_conditionals",
    "prompt": "If I would know the answer, I would tell you.",
@@ -2050,6 +2321,250 @@
  ],
  "advanced": [
   {
+   "id": "adv_past_narrative",
+   "cefr": "B1",
+   "title": "Telling a story: past tenses together",
+   "explain": "A story in English uses three past tenses as three camera angles. Past simple is the events, one after another: \"She opened the door and saw the letter.\" Past continuous is the background running behind an event: \"I was cooking when she arrived\" — the cooking was already in progress, the arrival cut into it. Past perfect reaches FURTHER back, to something before the story: \"She had already left when I called\" — the leaving happened first. Mongolian tells all three with context; English marks each with its own verb form.",
+   "how": [
+    "Events in order → past simple: opened, saw, said.",
+    "Background action interrupted → was/were + -ing: I was cooking when…",
+    "Earlier than the story → had + third form: she had already left.",
+    "Test: can you draw it? Line = continuous, dot = simple, dot before the line = past perfect."
+   ],
+   "bridge": "Монголоор \"хоол хийж байтал ирсэн\" гэдгийг -ж байтал гэсэн нэг хэлбэр илэрхийлдэг. Англид фон (was cooking) ба үйл явдал (arrived) тус тусдаа хэлбэртэй.",
+   "examples": [
+    {
+     "wrong": "I cooked when she arrived.",
+     "right": "I was cooking when she arrived."
+    },
+    {
+     "wrong": "When I called, she already left.",
+     "right": "When I called, she had already left."
+    },
+    {
+     "wrong": "While I was walk home, it started to rain.",
+     "right": "While I was walking home, it started to rain."
+    }
+   ],
+   "watch_out": "\"When\" + past simple usually means the event; \"while\" + past continuous the background. Mixing them flips your story's meaning.",
+   "tip": "One line, one dot: background gets -ing, the interruption gets past simple.",
+   "quiz": [
+    {
+     "wrong": "She watched TV when the phone rang, so she was answering it.",
+     "right": "She was watching TV when the phone rang, so she answered it.",
+     "explanation": "Background = was watching; events = rang, answered."
+    },
+    {
+     "wrong": "By the time we arrived, the film started.",
+     "right": "By the time we arrived, the film had started.",
+     "explanation": "'By the time' points further back: had + third form."
+    }
+   ]
+  },
+  {
+   "id": "adv_gerund_infinitive",
+   "cefr": "B1",
+   "title": "Verb + verb: -ing or to?",
+   "explain": "When two verbs meet, the second one's form depends on the FIRST verb — and there is no logic, only lists. Group 1 takes -ing: enjoy, finish, keep, avoid, suggest, practise, mind (\"I enjoy reading\"). Group 2 takes to: want, decide, hope, plan, promise, agree, learn (\"I decided to leave\"). A few take both with different meanings: \"stop smoking\" = quit; \"stop to smoke\" = pause in order to smoke. The one reliable rule with zero exceptions: after ANY preposition, always -ing — \"interested in learning\", \"look forward to hearing\".",
+   "how": [
+    "Learn the -ing list as a chant: enjoy–finish–keep–avoid–suggest–mind.",
+    "Learn the to-list: want–decide–hope–plan–promise–agree–learn.",
+    "After a preposition (in, of, at, about, to*): ALWAYS -ing.",
+    "Meaning-changers (stop, remember, try, forget): learn each pair as two words."
+   ],
+   "bridge": "Монголоор \"уншиж дуусгах\", \"унших гэж шийдэх\" — дагавар нь ялгадаг. Англид эхний үйл үг нь хоёр дахийнхаа хэлбэрийг шийддэг: жагсаалтыг цээжлэхээс өөр зам байхгүй.",
+   "examples": [
+    {
+     "wrong": "I enjoy to swim in summer.",
+     "right": "I enjoy swimming in summer."
+    },
+    {
+     "wrong": "She decided leaving early.",
+     "right": "She decided to leave early."
+    },
+    {
+     "wrong": "He stopped to smoke last year. (= quit)",
+     "right": "He stopped smoking last year."
+    }
+   ],
+   "watch_out": "\"Look forward to\" ends in the PREPOSITION to, not infinitive to — so it takes -ing: looking forward to seeing you.",
+   "tip": "Unsure? Check if a preposition sits before the verb — preposition wins, -ing follows.",
+   "quiz": [
+    {
+     "wrong": "I suggested to go by train.",
+     "right": "I suggested going by train.",
+     "explanation": "suggest is in the -ing group: suggest doing."
+    },
+    {
+     "wrong": "She is good at explain things.",
+     "right": "She is good at explaining things.",
+     "explanation": "After a preposition (at), always -ing — the no-exception rule."
+    }
+   ]
+  },
+  {
+   "id": "adv_modals_deduction",
+   "cefr": "B2",
+   "title": "Must be, might be, can't be — guessing with grammar",
+   "explain": "English reuses its modal verbs to show HOW SURE you are about a guess. \"The lights are on — he MUST be home\" (90% sure, evidence says yes). \"He MIGHT/MAY/COULD be in a meeting\" (50%, one option among several). \"He CAN'T be home — his car is gone\" (90% sure the answer is NO). Note the strange pair: the opposite of \"must be\" is \"can't be\", not \"mustn't be\". For past guesses add have + third form: \"She must HAVE MISSED the bus.\"",
+   "how": [
+    "Evidence says YES → must be / must have done.",
+    "Just possible → might / may / could be.",
+    "Evidence says NO → can't be / can't have done (never 'mustn't be').",
+    "Guessing about the past → modal + have + third form."
+   ],
+   "bridge": "Монголоор \"гэртээ байгаа байх\", \"байж магадгүй\", \"байх боломжгүй\" гэж тусдаа үгсээр хэлдэг. Англид ижил ажлыг modal үйл үгс хийдэг — итгэлийн хэмжээгээр шатласан.",
+   "examples": [
+    {
+     "wrong": "The lights are on — he should be home, I am 90% sure.",
+     "right": "The lights are on — he must be home."
+    },
+    {
+     "wrong": "He mustn't be at work, his car is here.",
+     "right": "He can't be at work — his car is here."
+    },
+    {
+     "wrong": "She must missed the bus.",
+     "right": "She must have missed the bus."
+    }
+   ],
+   "watch_out": "\"Mustn't\" means FORBIDDEN, not \"surely not\". The negative of a must-guess is can't.",
+   "tip": "Certainty ladder: must be (yes!) → might be (maybe) → can't be (no!).",
+   "quiz": [
+    {
+     "wrong": "The office is dark. They mustn't be there.",
+     "right": "The office is dark. They can't be there.",
+     "explanation": "Negative deduction takes can't, never mustn't."
+    },
+    {
+     "wrong": "You look tired. You must worked late.",
+     "right": "You look tired. You must have worked late.",
+     "explanation": "Past guess = modal + have + third form."
+    }
+   ]
+  },
+  {
+   "id": "adv_wish_regret",
+   "cefr": "B2",
+   "title": "Wishes and regrets",
+   "explain": "English expresses wishes with a tense shift — the same unreality trick as conditionals. A wish about NOW takes the past: \"I wish I HAD more time\" (I don't). A regret about the PAST takes past perfect: \"I wish I HAD STUDIED harder\" (I didn't). Annoyance about a habit takes would: \"I wish he WOULD stop calling so late.\" For advice-flavoured regret, \"should have\" does the work: \"I should have asked earlier.\"",
+   "how": [
+    "Wish about now → wish + past simple: I wish I knew.",
+    "Regret about the past → wish + had done: I wish I had gone.",
+    "Complaint about behaviour → wish + would: I wish you would listen.",
+    "Self-regret → should have + third form: I should have called."
+   ],
+   "bridge": "Монголоор \"цаг байсан ч болоосой\", \"явсан бол доо\" — болоосой/бол доо хэлбэрүүд. Англид цагийг НЭГ АЛХАМ ухраах нь хүслийг заадаг.",
+   "examples": [
+    {
+     "wrong": "I wish I have more time.",
+     "right": "I wish I had more time."
+    },
+    {
+     "wrong": "I wish I studied harder last year.",
+     "right": "I wish I had studied harder last year."
+    },
+    {
+     "wrong": "I should ask her when I had the chance.",
+     "right": "I should have asked her when I had the chance."
+    }
+   ],
+   "watch_out": "\"I wish I would…\" about yourself is impossible — would-wishes aim at OTHER people's behaviour.",
+   "tip": "Wish = reality minus one tense step. Now→past, past→past perfect.",
+   "quiz": [
+    {
+     "wrong": "I wish I know the answer.",
+     "right": "I wish I knew the answer.",
+     "explanation": "A wish about now steps back to past simple."
+    },
+    {
+     "wrong": "I wish I didn't sell my bike last year.",
+     "right": "I wish I hadn't sold my bike last year.",
+     "explanation": "Past regret: wish + had(n't) + third form."
+    }
+   ]
+  },
+  {
+   "id": "adv_causative",
+   "cefr": "B2",
+   "title": "Have it done — when others do it for you",
+   "explain": "\"I cut my hair\" means you held the scissors yourself. When someone does it FOR you, English has a special machine: have/get + thing + third form. \"I had my hair cut\", \"We got the car repaired\", \"She had her phone fixed\". The doer disappears exactly like in the passive; the focus is the arranged service. The same shape with a person after have/get means you arranged for THEM to act: \"I had the plumber check the boiler.\"",
+   "how": [
+    "Service done for you → have/get + THING + third form: had my hair cut.",
+    "You arranged a person → have + PERSON + base form: had the plumber check it.",
+    "Ask yourself: did I do it with my own hands? No → causative."
+   ],
+   "bridge": "Монголоор \"үсээ засуулсан\" гэсэн -уул дагавар яг энэ ажлыг хийдэг! Танд ойлголт нь бий — англи нь have/get + 3-р хэлбэр гэсэн бүтэц.",
+   "examples": [
+    {
+     "wrong": "I cut my hair yesterday at the salon.",
+     "right": "I had my hair cut yesterday at the salon."
+    },
+    {
+     "wrong": "We repaired the car at the garage last week.",
+     "right": "We had the car repaired at the garage last week."
+    },
+    {
+     "wrong": "She will fix her tooth tomorrow.",
+     "right": "She will have her tooth fixed tomorrow."
+    }
+   ],
+   "watch_out": "Word order carries the meaning: \"I had cut my hair\" (past perfect, you did it) ≠ \"I had my hair cut\" (someone else did).",
+   "tip": "-уулах/-үүлэх ажиллаж байвал англиар have/get + object + third form.",
+   "quiz": [
+    {
+     "wrong": "I painted my flat by a professional last month.",
+     "right": "I had my flat painted by a professional last month.",
+     "explanation": "A service done for you: have + thing + third form."
+    },
+    {
+     "wrong": "Where did you repair your watch?",
+     "right": "Where did you have your watch repaired?",
+     "explanation": "You didn't repair it yourself — causative have."
+    }
+   ]
+  },
+  {
+   "id": "adv_participle_clauses",
+   "cefr": "C1",
+   "title": "Participle clauses — compression",
+   "explain": "Advanced writing compresses two sentences into one by dropping the subject and turning the verb into a participle. \"Because we arrived late, we missed the start\" → \"Arriving late, we missed the start.\" \"The road, which was blocked by snow, stayed closed\" → \"Blocked by snow, the road stayed closed.\" Active meaning → -ing; passive meaning → third form. One law governs everything: the hidden subject of the participle MUST be the subject of the main clause, or you produce the famous dangling modifier: \"Walking to work, the rain started\" makes the rain walk.",
+   "how": [
+    "Same subject in both halves? You may compress.",
+    "Active → -ing: Arriving late, we…  Passive → third form: Built in 1950, the bridge…",
+    "Check for dangling: WHO does the participle? Must be the main subject."
+   ],
+   "bridge": "Монголын нөхцөл үйл үг (-ж/-аад: ирж, ирээд) яг ийм шахалт хийдэг — \"оройтож ирээд, эхлэлийг алдсан\". Танил бүтэц, англи хэлбэр л шинэ.",
+   "examples": [
+    {
+     "wrong": "Because we arrived late, so we missed the start.",
+     "right": "Arriving late, we missed the start."
+    },
+    {
+     "wrong": "Walking to work, the rain started.",
+     "right": "Walking to work, I got caught in the rain."
+    },
+    {
+     "wrong": "Building in 1950, the bridge is old.",
+     "right": "Built in 1950, the bridge is one of the city's oldest."
+    }
+   ],
+   "watch_out": "The dangling modifier is invisible to the writer and glaring to the reader — always ask WHO is doing the -ing.",
+   "tip": "-аад/-ж хэлбэрийн ажлыг англиар participle хийдэг: ирээд → arriving, баригдаад → built.",
+   "quiz": [
+    {
+     "wrong": "Being tired, the meeting felt endless to finish.",
+     "right": "Being tired, I found the meeting endless.",
+     "explanation": "The participle's hidden subject must be the main subject — I was tired, not the meeting."
+    },
+    {
+     "wrong": "Writing in 1990, the report is out of date.",
+     "right": "Written in 1990, the report is out of date.",
+     "explanation": "Passive meaning (the report was written) takes the third form."
+    }
+   ]
+  },
+  {
    "id": "adv_unreal_conditionals",
    "cefr": "C1",
    "title": "Unreal conditionals",
@@ -2069,6 +2584,13 @@
      "right": "If I were you, I would take the job."
     }
    ],
+   "how": [
+    "Is the situation real or imagined? Imagined → shift the tense back.",
+    "Unreal NOW → if + past, would + base: If I had time, I would come.",
+    "Unreal PAST → if + had done, would have done.",
+    "Formal touch: If I WERE you (not was)."
+   ],
+   "watch_out": "\"Would\" never enters the if-half. If you typed \"if … would\", delete the would.",
    "tip": "Never \"would\" in the if-half. Unreal now → past. Unreal past → had + done, would have + done.",
    "quiz": [
     {
@@ -2103,6 +2625,13 @@
      "right": "It is believed that prices will rise."
     }
    ],
+   "how": [
+    "Move the object to the front: Someone closed the road → The road…",
+    "Add be in the right tense: was / is being / has been.",
+    "Add the third form: closed, written, taken.",
+    "Doer matters? Add by…: …was written by the team. Otherwise drop it."
+   ],
+   "watch_out": "Verbs without objects (happen, arrive, occur) cannot be passive — \"was happened\" is impossible.",
    "tip": "happen, occur, arrive never take the passive — they have no object to promote.",
    "quiz": [
     {
@@ -2137,6 +2666,13 @@
      "right": "This is widely considered the strongest option."
     }
    ],
+   "how": [
+    "Replace 'proves' with suggests / indicates.",
+    "Replace 'is' with appears to be / seems to be / may be.",
+    "Name your source: according to X, based on the figures.",
+    "Soften totals: 'all' → most, 'never' → rarely."
+   ],
+   "watch_out": "Don't stack hedges — \"it might perhaps possibly seem\" reads as having no opinion at all. One hedge per claim.",
    "tip": "Ladder of certainty: proves → shows → indicates → suggests → hints. Choose one step weaker than you feel.",
    "quiz": [
     {
@@ -2171,6 +2707,13 @@
      "right": "No sooner had we arrived than it started to rain."
     }
    ],
+   "how": [
+    "Pick the negative opener: Never / Rarely / Not only / No sooner…",
+    "Then build a QUESTION shape: auxiliary before subject.",
+    "No auxiliary in the sentence? Borrow do/does/did.",
+    "Use it for the one sentence per page that deserves a spotlight."
+   ],
+   "watch_out": "Inversion without the negative opener is just an error — the trigger word must come first.",
    "tip": "Negative opener → borrow the question form: Never HAVE I…, Rarely DOES he…, Not only DID they…",
    "quiz": [
     {
@@ -2205,6 +2748,13 @@
      "right": "What worries me is the deadline."
     }
    ],
+   "how": [
+    "Decide what deserves the spotlight.",
+    "Spotlight a doer/thing → It was X that/who…",
+    "Spotlight a need/feeling → What we need/love/fear is X.",
+    "Say it aloud — the stressed word should land on X."
+   ],
+   "watch_out": "The verb after \"What … \" is singular: \"What we need IS time\" (even though 'we' is plural).",
    "tip": "To stress WHO/WHAT: \"It was X that…\". To stress a need or feeling: \"What … is X\".",
    "quiz": [
     {
@@ -2239,6 +2789,13 @@
      "right": "The firm requested an extension."
     }
    ],
+   "how": [
+    "Writing formally? Hunt the phrasal verbs: put off, look into, ask for.",
+    "Swap each for its Latin twin: postpone, investigate, request.",
+    "Speaking casually? Reverse the swap — Latin words chill a chat.",
+    "Build pairs into your vocabulary: get/obtain, buy/purchase, need/require."
+   ],
+   "watch_out": "Half-swapped sentences sound strangest of all: \"We shall buy the stuff\" mixes registers — keep one register per sentence.",
    "tip": "Formal document? Swap the phrasal verb for its one-word Latin twin. Everyday talk? Swap back — 'purchase a coffee' sounds absurd.",
    "quiz": [
     {

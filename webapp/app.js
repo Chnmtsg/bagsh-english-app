@@ -292,15 +292,18 @@ function renderLesson(topic) {
     if (seen.has(e.wrong)) return false;
     seen.add(e.wrong); return true;
   }).map(e => `<p>❌ ${esc(e.wrong)}<br>✅ <b>${esc(e.right)}</b></p>`).join("");
+  const how = (L.how || []).map(s => `<li>${esc(s)}</li>`).join("");
   view.innerHTML = `
     <div class="card">
       <h2 style="text-transform:capitalize">${topic.replace(/_/g, " ")}
         <span class="pill">${c.cefr}</span> <span class="pill">lesson ${c.priority}/24</span></h2>
       <h3>📖 The grammar</h3><p>${esc(explain)}</p>
+      ${how ? `<h3>🔧 How to build it</h3><ol class="how">${how}</ol>` : ""}
       <h3>📌 The rule in one line</h3><p><b>${esc(rule)}</b></p>
       <h3>🇲🇳 Таны хэлэнд аль хэдийн байгаа</h3>
       <p class="mn">${esc(c.bridge)}</p>
       <h3>Examples</h3>${examples}
+      ${L.watch_out ? `<div class="feedback bad"><p>⚠️ <b>Watch out:</b> ${esc(L.watch_out)}</p></div>` : ""}
       ${L.tip ? `<h3>💡 Tip</h3><p>${esc(L.tip)}</p>` : ""}
       <p class="muted">Guide: ${esc(c.guide_ref)}</p>
       <button class="primary" id="doneBtn" ${done ? "disabled" : ""}>
@@ -322,13 +325,16 @@ function renderAdvancedLesson(id) {
   const done = profile.lessonsDone.includes(id);
   const examples = t.examples.map(e =>
     `<p>❌ ${esc(e.wrong)}<br>✅ <b>${esc(e.right)}</b></p>`).join("");
+  const how = (t.how || []).map(s => `<li>${esc(s)}</li>`).join("");
   view.innerHTML = `
     <div class="card">
       <h2>${esc(t.title)} <span class="pill">${t.cefr}</span></h2>
       <h3>📖 The grammar</h3><p>${esc(t.explain)}</p>
+      ${how ? `<h3>🔧 How to build it</h3><ol class="how">${how}</ol>` : ""}
       <h3>🇲🇳 Таны хэлтэй харьцуулбал</h3>
       <p class="mn">${esc(t.bridge)}</p>
       <h3>Examples</h3>${examples}
+      ${t.watch_out ? `<div class="feedback bad"><p>⚠️ <b>Watch out:</b> ${esc(t.watch_out)}</p></div>` : ""}
       ${t.tip ? `<h3>💡 Tip</h3><p>${esc(t.tip)}</p>` : ""}
       <button class="primary" id="doneBtn" ${done ? "disabled" : ""}>
         ${done ? "✓ Finished" : "Mark finished (+10 XP)"}</button>
