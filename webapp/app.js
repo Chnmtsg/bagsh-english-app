@@ -43,6 +43,8 @@ function loadProfile() {
     quizCorrect: 0, vocabCorrect: 0, lessonsDone: [], talkDone: [],
     knownWords: {},      // word -> 1 (self-checked or card-mastered)
     studyList: [],       // words the learner marked as unknown
+    showStreak: true,    // the streak is optional — pressure off if you like
+    rewards: [],         // self-set prizes: {id,title,type,target,claimed,claimedDate}
     srs: { grammar: {}, vocab: {} },
   };
   try {
@@ -144,8 +146,25 @@ const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.f
 const pick = a => a[Math.floor(Math.random() * a.length)];
 
 function renderStatline() {
+  const streak = profile.showStreak ? ` · 🔥 ${profile.streakDays}` : "";
+  const ready = profile.rewards.filter(r => !r.claimed && rewardValue(r) >= r.target).length;
   document.getElementById("statline").textContent =
-    `${profile.level || "?"} · ⭐ ${profile.xp} · 🔥 ${profile.streakDays} · 🏅 ${profile.badges.length}/${BADGES.length}`;
+    `${profile.level || "?"} · ⭐ ${profile.xp}${streak}` +
+    ` · 🏅 ${profile.badges.length}/${BADGES.length}` +
+    (ready ? ` · 🎁${ready}` : "");
+}
+
+/* ── personal rewards — the learner sets their own prizes ───────── */
+
+const REWARD_TYPES = {
+  xp: { label: "XP", mn: "оноо", value: () => profile.xp },
+  streak: { label: "day streak", mn: "өдөр дараалан", value: () => profile.streakDays },
+  words: { label: "words known", mn: "мэддэг үг", value: () => Object.keys(profile.knownWords).length },
+};
+
+function rewardValue(r) {
+  const t = REWARD_TYPES[r.type];
+  return t ? t.value() : 0;
 }
 
 function setTab(name) {
@@ -651,28 +670,108 @@ function runRounds(session, i, correct, badges, mode) {
 
 /* ── Stats ──────────────────────────────────────────────────────── */
 
+function renderRewards() {
+  const rows = profile.rewards.map(r => {
+    const current = rewardValue(r);
+    const typeInfo = REWARD_TYPES[r.type];
+    const pct = Math.min(100, Math.round(100 * current / r.target));
+    let status, button = "";
+    if (r.claimed) {
+      status = `<span class="ok">✓ taken ${r.claimedDate}</span>`;
+    } else if (current >= r.target) {
+      status = `<span class="ok"><b>READY! Авах цаг боллоо!</b></span>`;
+      button = `<button class="primary claim-btn" data-id="${r.id}" style="margin-top:6px;padding:6px 14px">🎁 Take it</button>`;
+    } else {
+      status = `<span class="muted">${current}/${r.target} ${typeInfo.label}</span>`;
+    }
+    return `<div class="row"><span class="name"><b>${esc(r.title)}</b>
+        <div class="bar"><div class="bar-fill" style="width:${pct}%"></div></div>
+        ${status} ${button}</span>
+      <button class="ghost del-btn" data-id="${r.id}" style="padding:4px 10px">✕</button>
+    </div>`;
+  }).join("");
+
+  return `
+    <h3>🎁 My rewards — Урамшуулал</h3>
+    <p class="muted">Set your own prize and earn it with effort: "reach a
+    20-day streak → кино үзнэ" or "know 500 words → new shoes". The app
+    tells you when you've earned it. Bonus is yours to choose!</p>
+    ${rows ? `<div style="margin:6px 0">${rows}</div>` : ""}
+    <input type="text" id="rTitle" placeholder="Reward — e.g. 🍦 Ice cream / Кино үзэх" maxlength="60">
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <select id="rType" style="flex:1;font:inherit;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink)">
+        <option value="streak">Day streak (өдөр дараалан)</option>
+        <option value="xp">XP (оноо)</option>
+        <option value="words">Words known (мэддэг үг)</option>
+      </select>
+      <input type="number" id="rTarget" min="1" max="100000" placeholder="30"
+        style="width:90px;margin-top:0">
+    </div>
+    <button class="ghost" id="rAdd">＋ Add reward</button>`;
+}
+
 function renderStats() {
   const grid = BADGES.map(([id, icon, name, req]) => `
     <div class="badge ${profile.badges.includes(id) ? "" : "locked"}">
       <span class="ic">${profile.badges.includes(id) ? icon : "🔒"}</span><br>
       <b>${esc(name)}</b><br><span class="muted">${esc(req)}</span>
     </div>`).join("");
+  const streakLine = profile.showStreak
+    ? `🔥 <b>${profile.streakDays}</b>-day streak` : `<span class="muted">streak hidden</span>`;
   view.innerHTML = `
     <div class="card">
       <h2>🏅 Progress</h2>
       <p>Level: <b>${profile.level}</b> (${LEVEL_MN[profile.level] || ""})
-        <button class="ghost" id="lvlBtn" style="margin-left:8px;padding:4px 12px">Change</button></p>
-      <p>⭐ <b>${profile.xp}</b> XP &nbsp; 🔥 <b>${profile.streakDays}</b>-day streak</p>
+        <button class="ghost" id="lvlBtn" style="margin-left:8px;padding:4px 12px">Change — Солих</button></p>
+      <p>⭐ <b>${profile.xp}</b> XP &nbsp; ${streakLine}</p>
       <p class="muted">Grammar correct: ${profile.quizCorrect} ·
         Words known: ${Object.keys(profile.knownWords).length} ·
         Word ladder: ${vocabLevel()} (${levelProgress(vocabLevel()).pct}%) ·
         Lessons: ${profile.lessonsDone.length}/24 ·
         Talks: ${profile.talkDone.length}/${DATA.dialogues.length}</p>
+      <label class="muted" style="display:block;margin:6px 0">
+        <input type="checkbox" id="streakToggle" ${profile.showStreak ? "checked" : ""}>
+        Show the streak (optional — no pressure without it)</label>
+    </div>
+    <div class="card" id="rewardsCard">${renderRewards()}</div>
+    <div class="card">
+      <h3>Badges</h3>
       <div class="badge-grid">${grid}</div>
       <p class="muted" style="margin-top:12px">✍️ The journal with AI correction
         lives in the desktop app — this trainer works fully offline.</p>
     </div>`;
+
   document.getElementById("lvlBtn").addEventListener("click", () => renderLevelPicker("stats"));
+  document.getElementById("streakToggle").addEventListener("change", e => {
+    profile.showStreak = e.target.checked;
+    saveProfile(); renderStatline(); renderStats();
+  });
+  document.getElementById("rAdd").addEventListener("click", () => {
+    const title = document.getElementById("rTitle").value.trim();
+    const type = document.getElementById("rType").value;
+    const target = parseInt(document.getElementById("rTarget").value, 10);
+    if (!title || !REWARD_TYPES[type] || !target || target < 1) return;
+    profile.rewards.push({
+      id: Date.now().toString(36), title, type, target,
+      claimed: false, claimedDate: null,
+    });
+    saveProfile(); renderStatline(); renderStats();
+  });
+  view.querySelectorAll(".claim-btn").forEach(b =>
+    b.addEventListener("click", () => {
+      const r = profile.rewards.find(x => x.id === b.dataset.id);
+      if (r && rewardValue(r) >= r.target) {
+        r.claimed = true;
+        r.claimedDate = today();
+        saveProfile(); renderStatline(); renderStats();
+        alert(`🎉 ${r.title} — earned! Сайхан амраарай, та үүнийг хөдөлмөрөөрөө авлаа!`);
+      }
+    }));
+  view.querySelectorAll(".del-btn").forEach(b =>
+    b.addEventListener("click", () => {
+      profile.rewards = profile.rewards.filter(x => x.id !== b.dataset.id);
+      saveProfile(); renderStatline(); renderStats();
+    }));
 }
 
 /* ── boot ───────────────────────────────────────────────────────── */
