@@ -1,0 +1,474 @@
+# Expanded grammar lessons — one real lesson per taxonomy category.
+# Curated from knowledge/contrastive-guide.md (see guide_ref in the
+# taxonomy). Owned by linguistics-curator; the PWA and lesson renderers
+# consume this verbatim — models never author lesson content.
+#
+# explain_b1: English-first, 3–5 sentences.
+# explain_a2: mostly Mongolian, 1–3 short sentences.
+# ⚠ Mongolian strings need native-speaker verification before shipping.
+
+version: 1
+
+lessons:
+  copula:
+    explain_b1: >-
+      English never drops the verb "to be". Mongolian says "Би геологич" —
+      two words, no verb — and it is a complete sentence. English cannot do
+      this: every sentence needs a verb, so you must add am/is/are. Notice
+      that "I am a geologist" needs TWO additions: the verb "am" AND the
+      article "a". This one four-word sentence contains the two biggest
+      differences between your languages.
+    explain_a2: >-
+      Монголоор "Би геологич" гэж хэлдэг — үйл үг хэрэггүй. Англиар үйл үг
+      ЗААВАЛ хэрэгтэй: I am a geologist. "Am" болон "a" хоёуланг нь нэм.
+    extra_examples:
+      - {wrong: "She happy today.", right: "She is happy today."}
+      - {wrong: "The samples ready.", right: "The samples are ready."}
+      - {wrong: "My office small but warm.", right: "My office is small but warm."}
+    tip: >-
+      Present forms: I am · he/she/it is · you/we/they are. Past: was/were.
+
+  word_order:
+    explain_b1: >-
+      Mongolian builds backwards; English builds forwards. In Mongolian
+      everything that describes something comes BEFORE it, and the verb
+      comes last: Би ном уншсан (I book read). English is the opposite:
+      the verb comes right after the person, and descriptions usually come
+      after the thing. One rule — subject, then verb, then object — fixes
+      five different error types at once, so learn the principle, not five
+      separate rules.
+    explain_a2: >-
+      Монгол хэл арагшаа барьдаг, англи хэл урагшаа барьдаг. Дараалал:
+      ХЭН + ЮУ ХИЙСЭН + ЮУГ. I read a book.
+    extra_examples:
+      - {wrong: "I every day English study.", right: "I study English every day."}
+      - {wrong: "We last week the site visited.", right: "We visited the site last week."}
+      - {wrong: "He the report wrote.", right: "He wrote the report."}
+    tip: >-
+      Basic shape: WHO + ACTION + WHAT (+ where + when). Time words go at
+      the end or the very beginning — never in the middle.
+
+  articles:
+    explain_b1: >-
+      Mongolian has no articles — but it DOES mark definiteness, with the
+      accusative suffix -ыг/-ийг on specific objects. So you already have
+      the concept; English just uses a separate word in front instead of a
+      suffix behind. Use "a/an" for something new or general ("we found a
+      deposit"), "the" for something both people know ("the deposit we
+      found"), and nothing for general plurals and most names ("samples",
+      "Mongolia"). "An" goes before a vowel SOUND: an hour, but a
+      university.
+    explain_a2: >-
+      "Ном уншсан" (ямар ч ном) = a book. "Номыг уншсан" (тодорхой ном) =
+      the book. -ыг гэдэг дагаврыг та мэднэ — англид "the" гэдэг үг урд нь
+      ордог.
+    extra_examples:
+      - {wrong: "We found new deposit.", right: "We found a new deposit."}
+      - {wrong: "I saw a rock. A rock was heavy.", right: "I saw a rock. The rock was heavy."}
+      - {wrong: "He speaks the English.", right: "He speaks English."}
+    tip: >-
+      Second mention becomes "the": a rock … the rock. Languages and
+      countries take no article.
+
+  verb_agreement:
+    explain_b1: >-
+      Mongolian verbs never change for WHO does the action — English verbs
+      change in exactly one place: he/she/it adds -s in the present simple.
+      "I work, you work, they work — but he workS." This is the most common
+      error in English learning worldwide, and knowing the rule is not
+      enough: it must become a reflex through repetition, because you will
+      always be too busy thinking about your message to compute it.
+    explain_a2: >-
+      HE, SHE, IT → үйл үг дээр -s нэм: he works, she lives, it takes.
+      Би, та, тэд нар → -s хэрэггүй.
+    extra_examples:
+      - {wrong: "The drill produce good samples.", right: "The drill produces good samples."}
+      - {wrong: "My boss want the report.", right: "My boss wants the report."}
+      - {wrong: "It rain a lot in July.", right: "It rains a lot in July."}
+    tip: >-
+      Chant it — "HE-SHE-IT adds S." It sounds childish. It works.
+
+  plurals:
+    explain_b1: >-
+      In Mongolian, plural marking is optional, and after a numeral it is
+      normally dropped — гурван ном, because "three" already says it. English
+      repeats itself: three bookS, many sampleS, even when the number makes
+      it obvious. This is not logical; it is simply obligatory. The one
+      exception pattern: a number USED AS A DESCRIPTION stays singular —
+      "a 500-metre hole", "a three-day trip".
+    explain_a2: >-
+      Гурван ном = three bookS. Англи хэл давхардуулдаг: тоо байсан ч -s
+      заавал нэм. Логикгүй ч дүрэм ийм.
+    extra_examples:
+      - {wrong: "We drilled five hole.", right: "We drilled five holes."}
+      - {wrong: "Many student came.", right: "Many students came."}
+      - {wrong: "a 500-metres hole", right: "a 500-metre hole"}
+    tip: >-
+      After every number bigger than one: -s. Before a noun ("500-metre
+      hole"): no -s.
+
+  missing_subject:
+    explain_b1: >-
+      English cannot tolerate a sentence without a subject — so it invents
+      fake ones. Nothing is actually raining, but English says "IT is
+      raining". Nothing is "there" in "THERE are three samples" — the word
+      just fills the subject seat. Mongolian happily drops the subject when
+      it is obvious; English never does. When your sentence has no natural
+      subject, reach for "it" (weather, time, distance) or "there is/are"
+      (existence).
+    explain_a2: >-
+      Англи өгүүлбэрт эзэн ЗААВАЛ хэрэгтэй. "Бороо орж байна" → IT is
+      raining. "Гурван дээж байна" → THERE are three samples.
+    extra_examples:
+      - {wrong: "Is raining today.", right: "It is raining today."}
+      - {wrong: "Have three samples on the bench.", right: "There are three samples on the bench."}
+      - {wrong: "Is important to check the data.", right: "It is important to check the data."}
+    tip: >-
+      Weather, time, distance → "it". Existence → "there is / there are".
+
+  topic_fronting:
+    explain_b1: >-
+      Mongolian is a topic language: you announce what you are talking
+      about, then comment on it — "Тайлангийн тухай — оройтсон". English
+      cannot announce a topic with "about". The best repair is to make the
+      topic the SUBJECT: "The report is late." Not "About the report, it is
+      late." If you truly need a topic opener, "As for the report…" exists,
+      but making the topic the subject is what native writing does.
+    explain_a2: >-
+      "About X" гэж өгүүлбэр бүү эхэл. X-ийг өгүүлэгдэхүүн болго:
+      "About the report, it is late" ❌ → "The report is late" ✅.
+    extra_examples:
+      - {wrong: "About my English, it is not good.", right: "My English is not good."}
+      - {wrong: "About the meeting, it was long.", right: "The meeting was long."}
+      - {wrong: "About this deposit, the grade is high.", right: "This deposit has a high grade."}
+    tip: >-
+      See "About X, …" in your writing? Delete "About", make X the subject.
+
+  prepositions:
+    explain_b1: >-
+      Mongolian marks a noun's role with a suffix on the end (-д, -аас,
+      -тай); English marks it with a small word in FRONT (at, in, on, to,
+      from, with). Those small words feel unimportant to a Mongolian ear —
+      but they ARE the case system. Deleting "at" from "at 6:30" is like
+      deleting -д from "зургаан цагт". Learn preposition + noun as one
+      chunk: at night, on Monday, in July, at the site.
+    explain_a2: >-
+      -д, -аас, -тай гэдэг дагаврын ажлыг англид жижиг үгс хийдэг: at, in,
+      on, to. Жижиг үгийг хаявал дагаврыг хаясантай адил.
+    extra_examples:
+      - {wrong: "We arrived the site 8 o'clock.", right: "We arrived at the site at 8 o'clock."}
+      - {wrong: "I was born on July.", right: "I was born in July."}
+      - {wrong: "It depends of the weather.", right: "It depends on the weather."}
+    tip: >-
+      Place ladder: AT a point (at the door) → ON a surface (on the table)
+      → IN a space (in the office). Time: AT 6:30 → ON Monday → IN July.
+
+  questions_negation:
+    explain_b1: >-
+      Mongolian makes a question with a particle at the end (уу/үү) and
+      never changes word order. English inserts a helping verb instead —
+      and one rule covers everything: find an auxiliary (am/is/can/have…);
+      if there is one, move it to the front; if there is none, borrow DO.
+      "You work here" has no auxiliary → "DO you work here?" The same DO
+      carries negation: "I DON'T have time." And once a question sits
+      inside a longer sentence it becomes a statement again: "Tell me where
+      it IS", not "where is it".
+    explain_a2: >-
+      Асуулт: DO/DOES-ийг урд нь тавь — Do you work here? Үгүйсгэл:
+      don't/doesn't — I don't have time. Хоёр удаа үгүйсгэж болохгүй.
+    extra_examples:
+      - {wrong: "Where you live?", right: "Where do you live?"}
+      - {wrong: "She no like coffee.", right: "She doesn't like coffee."}
+      - {wrong: "Tell me where is the core shed.", right: "Tell me where the core shed is."}
+    tip: >-
+      One rule: find the auxiliary → move it to the front → no auxiliary?
+      borrow DO.
+
+  tense_aspect:
+    explain_b1: >-
+      Mongolian -сан covers both "finished in the past" and "still matters
+      now" — English splits them. Past simple is a DOT in the past: "I
+      worked in Erdenet in 2019" (finished, disconnected). Present perfect
+      is an ARROW touching today: "I have worked here since 2019" (still
+      true). Seven trigger words choose the arrow about 80% of the time:
+      since, for, already, yet, just, ever, never. Two more traps: stative
+      verbs (know, want, need, like) never take -ing, and "will" never
+      follows "if".
+    explain_a2: >-
+      Дууссан үйл = цэг: I workED (2019 онд). Одоог хүртэл үргэлжилж
+      байгаа = сум: I HAVE workED here since 2019. Түлхүүр үгс: since, for,
+      already, yet, just.
+    extra_examples:
+      - {wrong: "I am knowing the answer.", right: "I know the answer."}
+      - {wrong: "If it will rain, we will stop.", right: "If it rains, we will stop."}
+      - {wrong: "I already ate lunch, I eat at 12.", right: "I have already eaten lunch — I ate at 12."}
+    tip: >-
+      Draw the timeline: dot = past simple, arrow touching today = present
+      perfect.
+
+  verb_form:
+    explain_b1: >-
+      Mongolian stacks meaning into one word with suffixes; English spreads
+      it across several small words — and each slot forces a verb form.
+      After a modal: base form ("can swim", never "can to swim"). After
+      did/didn't: base form ("didn't go", never "didn't went"). After
+      have/has/had: third form ("have gone"). In the passive: third form
+      ("was written"). After enjoy/finish/keep and after ANY preposition:
+      -ing ("look forward to hearING").
+    explain_a2: >-
+      can/must/should + үндсэн хэлбэр: can swim. didn't + үндсэн хэлбэр:
+      didn't go. have + 3-р хэлбэр: have gone.
+    extra_examples:
+      - {wrong: "She must to finish today.", right: "She must finish today."}
+      - {wrong: "The report was wrote yesterday.", right: "The report was written yesterday."}
+      - {wrong: "I finished to log the core.", right: "I finished logging the core."}
+    tip: >-
+      After a preposition, always -ing — the one rule with no exceptions.
+
+  punctuation:
+    explain_b1: >-
+      Mongolian commas follow breath and rhythm; English commas follow
+      GRAMMAR. The signature error is the comma splice: two complete
+      sentences joined by a comma — "I'm tired, I'll stop." The test:
+      cover the comma; if both halves are complete sentences, the comma is
+      illegal. Four legal fixes: a full stop, a semicolon, a comma PLUS a
+      joining word (and, but, so), or making one half depend on the other
+      ("Because I'm tired, I'll stop").
+    explain_a2: >-
+      Хоёр бүтэн өгүүлбэрийг таслалаар холбож БОЛОХГҮЙ. "I'm tired, I'll
+      stop" ❌ → "I'm tired. I'll stop." ✅
+    extra_examples:
+      - {wrong: "The assay came back, the grade is low.", right: "The assay came back. The grade is low."}
+      - {wrong: "It was late, we kept drilling.", right: "It was late, but we kept drilling."}
+      - {wrong: "The samples, were shipped Monday.", right: "The samples were shipped on Monday."}
+    tip: >-
+      Cover-the-comma test: complete sentence + complete sentence → the
+      comma is illegal.
+
+  pronoun_gender:
+    explain_b1: >-
+      Mongolian «тэр» covers he, she, it and that — English forces the
+      choice every single time. You already KNOW the rule; the error
+      happens at speed, because your brain never had to make this choice
+      before. That means re-reading the rule does nothing. Only fast,
+      repeated practice makes the choice automatic: describe people around
+      you in three-second bursts — my wife, SHE…; my boss, HE…
+    explain_a2: >-
+      «Тэр» = he (эрэгтэй), she (эмэгтэй), it (юм). Та дүрмийг мэднэ —
+      асуудал нь хурд. Хурдан дасгал л засна.
+    extra_examples:
+      - {wrong: "My mother, he is a teacher.", right: "My mother — she is a teacher."}
+      - {wrong: "My manager is kind. She is a good man.", right: "My manager is kind. He is a good man."}
+      - {wrong: "The company changed his name.", right: "The company changed its name."}
+    tip: >-
+      Speed drill: point at photos, say he/she in under 3 seconds each.
+
+  register:
+    explain_b1: >-
+      Mongolian politeness lives in the pronoun: та vs чи, one word changes
+      everything. English has no polite "you" — politeness moved into modal
+      verbs and length: more words + more distance = more polite. "I want
+      the report" is not rude in your head — you translated та correctly
+      and the politeness got lost in transit. The ladder: I'd like → Could
+      you…? → Would you mind…? → I was wondering whether you might…
+      For work email, this matters more than perfect grammar.
+    explain_a2: >-
+      Та гэдэг үг англид байхгүй. Эелдэг байдал modal үйл үгэнд байдаг:
+      "I want" ❌ → "I'd like" ✅. Хүсэлт: "Could you…?"
+    extra_examples:
+      - {wrong: "Send me the assay results.", right: "Could you send me the assay results?"}
+      - {wrong: "I want a day off tomorrow.", right: "I'd like a day off tomorrow."}
+      - {wrong: "Give me five minutes.", right: "Could you give me five minutes?"}
+    tip: >-
+      More words = more polite. Practise moving one request up and down
+      the ladder.
+
+  capitalization:
+    explain_b1: >-
+      Mongolian does not capitalise "би"; English ALWAYS capitalises "I" —
+      alone, mid-sentence, everywhere. Also capitalised: languages and
+      nationalities (English, Mongolian), days (Monday), months (July),
+      and names. Small, mechanical, and instantly visible to any reader —
+      an examiner notices a lowercase "i" before anything else on the page.
+    explain_a2: >-
+      "I" үргэлж том үсгээр. Хэлний нэр, гарагийн нэр, сарын нэр бас том:
+      English, Monday, July.
+    extra_examples:
+      - {wrong: "i work on mondays.", right: "I work on Mondays."}
+      - {wrong: "She speaks mongolian and russian.", right: "She speaks Mongolian and Russian."}
+      - {wrong: "we start in september.", right: "We start in September."}
+    tip: >-
+      Before sending anything, scan once just for i / english / monday.
+
+  countability:
+    explain_b1: >-
+      About fifteen English nouns are uncountable even though they FEEL
+      countable: information, advice, equipment, furniture, news, research,
+      evidence, knowledge, progress, work, money, traffic, weather,
+      software, staff. They never take -s and never take "a". To count
+      them, use a container: a PIECE of advice, THREE ITEMS of equipment,
+      a lot of work. "News" looks plural but takes a singular verb: the
+      news IS good.
+    explain_a2: >-
+      Эдгээр үгэнд -s хэзээ ч орохгүй: information, advice, equipment,
+      money, work. Тоолохдоо: a piece of advice.
+    extra_examples:
+      - {wrong: "The equipments arrived.", right: "The equipment arrived."}
+      - {wrong: "She gave me many advices.", right: "She gave me a lot of advice."}
+      - {wrong: "The news are good.", right: "The news is good."}
+    tip: >-
+      Memorise the list of 15 — reasoning will not help; they simply must
+      be known.
+
+  determiners:
+    explain_b1: >-
+      English allows only ONE central pointer word per noun: "the my
+      report" is impossible — choose "my report" or "the report". "A my
+      friend" becomes "a friend of mine". "Another" contains "an", so it
+      takes a singular noun: another sample, but OTHER samples. "Every"
+      also takes singular: every student KNOWS. And the apostrophe pair:
+      its = possession, it's = it is.
+    explain_a2: >-
+      Нэг нэр үгэнд нэг л заагч үг: my report (the my report ❌).
+      another + ганц тоо, other + олон тоо. it's = it is; its = эзэмшил.
+    extra_examples:
+      - {wrong: "The my colleague is here.", right: "My colleague is here."}
+      - {wrong: "We need another samples.", right: "We need other samples."}
+      - {wrong: "Its ready.", right: "It's ready."}
+    tip: >-
+      it's ready = it IS ready. its grade = түүний агуулга.
+
+  collocation:
+    explain_b1: >-
+      Words travel in fixed pairs, and the pairs do not survive
+      translation: you MAKE a decision (not do), DO research (not make),
+      rain is HEAVY (not strong), you TURN ON a light (not open). There is
+      no rule — only memory, so learn them as chunks. A special trap list:
+      verbs that take NO preposition at all — discuss, enter, approach,
+      marry, lack, mention, answer, reach, join, affect, phone. "Discuss
+      about it" ❌ → "discuss it" ✅.
+    explain_a2: >-
+      Үгс хосоороо явдаг: make a decision, do research, heavy rain, turn
+      on the light. Дүрэм байхгүй — хосыг цээжил.
+    extra_examples:
+      - {wrong: "We did a plan for the survey.", right: "We made a plan for the survey."}
+      - {wrong: "Let's discuss about the budget.", right: "Let's discuss the budget."}
+      - {wrong: "There was a strong rain last night.", right: "There was heavy rain last night."}
+    tip: >-
+      Learn verb + noun as one word: "make-a-decision" is one unit.
+
+  word_choice:
+    explain_b1: >-
+      Three traps. First, "thing/stuff" — the weakest nouns in English:
+      always name the actual noun ("exercises", not "fitness things").
+      Second, participial pairs: you are interestED (how you feel); the
+      rock is interestING (what causes the feeling). "I am boring" says
+      you make others sleep! Third, Russian loanwords that shifted meaning
+      in Mongolian: магазин is a shop (not magazine), кабинет is an office
+      (not cabinet).
+    explain_a2: >-
+      "Thing" гэхийн оронд жинхэнэ нэрийг хэл. interestED = сонирхож
+      байгаа хүн; interestING = сонирхолтой юм. Магазин = shop!
+    extra_examples:
+      - {wrong: "I am boring in meetings.", right: "I am bored in meetings."}
+      - {wrong: "I bought it in a magazine.", right: "I bought it in a shop."}
+      - {wrong: "We did some data things.", right: "We cleaned and checked the data."}
+    tip: >-
+      -ED = the person's feeling. -ING = the thing causing it.
+
+  modifier_placement:
+    explain_b1: >-
+      In Mongolian, word order is free because suffixes mark each word's
+      job; in English, position IS the job. Three placement rules: an
+      adverb never sits between the verb and its object ("examined the
+      core carefully", never "examined carefully the core"); frequency
+      adverbs (always, never, often) go BEFORE a main verb but AFTER "be"
+      ("I always check" / "I am always careful"); adjectives follow the
+      order opinion–size–age–shape–colour–origin–material ("an old black
+      wooden box").
+    explain_a2: >-
+      Үйл үг ба юуг нь хооронд нь үг бүү оруул: examined the core
+      carefully. always/never → үндсэн үйл үгийн ӨМНӨ: I always check.
+    extra_examples:
+      - {wrong: "He checked quickly the readings.", right: "He quickly checked the readings."}
+      - {wrong: "Always I start at seven.", right: "I always start at seven."}
+      - {wrong: "a black old leather bag", right: "an old black leather bag"}
+    tip: >-
+      Never between verb and object — that slot is sacred in English.
+
+  comparatives:
+    explain_b1: >-
+      Mongolian compares with the ablative case: "надаас өндөр" (from-me
+      tall). English needs TWO parts that always travel together: -er +
+      than. "Bigger THAN that one" — never "-er" alone, never "more taller"
+      (one comparative only). The length rule: one syllable → -er (deeper),
+      three or more → more (more expensive), two syllables → messy, learn
+      each word. Superlative: the + -est / the most.
+    explain_a2: >-
+      "Надаас өндөр" → taller THAN me. -er болон than хамт явдаг.
+      "More taller" ❌ — зөвхөн нэг харьцуулалт.
+    extra_examples:
+      - {wrong: "This deposit is big from that one.", right: "This deposit is bigger than that one."}
+      - {wrong: "The access road is more long.", right: "The access road is longer."}
+      - {wrong: "He is tall than me.", right: "He is taller than me."}
+    tip: >-
+      Short word → -er than. Long word → more … than. Never both.
+
+  relative_clauses:
+    explain_b1: >-
+      Mongolian describes BEFORE the noun: "миний уншсан ном" (my-read
+      book). English describes AFTER it: "the book THAT I READ". Build
+      from two simple sentences: "I saw a hole. We drilled it yesterday."
+      → "I saw the hole that we drilled yesterday." Who = people, which =
+      things, that = both. The professional bonus: reduced relatives drop
+      "that is/was" — "the samples collected yesterday", "mineralisation
+      hosted in shear zones" — the key to technical writing.
+    explain_a2: >-
+      Монголоор тодорхойлолт нэрийн ӨМНӨ, англиар АРД нь: the hole THAT we
+      drilled. Хоёр энгийн өгүүлбэрээс эхэл.
+    extra_examples:
+      - {wrong: "The yesterday arrived equipment is broken.", right: "The equipment that arrived yesterday is broken."}
+      - {wrong: "The us helping engineer left.", right: "The engineer who was helping us left."}
+      - {wrong: "I read the you sent report.", right: "I read the report that you sent."}
+    tip: >-
+      Stuck? Write two short sentences first, then join them with
+      that/who/which.
+
+  reported_speech:
+    explain_b1: >-
+      Three rules. Say vs tell: TELL needs a person ("he told ME"), SAY
+      does not ("he said the grade was low") — "he said me" is impossible.
+      Backshift: reporting steps one tense back — "I am tired" becomes "he
+      said he WAS tired". Reported questions lose their inversion and
+      their question mark: "Where do you work?" becomes "He asked where I
+      workED" — statement order, because it is no longer a question.
+    explain_a2: >-
+      tell + хүн: He told ME. say + үг: He said (that)… Асуултыг
+      дамжуулахад дараалал энгийн болно: He asked where I worked.
+    extra_examples:
+      - {wrong: "She said me the plan.", right: "She told me the plan."}
+      - {wrong: "He asked where did I study.", right: "He asked where I studied."}
+      - {wrong: "He said he is tired yesterday.", right: "He said he was tired yesterday."}
+    tip: >-
+      Inside a sentence, a question becomes a statement — no inversion,
+      no question mark.
+
+  spelling:
+    explain_b1: >-
+      Mongolian Cyrillic is nearly one letter = one sound; English spelling
+      is a 500-year-old fossil: through, though, thought, tough, thorough —
+      the same -ough, five different sounds. So expect spelling errors on
+      words you know perfectly BY EAR — that is normal, and native speakers
+      misspell too. The practical rule: never learn a written word without
+      its sound, and never learn a heard word without its spelling. They
+      are two separate facts about every English word.
+    explain_a2: >-
+      Англи үгийн бичлэг дуудлагыг дагадаггүй. Шинэ үгийг сурахдаа бичлэг
+      + дуудлага хоёуланг нь хамт сур.
+    extra_examples:
+      - {wrong: "I recieved the sampels.", right: "I received the samples."}
+      - {wrong: "The wether was terrible.", right: "The weather was terrible."}
+      - {wrong: "We have alot of work.", right: "We have a lot of work."}
+    tip: >-
+      i before e except after c: receive, believe. And "a lot" is always
+      two words.

@@ -29,6 +29,18 @@ def deterministic_patterns() -> list[dict]:
 
 
 @lru_cache(maxsize=None)
+def load_grammar_lessons() -> dict:
+    with open(KNOWLEDGE_DIR / "grammar_lessons.yaml", encoding="utf-8") as fh:
+        return yaml.safe_load(fh)["lessons"]
+
+
+@lru_cache(maxsize=None)
+def load_conversations() -> list[dict]:
+    with open(KNOWLEDGE_DIR / "conversations.yaml", encoding="utf-8") as fh:
+        return yaml.safe_load(fh)["dialogues"]
+
+
+@lru_cache(maxsize=None)
 def load_crisis_resources() -> dict:
     with open(KNOWLEDGE_DIR / "crisis_resources.yaml", encoding="utf-8") as fh:
         return yaml.safe_load(fh)

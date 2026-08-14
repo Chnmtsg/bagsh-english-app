@@ -17,14 +17,15 @@ REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO))
 
 from src.curriculum import category_examples, curriculum_order  # noqa: E402
-from src.knowledge import categories  # noqa: E402
+from src.knowledge import categories, load_conversations, load_grammar_lessons  # noqa: E402
 from src.quiz import grammar_bank, vocab_bank  # noqa: E402
 
 
 def main() -> int:
     cats = categories()
+    lessons = load_grammar_lessons()
     data = {
-        "version": 1,
+        "version": 2,
         "curriculum_order": curriculum_order(),
         "categories": {
             name: {
@@ -35,11 +36,13 @@ def main() -> int:
                 "bridge": c["bridge"],
                 "guide_ref": c["guide_ref"],
                 "examples": category_examples(name),
+                "lesson": lessons.get(name, {}),
             }
             for name, c in cats.items()
         },
         "grammar": grammar_bank(),
         "vocab": vocab_bank(),
+        "dialogues": load_conversations(),
     }
     out = REPO / "webapp" / "data.json"
     out.parent.mkdir(exist_ok=True)

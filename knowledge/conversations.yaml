@@ -1,0 +1,192 @@
+# Everyday conversations — how people actually talk, simplified.
+# Curated; text-only (no audio by design — stress marks are written).
+# Each dialogue: real-life lines EN + MN, key phrases with stress, and one
+# "choose the best reply" practice.
+# ⚠ Mongolian strings need native-speaker verification before shipping.
+
+version: 1
+
+dialogues:
+  - id: greetings
+    level: A1
+    title_en: "Saying hello"
+    title_mn: "Мэндчилгээ"
+    situation: "Two colleagues meet in the morning."
+    lines:
+      - {sp: "A", en: "Morning, Bold! How are you?", mn: "Өглөөний мэнд, Болд оо! Сайн уу?"}
+      - {sp: "B", en: "Good, thanks. And you?", mn: "Сайн, баярлалаа. Та сайн уу?"}
+      - {sp: "A", en: "Not bad. Busy day today?", mn: "Гайгүй ээ. Өнөөдөр завгүй юу?"}
+      - {sp: "B", en: "Pretty busy — we have a meeting at ten.", mn: "Нэлээд завгүй — арван цагт хуралтай."}
+      - {sp: "A", en: "Good luck! See you at lunch.", mn: "Амжилт! Үдийн хоолон дээр уулзъя."}
+      - {sp: "B", en: "See you!", mn: "Уулзъя!"}
+    key_phrases:
+      - {en: "How are you?", note: "Answer is short: 'Good, thanks. And you?' — nobody gives a real report."}
+      - {en: "Not bad", note: "= сайн байна. Very common, friendly."}
+      - {en: "See you!", note: "Casual goodbye between people who meet often."}
+    practice:
+      situation: "A colleague says: 'Morning! How are you?' — best reply?"
+      options:
+        - {text: "Good, thanks. And you?", correct: true, why: "Short + return the question — that is the whole game."}
+        - {text: "I am fine thank you and how are you my friend today.", correct: false, why: "Too long and formal — textbook English, not real life."}
+        - {text: "Yes.", correct: false, why: "'How are you?' needs a feeling word, not yes/no."}
+
+  - id: introductions
+    level: A1
+    title_en: "Meeting someone new"
+    title_mn: "Шинэ хүнтэй танилцах"
+    situation: "First day with a new team member."
+    lines:
+      - {sp: "A", en: "Hi, I'm Sarah. I don't think we've met.", mn: "Сайн уу, би Сара. Бид танилцаагүй юм шиг байна."}
+      - {sp: "B", en: "Hi Sarah, I'm Bold. I'm a geologist on the exploration team.", mn: "Сайн уу Сара, би Болд. Хайгуулын багийн геологич."}
+      - {sp: "A", en: "Nice to meet you, Bold. How long have you been here?", mn: "Танилцахад таатай байна, Болд. Энд ажиллаад удаж байна уу?"}
+      - {sp: "B", en: "About three years. And you? What do you do?", mn: "Гурван жил орчим. Та? Ямар ажил хийдэг вэ?"}
+      - {sp: "A", en: "I'm the new data engineer. Still finding my feet!", mn: "Би шинэ дата инженер. Дасаж л байна!"}
+      - {sp: "B", en: "You'll be fine. Let me know if you need anything.", mn: "Зүгээр дасна аа. Юм хэрэгтэй бол хэлээрэй."}
+    key_phrases:
+      - {en: "I'm a geologist", note: "am + a — the two words Mongolian drops. Never 'I geologist'."}
+      - {en: "What do you do?", note: "= Ямар ажил хийдэг вэ? (NOT 'What is your job?' — this is the natural version)"}
+      - {en: "Nice to meet you", note: "Say it once, at the first meeting only."}
+    practice:
+      situation: "Someone asks: 'What do you do?' — best reply?"
+      options:
+        - {text: "I'm a geologist. I work in exploration.", correct: true, why: "Job + one detail. Perfect shape."}
+        - {text: "I am geologist.", correct: false, why: "Missing 'a' — job words need an article."}
+        - {text: "I do many things.", correct: false, why: "'Things' says nothing — name the real job."}
+
+  - id: shop
+    level: A2
+    title_en: "At the shop"
+    title_mn: "Дэлгүүрт"
+    situation: "Buying water and asking the price."
+    lines:
+      - {sp: "A", en: "Excuse me, do you have sparkling water?", mn: "Уучлаарай, хийжүүлсэн ус байгаа юу?"}
+      - {sp: "B", en: "Yes, it's in the back, next to the juice.", mn: "Байгаа, ард талд, жүүсний хажууд."}
+      - {sp: "A", en: "Thanks. How much is this one?", mn: "Баярлалаа. Энэ ямар үнэтэй вэ?"}
+      - {sp: "B", en: "Two fifty.", mn: "Хоёр тавь (2.50)."}
+      - {sp: "A", en: "I'll take two, please. Can I pay by card?", mn: "Хоёрыг авъя. Картаар төлж болох уу?"}
+      - {sp: "B", en: "Sure. Tap here… all done. Have a good one!", mn: "Болно оо. Энд уншуулна уу… боллоо. Сайхан өдөр болоорой!"}
+    key_phrases:
+      - {en: "Excuse me…", note: "Opens ANY question to a stranger. Never start with the bare question."}
+      - {en: "How much is this?", note: "= Энэ ямар үнэтэй вэ?"}
+      - {en: "I'll take two", note: "'I'll take…' is the natural buying phrase — not 'I want two'."}
+    practice:
+      situation: "You want to know the price. Best question?"
+      options:
+        - {text: "Excuse me, how much is this?", correct: true, why: "Excuse me + the set phrase."}
+        - {text: "What is the money of this?", correct: false, why: "Word-for-word translation — this phrase doesn't exist."}
+        - {text: "Give me the price.", correct: false, why: "A bare command sounds rude in English (politeness lives in the phrasing)."}
+
+  - id: directions
+    level: A2
+    title_en: "Asking the way"
+    title_mn: "Зам асуух"
+    situation: "Finding a pharmacy in an unfamiliar part of town."
+    lines:
+      - {sp: "A", en: "Excuse me, is there a pharmacy near here?", mn: "Уучлаарай, энд ойрхон эмийн сан байгаа юу?"}
+      - {sp: "B", en: "Yes — go straight, then turn left at the bank.", mn: "Байгаа — чигээрээ яваад, банкан дээр зүүн тийш эргэ."}
+      - {sp: "A", en: "Left at the bank… is it far?", mn: "Банкан дээр зүүн тийш… хол уу?"}
+      - {sp: "B", en: "No, about five minutes on foot. It's on your right, next to a café.", mn: "Үгүй, явганаар таван минут орчим. Баруун гар талд, кафений хажууд."}
+      - {sp: "A", en: "Great, thanks a lot!", mn: "Их баярлалаа!"}
+      - {sp: "B", en: "No problem!", mn: "Зүгээр зүгээр!"}
+    key_phrases:
+      - {en: "Is there a … near here?", note: "THERE IS = байна. The question form for finding anything."}
+      - {en: "turn left / turn right", note: "зүүн / баруун тийш эргэх"}
+      - {en: "on your right", note: "ON for sides: on the right, on the left."}
+    practice:
+      situation: "You repeat the directions to check you understood. Best way?"
+      options:
+        - {text: "So — straight, then left at the bank?", correct: true, why: "Repeating back short is exactly what natives do to confirm."}
+        - {text: "I understood everything perfectly.", correct: false, why: "Saying you understood ≠ checking you understood."}
+        - {text: "Again.", correct: false, why: "One-word commands sound rude — use 'Sorry, could you say that again?'"}
+
+  - id: phone_repeat
+    level: A2
+    title_en: "On the phone — asking to repeat"
+    title_mn: "Утсаар — дахин хэлүүлэх"
+    situation: "A bad line. THE most important skill for real conversations."
+    lines:
+      - {sp: "A", en: "Hi, this is Bold from the exploration team.", mn: "Сайн уу, хайгуулын багийн Болд байна."}
+      - {sp: "B", en: "Hi Bold. The samples arrive on the… (unclear) …day.", mn: "Сайн уу Болд. Дээжүүд … (тодорхойгүй) … өдөр ирнэ."}
+      - {sp: "A", en: "Sorry, could you say that again? The line is bad.", mn: "Уучлаарай, дахин хэлж өгөхгүй юу? Холбоо муу байна."}
+      - {sp: "B", en: "Sure — the samples arrive on Thursday.", mn: "Тэгье — дээжүүд пүрэв гарагт ирнэ."}
+      - {sp: "A", en: "Thursday, got it. Could you speak a little slower, please? English is my second language.", mn: "Пүрэв, ойлголоо. Жаахан удаан ярьж болох уу? Англи хэл миний хоёр дахь хэл."}
+      - {sp: "B", en: "Of course, no problem at all.", mn: "Мэдээж, ямар ч асуудалгүй."}
+    key_phrases:
+      - {en: "Sorry, could you say that again?", note: "Use it PROUDLY. Native speakers say it constantly too."}
+      - {en: "Could you speak a little slower?", note: "Nobody minds. It shows confidence, not weakness."}
+      - {en: "Got it", note: "= ойлголоо. Confirms you understood."}
+    practice:
+      situation: "You didn't understand. Best response?"
+      options:
+        - {text: "Sorry, could you say that again?", correct: true, why: "The single most useful sentence in spoken English."}
+        - {text: "(Say nothing and hope)", correct: false, why: "Guessing builds wrong information — asking builds trust."}
+        - {text: "What?!", correct: false, why: "'What?' alone sounds annoyed. Add sorry + could you."}
+
+  - id: making_plans
+    level: B1
+    title_en: "Making plans with a friend"
+    title_mn: "Найзтайгаа болзох"
+    situation: "Arranging to meet at the weekend."
+    lines:
+      - {sp: "A", en: "Hey, are you free on Saturday?", mn: "Хөөе, бямбад завтай юу?"}
+      - {sp: "B", en: "Saturday… I think so. What did you have in mind?", mn: "Бямба… завтай байх аа. Юу бодож байгаа юм?"}
+      - {sp: "A", en: "There's a new place near the square. Fancy trying it?", mn: "Талбайн ойролцоо шинэ газар нээгдсэн. Очиж үзэх үү?"}
+      - {sp: "B", en: "Sounds good. What time works for you?", mn: "Сайхан санаа. Хэдэн цагт тохиромжтой вэ?"}
+      - {sp: "A", en: "How about one o'clock? We could walk after.", mn: "Нэг цагт ямар вэ? Дараа нь алхаж болно."}
+      - {sp: "B", en: "Perfect. If something comes up, I'll text you.", mn: "Болно. Ямар нэг зүйл гарвал мессеж бичье."}
+    key_phrases:
+      - {en: "Are you free on Saturday?", note: "free = завтай. ON + day."}
+      - {en: "How about one o'clock?", note: "'How about…?' — the softest way to suggest anything."}
+      - {en: "If something comes up…", note: "= Ямар нэг зүйл гарвал… ('comes up', present — no 'will' after if!)"}
+    practice:
+      situation: "You want to suggest 2 pm. Best way?"
+      options:
+        - {text: "How about two o'clock?", correct: true, why: "Soft suggestion — leaves room for the other person."}
+        - {text: "We will meet at two o'clock.", correct: false, why: "A decision, not a suggestion — sounds like an order."}
+        - {text: "If you will be free at two, we meet.", correct: false, why: "No 'will' after 'if': if you're free at two…"}
+
+  - id: work_meeting
+    level: B1
+    title_en: "Speaking up in a meeting"
+    title_mn: "Хурал дээр санал хэлэх"
+    situation: "A short project meeting; you need to update and disagree politely."
+    lines:
+      - {sp: "A", en: "Bold, could you give us a quick update on the drilling?", mn: "Болд оо, өрөмдлөгийн талаар товч мэдээлэл өгөхгүй юу?"}
+      - {sp: "B", en: "Sure. We've finished hole twelve — the last assays come back on Friday.", mn: "Тэгье. Арван хоёрдугаар цооногийг дуусгасан — сүүлийн шинжилгээ баасанд гарна."}
+      - {sp: "A", en: "Great. So we can start hole thirteen on Monday?", mn: "Сайн байна. Тэгэхээр даваад арван гуравдугаарыг эхлүүлж болох нь ээ?"}
+      - {sp: "B", en: "I'm not sure that works, actually — the road may not be ready. Could we say Wednesday to be safe?", mn: "Бүтэхгүй байж магадгүй — зам бэлэн болоогүй байж мэднэ. Аюулгүй талаас нь лхагва гэж тохирох уу?"}
+      - {sp: "A", en: "Fair point. Wednesday it is.", mn: "Зөв санал. Лхагва болгоё."}
+      - {sp: "B", en: "Thanks. I'll send a short summary after the meeting.", mn: "Баярлалаа. Хурлын дараа товч мэдээ явуулъя."}
+    key_phrases:
+      - {en: "I'm not sure that works, actually", note: "How natives say NO politely — never a bare 'No, impossible'."}
+      - {en: "Could we say Wednesday?", note: "Suggesting a change as a question keeps everyone comfortable."}
+      - {en: "Fair point", note: "= Зөв юм байна. Accepting someone's argument gracefully."}
+    practice:
+      situation: "You disagree with a date. Best way to say it?"
+      options:
+        - {text: "I'm not sure that works — could we say Wednesday?", correct: true, why: "Soft no + alternative = professional disagreement."}
+        - {text: "No. That is wrong.", correct: false, why: "Bare 'no' burns goodwill — English wraps disagreement in softeners."}
+        - {text: "(Stay silent and worry)", correct: false, why: "Silence = agreement in meetings. Speak, softly."}
+
+  - id: restaurant
+    level: A2
+    title_en: "At a restaurant"
+    title_mn: "Ресторанд"
+    situation: "Ordering food with a colleague."
+    lines:
+      - {sp: "A", en: "Hi! Are you ready to order?", mn: "Сайн уу! Захиалахад бэлэн үү?"}
+      - {sp: "B", en: "Almost — what do you recommend?", mn: "Бараг — та юу санал болгох вэ?"}
+      - {sp: "A", en: "The beef noodles are really popular.", mn: "Үхрийн махтай гоймон их эрэлттэй."}
+      - {sp: "B", en: "I'll have that, please. And a green tea.", mn: "Тэгвэл түүнийг авъя. Бас ногоон цай."}
+      - {sp: "A", en: "Anything else?", mn: "Өөр юм авах уу?"}
+      - {sp: "B", en: "No, that's all, thanks. Could we get the bill after?", mn: "Үгүй, боллоо, баярлалаа. Дараа нь тооцоог авчирч өгөхгүй юу?"}
+    key_phrases:
+      - {en: "What do you recommend?", note: "The friendliest question in any restaurant."}
+      - {en: "I'll have…", note: "The set phrase for ordering — not 'I want' and not 'give me'."}
+      - {en: "Could we get the bill?", note: "= Тооцоо авах. Also common: 'the check' (US)."}
+    practice:
+      situation: "Ordering soup. Best sentence?"
+      options:
+        - {text: "I'll have the soup, please.", correct: true, why: "'I'll have… please' is exactly how everyone orders."}
+        - {text: "I want soup.", correct: false, why: "Grammatical but blunt — 'I want' loses the politeness та carried."}
+        - {text: "Soup me.", correct: false, why: "Not an English structure."}
