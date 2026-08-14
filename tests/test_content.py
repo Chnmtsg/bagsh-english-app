@@ -1,9 +1,30 @@
 """Integrity of the expanded lesson and conversation content (curated —
 these tests are what 'curated' means in practice)."""
 
-from src.knowledge import categories, load_conversations, load_grammar_lessons
+from src.knowledge import (
+    categories,
+    cefr_bands,
+    load_conversations,
+    load_grammar_lessons,
+)
 
 LEVELS = {"A1", "A2", "B1", "B2"}
+
+
+def test_every_category_has_a_cefr_band():
+    bands = cefr_bands()
+    assert set(bands.keys()) == set(categories().keys())
+    assert set(bands.values()) <= LEVELS
+    # every band teaches something — no empty level
+    for level in LEVELS:
+        assert any(b == level for b in bands.values()), f"{level} band is empty"
+
+
+def test_a1_band_holds_the_foundations():
+    bands = cefr_bands()
+    assert bands["copula"] == "A1"
+    assert bands["word_order"] == "A1"
+    assert bands["reported_speech"] == "B2"
 
 
 def test_grammar_lessons_cover_all_24_categories():
@@ -42,6 +63,6 @@ def test_dialogues_are_complete_and_leveled():
             assert option.get("why"), f"{d['id']}: every option needs a 'why'"
 
 
-def test_dialogue_levels_span_beginner_to_intermediate():
+def test_dialogue_levels_span_all_bands():
     levels = {d["level"] for d in load_conversations()}
-    assert "A1" in levels and "B1" in levels
+    assert {"A1", "A2", "B1", "B2"} <= levels  # every level has talks

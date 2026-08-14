@@ -277,6 +277,38 @@ categories:
     bridge: "Кирилл үсэг = нэг үсэг, нэг авиа. Англид тийм биш: through, though, thought — гурван өөр дуудлага."
     example: { wrong: "exercies", right: "exercises" }
 
+# CEFR band per category — WHICH LEVEL this grammar belongs to, in the
+# spirit of Cambridge's English Grammar Profile (criterial features per
+# level), adjusted for Mongolian-speaker priorities from the contrastive
+# guide (e.g. comparatives sit later than EGP's A1 because the ablative
+# transfer makes them harder for this L1). Cumulative: a B1 learner owns
+# A1+A2+B1 bands.
+cefr_bands:
+  copula: A1
+  word_order: A1
+  articles: A1
+  verb_agreement: A1
+  plurals: A1
+  pronoun_gender: A1
+  capitalization: A1
+  missing_subject: A2
+  prepositions: A2
+  questions_negation: A2
+  countability: A2
+  determiners: A2
+  spelling: A2
+  word_choice: A2
+  tense_aspect: B1
+  verb_form: B1
+  punctuation: B1
+  topic_fronting: B1
+  comparatives: B1
+  collocation: B1
+  modifier_placement: B1
+  relative_clauses: B2
+  reported_speech: B2
+  register: B2
+
 # Content that belongs to a professional tier, NOT the journal taxonomy.
 # The journal app must not teach these; listed so nobody re-adds them.
 excluded_from_journal_app:

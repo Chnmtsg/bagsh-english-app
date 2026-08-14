@@ -54,3 +54,8 @@ def verified_crisis_resources() -> list[dict]:
 
 def categories() -> dict[str, dict]:
     return load_taxonomy()["categories"]
+
+
+def cefr_bands() -> dict[str, str]:
+    """Which CEFR level each grammar category belongs to (EGP-style)."""
+    return load_taxonomy()["cefr_bands"]

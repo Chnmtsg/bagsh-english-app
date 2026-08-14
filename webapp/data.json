@@ -1,5 +1,5 @@
 {
- "version": 2,
+ "version": 3,
  "curriculum_order": [
   "copula",
   "word_order",
@@ -29,6 +29,7 @@
  "categories": {
   "copula": {
    "priority": 1,
+   "cefr": "A1",
    "blocking": "high",
    "rule_a2": "English always needs am / is / are. 'I geologist' needs 'am'.",
    "rule_b1": "English never drops the verb 'to be': every sentence needs it, even when Mongolian would omit it.",
@@ -63,6 +64,7 @@
   },
   "word_order": {
    "priority": 2,
+   "cefr": "A1",
    "blocking": "high",
    "rule_a2": "English order: person, then action, then thing. I analysed the samples.",
    "rule_b1": "Mongolian builds backwards (SOV); English builds forwards (SVO). The verb comes before its object.",
@@ -107,6 +109,7 @@
   },
   "articles": {
    "priority": 3,
+   "cefr": "A1",
    "blocking": "low",
    "rule_a2": "Almost every single thing-word needs 'a', 'an' or 'the' in front.",
    "rule_b1": "A singular countable noun needs an article: 'a/an' for new or general, 'the' for one both people know.",
@@ -151,6 +154,7 @@
   },
   "verb_agreement": {
    "priority": 4,
+   "cefr": "A1",
    "blocking": "low",
    "rule_a2": "HE, SHE, IT adds -s: he works, she lives, it takes.",
    "rule_b1": "Present-simple verbs take -s with a third-person singular subject. Mongolian verbs never change for person, so this must become a reflex.",
@@ -190,6 +194,7 @@
   },
   "plurals": {
    "priority": 5,
+   "cefr": "A1",
    "blocking": "low",
    "rule_a2": "After 2, 3, 4… add -s: three samples. English repeats itself.",
    "rule_b1": "English marks the plural even after a numeral. It is redundant — Mongolian is more efficient here — but it is obligatory.",
@@ -234,6 +239,7 @@
   },
   "missing_subject": {
    "priority": 6,
+   "cefr": "A2",
    "blocking": "high",
    "rule_a2": "Every English sentence needs a subject. Use 'it' or 'there': It is raining. There are three samples.",
    "rule_b1": "English cannot tolerate a subjectless sentence, so it invents fake subjects: dummy 'it' and 'there'.",
@@ -268,6 +274,7 @@
   },
   "topic_fronting": {
    "priority": 7,
+   "cefr": "B1",
    "blocking": "medium",
    "rule_a2": "Don't start with 'About X'. Make X the subject: The report is late.",
    "rule_b1": "English cannot announce a topic with 'about'. The best repair is to make the topic the subject of the sentence.",
@@ -307,6 +314,7 @@
   },
   "prepositions": {
    "priority": 8,
+   "cefr": "A2",
    "blocking": "medium",
    "rule_a2": "Small words like at, in, on, to carry the meaning. Don't drop them: at 6:30, on Monday, in July.",
    "rule_b1": "English prepositions do the job of Mongolian case suffixes. They are the grammar, not decoration — deleting one deletes the meaning.",
@@ -351,6 +359,7 @@
   },
   "questions_negation": {
    "priority": 9,
+   "cefr": "A2",
    "blocking": "medium",
    "rule_a2": "Questions borrow 'do': Where do you work? Negatives too: I don't have time.",
    "rule_b1": "Find an auxiliary; if there is one, move it to the front; if not, borrow DO. Inside a longer sentence, a question becomes a statement again: tell me where it is.",
@@ -395,6 +404,7 @@
   },
   "tense_aspect": {
    "priority": 10,
+   "cefr": "B1",
    "blocking": "medium",
    "rule_a2": "since / for / already / yet / just → have + done: I have worked here since 2019.",
    "rule_b1": "Past simple is a dot in the past; present perfect is an arrow touching today. Trigger words (since, for, already, yet, just, ever, never) cover 80% of uses. Stative verbs (know, want, need, like) never take -ing, and 'will' never follows 'if'.",
@@ -439,6 +449,7 @@
   },
   "verb_form": {
    "priority": 11,
+   "cefr": "B1",
    "blocking": "high",
    "rule_a2": "After can/must/should: no 'to'. I can swim. After didn't: base form. I didn't go.",
    "rule_b1": "Each slot fixes the verb form: modal + base (can go), did + base (didn't go), enjoy + -ing, look forward to + -ing, was/were + past participle (was written).",
@@ -483,6 +494,7 @@
   },
   "punctuation": {
    "priority": 12,
+   "cefr": "B1",
    "blocking": "medium",
    "rule_a2": "Two full sentences cannot join with a comma. Use a full stop: I'm tired. I'll stop.",
    "rule_b1": "Cover the comma: if both halves are complete sentences, the comma is illegal. Fix with a full stop, a semicolon, a conjunction, or by subordinating one half.",
@@ -527,6 +539,7 @@
   },
   "pronoun_gender": {
    "priority": 13,
+   "cefr": "A1",
    "blocking": "medium",
    "rule_a2": "he = эрэгтэй, she = эмэгтэй. My wife — she.",
    "rule_b1": "You know this rule; the error happens at speed because «тэр» never forces the choice. Only timed practice fixes it — not re-reading the rule.",
@@ -561,6 +574,7 @@
   },
   "register": {
    "priority": 14,
+   "cefr": "B2",
    "blocking": "low",
    "rule_a2": "To be polite: I'd like… / Could you…? 'I want' sounds too strong.",
    "rule_b1": "English politeness lives in modal verbs, not pronouns: more words + more distance = more polite. The ladder: I'd like → Could you → Would you mind → I was wondering whether you might.",
@@ -605,6 +619,7 @@
   },
   "capitalization": {
    "priority": 15,
+   "cefr": "A1",
    "blocking": "low",
    "rule_a2": "I is always big. Languages too: English, Mongolian. Days: Monday.",
    "rule_b1": "Capitalise I, languages, nationalities, days and months — small, mechanical, and instantly noticed by any reader.",
@@ -649,6 +664,7 @@
   },
   "countability": {
    "priority": 16,
+   "cefr": "A2",
    "blocking": "low",
    "rule_a2": "Some words never take -s: information, advice, equipment, news, money, work.",
    "rule_b1": "About 15 English nouns are uncountable even though they feel countable: information, advice, equipment, research, evidence, news, work, money. Count them with 'a piece of'.",
@@ -693,6 +709,7 @@
   },
   "determiners": {
    "priority": 17,
+   "cefr": "A2",
    "blocking": "low",
    "rule_a2": "One pointer word only: my report (not 'the my report'). another + ганц тоо: another sample.",
    "rule_b1": "Only one central determiner per noun: 'a my friend' → 'a friend of mine'. 'another' takes a singular noun; 'every' takes a singular noun and verb. its = эзэмшил, it's = it is.",
@@ -737,6 +754,7 @@
   },
   "collocation": {
    "priority": 18,
+   "cefr": "B1",
    "blocking": "medium",
    "rule_a2": "Words go in fixed pairs: make a decision, do research, heavy rain. Learn the pair, not the rule.",
    "rule_b1": "Collocations are fixed partnerships — memorise them as chunks. Verbs that take NO preposition: discuss, enter, approach, marry, lack, mention, answer, reach, join, affect, phone.",
@@ -781,6 +799,7 @@
   },
   "word_choice": {
    "priority": 19,
+   "cefr": "A2",
    "blocking": "high",
    "rule_a2": "Name the real thing: not 'things', say 'exercises'. good → well after a verb.",
    "rule_b1": "'Thing' and 'stuff' are the weakest nouns in English — name the actual noun. Watch participial pairs (interested/interesting) and Russian-loan false friends (магазин ≠ magazine, кабинет ≠ cabinet).",
@@ -825,6 +844,7 @@
   },
   "modifier_placement": {
    "priority": 20,
+   "cefr": "B1",
    "blocking": "low",
    "rule_a2": "Never put a describing word between the action and the thing: He examined the core carefully.",
    "rule_b1": "Adverbs never sit between verb and object. Frequency adverbs go before the main verb but after 'be'. Adjective order: opinion–size–age–shape–colour–origin–material.",
@@ -869,6 +889,7 @@
   },
   "comparatives": {
    "priority": 21,
+   "cefr": "B1",
    "blocking": "medium",
    "rule_a2": "-er and than travel together: bigger than. Short word → -er, long word → more.",
    "rule_b1": "'-er + than' is one inseparable unit. One syllable → -er; three or more → more; never both ('more taller').",
@@ -913,6 +934,7 @@
   },
   "relative_clauses": {
    "priority": 22,
+   "cefr": "B2",
    "blocking": "medium",
    "rule_a2": "Describe after the thing: the hole that we drilled yesterday.",
    "rule_b1": "Mongolian describes before the noun; English describes after it. Build from two simple sentences: I saw a hole. We drilled it yesterday. → I saw the hole that we drilled yesterday.",
@@ -947,6 +969,7 @@
   },
   "reported_speech": {
    "priority": 23,
+   "cefr": "B2",
    "blocking": "medium",
    "rule_a2": "say + words, tell + person: He told me the results. He said the results were good.",
    "rule_b1": "Reported speech steps one tense back, keeps statement word order, and distinguishes say (no person) from tell (person first).",
@@ -981,6 +1004,7 @@
   },
   "spelling": {
    "priority": 24,
+   "cefr": "A2",
    "blocking": "low",
    "rule_a2": "English spelling does not follow sound. Learn the written word together with how it sounds.",
    "rule_b1": "Cyrillic is nearly phonetic; English spelling is a 500-year-old fossil. Expect errors on words you know perfectly by ear — native speakers misspell too. Never learn a written word without its sound.",
@@ -1021,7 +1045,8 @@
    "prompt": "I am geologist.",
    "answer": "I am a geologist.",
    "explanation": "Job words need 'a': I am a geologist.",
-   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)"
+   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)",
+   "cefr": "A1"
   },
   {
    "id": "g2",
@@ -1029,7 +1054,8 @@
    "prompt": "She is engineer.",
    "answer": "She is an engineer.",
    "explanation": "Job words need 'an' before a vowel sound: an engineer.",
-   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)"
+   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)",
+   "cefr": "A1"
   },
   {
    "id": "g3",
@@ -1037,7 +1063,8 @@
    "prompt": "I work in mining industry.",
    "answer": "I work in the mining industry.",
    "explanation": "Industry names take 'the': the mining industry.",
-   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)"
+   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)",
+   "cefr": "A1"
   },
   {
    "id": "g4",
@@ -1045,7 +1072,8 @@
    "prompt": "We found new deposit.",
    "answer": "We found a new deposit.",
    "explanation": "A new, countable thing needs 'a': a new deposit.",
-   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)"
+   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)",
+   "cefr": "A1"
   },
   {
    "id": "g5",
@@ -1053,7 +1081,8 @@
    "prompt": "The deposit is in Gobi.",
    "answer": "The deposit is in the Gobi Desert.",
    "explanation": "Deserts take 'the': the Gobi Desert.",
-   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)"
+   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)",
+   "cefr": "A1"
   },
   {
    "id": "g6",
@@ -1061,7 +1090,8 @@
    "prompt": "I live in the Mongolia.",
    "answer": "I live in Mongolia.",
    "explanation": "Country names take no article: in Mongolia.",
-   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)"
+   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)",
+   "cefr": "A1"
   },
   {
    "id": "g7",
@@ -1069,7 +1099,8 @@
    "prompt": "He speaks the English.",
    "answer": "He speaks English.",
    "explanation": "Language names take no article: speaks English.",
-   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)"
+   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)",
+   "cefr": "A1"
   },
   {
    "id": "g8",
@@ -1077,7 +1108,8 @@
    "prompt": "I go to the work at 8.",
    "answer": "I go to work at 8.",
    "explanation": "Fixed phrase: go to work, no 'the'.",
-   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)"
+   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)",
+   "cefr": "A1"
   },
   {
    "id": "g9",
@@ -1085,7 +1117,8 @@
    "prompt": "The geology is interesting.",
    "answer": "Geology is interesting.",
    "explanation": "A subject in general takes no article: Geology is interesting.",
-   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)"
+   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)",
+   "cefr": "A1"
   },
   {
    "id": "g10",
@@ -1093,7 +1126,8 @@
    "prompt": "It took a hour.",
    "answer": "It took an hour.",
    "explanation": "'Hour' starts with a vowel SOUND, so: an hour.",
-   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)"
+   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)",
+   "cefr": "A1"
   },
   {
    "id": "g11",
@@ -1101,7 +1135,8 @@
    "prompt": "She is an university student.",
    "answer": "She is a university student.",
    "explanation": "'University' starts with a /j/ sound, so: a university.",
-   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)"
+   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)",
+   "cefr": "A1"
   },
   {
    "id": "g12",
@@ -1109,7 +1144,8 @@
    "prompt": "I saw a rock. A rock was heavy.",
    "answer": "I saw a rock. The rock was heavy.",
    "explanation": "Second mention becomes 'the': we both know which rock now.",
-   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)"
+   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)",
+   "cefr": "A1"
   },
   {
    "id": "g13",
@@ -1117,7 +1153,8 @@
    "prompt": "We collected three sample.",
    "answer": "We collected three samples.",
    "explanation": "After a number, add -s: three samples. English repeats itself.",
-   "bridge": "Гурван ном → three books. Монголд тоо нь олон тоог хэлчихдэг тул -s хэрэггүй; англи давхардуулдаг. Логикгүй ч хүлээн зөвшөөр."
+   "bridge": "Гурван ном → three books. Монголд тоо нь олон тоог хэлчихдэг тул -s хэрэггүй; англи давхардуулдаг. Логикгүй ч хүлээн зөвшөөр.",
+   "cefr": "A1"
   },
   {
    "id": "g14",
@@ -1125,7 +1162,8 @@
    "prompt": "many informations",
    "answer": "much information",
    "explanation": "'Information' never takes -s: much information.",
-   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff."
+   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff.",
+   "cefr": "A2"
   },
   {
    "id": "g15",
@@ -1133,7 +1171,8 @@
    "prompt": "We bought new equipments.",
    "answer": "We bought new equipment.",
    "explanation": "'Equipment' never takes -s.",
-   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff."
+   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff.",
+   "cefr": "A2"
   },
   {
    "id": "g16",
@@ -1141,7 +1180,8 @@
    "prompt": "He gave me an advice.",
    "answer": "He gave me a piece of advice.",
    "explanation": "'Advice' is uncountable: a piece of advice.",
-   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff."
+   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff.",
+   "cefr": "A2"
   },
   {
    "id": "g17",
@@ -1149,7 +1189,8 @@
    "prompt": "The news are good.",
    "answer": "The news is good.",
    "explanation": "'News' looks plural but is singular: the news is good.",
-   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff."
+   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff.",
+   "cefr": "A2"
   },
   {
    "id": "g18",
@@ -1157,7 +1198,8 @@
    "prompt": "I have many works.",
    "answer": "I have a lot of work.",
    "explanation": "'Work' (ажил) is uncountable: a lot of work.",
-   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff."
+   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff.",
+   "cefr": "A2"
   },
   {
    "id": "g19",
@@ -1165,7 +1207,8 @@
    "prompt": "We did two researches.",
    "answer": "We did two research projects.",
    "explanation": "'Research' is uncountable: count it with 'projects' or 'studies'.",
-   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff."
+   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff.",
+   "cefr": "A2"
   },
   {
    "id": "g20",
@@ -1173,7 +1216,8 @@
    "prompt": "The datas show a trend.",
    "answer": "The data show a trend.",
    "explanation": "'Data' is already plural — never 'datas'.",
-   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff."
+   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff.",
+   "cefr": "A2"
   },
   {
    "id": "g21",
@@ -1181,7 +1225,8 @@
    "prompt": "The staffs were present.",
    "answer": "The staff were present.",
    "explanation": "'Staff' is a group word — no -s.",
-   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff."
+   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff.",
+   "cefr": "A2"
   },
   {
    "id": "g22",
@@ -1189,7 +1234,8 @@
    "prompt": "The evidences suggest a fault.",
    "answer": "The evidence suggests a fault.",
    "explanation": "'Evidence' never takes -s.",
-   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff."
+   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff.",
+   "cefr": "A2"
   },
   {
    "id": "g23",
@@ -1197,7 +1243,8 @@
    "prompt": "He work here.",
    "answer": "He works here.",
    "explanation": "HE-SHE-IT adds -s: he works.",
-   "bridge": "Монгол үйл үг хэн үйлдэхээс хамаарч өөрчлөгддөггүй. Англид зөвхөн he/she/it дээр -s нэмэгдэнэ."
+   "bridge": "Монгол үйл үг хэн үйлдэхээс хамаарч өөрчлөгддөггүй. Англид зөвхөн he/she/it дээр -s нэмэгдэнэ.",
+   "cefr": "A1"
   },
   {
    "id": "g24",
@@ -1205,7 +1252,8 @@
    "prompt": "She don't know.",
    "answer": "She doesn't know.",
    "explanation": "he/she/it + doesn't (not don't).",
-   "bridge": "Монгол үйл үг хэн үйлдэхээс хамаарч өөрчлөгддөггүй. Англид зөвхөн he/she/it дээр -s нэмэгдэнэ."
+   "bridge": "Монгол үйл үг хэн үйлдэхээс хамаарч өөрчлөгддөггүй. Англид зөвхөн he/she/it дээр -s нэмэгдэнэ.",
+   "cefr": "A1"
   },
   {
    "id": "g25",
@@ -1213,7 +1261,8 @@
    "prompt": "I work here since 2019.",
    "answer": "I have worked here since 2019.",
    "explanation": "'since' + still true today → have worked (arrow touching today).",
-   "bridge": "-сан нь өнгөрсөн ба одоотой холбоотой хоёуланг нь хэлдэг. Англи хоёрыг ялгадаг: цэг (worked) ба өнөөдрийг хүрсэн сум (have worked)."
+   "bridge": "-сан нь өнгөрсөн ба одоотой холбоотой хоёуланг нь хэлдэг. Англи хоёрыг ялгадаг: цэг (worked) ба өнөөдрийг хүрсэн сум (have worked).",
+   "cefr": "B1"
   },
   {
    "id": "g26",
@@ -1221,7 +1270,8 @@
    "prompt": "I am knowing the answer.",
    "answer": "I know the answer.",
    "explanation": "'Know' never takes -ing: I know.",
-   "bridge": "-сан нь өнгөрсөн ба одоотой холбоотой хоёуланг нь хэлдэг. Англи хоёрыг ялгадаг: цэг (worked) ба өнөөдрийг хүрсэн сум (have worked)."
+   "bridge": "-сан нь өнгөрсөн ба одоотой холбоотой хоёуланг нь хэлдэг. Англи хоёрыг ялгадаг: цэг (worked) ба өнөөдрийг хүрсэн сум (have worked).",
+   "cefr": "B1"
   },
   {
    "id": "g27",
@@ -1229,7 +1279,8 @@
    "prompt": "I am agree.",
    "answer": "I agree.",
    "explanation": "'Agree' is a verb, not an adjective: I agree.",
-   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой."
+   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой.",
+   "cefr": "B1"
   },
   {
    "id": "g28",
@@ -1237,7 +1288,8 @@
    "prompt": "He is teacher.",
    "answer": "He is a teacher.",
    "explanation": "Job words need 'a': he is a teacher.",
-   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)"
+   "bridge": "Монгол хэл тодорхой зүйлийг -ыг/-ийг дагавраар тэмдэглэдэг. Ойлголт нь танд аль хэдийн бий — англи хэл зөвхөн тусдаа үг ашигладаг. (Mongolian already marks definiteness with the accusative suffix; English uses a separate word.)",
+   "cefr": "A1"
   },
   {
    "id": "g29",
@@ -1245,7 +1297,8 @@
    "prompt": "Yesterday I go to site.",
    "answer": "Yesterday I went to the site.",
    "explanation": "'Yesterday' = past, so the verb is past: went.",
-   "bridge": "-сан нь өнгөрсөн ба одоотой холбоотой хоёуланг нь хэлдэг. Англи хоёрыг ялгадаг: цэг (worked) ба өнөөдрийг хүрсэн сум (have worked)."
+   "bridge": "-сан нь өнгөрсөн ба одоотой холбоотой хоёуланг нь хэлдэг. Англи хоёрыг ялгадаг: цэг (worked) ба өнөөдрийг хүрсэн сум (have worked).",
+   "cefr": "B1"
   },
   {
    "id": "g30",
@@ -1253,7 +1306,8 @@
    "prompt": "I have went there.",
    "answer": "I have gone there.",
    "explanation": "have/has/had + gone (third form), never 'went'.",
-   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой."
+   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой.",
+   "cefr": "B1"
   },
   {
    "id": "g31",
@@ -1261,7 +1315,8 @@
    "prompt": "The report was wrote.",
    "answer": "The report was written.",
    "explanation": "Passive uses the third form: was written.",
-   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой."
+   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой.",
+   "cefr": "B1"
   },
   {
    "id": "g32",
@@ -1269,7 +1324,8 @@
    "prompt": "The accident was happened.",
    "answer": "The accident happened.",
    "explanation": "'Happen' has no passive: the accident happened.",
-   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой."
+   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой.",
+   "cefr": "B1"
   },
   {
    "id": "g33",
@@ -1277,7 +1333,8 @@
    "prompt": "I didn't went.",
    "answer": "I didn't go.",
    "explanation": "After did/didn't the verb goes back to base form: didn't go.",
-   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой."
+   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой.",
+   "cefr": "B1"
   },
   {
    "id": "g34",
@@ -1285,7 +1342,8 @@
    "prompt": "He can to swim.",
    "answer": "He can swim.",
    "explanation": "After can/must/should: no 'to'. He can swim.",
-   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой."
+   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой.",
+   "cefr": "B1"
   },
   {
    "id": "g35",
@@ -1293,7 +1351,8 @@
    "prompt": "He cans drive.",
    "answer": "He can drive.",
    "explanation": "Modal verbs never take -s: he can.",
-   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой."
+   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой.",
+   "cefr": "B1"
   },
   {
    "id": "g36",
@@ -1301,7 +1360,8 @@
    "prompt": "I enjoy to work here.",
    "answer": "I enjoy working here.",
    "explanation": "enjoy + -ing: enjoy working.",
-   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой."
+   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой.",
+   "cefr": "B1"
   },
   {
    "id": "g37",
@@ -1309,7 +1369,8 @@
    "prompt": "I look forward to hear from you.",
    "answer": "I look forward to hearing from you.",
    "explanation": "'to' here is a preposition → -ing: look forward to hearing.",
-   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой."
+   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой.",
+   "cefr": "B1"
   },
   {
    "id": "g38",
@@ -1317,7 +1378,8 @@
    "prompt": "He suggested me to go.",
    "answer": "He suggested that I go.",
    "explanation": "suggest + that + person: he suggested that I go.",
-   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой."
+   "bridge": "Монгол нэг үгэнд дагавар давхарладаг; англи хэд хэдэн жижиг үгээр илэрхийлдэг тул хэлбэр нь хоорондоо таарах ёстой.",
+   "cefr": "B1"
   },
   {
    "id": "g39",
@@ -1325,7 +1387,8 @@
    "prompt": "If it will rain, we stop.",
    "answer": "If it rains, we will stop.",
    "explanation": "No 'will' after 'if': if it rains, we will stop.",
-   "bridge": "-сан нь өнгөрсөн ба одоотой холбоотой хоёуланг нь хэлдэг. Англи хоёрыг ялгадаг: цэг (worked) ба өнөөдрийг хүрсэн сум (have worked)."
+   "bridge": "-сан нь өнгөрсөн ба одоотой холбоотой хоёуланг нь хэлдэг. Англи хоёрыг ялгадаг: цэг (worked) ба өнөөдрийг хүрсэн сум (have worked).",
+   "cefr": "B1"
   },
   {
    "id": "g40",
@@ -1333,7 +1396,8 @@
    "prompt": "I am interesting in geology.",
    "answer": "I am interested in geology.",
    "explanation": "You feel interestED; the thing is interestING.",
-   "bridge": "Орос гаралтай зээл үгс англид өөр утгатай: магазин бол shop, magazine биш; кабинет бол office, cabinet биш."
+   "bridge": "Орос гаралтай зээл үгс англид өөр утгатай: магазин бол shop, magazine биш; кабинет бол office, cabinet биш.",
+   "cefr": "A2"
   },
   {
    "id": "g41",
@@ -1341,7 +1405,8 @@
    "prompt": "I the samples analysed.",
    "answer": "I analysed the samples.",
    "explanation": "English builds forwards: person → action → thing.",
-   "bridge": "Би ном уншсан = I book read. One rule covers five error types: Mongolian builds backwards; English builds forwards."
+   "bridge": "Би ном уншсан = I book read. One rule covers five error types: Mongolian builds backwards; English builds forwards.",
+   "cefr": "A1"
   },
   {
    "id": "g42",
@@ -1349,7 +1414,8 @@
    "prompt": "He examined carefully the core.",
    "answer": "He examined the core carefully.",
    "explanation": "Never put an adverb between the verb and its object.",
-   "bridge": "Монголоор дараалал чөлөөтэй — дагавар үүргийг заадаг тул. Англиар байрлал өөрөө үүргийг заадаг."
+   "bridge": "Монголоор дараалал чөлөөтэй — дагавар үүргийг заадаг тул. Англиар байрлал өөрөө үүргийг заадаг.",
+   "cefr": "B1"
   },
   {
    "id": "g43",
@@ -1357,7 +1423,8 @@
    "prompt": "We drilled last week three holes.",
    "answer": "We drilled three holes last week.",
    "explanation": "Time words go at the end (or the very start), not in the middle.",
-   "bridge": "Би ном уншсан = I book read. One rule covers five error types: Mongolian builds backwards; English builds forwards."
+   "bridge": "Би ном уншсан = I book read. One rule covers five error types: Mongolian builds backwards; English builds forwards.",
+   "cefr": "A1"
   },
   {
    "id": "g44",
@@ -1365,7 +1432,8 @@
    "prompt": "The yesterday drilled hole was deep.",
    "answer": "The hole we drilled yesterday was deep.",
    "explanation": "Describe AFTER the noun: the hole that we drilled yesterday.",
-   "bridge": "Миний уншсан ном = [я уншсан] ном — тодорхойлолт өмнө нь. Англиар ард нь: the book that I read."
+   "bridge": "Миний уншсан ном = [я уншсан] ном — тодорхойлолт өмнө нь. Англиар ард нь: the book that I read.",
+   "cefr": "B2"
   },
   {
    "id": "g45",
@@ -1373,7 +1441,8 @@
    "prompt": "a wooden black old box",
    "answer": "an old black wooden box",
    "explanation": "Adjective order: opinion–size–age–shape–colour–origin–material.",
-   "bridge": "Монголоор дараалал чөлөөтэй — дагавар үүргийг заадаг тул. Англиар байрлал өөрөө үүргийг заадаг."
+   "bridge": "Монголоор дараалал чөлөөтэй — дагавар үүргийг заадаг тул. Англиар байрлал өөрөө үүргийг заадаг.",
+   "cefr": "B1"
   },
   {
    "id": "g46",
@@ -1381,7 +1450,8 @@
    "prompt": "I always am careful.",
    "answer": "I am always careful.",
    "explanation": "Frequency adverbs go AFTER 'be': I am always careful.",
-   "bridge": "Монголоор дараалал чөлөөтэй — дагавар үүргийг заадаг тул. Англиар байрлал өөрөө үүргийг заадаг."
+   "bridge": "Монголоор дараалал чөлөөтэй — дагавар үүргийг заадаг тул. Англиар байрлал өөрөө үүргийг заадаг.",
+   "cefr": "B1"
   },
   {
    "id": "g47",
@@ -1389,7 +1459,8 @@
    "prompt": "Always I check the data.",
    "answer": "I always check the data.",
    "explanation": "Frequency adverbs go before the main verb: I always check.",
-   "bridge": "Монголоор дараалал чөлөөтэй — дагавар үүргийг заадаг тул. Англиар байрлал өөрөө үүргийг заадаг."
+   "bridge": "Монголоор дараалал чөлөөтэй — дагавар үүргийг заадаг тул. Англиар байрлал өөрөө үүргийг заадаг.",
+   "cefr": "B1"
   },
   {
    "id": "g48",
@@ -1397,7 +1468,8 @@
    "prompt": "Very I like it.",
    "answer": "I like it very much.",
    "explanation": "'Very much' goes at the end: I like it very much.",
-   "bridge": "Монголоор дараалал чөлөөтэй — дагавар үүргийг заадаг тул. Англиар байрлал өөрөө үүргийг заадаг."
+   "bridge": "Монголоор дараалал чөлөөтэй — дагавар үүргийг заадаг тул. Англиар байрлал өөрөө үүргийг заадаг.",
+   "cefr": "B1"
   },
   {
    "id": "g49",
@@ -1405,7 +1477,8 @@
    "prompt": "About the report, it's late.",
    "answer": "The report is late.",
    "explanation": "English can't announce a topic with 'about' — make it the subject.",
-   "bridge": "«Тухай» бол нэр үгийн ард ордог дагавар үг. 'About the report, it is late' нь монгол бүтэц — англиар сэдвийг өгүүлэгдэхүүн болго: 'The report is late.'"
+   "bridge": "«Тухай» бол нэр үгийн ард ордог дагавар үг. 'About the report, it is late' нь монгол бүтэц — англиар сэдвийг өгүүлэгдэхүүн болго: 'The report is late.'",
+   "cefr": "B1"
   },
   {
    "id": "g50",
@@ -1413,7 +1486,8 @@
    "prompt": "We arrived to the site.",
    "answer": "We arrived at the site.",
    "explanation": "arrive AT a place: arrived at the site.",
-   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил."
+   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил.",
+   "cefr": "A2"
   },
   {
    "id": "g51",
@@ -1421,7 +1495,8 @@
    "prompt": "Let's discuss about it.",
    "answer": "Let's discuss it.",
    "explanation": "'Discuss' takes no preposition: discuss it.",
-   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision."
+   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision.",
+   "cefr": "B1"
   },
   {
    "id": "g52",
@@ -1429,7 +1504,8 @@
    "prompt": "Explain me the data.",
    "answer": "Explain the data to me.",
    "explanation": "explain something TO someone: explain the data to me.",
-   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision."
+   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision.",
+   "cefr": "B1"
   },
   {
    "id": "g53",
@@ -1437,7 +1513,8 @@
    "prompt": "It depends of the grade.",
    "answer": "It depends on the grade.",
    "explanation": "depends ON — learn verb + preposition as one chunk.",
-   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил."
+   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил.",
+   "cefr": "A2"
   },
   {
    "id": "g54",
@@ -1445,7 +1522,8 @@
    "prompt": "I listen music every day.",
    "answer": "I listen to music every day.",
    "explanation": "listen TO music.",
-   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision."
+   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision.",
+   "cefr": "B1"
   },
   {
    "id": "g55",
@@ -1453,7 +1531,8 @@
    "prompt": "She is married with him.",
    "answer": "She is married to him.",
    "explanation": "married TO a person.",
-   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил."
+   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил.",
+   "cefr": "A2"
   },
   {
    "id": "g56",
@@ -1461,7 +1540,8 @@
    "prompt": "I read it in the internet.",
    "answer": "I read it on the internet.",
    "explanation": "ON the internet (like a surface).",
-   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил."
+   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил.",
+   "cefr": "A2"
   },
   {
    "id": "g57",
@@ -1469,7 +1549,8 @@
    "prompt": "I'm good in English.",
    "answer": "I'm good at English.",
    "explanation": "good AT something.",
-   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил."
+   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил.",
+   "cefr": "A2"
   },
   {
    "id": "g58",
@@ -1477,7 +1558,8 @@
    "prompt": "different than",
    "answer": "different from",
    "explanation": "British English prefers 'different from' ('than' is common in American).",
-   "bridge": "Монголоор харьцуулалт гарах падежээр бүтдэг: надаас өндөр (миний-аас өндөр). Англид 'than' + -er хоёул хэрэгтэй."
+   "bridge": "Монголоор харьцуулалт гарах падежээр бүтдэг: надаас өндөр (миний-аас өндөр). Англид 'than' + -er хоёул хэрэгтэй.",
+   "cefr": "B1"
   },
   {
    "id": "g59",
@@ -1485,7 +1567,8 @@
    "prompt": "The deposit consists in three units.",
    "answer": "The deposit consists of three units.",
    "explanation": "consists OF parts ('consist in' exists but means something else).",
-   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил."
+   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил.",
+   "cefr": "A2"
   },
   {
    "id": "g60",
@@ -1493,7 +1576,8 @@
    "prompt": "He is responsible of safety.",
    "answer": "He is responsible for safety.",
    "explanation": "responsible FOR something.",
-   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил."
+   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил.",
+   "cefr": "A2"
   },
   {
    "id": "g61",
@@ -1501,7 +1585,8 @@
    "prompt": "We started on July.",
    "answer": "We started in July.",
    "explanation": "IN a month, ON a date: in July, on July 4.",
-   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил."
+   "bridge": "Монголоор нэр үгийн төгсгөл (-д, -аас, -тай) үүргийг заадаг. Англиар нэр үгийн ӨМНӨХ жижиг үг заадаг. Жижиг үгийг хаявал дагаврыг хаясантай адил.",
+   "cefr": "A2"
   },
   {
    "id": "g62",
@@ -1509,7 +1594,8 @@
    "prompt": "He entered into the room.",
    "answer": "He entered the room.",
    "explanation": "'Enter' takes no preposition: enter the room.",
-   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision."
+   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision.",
+   "cefr": "B1"
   },
   {
    "id": "g63",
@@ -1517,7 +1603,8 @@
    "prompt": "My wife, he works in a school.",
    "answer": "My wife, she works in a school.",
    "explanation": "wife/mother/sister → she. («тэр» hides this choice; English forces it.)",
-   "bridge": "«Тэр» нь he, she, it гурвууланг нь хэлдэг. Энэ бол мэдлэгийн биш, хурдны асуудал."
+   "bridge": "«Тэр» нь he, she, it гурвууланг нь хэлдэг. Энэ бол мэдлэгийн биш, хурдны асуудал.",
+   "cefr": "A1"
   },
   {
    "id": "g64",
@@ -1525,7 +1612,8 @@
    "prompt": "Its ready.",
    "answer": "It's ready.",
    "explanation": "it's = it is; its = эзэмшил (possessive).",
-   "bridge": "Монголоор 'миний энэ тайлан' болно; англиар 'the my report' болохгүй — нэг л заагч үг."
+   "bridge": "Монголоор 'миний энэ тайлан' болно; англиар 'the my report' болохгүй — нэг л заагч үг.",
+   "cefr": "A2"
   },
   {
    "id": "g65",
@@ -1533,7 +1621,8 @@
    "prompt": "the deposit and it's grade",
    "answer": "the deposit and its grade",
    "explanation": "Possessive is 'its' with no apostrophe: its grade.",
-   "bridge": "Монголоор 'миний энэ тайлан' болно; англиар 'the my report' болохгүй — нэг л заагч үг."
+   "bridge": "Монголоор 'миний энэ тайлан' болно; англиар 'the my report' болохгүй — нэг л заагч үг.",
+   "cefr": "A2"
   },
   {
    "id": "g66",
@@ -1541,7 +1630,8 @@
    "prompt": "Have you read the my report?",
    "answer": "Have you read my report?",
    "explanation": "Only one pointer word per noun: my report (never 'the my').",
-   "bridge": "Монголоор 'миний энэ тайлан' болно; англиар 'the my report' болохгүй — нэг л заагч үг."
+   "bridge": "Монголоор 'миний энэ тайлан' болно; англиар 'the my report' болохгүй — нэг л заагч үг.",
+   "cefr": "A2"
   },
   {
    "id": "g67",
@@ -1549,7 +1639,8 @@
    "prompt": "He is a my friend.",
    "answer": "He is a friend of mine.",
    "explanation": "'a my friend' → 'a friend of mine'.",
-   "bridge": "Монголоор 'миний энэ тайлан' болно; англиар 'the my report' болохгүй — нэг л заагч үг."
+   "bridge": "Монголоор 'миний энэ тайлан' болно; англиар 'the my report' болохгүй — нэг л заагч үг.",
+   "cefr": "A2"
   },
   {
    "id": "g68",
@@ -1557,7 +1648,8 @@
    "prompt": "We need another samples.",
    "answer": "We need other samples.",
    "explanation": "'another' + singular; plural takes 'other': other samples.",
-   "bridge": "Монголоор 'миний энэ тайлан' болно; англиар 'the my report' болохгүй — нэг л заагч үг."
+   "bridge": "Монголоор 'миний энэ тайлан' болно; англиар 'the my report' болохгүй — нэг л заагч үг.",
+   "cefr": "A2"
   },
   {
    "id": "g69",
@@ -1565,7 +1657,8 @@
    "prompt": "Every students know the rule.",
    "answer": "Every student knows the rule.",
    "explanation": "'every' + singular noun + singular verb: every student knows.",
-   "bridge": "Монголоор 'миний энэ тайлан' болно; англиар 'the my report' болохгүй — нэг л заагч үг."
+   "bridge": "Монголоор 'миний энэ тайлан' болно; англиар 'the my report' болохгүй — нэг л заагч үг.",
+   "cefr": "A2"
   },
   {
    "id": "g70",
@@ -1573,7 +1666,8 @@
    "prompt": "I have somes.",
    "answer": "I have some.",
    "explanation": "'some' never takes -s.",
-   "bridge": "Монголоор 'миний энэ тайлан' болно; англиар 'the my report' болохгүй — нэг л заагч үг."
+   "bridge": "Монголоор 'миний энэ тайлан' болно; англиар 'the my report' болохгүй — нэг л заагч үг.",
+   "cefr": "A2"
   },
   {
    "id": "g71",
@@ -1581,7 +1675,8 @@
    "prompt": "Where you work?",
    "answer": "Where do you work?",
    "explanation": "Questions borrow 'do': Where do you work?",
-   "bridge": "Монголоор асуулт нь уу/үү гэсэн сүүл үгээр бүтдэг, үгийн дараалал өөрчлөгддөггүй. Англи 'do' гэдэг утгагүй туслах үг зээлдэг."
+   "bridge": "Монголоор асуулт нь уу/үү гэсэн сүүл үгээр бүтдэг, үгийн дараалал өөрчлөгддөггүй. Англи 'do' гэдэг утгагүй туслах үг зээлдэг.",
+   "cefr": "A2"
   },
   {
    "id": "g72",
@@ -1589,7 +1684,8 @@
    "prompt": "You work here?",
    "answer": "Do you work here?",
    "explanation": "Questions borrow 'do': Do you work here?",
-   "bridge": "Монголоор асуулт нь уу/үү гэсэн сүүл үгээр бүтдэг, үгийн дараалал өөрчлөгддөггүй. Англи 'do' гэдэг утгагүй туслах үг зээлдэг."
+   "bridge": "Монголоор асуулт нь уу/үү гэсэн сүүл үгээр бүтдэг, үгийн дараалал өөрчлөгддөггүй. Англи 'do' гэдэг утгагүй туслах үг зээлдэг.",
+   "cefr": "A2"
   },
   {
    "id": "g73",
@@ -1597,7 +1693,8 @@
    "prompt": "Does she works here?",
    "answer": "Does she work here?",
    "explanation": "'Does' already carries the -s — the verb goes back to base form.",
-   "bridge": "Монголоор асуулт нь уу/үү гэсэн сүүл үгээр бүтдэг, үгийн дараалал өөрчлөгддөггүй. Англи 'do' гэдэг утгагүй туслах үг зээлдэг."
+   "bridge": "Монголоор асуулт нь уу/үү гэсэн сүүл үгээр бүтдэг, үгийн дараалал өөрчлөгддөггүй. Англи 'do' гэдэг утгагүй туслах үг зээлдэг.",
+   "cefr": "A2"
   },
   {
    "id": "g74",
@@ -1605,7 +1702,8 @@
    "prompt": "He asked where did I work.",
    "answer": "He asked where I worked.",
    "explanation": "Inside a sentence, a question becomes a statement: where I worked.",
-   "bridge": "Монголоор асуулт нь уу/үү гэсэн сүүл үгээр бүтдэг, үгийн дараалал өөрчлөгддөггүй. Англи 'do' гэдэг утгагүй туслах үг зээлдэг."
+   "bridge": "Монголоор асуулт нь уу/үү гэсэн сүүл үгээр бүтдэг, үгийн дараалал өөрчлөгддөггүй. Англи 'do' гэдэг утгагүй туслах үг зээлдэг.",
+   "cefr": "A2"
   },
   {
    "id": "g75",
@@ -1613,7 +1711,8 @@
    "prompt": "I no have time.",
    "answer": "I don't have time.",
    "explanation": "Negation borrows 'do': I don't have.",
-   "bridge": "Монголоор асуулт нь уу/үү гэсэн сүүл үгээр бүтдэг, үгийн дараалал өөрчлөгддөггүй. Англи 'do' гэдэг утгагүй туслах үг зээлдэг."
+   "bridge": "Монголоор асуулт нь уу/үү гэсэн сүүл үгээр бүтдэг, үгийн дараалал өөрчлөгддөггүй. Англи 'do' гэдэг утгагүй туслах үг зээлдэг.",
+   "cefr": "A2"
   },
   {
    "id": "g76",
@@ -1621,7 +1720,8 @@
    "prompt": "I don't have no samples.",
    "answer": "I don't have any samples.",
    "explanation": "One negative only: don't have ANY.",
-   "bridge": "Монголоор асуулт нь уу/үү гэсэн сүүл үгээр бүтдэг, үгийн дараалал өөрчлөгддөггүй. Англи 'do' гэдэг утгагүй туслах үг зээлдэг."
+   "bridge": "Монголоор асуулт нь уу/үү гэсэн сүүл үгээр бүтдэг, үгийн дараалал өөрчлөгддөггүй. Англи 'do' гэдэг утгагүй туслах үг зээлдэг.",
+   "cefr": "A2"
   },
   {
    "id": "g77",
@@ -1629,7 +1729,8 @@
    "prompt": "I'm tired, I'll stop.",
    "answer": "I'm tired. I'll stop.",
    "explanation": "Two full sentences can't join with a comma — use a full stop.",
-   "bridge": "Монгол цэг таслал амьсгааг дагадаг; англи цэг таслал дүрмийг дагадаг. Таслал хоёр бүтэн өгүүлбэрийг холбож чадахгүй."
+   "bridge": "Монгол цэг таслал амьсгааг дагадаг; англи цэг таслал дүрмийг дагадаг. Таслал хоёр бүтэн өгүүлбэрийг холбож чадахгүй.",
+   "cefr": "B1"
   },
   {
    "id": "g78",
@@ -1637,7 +1738,8 @@
    "prompt": "The samples, were analysed.",
    "answer": "The samples were analysed.",
    "explanation": "Never put a comma between subject and verb.",
-   "bridge": "Монгол цэг таслал амьсгааг дагадаг; англи цэг таслал дүрмийг дагадаг. Таслал хоёр бүтэн өгүүлбэрийг холбож чадахгүй."
+   "bridge": "Монгол цэг таслал амьсгааг дагадаг; англи цэг таслал дүрмийг дагадаг. Таслал хоёр бүтэн өгүүлбэрийг холбож чадахгүй.",
+   "cefr": "B1"
   },
   {
    "id": "g79",
@@ -1645,7 +1747,8 @@
    "prompt": "i am a geologist.",
    "answer": "I am a geologist.",
    "explanation": "'I' is always capital.",
-   "bridge": "Монголоор 'би' жижиг үсэгтэй; англиар 'I' үргэлж том. Хэлний нэр ч том үсгээр эхэлдэг."
+   "bridge": "Монголоор 'би' жижиг үсэгтэй; англиар 'I' үргэлж том. Хэлний нэр ч том үсгээр эхэлдэг.",
+   "cefr": "A1"
   },
   {
    "id": "g80",
@@ -1653,7 +1756,8 @@
    "prompt": "I speak english.",
    "answer": "I speak English.",
    "explanation": "Language names are capitalised: English.",
-   "bridge": "Монголоор 'би' жижиг үсэгтэй; англиар 'I' үргэлж том. Хэлний нэр ч том үсгээр эхэлдэг."
+   "bridge": "Монголоор 'би' жижиг үсэгтэй; англиар 'I' үргэлж том. Хэлний нэр ч том үсгээр эхэлдэг.",
+   "cefr": "A1"
   },
   {
    "id": "g81",
@@ -1661,7 +1765,8 @@
    "prompt": "Because it was late.",
    "answer": "We stopped because it was late.",
    "explanation": "'Because…' alone is not a full sentence — attach it to one.",
-   "bridge": "Монгол цэг таслал амьсгааг дагадаг; англи цэг таслал дүрмийг дагадаг. Таслал хоёр бүтэн өгүүлбэрийг холбож чадахгүй."
+   "bridge": "Монгол цэг таслал амьсгааг дагадаг; англи цэг таслал дүрмийг дагадаг. Таслал хоёр бүтэн өгүүлбэрийг холбож чадахгүй.",
+   "cefr": "B1"
   },
   {
    "id": "g82",
@@ -1669,7 +1774,8 @@
    "prompt": "And I want to add a journal.",
    "answer": "In addition, I'd like to add a journal.",
    "explanation": "In formal writing, prefer 'In addition' to starting with 'And'.",
-   "bridge": "Та гэж хэлснээр эелдэг байдал монголоор илэрхийлэгддэг. Англид 'you' ганцхан тул эелдэг байдал modal үйл үг рүү нүүсэн. Та бүдүүлэг хэлээгүй — орчуулгад л алга болсон."
+   "bridge": "Та гэж хэлснээр эелдэг байдал монголоор илэрхийлэгддэг. Англид 'you' ганцхан тул эелдэг байдал modal үйл үг рүү нүүсэн. Та бүдүүлэг хэлээгүй — орчуулгад л алга болсон.",
+   "cefr": "B2"
   },
   {
    "id": "g83",
@@ -1677,7 +1783,8 @@
    "prompt": "We drilled a 500-metres hole.",
    "answer": "We drilled a 500-metre hole.",
    "explanation": "Number + unit before a noun stays singular: a 500-metre hole.",
-   "bridge": "Гурван ном → three books. Монголд тоо нь олон тоог хэлчихдэг тул -s хэрэггүй; англи давхардуулдаг. Логикгүй ч хүлээн зөвшөөр."
+   "bridge": "Гурван ном → three books. Монголд тоо нь олон тоог хэлчихдэг тул -s хэрэггүй; англи давхардуулдаг. Логикгүй ч хүлээн зөвшөөр.",
+   "cefr": "A1"
   },
   {
    "id": "g84",
@@ -1685,7 +1792,8 @@
    "prompt": "We collected the sample's.",
    "answer": "We collected the samples.",
    "explanation": "Plain plural takes no apostrophe: samples.",
-   "bridge": "Монгол цэг таслал амьсгааг дагадаг; англи цэг таслал дүрмийг дагадаг. Таслал хоёр бүтэн өгүүлбэрийг холбож чадахгүй."
+   "bridge": "Монгол цэг таслал амьсгааг дагадаг; англи цэг таслал дүрмийг дагадаг. Таслал хоёр бүтэн өгүүлбэрийг холбож чадахгүй.",
+   "cefr": "B1"
   },
   {
    "id": "g85",
@@ -1693,7 +1801,8 @@
    "prompt": "We did a decision.",
    "answer": "We made a decision.",
    "explanation": "MAKE a decision (not do).",
-   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision."
+   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision.",
+   "cefr": "B1"
   },
   {
    "id": "g86",
@@ -1701,7 +1810,8 @@
    "prompt": "We make research on rocks.",
    "answer": "We do research on rocks.",
    "explanation": "DO research (not make).",
-   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision."
+   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision.",
+   "cefr": "B1"
   },
   {
    "id": "g87",
@@ -1709,7 +1819,8 @@
    "prompt": "Please open the light.",
    "answer": "Please turn on the light.",
    "explanation": "TURN ON the light (open is for doors).",
-   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision."
+   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision.",
+   "cefr": "B1"
   },
   {
    "id": "g88",
@@ -1717,7 +1828,8 @@
    "prompt": "He said me the results.",
    "answer": "He told me the results.",
    "explanation": "TELL + person, SAY + words: he told me.",
-   "bridge": "Монголоор «гэж» + шууд яриа, цаг хөрвүүлэлт байхгүй. Англи нэг алхам ухраадаг: is → was."
+   "bridge": "Монголоор «гэж» + шууд яриа, цаг хөрвүүлэлт байхгүй. Англи нэг алхам ухраадаг: is → was.",
+   "cefr": "B2"
   },
   {
    "id": "g89",
@@ -1725,7 +1837,8 @@
    "prompt": "She learned me English.",
    "answer": "She taught me English.",
    "explanation": "The teacher TEACHES; the student LEARNS.",
-   "bridge": "Орос гаралтай зээл үгс англид өөр утгатай: магазин бол shop, magazine биш; кабинет бол office, cabinet биш."
+   "bridge": "Орос гаралтай зээл үгс англид өөр утгатай: магазин бол shop, magazine биш; кабинет бол office, cabinet биш.",
+   "cefr": "A2"
   },
   {
    "id": "g90",
@@ -1733,7 +1846,8 @@
    "prompt": "I can talk but not good.",
    "answer": "I can talk but not well.",
    "explanation": "After a verb use 'well', not 'good': speak well.",
-   "bridge": "Орос гаралтай зээл үгс англид өөр утгатай: магазин бол shop, magazine биш; кабинет бол office, cabinet биш."
+   "bridge": "Орос гаралтай зээл үгс англид өөр утгатай: магазин бол shop, magazine биш; кабинет бол office, cabinet биш.",
+   "cefr": "A2"
   },
   {
    "id": "g91",
@@ -1741,7 +1855,8 @@
    "prompt": "strong rain",
    "answer": "heavy rain",
    "explanation": "Rain is HEAVY, not strong — fixed partnership.",
-   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision."
+   "bridge": "Үг үгтэйгээ хосоороо явдаг. Монголоос үгчлэн орчуулахад хос эвдэрдэг: 'шийдвэр гаргах' → make (not do) a decision.",
+   "cefr": "B1"
   },
   {
    "id": "g93",
@@ -1749,7 +1864,8 @@
    "prompt": "turn on it",
    "answer": "turn it on",
    "explanation": "Pronouns go INSIDE a phrasal verb: turn it on.",
-   "bridge": "Би ном уншсан = I book read. One rule covers five error types: Mongolian builds backwards; English builds forwards."
+   "bridge": "Би ном уншсан = I book read. One rule covers five error types: Mongolian builds backwards; English builds forwards.",
+   "cefr": "A1"
   },
   {
    "id": "g94",
@@ -1757,7 +1873,8 @@
    "prompt": "Please look the samples after.",
    "answer": "Please look after the samples.",
    "explanation": "'look after' stays together: look after the samples.",
-   "bridge": "Би ном уншсан = I book read. One rule covers five error types: Mongolian builds backwards; English builds forwards."
+   "bridge": "Би ном уншсан = I book read. One rule covers five error types: Mongolian builds backwards; English builds forwards.",
+   "cefr": "A1"
   },
   {
    "id": "g95",
@@ -1765,7 +1882,8 @@
    "prompt": "I want the report.",
    "answer": "I'd like the report.",
    "explanation": "'I'd like' is the polite form — English politeness lives in modal verbs.",
-   "bridge": "Та гэж хэлснээр эелдэг байдал монголоор илэрхийлэгддэг. Англид 'you' ганцхан тул эелдэг байдал modal үйл үг рүү нүүсэн. Та бүдүүлэг хэлээгүй — орчуулгад л алга болсон."
+   "bridge": "Та гэж хэлснээр эелдэг байдал монголоор илэрхийлэгддэг. Англид 'you' ганцхан тул эелдэг байдал modal үйл үг рүү нүүсэн. Та бүдүүлэг хэлээгүй — орчуулгад л алга болсон.",
+   "cefr": "B2"
   },
   {
    "id": "g96",
@@ -1773,7 +1891,8 @@
    "prompt": "Send me the data.",
    "answer": "Could you send me the data?",
    "explanation": "Requests use 'Could you…?' — a bare imperative reads as an order.",
-   "bridge": "Та гэж хэлснээр эелдэг байдал монголоор илэрхийлэгддэг. Англид 'you' ганцхан тул эелдэг байдал modal үйл үг рүү нүүсэн. Та бүдүүлэг хэлээгүй — орчуулгад л алга болсон."
+   "bridge": "Та гэж хэлснээр эелдэг байдал монголоор илэрхийлэгддэг. Англид 'you' ганцхан тул эелдэг байдал modal үйл үг рүү нүүсэн. Та бүдүүлэг хэлээгүй — орчуулгад л алга болсон.",
+   "cefr": "B2"
   },
   {
    "id": "g101",
@@ -1781,7 +1900,8 @@
    "prompt": "He gave me informations.",
    "answer": "He gave me information.",
    "explanation": "'Information' never takes -s.",
-   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff."
+   "bridge": "Монголд ийм ялгаа байхгүй — цээжлэх жагсаалт: information, advice, equipment, furniture, news, research, evidence, knowledge, progress, work, money, traffic, weather, software, staff.",
+   "cefr": "A2"
   },
   {
    "id": "g102",
@@ -1789,7 +1909,8 @@
    "prompt": "This method is more better.",
    "answer": "This method is better.",
    "explanation": "One comparative only: better (never 'more better').",
-   "bridge": "Монголоор харьцуулалт гарах падежээр бүтдэг: надаас өндөр (миний-аас өндөр). Англид 'than' + -er хоёул хэрэгтэй."
+   "bridge": "Монголоор харьцуулалт гарах падежээр бүтдэг: надаас өндөр (миний-аас өндөр). Англид 'than' + -er хоёул хэрэгтэй.",
+   "cefr": "B1"
   },
   {
    "id": "t_copula",
@@ -1797,7 +1918,8 @@
    "prompt": "I geologist.",
    "answer": "I am a geologist.",
    "explanation": "English always needs am / is / are. 'I geologist' needs 'am'.",
-   "bridge": "Монголоор 'Би геологич' гэж хэлдэг — үйл үг хэрэггүй. Англиар 'am' заавал хэрэгтэй. (Mongolian drops the linking verb; English cannot.)"
+   "bridge": "Монголоор 'Би геологич' гэж хэлдэг — үйл үг хэрэггүй. Англиар 'am' заавал хэрэгтэй. (Mongolian drops the linking verb; English cannot.)",
+   "cefr": "A1"
   },
   {
    "id": "t_missing_subject",
@@ -1805,7 +1927,8 @@
    "prompt": "Is raining.",
    "answer": "It is raining.",
    "explanation": "Every English sentence needs a subject. Use 'it' or 'there': It is raining. There are three samples.",
-   "bridge": "Монголоор өгүүлэгдэхүүнийг орхиж болно; англиар хэзээ ч болохгүй — 'it/there' гэсэн хиймэл өгүүлэгдэхүүн зохиодог."
+   "bridge": "Монголоор өгүүлэгдэхүүнийг орхиж болно; англиар хэзээ ч болохгүй — 'it/there' гэсэн хиймэл өгүүлэгдэхүүн зохиодог.",
+   "cefr": "A2"
   },
   {
    "id": "t_spelling",
@@ -1813,7 +1936,8 @@
    "prompt": "exercies",
    "answer": "exercises",
    "explanation": "English spelling does not follow sound. Learn the written word together with how it sounds.",
-   "bridge": "Кирилл үсэг = нэг үсэг, нэг авиа. Англид тийм биш: through, though, thought — гурван өөр дуудлага."
+   "bridge": "Кирилл үсэг = нэг үсэг, нэг авиа. Англид тийм биш: through, though, thought — гурван өөр дуудлага.",
+   "cefr": "A2"
   }
  ],
  "vocab": [
@@ -3526,6 +3650,152 @@
       "text": "(Stay silent and worry)",
       "correct": false,
       "why": "Silence = agreement in meetings. Speak, softly."
+     }
+    ]
+   }
+  },
+  {
+   "id": "job_interview",
+   "level": "B2",
+   "title_en": "A job interview",
+   "title_mn": "Ажлын ярилцлага",
+   "situation": "The classic questions — and answers that sound confident, not memorized.",
+   "lines": [
+    {
+     "sp": "A",
+     "en": "Thanks for coming in. Tell me a little about yourself.",
+     "mn": "Хүрэлцэн ирсэнд баярлалаа. Өөрийнхөө тухай товч ярина уу."
+    },
+    {
+     "sp": "B",
+     "en": "Sure. I've worked in customer service for five years, mostly leading small teams.",
+     "mn": "Тэгье. Би таван жил үйлчилгээний салбарт ажилласан, гол нь жижиг баг ахалж байсан."
+    },
+    {
+     "sp": "A",
+     "en": "What would you say is your biggest strength?",
+     "mn": "Таны хамгийн том давуу тал юу гэж хэлэх вэ?"
+    },
+    {
+     "sp": "B",
+     "en": "I'd say staying calm under pressure — last year we handled a system failure without losing a single client.",
+     "mn": "Дарамтад тайван байдаг гэж хэлнэ — өнгөрсөн жил системийн доголдлыг нэг ч үйлчлүүлэгч алдалгүй давсан."
+    },
+    {
+     "sp": "A",
+     "en": "And why are you leaving your current job?",
+     "mn": "Одоогийн ажлаасаа яагаад гарч байгаа вэ?"
+    },
+    {
+     "sp": "B",
+     "en": "I've learned a lot there, but I'm looking for more responsibility, and this role offers exactly that.",
+     "mn": "Тэндээс их зүйл сурсан ч илүү хариуцлагатай ажил хайж байгаа — энэ албан тушаал яг тийм боломж юм."
+    }
+   ],
+   "key_phrases": [
+    {
+     "en": "I'd say…",
+     "note": "Softens any self-praise: 'I'd say my strength is…' — confident but not arrogant."
+    },
+    {
+     "en": "I've worked in … for five years",
+     "note": "Present perfect + for/since — the interview tense (experience touching today)."
+    },
+    {
+     "en": "I'm looking for more responsibility",
+     "note": "The polite reason for leaving — never criticise the old employer."
+    }
+   ],
+   "practice": {
+    "situation": "Interviewer asks why you left your last job. Best answer?",
+    "options": [
+     {
+      "text": "I've learned a lot, but I'm looking for a new challenge.",
+      "correct": true,
+      "why": "Positive about the past + forward-looking. The formula interviewers expect."
+     },
+     {
+      "text": "My boss was terrible and the salary was small.",
+      "correct": false,
+      "why": "Criticising a past employer is the classic interview mistake in any culture."
+     },
+     {
+      "text": "I don't know. I just want money.",
+      "correct": false,
+      "why": "Honest, maybe — but it answers a different question than the one asked."
+     }
+    ]
+   }
+  },
+  {
+   "id": "negotiating",
+   "level": "B2",
+   "title_en": "Negotiating a price",
+   "title_mn": "Үнэ тохиролцох",
+   "situation": "Softening techniques (guide §JJ): disagree without a single hard 'no'.",
+   "lines": [
+    {
+     "sp": "A",
+     "en": "For this volume, the best we can do is 5,000 a month.",
+     "mn": "Энэ хэмжээнд сарын 5,000 бол бидний өгч чадах хамгийн сайн үнэ."
+    },
+    {
+     "sp": "B",
+     "en": "I see. To be honest, that's a little higher than we had in mind.",
+     "mn": "Ойлголоо. Үнэнийг хэлэхэд, энэ бидний бодож байснаас арай өндөр байна."
+    },
+    {
+     "sp": "A",
+     "en": "What figure were you thinking of?",
+     "mn": "Та ямар тоо бодож байсан бэ?"
+    },
+    {
+     "sp": "B",
+     "en": "Somewhere around 4,000. Would you be open to that if we signed for a full year?",
+     "mn": "4,000 орчим. Бүтэн жилээр гэрээ хийвэл та үүнийг хүлээж авах уу?"
+    },
+    {
+     "sp": "A",
+     "en": "With a yearly contract… we might be able to meet you in the middle. Say 4,500?",
+     "mn": "Жилийн гэрээтэй бол... дундуур нь тохирч магадгүй. 4,500 гэвэл?"
+    },
+    {
+     "sp": "B",
+     "en": "That could work. Let me confirm with my team and get back to you tomorrow.",
+     "mn": "Болох байх. Багтайгаа зөвшилцөөд маргааш эргэж холбогдъё."
+    }
+   ],
+   "key_phrases": [
+    {
+     "en": "a little higher than we had in mind",
+     "note": "'A little' + comparative = polite disagreement. Never 'too expensive!'"
+    },
+    {
+     "en": "Would you be open to…?",
+     "note": "Softest way to propose — a question, not a demand."
+    },
+    {
+     "en": "meet you in the middle",
+     "note": "= дундуур нь тохирох. The compromise idiom of every negotiation."
+    }
+   ],
+   "practice": {
+    "situation": "Their price is too high for you. Best response?",
+    "options": [
+     {
+      "text": "To be honest, that's a little higher than we had in mind.",
+      "correct": true,
+      "why": "Softened disagreement keeps the negotiation alive — English hides the 'no'."
+     },
+     {
+      "text": "No. Too expensive. Give discount.",
+      "correct": false,
+      "why": "Bare commands burn the relationship — politeness lives in the phrasing."
+     },
+     {
+      "text": "OK, we accept.",
+      "correct": false,
+      "why": "Accepting the first price is not negotiating — and 'Would you be open to…?' costs nothing."
      }
     ]
    }

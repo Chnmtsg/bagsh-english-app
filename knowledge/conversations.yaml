@@ -168,6 +168,52 @@ dialogues:
         - {text: "No. That is wrong.", correct: false, why: "Bare 'no' burns goodwill — English wraps disagreement in softeners."}
         - {text: "(Stay silent and worry)", correct: false, why: "Silence = agreement in meetings. Speak, softly."}
 
+  - id: job_interview
+    level: B2
+    title_en: "A job interview"
+    title_mn: "Ажлын ярилцлага"
+    situation: "The classic questions — and answers that sound confident, not memorized."
+    lines:
+      - {sp: "A", en: "Thanks for coming in. Tell me a little about yourself.", mn: "Хүрэлцэн ирсэнд баярлалаа. Өөрийнхөө тухай товч ярина уу."}
+      - {sp: "B", en: "Sure. I've worked in customer service for five years, mostly leading small teams.", mn: "Тэгье. Би таван жил үйлчилгээний салбарт ажилласан, гол нь жижиг баг ахалж байсан."}
+      - {sp: "A", en: "What would you say is your biggest strength?", mn: "Таны хамгийн том давуу тал юу гэж хэлэх вэ?"}
+      - {sp: "B", en: "I'd say staying calm under pressure — last year we handled a system failure without losing a single client.", mn: "Дарамтад тайван байдаг гэж хэлнэ — өнгөрсөн жил системийн доголдлыг нэг ч үйлчлүүлэгч алдалгүй давсан."}
+      - {sp: "A", en: "And why are you leaving your current job?", mn: "Одоогийн ажлаасаа яагаад гарч байгаа вэ?"}
+      - {sp: "B", en: "I've learned a lot there, but I'm looking for more responsibility, and this role offers exactly that.", mn: "Тэндээс их зүйл сурсан ч илүү хариуцлагатай ажил хайж байгаа — энэ албан тушаал яг тийм боломж юм."}
+    key_phrases:
+      - {en: "I'd say…", note: "Softens any self-praise: 'I'd say my strength is…' — confident but not arrogant."}
+      - {en: "I've worked in … for five years", note: "Present perfect + for/since — the interview tense (experience touching today)."}
+      - {en: "I'm looking for more responsibility", note: "The polite reason for leaving — never criticise the old employer."}
+    practice:
+      situation: "Interviewer asks why you left your last job. Best answer?"
+      options:
+        - {text: "I've learned a lot, but I'm looking for a new challenge.", correct: true, why: "Positive about the past + forward-looking. The formula interviewers expect."}
+        - {text: "My boss was terrible and the salary was small.", correct: false, why: "Criticising a past employer is the classic interview mistake in any culture."}
+        - {text: "I don't know. I just want money.", correct: false, why: "Honest, maybe — but it answers a different question than the one asked."}
+
+  - id: negotiating
+    level: B2
+    title_en: "Negotiating a price"
+    title_mn: "Үнэ тохиролцох"
+    situation: "Softening techniques (guide §JJ): disagree without a single hard 'no'."
+    lines:
+      - {sp: "A", en: "For this volume, the best we can do is 5,000 a month.", mn: "Энэ хэмжээнд сарын 5,000 бол бидний өгч чадах хамгийн сайн үнэ."}
+      - {sp: "B", en: "I see. To be honest, that's a little higher than we had in mind.", mn: "Ойлголоо. Үнэнийг хэлэхэд, энэ бидний бодож байснаас арай өндөр байна."}
+      - {sp: "A", en: "What figure were you thinking of?", mn: "Та ямар тоо бодож байсан бэ?"}
+      - {sp: "B", en: "Somewhere around 4,000. Would you be open to that if we signed for a full year?", mn: "4,000 орчим. Бүтэн жилээр гэрээ хийвэл та үүнийг хүлээж авах уу?"}
+      - {sp: "A", en: "With a yearly contract… we might be able to meet you in the middle. Say 4,500?", mn: "Жилийн гэрээтэй бол... дундуур нь тохирч магадгүй. 4,500 гэвэл?"}
+      - {sp: "B", en: "That could work. Let me confirm with my team and get back to you tomorrow.", mn: "Болох байх. Багтайгаа зөвшилцөөд маргааш эргэж холбогдъё."}
+    key_phrases:
+      - {en: "a little higher than we had in mind", note: "'A little' + comparative = polite disagreement. Never 'too expensive!'"}
+      - {en: "Would you be open to…?", note: "Softest way to propose — a question, not a demand."}
+      - {en: "meet you in the middle", note: "= дундуур нь тохирох. The compromise idiom of every negotiation."}
+    practice:
+      situation: "Their price is too high for you. Best response?"
+      options:
+        - {text: "To be honest, that's a little higher than we had in mind.", correct: true, why: "Softened disagreement keeps the negotiation alive — English hides the 'no'."}
+        - {text: "No. Too expensive. Give discount.", correct: false, why: "Bare commands burn the relationship — politeness lives in the phrasing."}
+        - {text: "OK, we accept.", correct: false, why: "Accepting the first price is not negotiating — and 'Would you be open to…?' costs nothing."}
+
   - id: restaurant
     level: A2
     title_en: "At a restaurant"

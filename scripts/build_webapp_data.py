@@ -19,19 +19,26 @@ sys.path.insert(0, str(REPO))
 WORDLIST = REPO / "knowledge" / "cefr_wordlist.json"
 
 from src.curriculum import category_examples, curriculum_order  # noqa: E402
-from src.knowledge import categories, load_conversations, load_grammar_lessons  # noqa: E402
+from src.knowledge import (  # noqa: E402
+    categories,
+    cefr_bands,
+    load_conversations,
+    load_grammar_lessons,
+)
 from src.quiz import grammar_bank, vocab_bank  # noqa: E402
 
 
 def main() -> int:
     cats = categories()
     lessons = load_grammar_lessons()
+    bands = cefr_bands()
     data = {
-        "version": 2,
+        "version": 3,
         "curriculum_order": curriculum_order(),
         "categories": {
             name: {
                 "priority": c["priority"],
+                "cefr": bands[name],
                 "blocking": c["blocking"],
                 "rule_a2": c["rule_a2"],
                 "rule_b1": c["rule_b1"],
@@ -42,7 +49,9 @@ def main() -> int:
             }
             for name, c in cats.items()
         },
-        "grammar": grammar_bank(),
+        "grammar": [
+            {**q, "cefr": bands.get(q["category"], "B1")} for q in grammar_bank()
+        ],
         "vocab": vocab_bank(),
         "dialogues": load_conversations(),
         "wordlist": json.loads(WORDLIST.read_text(encoding="utf-8")),

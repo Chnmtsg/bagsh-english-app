@@ -180,9 +180,10 @@ function renderLevelPicker(returnTab) {
   view.innerHTML = `
     <div class="card">
       <h2>Түвшнээ сонго — Choose your level</h2>
-      <p class="muted">Lessons change with your level: at A1–A2 they explain
-      mostly in Mongolian; at B1+ mostly in English. Vocabulary also fits
-      your level. You can change this anytime in Stats.</p>
+      <p class="muted">Your level changes the whole app: which grammar
+      topics and quiz questions are open (Cambridge-style bands), which
+      conversations you see, where the word ladder stands, and how much
+      Mongolian the explanations use. Change it anytime in Stats.</p>
       ${LEVELS.map(l => `
         <button class="ghost level-btn" data-level="${l}">
           <b>${l}</b> — ${LEVEL_MN[l]}${l === "B1" ? " · most learners start here" : ""}
@@ -191,6 +192,7 @@ function renderLevelPicker(returnTab) {
   view.querySelectorAll(".level-btn").forEach(b =>
     b.addEventListener("click", () => {
       profile.level = b.dataset.level;
+      profile.vocabLevel = b.dataset.level;  // word ladder follows (known words stay)
       saveProfile();
       renderStatline();
       setTab(returnTab || "path");
@@ -199,7 +201,26 @@ function renderLevelPicker(returnTab) {
 
 /* ── Path & Lessons ─────────────────────────────────────────────── */
 
+function topicBand(name) { return DATA.categories[name].cefr || "B1"; }
+
+function bandUnlocked(band) {
+  return levelRank(band) <= levelRank(profile.level || "B1");
+}
+
+function topicsByBand() {
+  const groups = { A1: [], A2: [], B1: [], B2: [] };
+  for (const name of DATA.curriculum_order) groups[topicBand(name)].push(name);
+  return groups;
+}
+
 function nextTopic() {
+  // first unfinished topic in an unlocked band (lowest band first)
+  const groups = topicsByBand();
+  for (const band of LEVELS) {
+    if (!bandUnlocked(band)) break;
+    const open = groups[band].find(n => !profile.lessonsDone.includes(n));
+    if (open) return open;
+  }
   return DATA.curriculum_order.find(n => !profile.lessonsDone.includes(n))
     || DATA.curriculum_order[0];
 }
@@ -207,24 +228,39 @@ function nextTopic() {
 function renderPath() {
   const done = profile.lessonsDone;
   const next = nextTopic();
-  const rows = DATA.curriculum_order.map((name, i) => {
-    const isDone = done.includes(name);
-    return `<div class="row" data-topic="${name}">
-      <span class="num">${i + 1}</span>
-      <span class="name">${name.replace(/_/g, " ")}</span>
-      <span class="st ${isDone ? "ok" : "muted"}">${isDone ? "✓" : name === next ? "▶" : "·"}</span>
-    </div>`;
+  const groups = topicsByBand();
+  const sections = LEVELS.map(band => {
+    const unlocked = bandUnlocked(band);
+    const mine = band === (profile.level || "B1");
+    const rows = groups[band].map(name => {
+      const isDone = done.includes(name);
+      const mark = !unlocked ? "🔒" : isDone ? "✓" : name === next ? "▶" : "·";
+      return `<div class="row ${unlocked ? "" : "locked-row"}" data-topic="${unlocked ? name : ""}">
+        <span class="name">${name.replace(/_/g, " ")}</span>
+        <span class="st ${isDone ? "ok" : "muted"}">${mark}</span></div>`;
+    }).join("");
+    const doneCount = groups[band].filter(n => done.includes(n)).length;
+    return `<div class="card">
+      <h3>${band} — ${LEVEL_MN[band]}${mine ? " · ⭐ your level" : ""}${unlocked ? "" : " 🔒"}
+        <span class="muted" style="float:right">${doneCount}/${groups[band].length}</span></h3>
+      ${rows}</div>`;
   }).join("");
+
   view.innerHTML = `
     <div class="card"><h2>Таны зам — Your path</h2>
-      <p class="muted">24 grammar systems of English, in teaching order,
-      each explained through Mongolian. Finished: ${done.length}/24.</p>
+      <p class="muted">The grammar of English, level by level (Cambridge-style
+      bands), each topic explained through Mongolian. Your level:
+      <b>${profile.level}</b> — higher bands unlock when you change level in
+      Stats. Finished: ${done.length}/24.</p>
       <button class="primary" id="continueBtn">
-        ▶ Continue: ${next.replace(/_/g, " ")}</button></div>
-    <div class="card">${rows}</div>`;
+        ▶ Continue: ${next.replace(/_/g, " ")} (${topicBand(next)})</button></div>
+    ${sections}`;
   document.getElementById("continueBtn").addEventListener("click", () => renderLesson(next));
-  view.querySelectorAll(".row").forEach(r =>
-    r.addEventListener("click", () => renderLesson(r.dataset.topic)));
+  view.querySelectorAll(".row[data-topic]").forEach(r => {
+    if (r.dataset.topic) {
+      r.addEventListener("click", () => renderLesson(r.dataset.topic));
+    }
+  });
 }
 
 function renderLesson(topic) {
@@ -242,7 +278,7 @@ function renderLesson(topic) {
   view.innerHTML = `
     <div class="card">
       <h2 style="text-transform:capitalize">${topic.replace(/_/g, " ")}
-        <span class="pill">lesson ${c.priority}/24</span></h2>
+        <span class="pill">${c.cefr}</span> <span class="pill">lesson ${c.priority}/24</span></h2>
       <h3>📖 The grammar</h3><p>${esc(explain)}</p>
       <h3>📌 The rule in one line</h3><p><b>${esc(rule)}</b></p>
       <h3>🇲🇳 Таны хэлэнд аль хэдийн байгаа</h3>
@@ -267,10 +303,24 @@ function renderLesson(topic) {
 /* ── Talk — everyday conversations ──────────────────────────────── */
 
 function renderTalkList() {
-  const rows = DATA.dialogues.map(d => {
+  const myRank = levelRank(profile.level || "B1");
+  const sorted = [...DATA.dialogues].sort((a, b) => {
+    const la = levelRank(a.level), lb = levelRank(b.level);
+    const lockedA = la > myRank, lockedB = lb > myRank;
+    if (lockedA !== lockedB) return lockedA - lockedB;  // locked last
+    // unlocked: your level first, then easier; locked: easiest first
+    if (!lockedA) {
+      const mineA = a.level === profile.level, mineB = b.level === profile.level;
+      if (mineA !== mineB) return mineB - mineA;
+      return lb - la;
+    }
+    return la - lb;
+  });
+  const rows = sorted.map(d => {
+    const locked = levelRank(d.level) > myRank;
     const isDone = profile.talkDone.includes(d.id);
-    return `<div class="row" data-id="${d.id}">
-      <span class="st">${isDone ? "✓" : "🗣️"}</span>
+    return `<div class="row ${locked ? "locked-row" : ""}" data-id="${locked ? "" : d.id}">
+      <span class="st">${locked ? "🔒" : isDone ? "✓" : "🗣️"}</span>
       <span class="name">${esc(d.title_en)}<br>
         <span class="mn">${esc(d.title_mn)}</span></span>
       <span class="pill">${d.level}</span>
@@ -278,12 +328,15 @@ function renderTalkList() {
   }).join("");
   view.innerHTML = `
     <div class="card"><h2>🗣️ Everyday talk — Өдөр тутмын яриа</h2>
-      <p class="muted">How people really speak — short, simple, close to
-      life. Read the dialogue, learn the key phrases, then choose the best
-      reply. Use them with real people later!</p></div>
+      <p class="muted">Conversations for YOUR level first (yours:
+      <b>${profile.level}</b>), easier ones below for review, harder ones
+      🔒 until you raise your level in Stats.</p></div>
     <div class="card">${rows}</div>`;
-  view.querySelectorAll(".row").forEach(r =>
-    r.addEventListener("click", () => renderDialogue(r.dataset.id)));
+  view.querySelectorAll(".row[data-id]").forEach(r => {
+    if (r.dataset.id) {
+      r.addEventListener("click", () => renderDialogue(r.dataset.id));
+    }
+  });
 }
 
 function renderDialogue(id) {
@@ -343,6 +396,11 @@ function grammarIds(topic) {
   let bank = DATA.grammar;
   if (topic) {
     const scoped = bank.filter(q => q.category === topic);
+    if (scoped.length) bank = scoped;
+  } else {
+    // free play: only grammar from YOUR level and below (Cambridge-style
+    // cumulative bands) — change level in Stats to unlock harder items
+    const scoped = bank.filter(q => bandUnlocked(q.cefr || "B1"));
     if (scoped.length) bank = scoped;
   }
   return bank.map(q => q.id);
