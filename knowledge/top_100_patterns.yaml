@@ -12,6 +12,12 @@
 #
 # Deterministic entries must round-trip: re.sub(find, replace, wrong) == right.
 # case_sensitive defaults to false (compiled with IGNORECASE).
+#
+# also_accept: optional list of OTHER correct answers for the grammar game,
+# for items where the repair genuinely has more than one right form ("that"
+# vs "which", a frontable time adverbial). Contractions do NOT belong here —
+# the grader expands them from src/quiz.py CONTRACTIONS automatically. Never
+# list a form that is wrong, and never list the item's own `wrong`.
 # Deterministic count: 64 (62 checklist + 2 bonus). Keep this in sync with
 # tests/test_matcher.py.
 #
@@ -1182,6 +1188,7 @@ patterns:
     severity: high
     wrong: "I yesterday finished the report."
     right: "I finished the report yesterday."
+    also_accept: ["Yesterday I finished the report.", "Yesterday, I finished the report."]
     explanation: "WHO + ACTION + WHAT, then when. Time words go to the end."
     guide_ref: "§1.3.1, §T SVOMPT — coverage floor"
 
@@ -1191,6 +1198,7 @@ patterns:
     severity: high
     wrong: "We at seven o'clock start work."
     right: "We start work at seven o'clock."
+    also_accept: ["At seven o'clock we start work.", "At seven o'clock, we start work."]
     explanation: "The verb comes second — nothing sits between subject and verb."
     guide_ref: "§1.3.1, §T SVOMPT — coverage floor"
 
@@ -1454,6 +1462,7 @@ patterns:
     severity: medium
     wrong: "I know a man which repairs phones."
     right: "I know a man who repairs phones."
+    also_accept: ["I know a man that repairs phones."]
     explanation: "who = people, which = things, that = both."
     guide_ref: "§1.3.9, §V — coverage floor"
 
@@ -1463,6 +1472,7 @@ patterns:
     severity: medium
     wrong: "I lost the book what you gave me."
     right: "I lost the book that you gave me."
+    also_accept: ["I lost the book which you gave me.", "I lost the book you gave me."]
     explanation: "'What' cannot join a noun to its clause — use that/which."
     guide_ref: "§1.3.9, §V — coverage floor"
 
@@ -1492,6 +1502,7 @@ patterns:
     severity: medium
     wrong: "She asked when does the meeting start."
     right: "She asked when the meeting started."
+    also_accept: ["She asked when the meeting starts."]
     explanation: "A reported question loses its inversion and steps one tense back."
     guide_ref: "§X, §KK 74 — coverage floor"
 

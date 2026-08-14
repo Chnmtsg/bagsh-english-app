@@ -128,10 +128,57 @@ function normalise(s) {
     .replace(/\s+/g, " ").trim();
 }
 
-function checkAnswer(user, right) {
-  const a = normalise(user), b = normalise(right);
-  if (a === b) return true;
-  return b.endsWith(".") && a === b.slice(0, -1).trimEnd();
+/* Contraction-aware grading — a port of check_answer in src/quiz.py. The
+ * table itself is NOT duplicated here: DATA.contractions is exported from
+ * that same module, so the two graders cannot drift apart. */
+
+const MAX_READINGS = 12;
+let _contractionRe = null;
+
+function contractionRe() {
+  if (!_contractionRe) {
+    const keys = Object.keys((DATA && DATA.contractions) || {})
+      .sort((a, b) => b.length - a.length)
+      .map(k => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+    _contractionRe = keys.length ? new RegExp("\\b(" + keys.join("|") + ")", "i") : null;
+  }
+  return _contractionRe;
+}
+
+function readings(text) {
+  const table = (DATA && DATA.contractions) || {};
+  const re = contractionRe();
+  const seen = new Set([text]);
+  if (!re) return seen;
+  const queue = [text];
+  while (queue.length && seen.size < MAX_READINGS) {
+    const current = queue.shift();
+    const m = re.exec(current);
+    if (!m) continue;
+    const head = current.slice(0, m.index), tail = current.slice(m.index + m[0].length);
+    for (let expansion of table[m[1].toLowerCase()] || []) {
+      if (m[1][0] === m[1][0].toUpperCase() && m[1][0] !== m[1][0].toLowerCase()) {
+        expansion = expansion[0].toUpperCase() + expansion.slice(1);
+      }
+      const variant = head + expansion + tail;
+      if (!seen.has(variant) && seen.size < MAX_READINGS) {
+        seen.add(variant);
+        queue.push(variant);
+      }
+    }
+  }
+  return seen;
+}
+
+function checkAnswer(user, right, alsoAccept) {
+  const typed = readings(normalise(user));
+  for (const target of [right, ...(alsoAccept || [])]) {
+    for (const form of readings(normalise(target))) {
+      if (typed.has(form)) return true;
+      if (form.endsWith(".") && typed.has(form.slice(0, -1).trimEnd())) return true;
+    }
+  }
+  return false;
 }
 
 function checkWord(user, word) {
@@ -476,7 +523,7 @@ function startGrammar(topic) {
       const input = document.getElementById("ans");
       input.focus();
       const submit = () => {
-        const ok = checkAnswer(input.value, q.answer);
+        const ok = checkAnswer(input.value, q.answer, q.also_accept);
         srsReview(profile.srs.grammar, id, ok);
         recordActivity(ok ? XP.quizCorrect : XP.quizAttempt, ok ? "quizCorrect" : null);
         document.getElementById("fb").innerHTML = `

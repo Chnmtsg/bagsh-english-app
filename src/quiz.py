@@ -32,6 +32,7 @@ def grammar_bank() -> list[dict]:
             "category": p["category"],
             "prompt": p["wrong"],
             "answer": p["right"],
+            "also_accept": p.get("also_accept", []),
             "explanation": p.get("explanation", ""),
             "bridge": cats.get(p["category"], {}).get("bridge", ""),
         })
@@ -46,6 +47,7 @@ def grammar_bank() -> list[dict]:
                 "category": name,
                 "prompt": example["wrong"],
                 "answer": example["right"],
+                "also_accept": [],
                 "explanation": cat.get("rule_a2", ""),
                 "bridge": cat.get("bridge", ""),
             })
@@ -76,13 +78,85 @@ def _normalise(text: str) -> str:
     return text
 
 
-def check_answer(user: str, right: str) -> bool:
-    """Exact match after whitespace/quote normalisation; a missing final
-    full stop is forgiven (typing, not punctuation, is being tested there)."""
-    a, b = _normalise(user), _normalise(right)
-    if a == b:
-        return True
-    return b.endswith(".") and a == b[:-1].rstrip()
+# Contraction ↔ full form. A learner who types "It's very cold today." has
+# produced correct English; marking it wrong against "It is very cold today."
+# is exactly the false correction standing rule 4 forbids. Ambiguous forms
+# list every reading ("he's" is he is OR he has) — the answer is accepted if
+# ANY reading of what they typed matches ANY reading of the target.
+#
+# This table is the single source of truth: build_webapp_data.py ships it to
+# the PWA as data.contractions so the two graders cannot drift apart.
+CONTRACTIONS: dict[str, list[str]] = {
+    "i'm": ["i am"],
+    "you're": ["you are"], "we're": ["we are"], "they're": ["they are"],
+    "it's": ["it is", "it has"],
+    "he's": ["he is", "he has"], "she's": ["she is", "she has"],
+    "that's": ["that is"], "there's": ["there is", "there has"],
+    "what's": ["what is"], "who's": ["who is"], "let's": ["let us"],
+    "i've": ["i have"], "you've": ["you have"],
+    "we've": ["we have"], "they've": ["they have"],
+    "i'll": ["i will"], "you'll": ["you will"], "he'll": ["he will"],
+    "she'll": ["she will"], "it'll": ["it will"],
+    "we'll": ["we will"], "they'll": ["they will"],
+    "i'd": ["i would", "i had"], "you'd": ["you would", "you had"],
+    "he'd": ["he would", "he had"], "she'd": ["she would", "she had"],
+    "we'd": ["we would", "we had"], "they'd": ["they would", "they had"],
+    "don't": ["do not"], "doesn't": ["does not"], "didn't": ["did not"],
+    "isn't": ["is not"], "aren't": ["are not"],
+    "wasn't": ["was not"], "weren't": ["were not"],
+    "can't": ["cannot", "can not"], "couldn't": ["could not"],
+    "won't": ["will not"], "wouldn't": ["would not"],
+    "shouldn't": ["should not"], "mustn't": ["must not"],
+    "haven't": ["have not"], "hasn't": ["has not"], "hadn't": ["had not"],
+}
+
+_CONTRACTION_RE = re.compile(
+    r"\b(" + "|".join(re.escape(k) for k in
+                      sorted(CONTRACTIONS, key=len, reverse=True)) + r")",
+    re.IGNORECASE,
+)
+
+MAX_READINGS = 12
+
+
+def readings(text: str) -> set[str]:
+    """Every way of writing `text` with its contractions spelled out.
+    Capitalisation is preserved, so case still matters to the grader."""
+    seen = {text}
+    queue = [text]
+    while queue and len(seen) < MAX_READINGS:
+        current = queue.pop(0)
+        match = _CONTRACTION_RE.search(current)
+        if not match:
+            continue
+        head, tail = current[:match.start()], current[match.end():]
+        for expansion in CONTRACTIONS[match.group(1).lower()]:
+            if match.group(1)[0].isupper():
+                expansion = expansion[0].upper() + expansion[1:]
+            variant = head + expansion + tail
+            if variant not in seen and len(seen) < MAX_READINGS:
+                seen.add(variant)
+                queue.append(variant)
+    return seen
+
+
+def check_answer(user: str, right: str,
+                 also_accept: list[str] | None = None) -> bool:
+    """True when the learner produced the target sentence, a contraction of
+    it, or one of the item's documented alternative answers. A missing final
+    full stop is forgiven (typing, not punctuation, is being tested there).
+
+    Deliberately still strict about capitals and about wording — accepting a
+    second correct answer is right, accepting a wrong one teaches wrong
+    English."""
+    typed = readings(_normalise(user))
+    for target in [right, *(also_accept or [])]:
+        for form in readings(_normalise(target)):
+            if form in typed:
+                return True
+            if form.endswith(".") and form[:-1].rstrip() in typed:
+                return True
+    return False
 
 
 # ── vocabulary trainer ───────────────────────────────────────────────

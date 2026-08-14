@@ -57,6 +57,21 @@ def main() -> int:
         if p.get("tier") not in ("deterministic", "contextual", "professional"):
             failures.append(f"[{pid}] unknown tier {p.get('tier')!r}")
 
+        alt = p.get("also_accept")
+        if alt is not None:
+            if not isinstance(alt, list) or not all(
+                    isinstance(a, str) and a.strip() for a in alt):
+                failures.append(f"[{pid}] also_accept must be a list of strings")
+            else:
+                for a in alt:
+                    if a == p.get("wrong"):
+                        failures.append(
+                            f"[{pid}] also_accept contains the item's own error "
+                            f"{a!r} — that would mark wrong English correct")
+                    if a == p.get("right"):
+                        failures.append(
+                            f"[{pid}] also_accept repeats `right` {a!r}")
+
         if p.get("tier") != "deterministic":
             continue
         deterministic += 1

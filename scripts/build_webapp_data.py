@@ -26,7 +26,7 @@ from src.knowledge import (  # noqa: E402
     load_conversations,
     load_grammar_lessons,
 )
-from src.quiz import grammar_bank, vocab_bank  # noqa: E402
+from src.quiz import CONTRACTIONS, grammar_bank, vocab_bank  # noqa: E402
 
 
 def main() -> int:
@@ -59,6 +59,7 @@ def main() -> int:
                 "category": t["id"],
                 "prompt": item["wrong"],
                 "answer": item["right"],
+                "also_accept": item.get("also_accept", []),
                 "explanation": item.get("explanation", ""),
                 "bridge": t.get("bridge", ""),
                 "cefr": t["cefr"],
@@ -66,6 +67,8 @@ def main() -> int:
             for t in load_advanced_grammar()
             for i, item in enumerate(t.get("quiz", []))
         ],
+        # single source of truth for the PWA's grader (src/quiz.py)
+        "contractions": CONTRACTIONS,
         "advanced": load_advanced_grammar(),
         "vocab": vocab_bank(),
         "dialogues": load_conversations(),

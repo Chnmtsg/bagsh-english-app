@@ -129,6 +129,55 @@ def test_check_answer_normalises_but_stays_strict():
     assert not check_answer("i am a geologist.", "I am a geologist.")  # caps matter
 
 
+def test_check_answer_accepts_contractions_both_ways():
+    """A learner who writes "It's very cold today." has produced correct
+    English — marking it wrong is the false correction rule 4 forbids."""
+    assert check_answer("It's very cold today.", "It is very cold today.")
+    assert check_answer("It is very cold today.", "It's very cold today.")
+    assert check_answer("There's a bank near the station.",
+                        "There is a bank near the station.")
+    assert check_answer("They're at home now.", "They are at home now.")
+    assert check_answer("I'm very tired today.", "I am very tired today.")
+    assert check_answer("She doesn't like coffee.", "She does not like coffee.")
+    # ambiguous 's — both readings are generated
+    assert check_answer("He's finished.", "He has finished.")
+    assert check_answer("He's late.", "He is late.")
+    # the possessive is NOT a contraction: its ≠ it's stays a real error
+    assert not check_answer("Its ready.", "It's ready.")
+    assert not check_answer("Their at home now.", "They are at home now.")
+
+
+def test_check_answer_honours_also_accept():
+    assert check_answer("I know a man that repairs phones.",
+                        "I know a man who repairs phones.",
+                        ["I know a man that repairs phones."])
+    # without the list, the same answer is still refused — no silent leniency
+    assert not check_answer("I know a man that repairs phones.",
+                            "I know a man who repairs phones.")
+    # alternatives are graded by the same rules: contractions and final stop
+    assert check_answer("Yesterday I finished the report",
+                        "I finished the report yesterday.",
+                        ["Yesterday I finished the report."])
+
+
+def test_every_item_accepts_its_own_answer():
+    """The mirror property: typing the target back must always score."""
+    for item in grammar_bank():
+        assert check_answer(item["answer"], item["answer"],
+                            item.get("also_accept")), item["id"]
+
+
+def test_no_item_accepts_its_own_error():
+    """The one failure mode contraction-expansion and also_accept could
+    introduce: retyping the prompt unchanged must never score correct."""
+    for item in grammar_bank():
+        assert not check_answer(item["prompt"], item["answer"],
+                                item.get("also_accept")), item["id"]
+        for alt in item.get("also_accept", []):
+            assert alt != item["prompt"], item["id"]
+            assert alt != item["answer"], item["id"]
+
+
 # ── vocabulary deck ──────────────────────────────────────────────────
 
 def test_every_word_is_complete_and_stress_marked():

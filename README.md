@@ -59,7 +59,11 @@ taught in text: `de-POS-it`). Vocabulary grows by curation in
 pytest tests/ -q
 python scripts/validate_patterns.py --corpus data/clean_english.txt
 python scripts/run_regression.py --set evals/regression.jsonl
+node tests/grader_parity.js      # PWA grader matches src/quiz.py
 ```
+
+Re-run `python scripts/build_webapp_data.py` after any `knowledge/*.yaml`
+change and commit the regenerated `webapp/data.json`.
 
 See `CLAUDE.md` for the standing design rules and `docs/architecture.md` for the
 topology. Build-time subagents live in `.claude/agents/`.

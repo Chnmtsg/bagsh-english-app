@@ -71,7 +71,7 @@ def play_grammar(profile: LearnerProfile, n: int) -> None:
         print(f"{round_no}. Fix this sentence:")
         print(f"   ❌ {item['prompt']}")
         answer = _ask("   ✏️  ")
-        ok = check_answer(answer, item["answer"])
+        ok = check_answer(answer, item["answer"], item.get("also_accept"))
         if ok:
             correct += 1
             print(f"   {rng.choice(_RIGHT)}")
