@@ -168,6 +168,213 @@ dialogues:
         - {text: "No. That is wrong.", correct: false, why: "Bare 'no' burns goodwill — English wraps disagreement in softeners."}
         - {text: "(Stay silent and worry)", correct: false, why: "Silence = agreement in meetings. Speak, softly."}
 
+  - id: family
+    level: A1
+    title_en: "Talking about family"
+    title_mn: "Гэр бүлийн тухай ярих"
+    situation: "A new friend asks about your family."
+    lines:
+      - {sp: "A", en: "Do you have brothers or sisters?", mn: "Танд ах дүү бий юу?"}
+      - {sp: "B", en: "Yes, one brother and two sisters. And you?", mn: "Тийм, нэг ах, хоёр эгч дүү. Та?"}
+      - {sp: "A", en: "Just one sister. She lives in Darkhan.", mn: "Ганц эгчтэй. Тэр Дарханд амьдардаг."}
+      - {sp: "B", en: "Nice! Do you see her often?", mn: "Сайхан юм! Байнга уулздаг уу?"}
+      - {sp: "A", en: "Every summer. My parents live there too.", mn: "Зун болгон. Аав ээж маань бас тэнд амьдардаг."}
+      - {sp: "B", en: "Family time is the best time.", mn: "Гэр бүлийн цаг хамгийн сайхан."}
+    key_phrases:
+      - {en: "Do you have…?", note: "The A1 question machine: Do you have brothers? Do you have time?"}
+      - {en: "She lives in…", note: "he/she + livES — the -s that Mongolian never asks for."}
+      - {en: "And you?", note: "Two words that keep every conversation alive."}
+    practice:
+      situation: "Someone asks: 'Do you have brothers or sisters?' Best reply?"
+      options:
+        - {text: "Yes, one brother. And you?", correct: true, why: "Answer + return the question — conversation is ping-pong."}
+        - {text: "Yes.", correct: false, why: "One word ends the game. Add a detail and 'And you?'"}
+        - {text: "My family is a difficult and long story from history.", correct: false, why: "Too much for small talk — keep A1 answers light."}
+
+  - id: doctor
+    level: A2
+    title_en: "At the doctor"
+    title_mn: "Эмчид үзүүлэх"
+    situation: "Describing a simple illness."
+    lines:
+      - {sp: "A", en: "So, what seems to be the problem?", mn: "За, юу болоод байна вэ?"}
+      - {sp: "B", en: "I have a sore throat and a headache. It started two days ago.", mn: "Хоолой өвдөж, толгой өвдөж байна. Хоёр хоногийн өмнө эхэлсэн."}
+      - {sp: "A", en: "Any fever?", mn: "Халуурч байна уу?"}
+      - {sp: "B", en: "A little, last night. Around thirty-eight.", mn: "Өчигдөр шөнө жаахан. Гучин найм орчим."}
+      - {sp: "A", en: "It looks like a cold. Rest, warm drinks, and take this twice a day.", mn: "Ханиад шиг байна. Амарч, бүлээн юм ууж, үүнийг өдөрт хоёр удаа ууна уу."}
+      - {sp: "B", en: "Twice a day, got it. Thank you, doctor.", mn: "Өдөрт хоёр удаа, ойлголоо. Баярлалаа, эмч ээ."}
+    key_phrases:
+      - {en: "I have a sore throat / a headache", note: "Illness = I HAVE + a + body problem. Never 'my throat is pain'."}
+      - {en: "It started two days ago", note: "ago = өмнө; the past-simple marker doctors always ask for."}
+      - {en: "twice a day", note: "once / twice / three times a day — өдөрт нэг/хоёр/гурван удаа."}
+    practice:
+      situation: "The doctor asks what's wrong. Best answer?"
+      options:
+        - {text: "I have a headache. It started yesterday.", correct: true, why: "Symptom + when it started — exactly what a doctor needs."}
+        - {text: "My head is pain.", correct: false, why: "'Pain' is a noun: I have a pain / my head hurts / I have a headache."}
+        - {text: "I am sick of everything.", correct: false, why: "'Sick of' means annoyed, not ill! Say 'I feel sick.'"}
+
+  - id: taxi
+    level: A2
+    title_en: "Taking a taxi"
+    title_mn: "Такси авах"
+    situation: "Getting across town with a talkative driver."
+    lines:
+      - {sp: "A", en: "Where to?", mn: "Хаашаа явах вэ?"}
+      - {sp: "B", en: "The central library, please. How long will it take?", mn: "Төв номын сан руу. Хэр удах вэ?"}
+      - {sp: "A", en: "Twenty minutes, maybe more — traffic is heavy today.", mn: "Хорин минут, магадгүй илүү — өнөөдөр замын хөдөлгөөн их байна."}
+      - {sp: "B", en: "No problem. Could you drop me at the main entrance?", mn: "Зүгээр. Гол хаалган дээр буулгаж өгөхгүй юу?"}
+      - {sp: "A", en: "Sure. Here we are — that'll be eight thousand.", mn: "Тэгье. Ирлээ — найман мянга болно."}
+      - {sp: "B", en: "Keep the change. Have a good day!", mn: "Хариултаа аваарай. Сайхан өдөр болоорой!"}
+    key_phrases:
+      - {en: "How long will it take?", note: "TAKE = хугацаа зарцуулах: It takes 20 minutes."}
+      - {en: "Could you drop me at…?", note: "drop me at = буулгаж өгөх. Polite request shape again."}
+      - {en: "That'll be eight thousand", note: "How sellers say the price — 'that will be…'"}
+    practice:
+      situation: "You want to know the journey time. Best question?"
+      options:
+        - {text: "How long will it take?", correct: true, why: "The fixed phrase with TAKE for time."}
+        - {text: "How many time we go?", correct: false, why: "Time here is uncountable, and the verb is TAKE: how long will it take?"}
+        - {text: "When we are there?", correct: false, why: "Needs do-support and 'arrive': When do we arrive?"}
+
+  - id: complaint
+    level: B1
+    title_en: "Complaining politely"
+    title_mn: "Эелдэг гомдол мэдүүлэх"
+    situation: "Your order arrived wrong. Getting it fixed without a fight."
+    lines:
+      - {sp: "A", en: "Excuse me, I'm afraid there's a problem with my order.", mn: "Уучлаарай, миний захиалгад асуудал гарсан бололтой."}
+      - {sp: "B", en: "Oh, I'm sorry to hear that. What happened?", mn: "Өө, уучлаарай. Юу болсон бэ?"}
+      - {sp: "A", en: "I ordered the chicken soup, but this is beef. And the bill charges for both.", mn: "Би тахианы шөл захиалсан ч энэ үхрийн мах байна. Тооцоонд хоёуланг нь бичсэн байна."}
+      - {sp: "B", en: "You're right, that's our mistake. I'll bring the correct dish and fix the bill.", mn: "Таны зөв, бидний алдаа байна. Зөв хоолыг авчирч, тооцоог засъя."}
+      - {sp: "A", en: "Thanks, I appreciate it.", mn: "Баярлалаа, талархаж байна."}
+      - {sp: "B", en: "And the dessert is on us today.", mn: "Өнөөдөр амттанг манайх үнэгүй өгье."}
+    key_phrases:
+      - {en: "I'm afraid there's a problem…", note: "'I'm afraid' = complaint airbag. It softens whatever follows."}
+      - {en: "I ordered X, but this is Y", note: "Fact, fact — no anger needed. Facts win complaints."}
+      - {en: "I appreciate it", note: "Warmer than 'thanks' — perfect after someone fixes a mistake."}
+    practice:
+      situation: "Your soup is wrong. Open the complaint how?"
+      options:
+        - {text: "Excuse me, I'm afraid there's a problem with my order.", correct: true, why: "Soft opener → cooperative waiter. English complaints start apologetically."}
+        - {text: "This is wrong food! Change it!", correct: false, why: "Wins the argument, loses the room. Bare commands read as aggression."}
+        - {text: "(Eat it silently and never return)", correct: false, why: "The most common learner choice — and the only truly wrong one."}
+
+  - id: hobbies
+    level: B1
+    title_en: "Weekends and hobbies"
+    title_mn: "Амралтын өдөр ба хобби"
+    situation: "Small talk that builds friendships."
+    lines:
+      - {sp: "A", en: "Did you get up to anything at the weekend?", mn: "Амралтын өдрөөр юу хийв?"}
+      - {sp: "B", en: "Not much — I went hiking with my cousin. We've been doing it every month lately.", mn: "Онц юмгүй — үеэлтэйгээ ууланд явлаа. Сүүлийн үед сар болгон явж байгаа."}
+      - {sp: "A", en: "Nice! Whereabouts?", mn: "Гоё! Хаагуур?"}
+      - {sp: "B", en: "Near the river, about an hour out. You should come along next time.", mn: "Голын ойролцоо, нэг цаг орчим зайтай. Дараагийн удаад та ирээрэй."}
+      - {sp: "A", en: "I'd love to. I've been meaning to get outdoors more.", mn: "Дуртайяа. Гадаа илүү их гарах гэж бодож л явдаг юм."}
+      - {sp: "B", en: "It's a deal, then. I'll text you the date.", mn: "Тэгвэл тохирлоо. Өдрийг нь мессежээр хэлье."}
+    key_phrases:
+      - {en: "Did you get up to anything at the weekend?", note: "How natives really ask — not 'What did you do?'"}
+      - {en: "I've been meaning to…", note: "= …хийе гэж бодож явдаг. Perfect continuous for a long intention."}
+      - {en: "You should come along", note: "The friendly invitation — 'come along' = хамт ирэх."}
+    practice:
+      situation: "Someone invites you hiking and you want to go. Best reply?"
+      options:
+        - {text: "I'd love to. When were you thinking?", correct: true, why: "Enthusiasm + a practical question — the accepting formula."}
+        - {text: "Yes. I will come.", correct: false, why: "Grammatical but flat — 'I'd love to' carries the warmth."}
+        - {text: "Maybe, if I am not busy or tired or something.", correct: false, why: "Three escape doors in one sentence reads as 'no'."}
+
+  - id: opinion
+    level: C1
+    title_en: "Giving your opinion in a discussion"
+    title_mn: "Хэлэлцүүлэгт саналаа хэлэх"
+    situation: "Disagreeing with the room — and being thanked for it."
+    lines:
+      - {sp: "A", en: "So we're all agreed the app should launch next month?", mn: "Тэгэхээр бид бүгд аппыг ирэх сард нээхээр санал нэгдэж байна уу?"}
+      - {sp: "B", en: "Broadly, yes — though I'd push back on one point, if I may.", mn: "Ерөнхийдөө тийм — гэхдээ нэг зүйл дээр эсэргүүцэл хэлье, зөвшөөрвөл."}
+      - {sp: "A", en: "Go ahead.", mn: "Хэлээрэй."}
+      - {sp: "B", en: "From where I stand, the testing window looks optimistic. I'd sooner slip two weeks than launch with known bugs.", mn: "Миний харж байгаагаар тестийн хугацаа өөдрөг харагдаж байна. Мэдэгдэж буй алдаатай нээснээс хоёр долоо хоног хойшлуулсан нь дээр."}
+      - {sp: "A", en: "That's a fair challenge. What would the two weeks buy us, concretely?", mn: "Зөв шүүмж байна. Хоёр долоо хоног бидэнд яг юу өгөх вэ?"}
+      - {sp: "B", en: "A full regression pass and a margin for surprises. I'd rather be boring than sorry.", mn: "Бүрэн давтан шалгалт, гэнэтийн зүйлийн нөөц. Харамсахаар бол уйтгартай нь дээр."}
+    key_phrases:
+      - {en: "I'd push back on one point", note: "C1 disagreement: technical, impersonal, no 'you are wrong'."}
+      - {en: "From where I stand…", note: "Frames opinion as perspective — leaves room for other views."}
+      - {en: "I'd sooner X than Y", note: "= Y гэснээс X нь дээр. Elegant preference structure."}
+    practice:
+      situation: "The room agrees; you don't. Open with?"
+      options:
+        - {text: "Broadly yes — though I'd push back on one point, if I may.", correct: true, why: "Agree first, then one precise challenge — dissent that gets heard."}
+        - {text: "Everyone here is wrong.", correct: false, why: "Even if true, the room stops listening at word three."}
+        - {text: "(Agree aloud, complain later)", correct: false, why: "The meeting is where opinions count — corridors change nothing."}
+
+  - id: presentation
+    level: C1
+    title_en: "Presenting and taking questions"
+    title_mn: "Илтгэл тавьж, асуултад хариулах"
+    situation: "The Q&A — where presentations are won or lost (guide §II)."
+    lines:
+      - {sp: "A", en: "…and that brings me to the end. I'm happy to take questions.", mn: "…ингээд төгсгөлд хүрлээ. Асуултаа асууна уу."}
+      - {sp: "B", en: "Thanks. Your growth figures — how sensitive are they to the exchange rate?", mn: "Баярлалаа. Таны өсөлтийн тоо — ханшийн өөрчлөлтөд хэр мэдрэмтгий вэ?"}
+      - {sp: "A", en: "Good question. Moderately — a ten percent swing moves the forecast by roughly three points. The details are in the appendix.", mn: "Сайн асуулт. Дунд зэрэг — арван хувийн хэлбэлзэл таамаглалыг гурван пункт орчим хөдөлгөнө. Дэлгэрэнгүй нь хавсралтад бий."}
+      - {sp: "B", en: "And if I could follow up — what's the biggest risk you see?", mn: "Үргэлжлүүлж асуухад — таны харж буй хамгийн том эрсдэл юу вэ?"}
+      - {sp: "A", en: "Honestly? Hiring speed. The model assumes we staff up by June, and that's the assumption I'd watch.", mn: "Үнэнээр хэлэхэд? Хүн авах хурд. Загвар зургадугаар сар гэхэд бүрэн бүрэлдэхүүнтэй болно гэж үзсэн — энэ таамаглалыг л ажиглах хэрэгтэй."}
+      - {sp: "B", en: "Appreciate the straight answer.", mn: "Шулуухан хариултад баярлалаа."}
+    key_phrases:
+      - {en: "That brings me to the end", note: "The standard landing phrase — signals Q&A cleanly."}
+      - {en: "Good question. / If I could follow up…", note: "Q&A rituals: buy a second to think, extend politely."}
+      - {en: "That's the assumption I'd watch", note: "Naming your own weak point builds more trust than hiding it."}
+    practice:
+      situation: "You're asked something you can't fully answer. Best move?"
+      options:
+        - {text: "Good question — I don't have the exact figure here, but I'll send it to you today.", correct: true, why: "Honesty + a concrete follow-up beats bluffing every time."}
+        - {text: "(Invent a number confidently)", correct: false, why: "One caught bluff and the whole presentation is doubted."}
+        - {text: "Next question.", correct: false, why: "Dodging is visible — the room remembers the question you skipped."}
+
+  - id: bad_news
+    level: C2
+    title_en: "Delivering bad news"
+    title_mn: "Муу мэдээ хүргэх"
+    situation: "Telling a client the deadline will slip — keeping the relationship."
+    lines:
+      - {sp: "A", en: "Thanks for making time. I wanted to talk to you before you saw it in the report.", mn: "Цаг гаргасанд баярлалаа. Тайланд гарахаас өмнө өөрөө хэлье гэж бодсон."}
+      - {sp: "B", en: "That sounds ominous.", mn: "Сонсоход л муу юм болсон бололтой."}
+      - {sp: "A", en: "There's no way to dress it up: we're going to miss the March deadline. Realistically we're looking at late April.", mn: "Яаж ч чимэглэх аргагүй: бид гуравдугаар сарын хугацааг алдана. Бодитоор дөрөвдүгээр сарын сүүл гэж харж байна."}
+      - {sp: "B", en: "That's a serious slip. What happened?", mn: "Ноцтой хоцролт байна шүү. Юу болсон бэ?"}
+      - {sp: "A", en: "Two suppliers failed us, and I'll own our part: we spotted it later than we should have. Here's what we're doing about it — and what I can offer you in return.", mn: "Хоёр нийлүүлэгч бидэнд гологдол өгсөн, мөн өөрсдийн бурууг хүлээе: бид байх ёстойгоос оройтож мэдсэн. Одоо ингэж засаж байна — хариуд нь танд үүнийг санал болгож чадна."}
+      - {sp: "B", en: "I don't love the news, but I'll take the honesty. Walk me through the new plan.", mn: "Мэдээ нь таалагдахгүй ч үнэнч байдлыг нь үнэлье. Шинэ төлөвлөгөөг тайлбарлаж өгөөч."}
+    key_phrases:
+      - {en: "There's no way to dress it up", note: "Announcing directness — paradoxically, the politest way to deliver bad news."}
+      - {en: "I'll own our part", note: "'Own' a mistake = responsibility language that saves relationships."}
+      - {en: "Here's what we're doing about it", note: "Bad news must arrive WITH the plan — never alone."}
+    practice:
+      situation: "You must tell a client about a delay. Structure?"
+      options:
+        - {text: "Warn them personally, state it plainly, own your part, bring the fix.", correct: true, why: "The four-step bad-news formula — honesty plus a plan."}
+        - {text: "Let them find it in the monthly report.", correct: false, why: "Discovered bad news costs double the trust of delivered bad news."}
+        - {text: "Blame the suppliers for everything.", correct: false, why: "Even where true, pure blame reads as evasion — own your slice."}
+
+  - id: indirect
+    level: C2
+    title_en: "Reading between the lines"
+    title_mn: "Далд утгыг унших"
+    situation: "British-style indirectness — what the words are NOT saying."
+    lines:
+      - {sp: "A", en: "So — what did you make of my proposal?", mn: "За — миний саналыг юу гэж бодов?"}
+      - {sp: "B", en: "It's certainly… ambitious. There are some quite interesting ideas in there.", mn: "Лавтай яахав… том санаа юм. Дотор нь нэлээд сонирхолтой санаанууд байна."}
+      - {sp: "A", en: "You hate it.", mn: "Танд таалагдаагүй байна шүү дээ."}
+      - {sp: "B", en: "I wouldn't go that far. Let's say the budget section might benefit from another pass.", mn: "Тэгтлээ хэлэхгүй ээ. Төсвийн хэсэг дахин нэг нягтлахад гэмгүй гэж хэлье дээ."}
+      - {sp: "A", en: "Meaning the numbers don't add up.", mn: "Өөрөөр хэлбэл тоо нийлэхгүй байна гэсэн үг."}
+      - {sp: "B", en: "Meaning I'd love to see version two. With, perhaps, slightly braver honesty about the costs.", mn: "Өөрөөр хэлбэл хоёр дахь хувилбарыг харахыг хүсэж байна. Магадгүй зардлын талаар арай зоригтой үнэнч байдалтайгаар."}
+    key_phrases:
+      - {en: "certainly… ambitious / quite interesting", note: "⚠ In British English these often mean the OPPOSITE — praise this faint is criticism."}
+      - {en: "might benefit from another pass", note: "= it needs rework. The conditional hides the verdict."}
+      - {en: "I wouldn't go that far", note: "Soft disagreement with your interpretation — while confirming half of it."}
+    practice:
+      situation: "A British colleague calls your plan 'quite interesting, certainly ambitious'. They mean…?"
+      options:
+        - {text: "They have serious doubts and expect a revision.", correct: true, why: "Faint praise + 'ambitious' is classic coded criticism — ask what to improve."}
+        - {text: "They love it and will approve it.", correct: false, why: "If they loved it you'd hear 'brilliant, let's do it' — enthusiasm is never this quiet."}
+        - {text: "They were not listening.", correct: false, why: "The wording is too careful for inattention — coded language IS the message."}
+
   - id: job_interview
     level: B2
     title_en: "A job interview"

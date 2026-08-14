@@ -30,11 +30,12 @@ SOURCE_URLS = [
 ]
 
 # CEFR-J labels A1–B2; the dataset's level 6 is its "above B2" bucket,
-# which we surface as one advanced rung, C1+.
-LEVEL_NAMES = {1: "A1", 2: "A2", 3: "B1", 4: "B2", 6: "C1+"}
+# which we split by frequency into C1 (more common) and C2 (rarer).
+LEVEL_NAMES = {1: "A1", 2: "A2", 3: "B1", 4: "B2", 6: "ADV"}
 
-# New words per level → cumulative ≈ 600 / 1300 / 2800 / 4800 / 6800
-CAPS = {"A1": 600, "A2": 700, "B1": 1500, "B2": 2000, "C1+": 2000}
+# New words per level → cumulative ≈ 600 / 1300 / 2800 / 4800 / 5800 / 6800
+CAPS = {"A1": 600, "A2": 700, "B1": 1500, "B2": 2000, "ADV": 2000}
+C1_SHARE = 1000  # first (most frequent) advanced words → C1, rest → C2
 
 _WORD_OK = re.compile(r"^[a-z][a-z'-]*$")
 _SINGLE_LETTER_OK = {"a", "i"}
@@ -86,7 +87,12 @@ def main() -> int:
     levels: dict[str, list[str]] = {}
     for name, items in by_level.items():
         items.sort(key=lambda t: (-t[1], t[0]))  # frequency first
-        levels[name] = [w for w, _ in items[: CAPS[name]]]
+        chosen = [w for w, _ in items[: CAPS[name]]]
+        if name == "ADV":
+            levels["C1"] = chosen[:C1_SHARE]
+            levels["C2"] = chosen[C1_SHARE:]
+        else:
+            levels[name] = chosen
 
     data = {
         "source": "Words-CEFR-Dataset (CEFR-J based), MIT license",
@@ -98,7 +104,7 @@ def main() -> int:
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=0),
                    encoding="utf-8")
     total = 0
-    for name in LEVEL_NAMES.values():
+    for name in ("A1", "A2", "B1", "B2", "C1", "C2"):
         total += len(levels[name])
         print(f"{name}: {len(levels[name]):>5} new words   (cumulative {total})")
     print(f"wrote {OUT}")

@@ -6,7 +6,7 @@ from pathlib import Path
 
 WORDLIST = Path(__file__).resolve().parents[1] / "knowledge" / "cefr_wordlist.json"
 
-EXPECTED = {"A1": 600, "A2": 700, "B1": 1500, "B2": 2000, "C1+": 2000}
+EXPECTED = {"A1": 600, "A2": 700, "B1": 1500, "B2": 2000, "C1": 1000, "C2": 1000}
 _WORD = re.compile(r"^[a-z][a-z'-]*$|^[ai]$")
 
 

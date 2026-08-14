@@ -35,6 +35,13 @@ def load_grammar_lessons() -> dict:
 
 
 @lru_cache(maxsize=None)
+def load_advanced_grammar() -> list[dict]:
+    """C1/C2 lesson topics — curriculum only, never error categories."""
+    with open(KNOWLEDGE_DIR / "advanced_grammar.yaml", encoding="utf-8") as fh:
+        return yaml.safe_load(fh)["topics"]
+
+
+@lru_cache(maxsize=None)
 def load_conversations() -> list[dict]:
     with open(KNOWLEDGE_DIR / "conversations.yaml", encoding="utf-8") as fh:
         return yaml.safe_load(fh)["dialogues"]

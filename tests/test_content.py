@@ -4,11 +4,31 @@ these tests are what 'curated' means in practice)."""
 from src.knowledge import (
     categories,
     cefr_bands,
+    load_advanced_grammar,
     load_conversations,
     load_grammar_lessons,
 )
 
 LEVELS = {"A1", "A2", "B1", "B2"}
+ALL_LEVELS = {"A1", "A2", "B1", "B2", "C1", "C2"}
+
+
+def test_advanced_grammar_covers_c1_and_c2():
+    topics = load_advanced_grammar()
+    by_level = {}
+    for t in topics:
+        assert t["cefr"] in ("C1", "C2"), t["id"]
+        assert t["id"].startswith("adv_"), "advanced ids must not collide with categories"
+        assert t["id"] not in categories(), "advanced topics are not error categories"
+        assert len(t.get("explain", "")) > 100, f"{t['id']}: explain too thin"
+        assert t.get("bridge") and t.get("tip"), t["id"]
+        assert len(t.get("examples", [])) >= 2, t["id"]
+        for q in t.get("quiz", []):
+            assert q["wrong"] != q["right"], t["id"]
+            assert q.get("explanation"), t["id"]
+        by_level.setdefault(t["cefr"], []).append(t["id"])
+    assert len(by_level.get("C1", [])) >= 3
+    assert len(by_level.get("C2", [])) >= 3
 
 
 def test_every_category_has_a_cefr_band():
@@ -44,11 +64,11 @@ def test_every_grammar_lesson_is_complete():
 
 def test_dialogues_are_complete_and_leveled():
     dialogues = load_conversations()
-    assert len(dialogues) >= 8
+    assert len(dialogues) >= 18
     ids = [d["id"] for d in dialogues]
     assert len(ids) == len(set(ids))
     for d in dialogues:
-        assert d["level"] in LEVELS, f"{d['id']}: bad level"
+        assert d["level"] in ALL_LEVELS, f"{d['id']}: bad level"
         assert d.get("title_en") and d.get("title_mn") and d.get("situation")
         assert len(d["lines"]) >= 4, f"{d['id']}: dialogue too short"
         for line in d["lines"]:
@@ -65,4 +85,4 @@ def test_dialogues_are_complete_and_leveled():
 
 def test_dialogue_levels_span_all_bands():
     levels = {d["level"] for d in load_conversations()}
-    assert {"A1", "A2", "B1", "B2"} <= levels  # every level has talks
+    assert ALL_LEVELS <= levels  # every level A1–C2 has talks

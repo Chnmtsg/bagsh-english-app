@@ -37,6 +37,7 @@ _LANGUAGE_POLICY = {
     "B1": "Write in English first, with a Mongolian gloss for the key idea only.",
     "B2": "Write in English only; use Mongolian only for interference traps.",
     "C1": "Write in English only.",
+    "C2": "Write in English only.",
 }
 
 

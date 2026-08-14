@@ -8,9 +8,9 @@
 const STORE_KEY = "bagsh_profile_v1";
 const SESSION_N = 5;
 const NEW_PER_SESSION = 3;
-const LEVELS = ["A1", "A2", "B1", "B2"];               // explanation language
-const VOCAB_LEVELS = ["A1", "A2", "B1", "B2", "C1+"];   // the word ladder
-const LEVEL_MN = { A1: "Эхлэгч", A2: "Бага дунд", B1: "Дунд", B2: "Ахисан дунд", "C1+": "Ахисан" };
+const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
+const VOCAB_LEVELS = LEVELS;
+const LEVEL_MN = { A1: "Эхлэгч", A2: "Бага дунд", B1: "Дунд", B2: "Ахисан дунд", C1: "Ахисан", C2: "Гүнзгий" };
 const CHECK_ROUND = 20;          // words per check-yourself round
 const LEVEL_DONE_PCT = 90;       // % of the level list known to unlock next
 
@@ -201,17 +201,29 @@ function renderLevelPicker(returnTab) {
 
 /* ── Path & Lessons ─────────────────────────────────────────────── */
 
-function topicBand(name) { return DATA.categories[name].cefr || "B1"; }
+function topicBand(name) {
+  if (DATA.categories[name]) return DATA.categories[name].cefr || "B1";
+  const adv = DATA.advanced.find(t => t.id === name);
+  return adv ? adv.cefr : "B1";
+}
 
 function bandUnlocked(band) {
   return levelRank(band) <= levelRank(profile.level || "B1");
 }
 
 function topicsByBand() {
-  const groups = { A1: [], A2: [], B1: [], B2: [] };
+  const groups = { A1: [], A2: [], B1: [], B2: [], C1: [], C2: [] };
   for (const name of DATA.curriculum_order) groups[topicBand(name)].push(name);
+  for (const t of DATA.advanced) groups[t.cefr].push(t.id);
   return groups;
 }
+
+function topicTitle(name) {
+  const adv = DATA.advanced.find(t => t.id === name);
+  return adv ? adv.title : name.replace(/_/g, " ");
+}
+
+function totalTopics() { return DATA.curriculum_order.length + DATA.advanced.length; }
 
 function nextTopic() {
   // first unfinished topic in an unlocked band (lowest band first)
@@ -225,6 +237,11 @@ function nextTopic() {
     || DATA.curriculum_order[0];
 }
 
+function openTopic(name) {
+  if (DATA.categories[name]) renderLesson(name);
+  else renderAdvancedLesson(name);
+}
+
 function renderPath() {
   const done = profile.lessonsDone;
   const next = nextTopic();
@@ -236,7 +253,7 @@ function renderPath() {
       const isDone = done.includes(name);
       const mark = !unlocked ? "🔒" : isDone ? "✓" : name === next ? "▶" : "·";
       return `<div class="row ${unlocked ? "" : "locked-row"}" data-topic="${unlocked ? name : ""}">
-        <span class="name">${name.replace(/_/g, " ")}</span>
+        <span class="name">${esc(topicTitle(name))}</span>
         <span class="st ${isDone ? "ok" : "muted"}">${mark}</span></div>`;
     }).join("");
     const doneCount = groups[band].filter(n => done.includes(n)).length;
@@ -249,16 +266,16 @@ function renderPath() {
   view.innerHTML = `
     <div class="card"><h2>Таны зам — Your path</h2>
       <p class="muted">The grammar of English, level by level (Cambridge-style
-      bands), each topic explained through Mongolian. Your level:
+      bands, A1 → C2), each topic explained through Mongolian. Your level:
       <b>${profile.level}</b> — higher bands unlock when you change level in
-      Stats. Finished: ${done.length}/24.</p>
+      Stats. Finished: ${done.length}/${totalTopics()}.</p>
       <button class="primary" id="continueBtn">
-        ▶ Continue: ${next.replace(/_/g, " ")} (${topicBand(next)})</button></div>
+        ▶ Continue: ${esc(topicTitle(next))} (${topicBand(next)})</button></div>
     ${sections}`;
-  document.getElementById("continueBtn").addEventListener("click", () => renderLesson(next));
+  document.getElementById("continueBtn").addEventListener("click", () => openTopic(next));
   view.querySelectorAll(".row[data-topic]").forEach(r => {
     if (r.dataset.topic) {
-      r.addEventListener("click", () => renderLesson(r.dataset.topic));
+      r.addEventListener("click", () => openTopic(r.dataset.topic));
     }
   });
 }
@@ -297,6 +314,33 @@ function renderLesson(topic) {
     renderLesson(topic);
   });
   document.getElementById("drillBtn").addEventListener("click", () => startGrammar(topic));
+  document.getElementById("backBtn").addEventListener("click", renderPath);
+}
+
+function renderAdvancedLesson(id) {
+  const t = DATA.advanced.find(x => x.id === id);
+  const done = profile.lessonsDone.includes(id);
+  const examples = t.examples.map(e =>
+    `<p>❌ ${esc(e.wrong)}<br>✅ <b>${esc(e.right)}</b></p>`).join("");
+  view.innerHTML = `
+    <div class="card">
+      <h2>${esc(t.title)} <span class="pill">${t.cefr}</span></h2>
+      <h3>📖 The grammar</h3><p>${esc(t.explain)}</p>
+      <h3>🇲🇳 Таны хэлтэй харьцуулбал</h3>
+      <p class="mn">${esc(t.bridge)}</p>
+      <h3>Examples</h3>${examples}
+      ${t.tip ? `<h3>💡 Tip</h3><p>${esc(t.tip)}</p>` : ""}
+      <button class="primary" id="doneBtn" ${done ? "disabled" : ""}>
+        ${done ? "✓ Finished" : "Mark finished (+10 XP)"}</button>
+      <button class="ghost" id="drillBtn">Practise it now →</button>
+      <button class="ghost" id="backBtn">← Back to path</button>
+    </div>`;
+  document.getElementById("doneBtn").addEventListener("click", () => {
+    profile.lessonsDone.push(id);
+    recordActivity(XP.lesson);
+    renderAdvancedLesson(id);
+  });
+  document.getElementById("drillBtn").addEventListener("click", () => startGrammar(id));
   document.getElementById("backBtn").addEventListener("click", renderPath);
 }
 
@@ -785,7 +829,7 @@ function renderStats() {
       <p class="muted">Grammar correct: ${profile.quizCorrect} ·
         Words known: ${Object.keys(profile.knownWords).length} ·
         Word ladder: ${vocabLevel()} (${levelProgress(vocabLevel()).pct}%) ·
-        Lessons: ${profile.lessonsDone.length}/24 ·
+        Lessons: ${profile.lessonsDone.length}/${totalTopics()} ·
         Talks: ${profile.talkDone.length}/${DATA.dialogues.length}</p>
       <label class="muted" style="display:block;margin:6px 0">
         <input type="checkbox" id="streakToggle" ${profile.showStreak ? "checked" : ""}>

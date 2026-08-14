@@ -22,6 +22,7 @@ from src.curriculum import category_examples, curriculum_order  # noqa: E402
 from src.knowledge import (  # noqa: E402
     categories,
     cefr_bands,
+    load_advanced_grammar,
     load_conversations,
     load_grammar_lessons,
 )
@@ -51,7 +52,21 @@ def main() -> int:
         },
         "grammar": [
             {**q, "cefr": bands.get(q["category"], "B1")} for q in grammar_bank()
+        ] + [
+            # advanced (C1/C2) quiz items from the lesson topics
+            {
+                "id": f"{t['id']}_{i}",
+                "category": t["id"],
+                "prompt": item["wrong"],
+                "answer": item["right"],
+                "explanation": item.get("explanation", ""),
+                "bridge": t.get("bridge", ""),
+                "cefr": t["cefr"],
+            }
+            for t in load_advanced_grammar()
+            for i, item in enumerate(t.get("quiz", []))
         ],
+        "advanced": load_advanced_grammar(),
         "vocab": vocab_bank(),
         "dialogues": load_conversations(),
         "wordlist": json.loads(WORDLIST.read_text(encoding="utf-8")),

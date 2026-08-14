@@ -1,0 +1,174 @@
+# Advanced grammar topics — C1 and C2 rungs of the curriculum.
+# These are LESSON topics, not error-taxonomy categories: the journal's
+# closed 24-category enum is untouched (correctors and tutors never see
+# these ids). Sourced from the contrastive guide: §S conditionals &
+# inversion, §W passive, §AA hedging, §C cleft repair, §H register split.
+# Each topic ships 2–3 quiz items for the grammar game.
+# ⚠ Mongolian strings need native-speaker verification before shipping.
+
+version: 1
+
+topics:
+  - id: adv_unreal_conditionals
+    cefr: C1
+    title: "Unreal conditionals"
+    explain: >-
+      Mongolian has one conditional form (-вал/-бол); English has four, and
+      the advanced ones use PAST TENSE TO MARK UNREALITY, not past time.
+      "If I had time, I would come" — you do not have time NOW; the past
+      form signals imagination, not history. Third conditional stacks it
+      for lost pasts: "If we had left earlier, we would have caught the
+      train" (we didn't, we missed it). The tense moves one step back from
+      reality: real→present, unreal-now→past, unreal-past→past perfect.
+    bridge: >-
+      Монголоор "цаг байвал очно" гэдэг нэг хэлбэр бүх нөхцөлд ажилладаг.
+      Англиар өнгөрсөн цаг нь БОДИТ БУС гэдгийг заадаг — цаг хугацааг биш.
+    examples:
+      - {wrong: "If I would have time, I would come.", right: "If I had time, I would come."}
+      - {wrong: "If we left earlier yesterday, we caught the train.", right: "If we had left earlier yesterday, we would have caught the train."}
+      - {wrong: "If I was you, I take the job.", right: "If I were you, I would take the job."}
+    tip: >-
+      Never "would" in the if-half. Unreal now → past. Unreal past → had +
+      done, would have + done.
+    quiz:
+      - {wrong: "If I would know the answer, I would tell you.", right: "If I knew the answer, I would tell you.",
+         explanation: "No 'would' in the if-clause: unreal present takes past tense."}
+      - {wrong: "If she studied harder last year, she passed.", right: "If she had studied harder last year, she would have passed.",
+         explanation: "Lost past: if + had done → would have done."}
+
+  - id: adv_passive
+    cefr: C1
+    title: "The passive voice"
+    explain: >-
+      English uses the passive when the doer is unknown, obvious, or less
+      important than the action: "The road was closed", "Mistakes were
+      made". Form: be + past participle, and the object moves to the
+      subject seat. The impersonal passive is the backbone of formal
+      writing: "It is believed that…", "The results are thought to show…".
+      Overusing it makes writing heavy — modern style prefers active where
+      the doer matters.
+    bridge: >-
+      Монгол хэлний -гдах хэлбэртэй ойролцоо, гэхдээ англи passive нь
+      be + 3-р хэлбэр гэсэн ХОЁР үгээр бүтдэг: was closed, is believed.
+    examples:
+      - {wrong: "The report was wrote by the team.", right: "The report was written by the team."}
+      - {wrong: "The meeting was happened yesterday.", right: "The meeting happened yesterday."}
+      - {wrong: "It believes that prices will rise.", right: "It is believed that prices will rise."}
+    tip: >-
+      happen, occur, arrive never take the passive — they have no object
+      to promote.
+    quiz:
+      - {wrong: "The window was broke during the storm.", right: "The window was broken during the storm.",
+         explanation: "Passive needs the third form: broken, written, taken."}
+      - {wrong: "It is believe that the plan will work.", right: "It is believed that the plan will work.",
+         explanation: "Impersonal passive: It is believED / thought / said that…"}
+
+  - id: adv_hedging
+    cefr: C1
+    title: "Hedging — careful claims"
+    explain: >-
+      Direct claims sound overconfident in academic and professional
+      English: "This proves the theory" invites attack; "This suggests the
+      theory may be correct" invites agreement. The hedging toolkit:
+      appears to, seems to, suggests, indicates, is likely to, may/might,
+      according to. Mongolian marks the SOURCE of knowledge inside the
+      verb; English must add these separate words, or the writer sounds
+      more certain than they are. Hedging is the skill that separates a
+      good report from a risky one.
+    bridge: >-
+      Монгол хэл мэдээллийн эх сурвалжийг үйл үгэндээ (-жээ, -лаа) тээдэг.
+      Англид тусдаа үгс нэмэх ёстой: appears to, suggests, according to.
+    examples:
+      - {wrong: "This proves that the method works.", right: "This suggests that the method works."}
+      - {wrong: "The figures are wrong.", right: "The figures appear to be inaccurate."}
+      - {wrong: "Everyone knows this is the best option.", right: "This is widely considered the strongest option."}
+    tip: >-
+      Ladder of certainty: proves → shows → indicates → suggests → hints.
+      Choose one step weaker than you feel.
+    quiz:
+      - {wrong: "The data proves our idea completely.", right: "The data suggests our idea is correct.",
+         explanation: "Academic English hedges: suggests/indicates, rarely 'proves'."}
+      - {wrong: "The company is definitely hiding something.", right: "The company appears to be withholding information.",
+         explanation: "'Appears to' makes a strong claim defensible."}
+
+  - id: adv_inversion
+    cefr: C2
+    title: "Inversion for emphasis"
+    explain: >-
+      Starting a sentence with a negative adverb forces question order in
+      the main clause — a written, formal, high-register device: "Never
+      have I seen such results", "Not only did they finish early, they
+      also came in under budget", "Rarely does a plan survive contact with
+      reality". The trigger words: never, rarely, seldom, not only, no
+      sooner, under no circumstances, only then. It is emphasis machinery:
+      use it once per page, not once per paragraph.
+    bridge: >-
+      Монголоор өгүүлбэрийн эхэнд юу ч тавьсан дараалал өөрчлөгддөггүй.
+      Англиар negative үг эхэнд орвол асуултын дараалал үүсдэг.
+    examples:
+      - {wrong: "Never I have seen such a mess.", right: "Never have I seen such a mess."}
+      - {wrong: "Not only they finished early, but also cheaply.", right: "Not only did they finish early, but they also finished cheaply."}
+      - {wrong: "No sooner we arrived than it started to rain.", right: "No sooner had we arrived than it started to rain."}
+    tip: >-
+      Negative opener → borrow the question form: Never HAVE I…, Rarely
+      DOES he…, Not only DID they…
+    quiz:
+      - {wrong: "Rarely he admits a mistake.", right: "Rarely does he admit a mistake.",
+         explanation: "A negative adverb first forces do-support inversion."}
+      - {wrong: "Under no circumstances you should sign this.", right: "Under no circumstances should you sign this.",
+         explanation: "'Under no circumstances' triggers auxiliary-before-subject."}
+
+  - id: adv_cleft
+    cefr: C2
+    title: "Cleft sentences — controlled focus"
+    explain: >-
+      Clefts let English point a spotlight: "It was the BUDGET that killed
+      the project" (not the schedule); "What we need is TIME" (not money).
+      The it-cleft (It was X that…) and the what-cleft (What … is X) do
+      the focusing work that Mongolian achieves with word order and
+      particles. They are also the elegant repair for topic-fronting: the
+      thought behind "About the report…" becomes "What worries me is the
+      report."
+    bridge: >-
+      Монголоор "Тайлан Л асуудал байна" гэж Л-ээр онцолдог. Англиар
+      cleft бүтэц онцолдог: It is the report that worries me.
+    examples:
+      - {wrong: "The budget killed the project, not the schedule, I emphasize.", right: "It was the budget that killed the project, not the schedule."}
+      - {wrong: "We need time is the main thing.", right: "What we need most is time."}
+      - {wrong: "About the deadline, that worries me.", right: "What worries me is the deadline."}
+    tip: >-
+      To stress WHO/WHAT: "It was X that…". To stress a need or feeling:
+      "What … is X".
+    quiz:
+      - {wrong: "The manager made the decision is important here.", right: "It was the manager who made the decision.",
+         explanation: "It-cleft spotlights the doer: It was X who…"}
+      - {wrong: "Patience we need now.", right: "What we need now is patience.",
+         explanation: "What-cleft spotlights the need: What we need is X."}
+
+  - id: adv_register_shift
+    cefr: C2
+    title: "The Germanic–Latin register shift"
+    explain: >-
+      English has two vocabularies. Everyday words are Germanic: get, buy,
+      ask for, put off, look into. Their formal twins are Latin: obtain,
+      purchase, request, postpone, investigate. Native professionals shift
+      registers by swapping word families — the grammar barely changes.
+      "We got a lot of stuff and put off the meeting" and "We obtained
+      substantial materials and postponed the meeting" say the same thing
+      to two different rooms. Control of this switch reads as native-level
+      polish in writing.
+    bridge: >-
+      Монголоор албан бичигт хэллэг өөрчлөгддөг шиг англид ҮГИЙН САН
+      солигддог: get → obtain, ask for → request, put off → postpone.
+    examples:
+      - {wrong: "We got the results and put off the launch. (formal report)", right: "We obtained the results and postponed the launch."}
+      - {wrong: "Please look into the problem. (legal letter)", right: "Please investigate the matter."}
+      - {wrong: "The firm asked for more time. (contract)", right: "The firm requested an extension."}
+    tip: >-
+      Formal document? Swap the phrasal verb for its one-word Latin twin.
+      Everyday talk? Swap back — 'purchase a coffee' sounds absurd.
+    quiz:
+      - {wrong: "The committee will look into the issue. (formal minutes)", right: "The committee will investigate the issue.",
+         explanation: "Formal register prefers the Latin verb: investigate."}
+      - {wrong: "We will purchase some milk on the way home. (chat)", right: "We will buy some milk on the way home.",
+         explanation: "Register works both ways — Latin words sound absurd in casual talk."}
