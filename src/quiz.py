@@ -89,20 +89,31 @@ def check_answer(user: str, right: str) -> bool:
 
 @lru_cache(maxsize=1)
 def vocab_bank() -> list[dict]:
+    """The general deck — the basic app is for everyone."""
     with open(KNOWLEDGE_DIR / "vocabulary.yaml", encoding="utf-8") as fh:
         return yaml.safe_load(fh)["words"]
 
 
+@lru_cache(maxsize=1)
+def geology_bank() -> list[dict]:
+    """Optional professional deck; merged only for a geology/mining domain."""
+    with open(KNOWLEDGE_DIR / "vocabulary_geology.yaml", encoding="utf-8") as fh:
+        return yaml.safe_load(fh)["words"]
+
+
 def vocab_items_for(profile: LearnerProfile) -> list[dict]:
-    """Work deck first when the learner has a domain, easier levels first."""
+    """Easier levels first; the geology deck joins only when the learner's
+    domain asks for it."""
     order = {"A1": 0, "A2": 1, "B1": 2, "B2": 3, "C1": 4}
-    has_domain = bool(profile.get("domain"))
+    pool = list(vocab_bank())
+    domain = (profile.get("domain") or "").lower()
+    if "geolog" in domain or "mining" in domain:
+        pool.extend(geology_bank())
 
     def key(w: dict) -> tuple:
-        deck_rank = 0 if (w["deck"] == "work") == has_domain else 1
-        return (order.get(w.get("level", "B1"), 2), deck_rank, w["word"])
+        return (order.get(w.get("level", "B1"), 2), w["word"])
 
-    return sorted(vocab_bank(), key=key)
+    return sorted(pool, key=key)
 
 
 def cloze(word_entry: dict) -> str:

@@ -103,6 +103,13 @@ input[type=text] {
 .badge.locked { opacity: .45; }
 .badge .ic { font-size: 20px; }
 
+.bar {
+  height: 6px; border-radius: 3px; background: var(--chip);
+  margin-top: 5px; overflow: hidden;
+}
+.bar-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+.locked-row { opacity: .45; }
+
 .chat { margin: 8px 0; }
 .bubble {
   max-width: 85%; border-radius: 14px; padding: 8px 12px; margin: 8px 0;

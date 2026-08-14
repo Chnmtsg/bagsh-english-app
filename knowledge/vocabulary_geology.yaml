@@ -1,0 +1,99 @@
+# OPTIONAL professional deck — geology & mining (stress list from guide §1.5).
+# NOT part of the core app: the basic app is for everyone. The desktop
+# journal merges this deck only when learner.domain mentions geology or
+# mining. The PWA does not load it.
+# ⚠ Mongolian strings need native-speaker verification before shipping.
+
+version: 1
+
+words:
+  - {word: geology, stress: ge-OL-o-gy, pos: noun, level: B1, deck: geology,
+     gloss_en: "the science of the Earth and rocks", gloss_mn: "геологи",
+     example: "She studied geology at university."}
+  - {word: geologist, stress: ge-OL-o-gist, pos: noun, level: B1, deck: geology,
+     gloss_en: "a scientist who studies rocks", gloss_mn: "геологич",
+     example: "The geologist logged the core all afternoon."}
+  - {word: geological, stress: ge-o-LOG-i-cal, pos: adj, level: B1, deck: geology,
+     gloss_en: "about geology", gloss_mn: "геологийн",
+     example: "The geological map shows three rock units."}
+  - {word: mineral, stress: MIN-er-al, pos: noun, level: B1, deck: geology,
+     gloss_en: "a natural solid material from the ground", gloss_mn: "эрдэс",
+     example: "Quartz is the most common mineral here."}
+  - {word: deposit, stress: de-POS-it, pos: noun, level: B1, deck: geology,
+     gloss_en: "minerals collected in one place underground", gloss_mn: "орд",
+     example: "They found a new copper deposit last year."}
+  - {word: exploration, stress: ex-plo-RA-tion, pos: noun, level: B1, deck: geology,
+     gloss_en: "searching an area for minerals", gloss_mn: "хайгуул",
+     example: "The exploration program starts in spring."}
+  - {word: resource, stress: re-SOURCE, pos: noun, level: B1, deck: geology,
+     gloss_en: "useful material that a place has", gloss_mn: "нөөц баялаг",
+     example: "Water is a limited resource at the camp."}
+  - {word: reserve, stress: re-SERVE, pos: noun, level: B1, deck: geology,
+     gloss_en: "an amount kept for future use", gloss_mn: "нөөц",
+     example: "The mine has a large coal reserve."}
+  - {word: anomaly, stress: a-NOM-a-ly, pos: noun, level: B2, deck: geology,
+     gloss_en: "something different from normal", gloss_mn: "гажиг",
+     example: "The survey showed a magnetic anomaly near the hill."}
+  - {word: lithology, stress: li-THOL-o-gy, pos: noun, level: B2, deck: geology,
+     gloss_en: "the physical character of rocks", gloss_mn: "литологи",
+     example: "The lithology changes at eighty metres."}
+  - {word: sedimentary, stress: sed-i-MEN-ta-ry, pos: adj, level: B2, deck: geology,
+     gloss_en: "made from settled layers of material", gloss_mn: "тунамал",
+     example: "Sandstone is a sedimentary rock."}
+  - {word: metamorphic, stress: met-a-MOR-phic, pos: adj, level: B2, deck: geology,
+     gloss_en: "changed by heat and pressure", gloss_mn: "хувирмал",
+     example: "The metamorphic rocks are harder to drill."}
+  - {word: igneous, stress: IG-ne-ous, pos: adj, level: B2, deck: geology,
+     gloss_en: "formed from cooled magma", gloss_mn: "магмын",
+     example: "Granite is an igneous rock."}
+  - {word: overburden, stress: O-ver-bur-den, pos: noun, level: B2, deck: geology,
+     gloss_en: "the material above the useful rock", gloss_mn: "хучлага хөрс",
+     example: "We removed the overburden before mining."}
+  - {word: tailings, stress: TAIL-ings, pos: noun, level: B2, deck: geology,
+     gloss_en: "waste left after taking the mineral", gloss_mn: "хаягдал",
+     example: "The tailings are stored behind the dam."}
+  - {word: analysis, stress: a-NAL-y-sis, pos: noun, level: B1, deck: geology,
+     gloss_en: "careful study of something", gloss_mn: "шинжилгээ",
+     example: "The analysis of the samples takes two weeks."}
+  - {word: analyse, stress: AN-a-lyse, pos: verb, level: B1, deck: geology,
+     gloss_en: "to study something carefully", gloss_mn: "шинжлэх",
+     example: "We analyse the data every Friday."}
+  - {word: feasibility, stress: fea-si-BIL-i-ty, pos: noun, level: B2, deck: geology,
+     gloss_en: "how possible and practical a plan is", gloss_mn: "техник эдийн засгийн үндэслэл",
+     example: "The feasibility study will finish in June."}
+  - {word: geophysics, stress: ge-o-PHYS-ics, pos: noun, level: B2, deck: geology,
+     gloss_en: "physics used to study the Earth", gloss_mn: "геофизик",
+     example: "Geophysics helped us find the buried structure."}
+  - {word: sample, stress: SAM-ple, pos: noun, level: A2, deck: geology,
+     gloss_en: "a small part taken for testing", gloss_mn: "дээж",
+     example: "Label every sample before shipping it."}
+  - {word: drilling, stress: DRILL-ing, pos: noun, level: B1, deck: geology,
+     gloss_en: "making deep holes in the ground", gloss_mn: "өрөмдлөг",
+     example: "Drilling continues day and night this month."}
+  - {word: survey, stress: SUR-vey, pos: noun, level: B1, deck: geology,
+     gloss_en: "a careful measurement of an area", gloss_mn: "судалгаа",
+     example: "The survey covered the whole valley."}
+  - {word: estimate, stress: ES-ti-mate, pos: verb, level: B1, deck: geology,
+     gloss_en: "to judge a number without exact measuring", gloss_mn: "тооцоолох",
+     example: "We estimate the depth at two hundred metres."}
+  - {word: extraction, stress: ex-TRAC-tion, pos: noun, level: B2, deck: geology,
+     gloss_en: "taking something out of the ground", gloss_mn: "олборлолт",
+     example: "Gold extraction starts next quarter."}
+  - {word: equipment, stress: e-QUIP-ment, pos: noun, level: B1, deck: geology,
+     gloss_en: "tools and machines for a job", gloss_mn: "тоног төхөөрөмж",
+     example: "The new equipment arrived at the site."}
+  - {word: safety, stress: SAFE-ty, pos: noun, level: A2, deck: geology,
+     gloss_en: "being protected from danger", gloss_mn: "аюулгүй байдал",
+     example: "Safety comes first in every operation."}
+  - {word: grade, stress: GRADE, pos: noun, level: B1, deck: geology,
+     gloss_en: "how rich the ore is", gloss_mn: "агуулга",
+     example: "The grade improves at depth."}
+  - {word: fault, stress: FAULT, pos: noun, level: B1, deck: geology,
+     gloss_en: "a break in the rock where it moved", gloss_mn: "хагарал",
+     example: "The fault runs across the whole license area."}
+  - {word: vein, stress: VEIN, pos: noun, level: B1, deck: geology,
+     gloss_en: "a thin band of mineral in rock", gloss_mn: "судал",
+     example: "The quartz vein carries visible gold."}
+  - {word: environment, stress: en-VI-ron-ment, pos: noun, level: B1, deck: geology,
+     gloss_en: "the natural world around us", gloss_mn: "орчин",
+     example: "The mine must protect the environment."}

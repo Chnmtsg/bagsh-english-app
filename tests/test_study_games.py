@@ -12,10 +12,12 @@ from src.quiz import (
     check_answer,
     check_word,
     cloze,
+    geology_bank,
     grammar_bank,
     grammar_items_for,
     meaning_options,
     vocab_bank,
+    vocab_items_for,
 )
 
 TODAY = date(2026, 8, 13)
@@ -107,7 +109,7 @@ def test_check_answer_normalises_but_stays_strict():
 # ── vocabulary deck ──────────────────────────────────────────────────
 
 def test_every_word_is_complete_and_stress_marked():
-    for w in vocab_bank():
+    for w in vocab_bank() + geology_bank():
         for field in ("word", "stress", "gloss_en", "gloss_mn", "example",
                       "deck", "level"):
             assert w.get(field), f"{w.get('word')} missing {field}"
@@ -117,11 +119,29 @@ def test_every_word_is_complete_and_stress_marked():
             f"{w['word']}: example must contain the word (cloze depends on it)"
 
 
+def test_general_deck_is_a_level_ladder():
+    # the basic app is for everyone: general words only, 30 per level
+    by_level = {}
+    for w in vocab_bank():
+        assert w["deck"] == "general", f"{w['word']}: professional word in core deck"
+        by_level.setdefault(w["level"], []).append(w["word"])
+    assert set(by_level) == {"A1", "A2", "B1", "B2"}
+    for level, words in by_level.items():
+        assert len(words) == 30, f"{level} has {len(words)} words, expected 30"
+
+
+def test_geology_deck_only_joins_for_geology_domain():
+    everyone = vocab_items_for(_profile())
+    assert all(w["deck"] == "general" for w in everyone)
+    geologist = vocab_items_for(_profile(domain="geology and mining"))
+    assert any(w["deck"] == "geology" for w in geologist)
+
+
 def test_cloze_blanks_the_word():
-    w = next(x for x in vocab_bank() if x["word"] == "deposit")
+    w = next(x for x in vocab_bank() if x["word"] == "decision")
     blanked = cloze(w)
     assert "_____" in blanked
-    assert "deposit" not in blanked.lower()
+    assert "decision" not in blanked.lower()
 
 
 def test_meaning_options_contain_answer_once():

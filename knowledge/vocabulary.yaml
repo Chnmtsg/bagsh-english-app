@@ -1,202 +1,385 @@
-# Vocabulary starter deck — curated, never generated (ADR-0003).
+# General vocabulary — the level ladder (A1 → A2 → B1 → B2), 30 words each.
+# For EVERYONE — no professional/domain words here (geology lives in
+# vocabulary_geology.yaml as an optional desktop deck).
 #
 # Rules (guide §1.5, §1.3.12):
-# - `stress` is MANDATORY: a word learned without its stress is learned
-#   wrong. Format: de-POS-it (capitals = the stressed syllable).
-# - `gloss_en` is simple English (A2-readable). `gloss_mn` is Mongolian —
-#   ⚠ every Mongolian string needs native-speaker verification before
-#   shipping, same as the rest of the repo.
-# - `example` is a real sentence containing the word — the cloze quiz blanks
-#   the word out of it, so the word must appear verbatim.
-# - decks: core (everyday journaling) · work (geology and mining, stress
-#   list from guide §1.5).
+# - `stress` is MANDATORY (capitals = stressed syllable). A word learned
+#   without its stress is learned wrong.
+# - `gloss_en` is simple English; `gloss_mn` is Mongolian.
+#   ⚠ Mongolian strings need native-speaker verification before shipping.
+# - `example` must contain the word verbatim (the cloze quiz blanks it).
+# - A learner "knows" a word after 2 correct answers on different days;
+#   knowing all words of a level unlocks the next (ADR-0003 extension).
 #
-# Extend by curation: add entries here. Never let a model write directly
-# into this file.
+# Extend by curation only. Never let a model write into this file.
 
-version: 1
+version: 2
 
 words:
-  # ── core ──────────────────────────────────────────────────────────
-  - {word: important, stress: im-POR-tant, pos: adj, level: A2, deck: core,
-     gloss_en: "matters a lot", gloss_mn: "чухал",
-     example: "Safety is the most important thing at the site."}
-  - {word: decision, stress: de-CI-sion, pos: noun, level: B1, deck: core,
-     gloss_en: "a choice you make after thinking", gloss_mn: "шийдвэр",
-     example: "We made a decision about the new schedule."}
-  - {word: improve, stress: im-PROVE, pos: verb, level: B1, deck: core,
-     gloss_en: "to make something better", gloss_mn: "сайжруулах",
-     example: "I want to improve my English every day."}
-  - {word: experience, stress: ex-PE-ri-ence, pos: noun, level: B1, deck: core,
-     gloss_en: "knowledge from doing things", gloss_mn: "туршлага",
-     example: "She has ten years of experience in mining."}
-  - {word: colleague, stress: COL-league, pos: noun, level: B1, deck: core,
-     gloss_en: "a person you work with", gloss_mn: "хамтран ажиллагч",
-     example: "My colleague helped me finish the report."}
-  - {word: meeting, stress: MEET-ing, pos: noun, level: A2, deck: core,
-     gloss_en: "when people come together to talk", gloss_mn: "хурал",
-     example: "The meeting starts at nine in the morning."}
-  - {word: schedule, stress: SCHED-ule, pos: noun, level: B1, deck: core,
-     gloss_en: "a plan of times for doing things", gloss_mn: "хуваарь",
-     example: "The drilling schedule changed because of the weather."}
-  - {word: success, stress: suc-CESS, pos: noun, level: B1, deck: core,
-     gloss_en: "when something goes the way you wanted", gloss_mn: "амжилт",
-     example: "The project was a big success for our team."}
-  - {word: difficult, stress: DIF-fi-cult, pos: adj, level: A2, deck: core,
-     gloss_en: "not easy", gloss_mn: "хэцүү",
-     example: "Reading in English is still difficult for me."}
-  - {word: together, stress: to-GETH-er, pos: adv, level: A2, deck: core,
-     gloss_en: "with each other", gloss_mn: "хамтдаа",
-     example: "We solved the problem together after lunch."}
-  - {word: yesterday, stress: YES-ter-day, pos: adv, level: A1, deck: core,
-     gloss_en: "the day before today", gloss_mn: "өчигдөр",
-     example: "I wrote my first journal entry yesterday."}
-  - {word: tomorrow, stress: to-MOR-row, pos: adv, level: A1, deck: core,
-     gloss_en: "the day after today", gloss_mn: "маргааш",
-     example: "We will check the results tomorrow."}
-  - {word: arrive, stress: ar-RIVE, pos: verb, level: A2, deck: core,
-     gloss_en: "to reach a place", gloss_mn: "хүрэлцэн ирэх",
-     example: "The trucks arrive at the site at six."}
-  - {word: finish, stress: FIN-ish, pos: verb, level: A2, deck: core,
-     gloss_en: "to complete something", gloss_mn: "дуусгах",
-     example: "I finish work at seven most days."}
-  - {word: forget, stress: for-GET, pos: verb, level: A2, deck: core,
-     gloss_en: "to not remember", gloss_mn: "мартах",
-     example: "Don't forget your helmet at the office."}
-  - {word: remember, stress: re-MEM-ber, pos: verb, level: A2, deck: core,
-     gloss_en: "to keep in your mind", gloss_mn: "санах",
-     example: "I remember my first day at the mine."}
-  - {word: understand, stress: un-der-STAND, pos: verb, level: A2, deck: core,
-     gloss_en: "to know what something means", gloss_mn: "ойлгох",
-     example: "Now I understand the rule about articles."}
-  - {word: practice, stress: PRAC-tice, pos: noun, level: B1, deck: core,
-     gloss_en: "doing something many times to learn it", gloss_mn: "дадлага",
-     example: "Daily practice is better than one long lesson."}
-  - {word: question, stress: QUES-tion, pos: noun, level: A1, deck: core,
+  # ── A1 ────────────────────────────────────────────────────────────
+  - {word: family, stress: FAM-i-ly, pos: noun, level: A1, deck: general,
+     gloss_en: "parents, children, relatives", gloss_mn: "гэр бүл",
+     example: "My family eats dinner together."}
+  - {word: mother, stress: MOTH-er, pos: noun, level: A1, deck: general,
+     gloss_en: "your female parent", gloss_mn: "ээж",
+     example: "My mother makes very good soup."}
+  - {word: father, stress: FA-ther, pos: noun, level: A1, deck: general,
+     gloss_en: "your male parent", gloss_mn: "аав",
+     example: "My father drives a blue car."}
+  - {word: water, stress: WA-ter, pos: noun, level: A1, deck: general,
+     gloss_en: "the drink from rivers and rain", gloss_mn: "ус",
+     example: "I drink water with every meal."}
+  - {word: bread, stress: BREAD, pos: noun, level: A1, deck: general,
+     gloss_en: "food made from flour", gloss_mn: "талх",
+     example: "We buy fresh bread every morning."}
+  - {word: milk, stress: MILK, pos: noun, level: A1, deck: general,
+     gloss_en: "white drink from cows", gloss_mn: "сүү",
+     example: "The children drink milk at breakfast."}
+  - {word: house, stress: HOUSE, pos: noun, level: A1, deck: general,
+     gloss_en: "a building where people live", gloss_mn: "байшин",
+     example: "Their house has a red door."}
+  - {word: school, stress: SCHOOL, pos: noun, level: A1, deck: general,
+     gloss_en: "the place where children learn", gloss_mn: "сургууль",
+     example: "The school opens at eight o'clock."}
+  - {word: morning, stress: MORN-ing, pos: noun, level: A1, deck: general,
+     gloss_en: "the early part of the day", gloss_mn: "өглөө",
+     example: "I read the news in the morning."}
+  - {word: evening, stress: EVE-ning, pos: noun, level: A1, deck: general,
+     gloss_en: "the end part of the day", gloss_mn: "орой",
+     example: "We watch TV in the evening."}
+  - {word: night, stress: NIGHT, pos: noun, level: A1, deck: general,
+     gloss_en: "the dark time when people sleep", gloss_mn: "шөнө",
+     example: "The city is quiet at night."}
+  - {word: friend, stress: FRIEND, pos: noun, level: A1, deck: general,
+     gloss_en: "a person you like and trust", gloss_mn: "найз",
+     example: "My best friend lives near me."}
+  - {word: phone, stress: PHONE, pos: noun, level: A1, deck: general,
+     gloss_en: "the thing you call people with", gloss_mn: "утас",
+     example: "Her phone is always in her hand."}
+  - {word: money, stress: MON-ey, pos: noun, level: A1, deck: general,
+     gloss_en: "what you pay with", gloss_mn: "мөнгө",
+     example: "He saves money for a new bike."}
+  - {word: weather, stress: WEATH-er, pos: noun, level: A1, deck: general,
+     gloss_en: "rain, sun, wind and snow", gloss_mn: "цаг агаар",
+     example: "The weather is cold and windy today."}
+  - {word: question, stress: QUES-tion, pos: noun, level: A1, deck: general,
      gloss_en: "something you ask", gloss_mn: "асуулт",
-     example: "I asked a question at the end of the meeting."}
-  - {word: answer, stress: AN-swer, pos: noun, level: A1, deck: core,
+     example: "May I ask a question about the homework?"}
+  - {word: answer, stress: AN-swer, pos: noun, level: A1, deck: general,
      gloss_en: "what you say to a question", gloss_mn: "хариулт",
      example: "Her answer was short and clear."}
-  - {word: mistake, stress: mis-TAKE, pos: noun, level: A2, deck: core,
-     gloss_en: "something done wrong", gloss_mn: "алдаа",
-     example: "Every mistake teaches me something new."}
-  - {word: habit, stress: HAB-it, pos: noun, level: B1, deck: core,
-     gloss_en: "something you do regularly", gloss_mn: "зуршил",
-     example: "Writing at night became a good habit."}
-  - {word: holiday, stress: HOL-i-day, pos: noun, level: A2, deck: core,
-     gloss_en: "a day or time free from work", gloss_mn: "амралтын өдөр",
-     example: "We planned a short holiday after the project."}
-  - {word: weather, stress: WEATH-er, pos: noun, level: A1, deck: core,
-     gloss_en: "rain, sun, wind and snow", gloss_mn: "цаг агаар",
-     example: "The weather was cold and windy at the camp."}
-  - {word: morning, stress: MORN-ing, pos: noun, level: A1, deck: core,
-     gloss_en: "the early part of the day", gloss_mn: "өглөө",
-     example: "I study English in the morning before work."}
-  - {word: evening, stress: EVE-ning, pos: noun, level: A1, deck: core,
-     gloss_en: "the end part of the day", gloss_mn: "орой",
-     example: "In the evening I write my journal."}
-  - {word: family, stress: FAM-i-ly, pos: noun, level: A1, deck: core,
-     gloss_en: "parents, children, relatives", gloss_mn: "гэр бүл",
-     example: "My family lives in Ulaanbaatar."}
-  - {word: journey, stress: JOUR-ney, pos: noun, level: B1, deck: core,
-     gloss_en: "a trip from one place to another", gloss_mn: "аялал",
-     example: "The journey to the site takes four hours."}
-  - {word: describe, stress: de-SCRIBE, pos: verb, level: B1, deck: core,
-     gloss_en: "to say what something is like", gloss_mn: "дүрслэх",
-     example: "Can you describe the rock you found?"}
-  - {word: explain, stress: ex-PLAIN, pos: verb, level: A2, deck: core,
-     gloss_en: "to make something clear", gloss_mn: "тайлбарлах",
-     example: "Please explain the plan to me again."}
+  - {word: yesterday, stress: YES-ter-day, pos: adv, level: A1, deck: general,
+     gloss_en: "the day before today", gloss_mn: "өчигдөр",
+     example: "We visited my aunt yesterday."}
+  - {word: tomorrow, stress: to-MOR-row, pos: adv, level: A1, deck: general,
+     gloss_en: "the day after today", gloss_mn: "маргааш",
+     example: "The shop opens again tomorrow."}
+  - {word: today, stress: to-DAY, pos: adv, level: A1, deck: general,
+     gloss_en: "this day", gloss_mn: "өнөөдөр",
+     example: "Today is my sister's birthday."}
+  - {word: happy, stress: HAP-py, pos: adj, level: A1, deck: general,
+     gloss_en: "feeling good", gloss_mn: "аз жаргалтай",
+     example: "The children look happy in the park."}
+  - {word: tired, stress: TIRED, pos: adj, level: A1, deck: general,
+     gloss_en: "needing rest or sleep", gloss_mn: "ядарсан",
+     example: "I feel tired after long walks."}
+  - {word: hungry, stress: HUN-gry, pos: adj, level: A1, deck: general,
+     gloss_en: "wanting food", gloss_mn: "өлссөн",
+     example: "The baby cries when she is hungry."}
+  - {word: big, stress: BIG, pos: adj, level: A1, deck: general,
+     gloss_en: "large in size", gloss_mn: "том",
+     example: "They live in a big apartment."}
+  - {word: small, stress: SMALL, pos: adj, level: A1, deck: general,
+     gloss_en: "little in size", gloss_mn: "жижиг",
+     example: "A small cat sleeps on the chair."}
+  - {word: hot, stress: HOT, pos: adj, level: A1, deck: general,
+     gloss_en: "with high temperature", gloss_mn: "халуун",
+     example: "Careful — the tea is very hot."}
+  - {word: cold, stress: COLD, pos: adj, level: A1, deck: general,
+     gloss_en: "with low temperature", gloss_mn: "хүйтэн",
+     example: "Winter mornings are cold here."}
+  - {word: eat, stress: EAT, pos: verb, level: A1, deck: general,
+     gloss_en: "to put food in your mouth", gloss_mn: "идэх",
+     example: "We eat lunch at one o'clock."}
+  - {word: drink, stress: DRINK, pos: verb, level: A1, deck: general,
+     gloss_en: "to take liquid into your body", gloss_mn: "уух",
+     example: "Please drink more water in summer."}
+  - {word: sleep, stress: SLEEP, pos: verb, level: A1, deck: general,
+     gloss_en: "to rest with closed eyes", gloss_mn: "унтах",
+     example: "I sleep eight hours every night."}
 
-  # ── work (geology & mining — stress list from guide §1.5) ─────────
-  - {word: geology, stress: ge-OL-o-gy, pos: noun, level: B1, deck: work,
-     gloss_en: "the science of the Earth and rocks", gloss_mn: "геологи",
-     example: "She studied geology at university."}
-  - {word: geologist, stress: ge-OL-o-gist, pos: noun, level: B1, deck: work,
-     gloss_en: "a scientist who studies rocks", gloss_mn: "геологич",
-     example: "The geologist logged the core all afternoon."}
-  - {word: geological, stress: ge-o-LOG-i-cal, pos: adj, level: B1, deck: work,
-     gloss_en: "about geology", gloss_mn: "геологийн",
-     example: "The geological map shows three rock units."}
-  - {word: mineral, stress: MIN-er-al, pos: noun, level: B1, deck: work,
-     gloss_en: "a natural solid material from the ground", gloss_mn: "эрдэс",
-     example: "Quartz is the most common mineral here."}
-  - {word: deposit, stress: de-POS-it, pos: noun, level: B1, deck: work,
-     gloss_en: "minerals collected in one place underground", gloss_mn: "орд",
-     example: "They found a new copper deposit last year."}
-  - {word: exploration, stress: ex-plo-RA-tion, pos: noun, level: B1, deck: work,
-     gloss_en: "searching an area for minerals", gloss_mn: "хайгуул",
-     example: "The exploration program starts in spring."}
-  - {word: resource, stress: re-SOURCE, pos: noun, level: B1, deck: work,
-     gloss_en: "useful material that a place has", gloss_mn: "нөөц баялаг",
-     example: "Water is a limited resource at the camp."}
-  - {word: reserve, stress: re-SERVE, pos: noun, level: B1, deck: work,
-     gloss_en: "an amount kept for future use", gloss_mn: "нөөц",
-     example: "The mine has a large coal reserve."}
-  - {word: anomaly, stress: a-NOM-a-ly, pos: noun, level: B2, deck: work,
-     gloss_en: "something different from normal", gloss_mn: "гажиг",
-     example: "The survey showed a magnetic anomaly near the hill."}
-  - {word: lithology, stress: li-THOL-o-gy, pos: noun, level: B2, deck: work,
-     gloss_en: "the physical character of rocks", gloss_mn: "литологи",
-     example: "The lithology changes at eighty metres."}
-  - {word: sedimentary, stress: sed-i-MEN-ta-ry, pos: adj, level: B2, deck: work,
-     gloss_en: "made from settled layers of material", gloss_mn: "тунамал",
-     example: "Sandstone is a sedimentary rock."}
-  - {word: metamorphic, stress: met-a-MOR-phic, pos: adj, level: B2, deck: work,
-     gloss_en: "changed by heat and pressure", gloss_mn: "хувирмал",
-     example: "The metamorphic rocks are harder to drill."}
-  - {word: igneous, stress: IG-ne-ous, pos: adj, level: B2, deck: work,
-     gloss_en: "formed from cooled magma", gloss_mn: "магмын",
-     example: "Granite is an igneous rock."}
-  - {word: overburden, stress: O-ver-bur-den, pos: noun, level: B2, deck: work,
-     gloss_en: "the material above the useful rock", gloss_mn: "хучлага хөрс",
-     example: "We removed the overburden before mining."}
-  - {word: tailings, stress: TAIL-ings, pos: noun, level: B2, deck: work,
-     gloss_en: "waste left after taking the mineral", gloss_mn: "хаягдал",
-     example: "The tailings are stored behind the dam."}
-  - {word: environment, stress: en-VI-ron-ment, pos: noun, level: B1, deck: work,
-     gloss_en: "the natural world around us", gloss_mn: "орчин",
-     example: "The mine must protect the environment."}
-  - {word: analysis, stress: a-NAL-y-sis, pos: noun, level: B1, deck: work,
-     gloss_en: "careful study of something", gloss_mn: "шинжилгээ",
-     example: "The analysis of the samples takes two weeks."}
-  - {word: analyse, stress: AN-a-lyse, pos: verb, level: B1, deck: work,
-     gloss_en: "to study something carefully", gloss_mn: "шинжлэх",
-     example: "We analyse the data every Friday."}
-  - {word: feasibility, stress: fea-si-BIL-i-ty, pos: noun, level: B2, deck: work,
-     gloss_en: "how possible and practical a plan is", gloss_mn: "техник эдийн засгийн үндэслэл",
-     example: "The feasibility study will finish in June."}
-  - {word: geophysics, stress: ge-o-PHYS-ics, pos: noun, level: B2, deck: work,
-     gloss_en: "physics used to study the Earth", gloss_mn: "геофизик",
-     example: "Geophysics helped us find the buried structure."}
-  - {word: sample, stress: SAM-ple, pos: noun, level: A2, deck: work,
-     gloss_en: "a small part taken for testing", gloss_mn: "дээж",
-     example: "Label every sample before shipping it."}
-  - {word: drilling, stress: DRILL-ing, pos: noun, level: B1, deck: work,
-     gloss_en: "making deep holes in the ground", gloss_mn: "өрөмдлөг",
-     example: "Drilling continues day and night this month."}
-  - {word: survey, stress: SUR-vey, pos: noun, level: B1, deck: work,
-     gloss_en: "a careful measurement of an area", gloss_mn: "судалгаа",
-     example: "The survey covered the whole valley."}
-  - {word: estimate, stress: ES-ti-mate, pos: verb, level: B1, deck: work,
-     gloss_en: "to judge a number without exact measuring", gloss_mn: "тооцоолох",
-     example: "We estimate the depth at two hundred metres."}
-  - {word: extraction, stress: ex-TRAC-tion, pos: noun, level: B2, deck: work,
-     gloss_en: "taking something out of the ground", gloss_mn: "олборлолт",
-     example: "Gold extraction starts next quarter."}
-  - {word: equipment, stress: e-QUIP-ment, pos: noun, level: B1, deck: work,
-     gloss_en: "tools and machines for a job", gloss_mn: "тоног төхөөрөмж",
-     example: "The new equipment arrived at the site."}
-  - {word: safety, stress: SAFE-ty, pos: noun, level: A2, deck: work,
-     gloss_en: "being protected from danger", gloss_mn: "аюулгүй байдал",
-     example: "Safety comes first in every operation."}
-  - {word: grade, stress: GRADE, pos: noun, level: B1, deck: work,
-     gloss_en: "how rich the ore is", gloss_mn: "агуулга",
-     example: "The grade improves at depth."}
-  - {word: fault, stress: FAULT, pos: noun, level: B1, deck: work,
-     gloss_en: "a break in the rock where it moved", gloss_mn: "хагарал",
-     example: "The fault runs across the whole license area."}
-  - {word: vein, stress: VEIN, pos: noun, level: B1, deck: work,
-     gloss_en: "a thin band of mineral in rock", gloss_mn: "судал",
-     example: "The quartz vein carries visible gold."}
+  # ── A2 ────────────────────────────────────────────────────────────
+  - {word: breakfast, stress: BREAK-fast, pos: noun, level: A2, deck: general,
+     gloss_en: "the morning meal", gloss_mn: "өглөөний цай",
+     example: "I make breakfast for the whole family."}
+  - {word: dinner, stress: DIN-ner, pos: noun, level: A2, deck: general,
+     gloss_en: "the main evening meal", gloss_mn: "оройн хоол",
+     example: "We cook dinner together on Sundays."}
+  - {word: weekend, stress: week-END, pos: noun, level: A2, deck: general,
+     gloss_en: "Saturday and Sunday", gloss_mn: "амралтын өдрүүд",
+     example: "What are your plans for the weekend?"}
+  - {word: holiday, stress: HOL-i-day, pos: noun, level: A2, deck: general,
+     gloss_en: "time free from work or school", gloss_mn: "амралт",
+     example: "Our summer holiday starts in July."}
+  - {word: ticket, stress: TICK-et, pos: noun, level: A2, deck: general,
+     gloss_en: "paper that lets you enter or travel", gloss_mn: "тасалбар",
+     example: "I bought a ticket for the evening bus."}
+  - {word: airport, stress: AIR-port, pos: noun, level: A2, deck: general,
+     gloss_en: "where planes leave and arrive", gloss_mn: "нисэх буудал",
+     example: "The airport is far from the city centre."}
+  - {word: hospital, stress: HOS-pi-tal, pos: noun, level: A2, deck: general,
+     gloss_en: "where sick people get help", gloss_mn: "эмнэлэг",
+     example: "The new hospital opened last year."}
+  - {word: doctor, stress: DOC-tor, pos: noun, level: A2, deck: general,
+     gloss_en: "a person who helps sick people", gloss_mn: "эмч",
+     example: "The doctor told me to rest for two days."}
+  - {word: medicine, stress: MED-i-cine, pos: noun, level: A2, deck: general,
+     gloss_en: "what you take to get better", gloss_mn: "эм",
+     example: "Take this medicine after food."}
+  - {word: market, stress: MAR-ket, pos: noun, level: A2, deck: general,
+     gloss_en: "a place with many small shops", gloss_mn: "зах",
+     example: "Vegetables are cheaper at the market."}
+  - {word: kitchen, stress: KITCH-en, pos: noun, level: A2, deck: general,
+     gloss_en: "the room where you cook", gloss_mn: "гал тогоо",
+     example: "The kitchen smells of fresh bread."}
+  - {word: garden, stress: GAR-den, pos: noun, level: A2, deck: general,
+     gloss_en: "ground with plants near a house", gloss_mn: "цэцэрлэгт талбай",
+     example: "She grows tomatoes in her garden."}
+  - {word: clothes, stress: CLOTHES, pos: noun, level: A2, deck: general,
+     gloss_en: "things you wear", gloss_mn: "хувцас",
+     example: "Warm clothes are important in winter."}
+  - {word: shoes, stress: SHOES, pos: noun, level: A2, deck: general,
+     gloss_en: "what you wear on your feet", gloss_mn: "гутал",
+     example: "These shoes are comfortable for walking."}
+  - {word: umbrella, stress: um-BREL-la, pos: noun, level: A2, deck: general,
+     gloss_en: "what you hold over your head in rain", gloss_mn: "шүхэр",
+     example: "Take an umbrella — it may rain later."}
+  - {word: early, stress: EAR-ly, pos: adv, level: A2, deck: general,
+     gloss_en: "before the usual time", gloss_mn: "эрт",
+     example: "He wakes up early on workdays."}
+  - {word: late, stress: LATE, pos: adv, level: A2, deck: general,
+     gloss_en: "after the usual time", gloss_mn: "оройтсон",
+     example: "The bus was late again this morning."}
+  - {word: busy, stress: BUS-y, pos: adj, level: A2, deck: general,
+     gloss_en: "with many things to do", gloss_mn: "завгүй",
+     example: "Mondays are always busy at work."}
+  - {word: free, stress: FREE, pos: adj, level: A2, deck: general,
+     gloss_en: "with time to do things; costing nothing", gloss_mn: "чөлөөтэй, үнэгүй",
+     example: "Are you free this Saturday afternoon?"}
+  - {word: cheap, stress: CHEAP, pos: adj, level: A2, deck: general,
+     gloss_en: "costing little money", gloss_mn: "хямд",
+     example: "This café is cheap and friendly."}
+  - {word: expensive, stress: ex-PEN-sive, pos: adj, level: A2, deck: general,
+     gloss_en: "costing a lot of money", gloss_mn: "үнэтэй",
+     example: "The hotel was too expensive for us."}
+  - {word: easy, stress: EAS-y, pos: adj, level: A2, deck: general,
+     gloss_en: "not difficult", gloss_mn: "амархан",
+     example: "The first lesson was easy for everyone."}
+  - {word: difficult, stress: DIF-fi-cult, pos: adj, level: A2, deck: general,
+     gloss_en: "not easy", gloss_mn: "хэцүү",
+     example: "Reading in English is still difficult for me."}
+  - {word: start, stress: START, pos: verb, level: A2, deck: general,
+     gloss_en: "to begin", gloss_mn: "эхлэх",
+     example: "The film starts at seven o'clock."}
+  - {word: finish, stress: FIN-ish, pos: verb, level: A2, deck: general,
+     gloss_en: "to complete something", gloss_mn: "дуусгах",
+     example: "I finish work at six most days."}
+  - {word: help, stress: HELP, pos: verb, level: A2, deck: general,
+     gloss_en: "to make something easier for someone", gloss_mn: "туслах",
+     example: "Can you help me carry these bags?"}
+  - {word: buy, stress: BUY, pos: verb, level: A2, deck: general,
+     gloss_en: "to get something with money", gloss_mn: "худалдаж авах",
+     example: "We buy fruit at the corner shop."}
+  - {word: sell, stress: SELL, pos: verb, level: A2, deck: general,
+     gloss_en: "to give something for money", gloss_mn: "зарах",
+     example: "They sell warm hats in winter."}
+  - {word: travel, stress: TRAV-el, pos: verb, level: A2, deck: general,
+     gloss_en: "to go to other places", gloss_mn: "аялах",
+     example: "She wants to travel to Japan next year."}
+  - {word: visit, stress: VIS-it, pos: verb, level: A2, deck: general,
+     gloss_en: "to go and see a person or place", gloss_mn: "зочлох",
+     example: "We visit my grandparents every month."}
+
+  # ── B1 ────────────────────────────────────────────────────────────
+  - {word: experience, stress: ex-PE-ri-ence, pos: noun, level: B1, deck: general,
+     gloss_en: "knowledge from doing things", gloss_mn: "туршлага",
+     example: "She has five years of experience in teaching."}
+  - {word: decision, stress: de-CI-sion, pos: noun, level: B1, deck: general,
+     gloss_en: "a choice you make after thinking", gloss_mn: "шийдвэр",
+     example: "Moving here was a good decision."}
+  - {word: important, stress: im-POR-tant, pos: adj, level: B1, deck: general,
+     gloss_en: "mattering a lot", gloss_mn: "чухал",
+     example: "Sleep is important for your health."}
+  - {word: improve, stress: im-PROVE, pos: verb, level: B1, deck: general,
+     gloss_en: "to make something better", gloss_mn: "сайжруулах",
+     example: "I want to improve my English every day."}
+  - {word: colleague, stress: COL-league, pos: noun, level: B1, deck: general,
+     gloss_en: "a person you work with", gloss_mn: "хамтран ажиллагч",
+     example: "A colleague helped me finish the report."}
+  - {word: meeting, stress: MEET-ing, pos: noun, level: B1, deck: general,
+     gloss_en: "when people come together to talk", gloss_mn: "хурал",
+     example: "The meeting starts at nine sharp."}
+  - {word: schedule, stress: SCHED-ule, pos: noun, level: B1, deck: general,
+     gloss_en: "a plan of times for doing things", gloss_mn: "хуваарь",
+     example: "My schedule is full on Tuesdays."}
+  - {word: success, stress: suc-CESS, pos: noun, level: B1, deck: general,
+     gloss_en: "when something goes the way you wanted", gloss_mn: "амжилт",
+     example: "The concert was a great success."}
+  - {word: mistake, stress: mis-TAKE, pos: noun, level: B1, deck: general,
+     gloss_en: "something done wrong", gloss_mn: "алдаа",
+     example: "Every mistake teaches you something."}
+  - {word: habit, stress: HAB-it, pos: noun, level: B1, deck: general,
+     gloss_en: "something you do regularly", gloss_mn: "зуршил",
+     example: "Reading before bed is a good habit."}
+  - {word: journey, stress: JOUR-ney, pos: noun, level: B1, deck: general,
+     gloss_en: "a trip from one place to another", gloss_mn: "аялал",
+     example: "The journey home takes two hours."}
+  - {word: describe, stress: de-SCRIBE, pos: verb, level: B1, deck: general,
+     gloss_en: "to say what something is like", gloss_mn: "дүрслэх",
+     example: "Can you describe the man you saw?"}
+  - {word: explain, stress: ex-PLAIN, pos: verb, level: B1, deck: general,
+     gloss_en: "to make something clear", gloss_mn: "тайлбарлах",
+     example: "The teacher explained the rule twice."}
+  - {word: understand, stress: un-der-STAND, pos: verb, level: B1, deck: general,
+     gloss_en: "to know what something means", gloss_mn: "ойлгох",
+     example: "Now I understand the instructions."}
+  - {word: remember, stress: re-MEM-ber, pos: verb, level: B1, deck: general,
+     gloss_en: "to keep in your mind", gloss_mn: "санах",
+     example: "I remember my first day at work."}
+  - {word: forget, stress: for-GET, pos: verb, level: B1, deck: general,
+     gloss_en: "to not remember", gloss_mn: "мартах",
+     example: "Don't forget your keys again!"}
+  - {word: practice, stress: PRAC-tice, pos: noun, level: B1, deck: general,
+     gloss_en: "doing something many times to learn it", gloss_mn: "дадлага",
+     example: "Daily practice beats one long lesson."}
+  - {word: arrive, stress: ar-RIVE, pos: verb, level: B1, deck: general,
+     gloss_en: "to reach a place", gloss_mn: "хүрэлцэн ирэх",
+     example: "The train arrives at half past nine."}
+  - {word: prepare, stress: pre-PARE, pos: verb, level: B1, deck: general,
+     gloss_en: "to make something ready", gloss_mn: "бэлтгэх",
+     example: "She prepared well for the exam."}
+  - {word: suggest, stress: sug-GEST, pos: verb, level: B1, deck: general,
+     gloss_en: "to offer an idea", gloss_mn: "санал болгох",
+     example: "I suggest meeting a little earlier."}
+  - {word: agree, stress: a-GREE, pos: verb, level: B1, deck: general,
+     gloss_en: "to have the same opinion", gloss_mn: "зөвшөөрөх",
+     example: "We agree about most things."}
+  - {word: opinion, stress: o-PIN-ion, pos: noun, level: B1, deck: general,
+     gloss_en: "what you think about something", gloss_mn: "санал бодол",
+     example: "In my opinion, the second plan is better."}
+  - {word: reason, stress: REA-son, pos: noun, level: B1, deck: general,
+     gloss_en: "why something happens", gloss_mn: "шалтгаан",
+     example: "The reason for the delay was the snow."}
+  - {word: result, stress: re-SULT, pos: noun, level: B1, deck: general,
+     gloss_en: "what happens because of something", gloss_mn: "үр дүн",
+     example: "The result of the test surprised everyone."}
+  - {word: problem, stress: PROB-lem, pos: noun, level: B1, deck: general,
+     gloss_en: "something difficult to deal with", gloss_mn: "асуудал",
+     example: "We solved the problem together."}
+  - {word: solution, stress: so-LU-tion, pos: noun, level: B1, deck: general,
+     gloss_en: "the answer to a problem", gloss_mn: "шийдэл",
+     example: "There is a simple solution to this."}
+  - {word: customer, stress: CUS-tom-er, pos: noun, level: B1, deck: general,
+     gloss_en: "a person who buys something", gloss_mn: "үйлчлүүлэгч",
+     example: "The customer asked for a smaller size."}
+  - {word: salary, stress: SAL-a-ry, pos: noun, level: B1, deck: general,
+     gloss_en: "the money you earn from work", gloss_mn: "цалин",
+     example: "The new job offers a better salary."}
+  - {word: interview, stress: IN-ter-view, pos: noun, level: B1, deck: general,
+     gloss_en: "a formal talk for a job or article", gloss_mn: "ярилцлага",
+     example: "My interview went better than I expected."}
+  - {word: promise, stress: PROM-ise, pos: verb, level: B1, deck: general,
+     gloss_en: "to say you will surely do something", gloss_mn: "амлах",
+     example: "He promised to call me back today."}
+
+  # ── B2 ────────────────────────────────────────────────────────────
+  - {word: achievement, stress: a-CHIEVE-ment, pos: noun, level: B2, deck: general,
+     gloss_en: "something difficult you did successfully", gloss_mn: "амжилт, ололт",
+     example: "Finishing the marathon was a real achievement."}
+  - {word: opportunity, stress: op-por-TU-ni-ty, pos: noun, level: B2, deck: general,
+     gloss_en: "a chance to do something good", gloss_mn: "боломж",
+     example: "This job is a great opportunity for her."}
+  - {word: responsibility, stress: re-spon-si-BIL-i-ty, pos: noun, level: B2, deck: general,
+     gloss_en: "a duty you must take care of", gloss_mn: "хариуцлага",
+     example: "Feeding the dog is my responsibility."}
+  - {word: environment, stress: en-VI-ron-ment, pos: noun, level: B2, deck: general,
+     gloss_en: "the natural world around us", gloss_mn: "хүрээлэн буй орчин",
+     example: "Small choices protect the environment."}
+  - {word: government, stress: GOV-ern-ment, pos: noun, level: B2, deck: general,
+     gloss_en: "the group that runs a country", gloss_mn: "засгийн газар",
+     example: "The government announced new rules."}
+  - {word: society, stress: so-CI-e-ty, pos: noun, level: B2, deck: general,
+     gloss_en: "people living together as a group", gloss_mn: "нийгэм",
+     example: "Education changes a society slowly."}
+  - {word: culture, stress: CUL-ture, pos: noun, level: B2, deck: general,
+     gloss_en: "the ideas and customs of a people", gloss_mn: "соёл",
+     example: "Food is a big part of every culture."}
+  - {word: economy, stress: e-CON-o-my, pos: noun, level: B2, deck: general,
+     gloss_en: "the money system of a country", gloss_mn: "эдийн засаг",
+     example: "The economy grew slowly last year."}
+  - {word: industry, stress: IN-dus-try, pos: noun, level: B2, deck: general,
+     gloss_en: "the making of things to sell", gloss_mn: "аж үйлдвэр",
+     example: "The film industry employs thousands."}
+  - {word: technology, stress: tech-NOL-o-gy, pos: noun, level: B2, deck: general,
+     gloss_en: "machines and tools from science", gloss_mn: "технологи",
+     example: "New technology changes how we work."}
+  - {word: research, stress: re-SEARCH, pos: noun, level: B2, deck: general,
+     gloss_en: "careful study to learn new facts", gloss_mn: "судалгаа",
+     example: "Her research is about sleep and memory."}
+  - {word: development, stress: de-VEL-op-ment, pos: noun, level: B2, deck: general,
+     gloss_en: "the process of growing or improving", gloss_mn: "хөгжил",
+     example: "The city's development has been fast."}
+  - {word: knowledge, stress: KNOWL-edge, pos: noun, level: B2, deck: general,
+     gloss_en: "what you know", gloss_mn: "мэдлэг",
+     example: "Practical knowledge comes from doing."}
+  - {word: communication, stress: com-mu-ni-CA-tion, pos: noun, level: B2, deck: general,
+     gloss_en: "sharing information with others", gloss_mn: "харилцаа холбоо",
+     example: "Good communication prevents most problems."}
+  - {word: relationship, stress: re-LA-tion-ship, pos: noun, level: B2, deck: general,
+     gloss_en: "the connection between people", gloss_mn: "харилцаа",
+     example: "They have a strong working relationship."}
+  - {word: confidence, stress: CON-fi-dence, pos: noun, level: B2, deck: general,
+     gloss_en: "belief in yourself", gloss_mn: "өөртөө итгэх итгэл",
+     example: "Speaking practice builds confidence."}
+  - {word: patience, stress: PA-tience, pos: noun, level: B2, deck: general,
+     gloss_en: "staying calm while waiting", gloss_mn: "тэвчээр",
+     example: "Teaching children needs patience."}
+  - {word: effort, stress: EF-fort, pos: noun, level: B2, deck: general,
+     gloss_en: "the energy you put into something", gloss_mn: "хичээл зүтгэл",
+     example: "Her effort showed in the final result."}
+  - {word: purpose, stress: PUR-pose, pos: noun, level: B2, deck: general,
+     gloss_en: "the reason for doing something", gloss_mn: "зорилго",
+     example: "The purpose of the meeting is planning."}
+  - {word: benefit, stress: BEN-e-fit, pos: noun, level: B2, deck: general,
+     gloss_en: "a good result you get", gloss_mn: "ашиг тус",
+     example: "One benefit of walking is better sleep."}
+  - {word: disadvantage, stress: dis-ad-VAN-tage, pos: noun, level: B2, deck: general,
+     gloss_en: "a bad side of something", gloss_mn: "сул тал",
+     example: "The main disadvantage is the price."}
+  - {word: comparison, stress: com-PAR-i-son, pos: noun, level: B2, deck: general,
+     gloss_en: "looking at how things are different", gloss_mn: "харьцуулалт",
+     example: "In comparison, the train is faster."}
+  - {word: influence, stress: IN-flu-ence, pos: noun, level: B2, deck: general,
+     gloss_en: "the power to change something", gloss_mn: "нөлөө",
+     example: "Music has a strong influence on mood."}
+  - {word: requirement, stress: re-QUIRE-ment, pos: noun, level: B2, deck: general,
+     gloss_en: "something that is needed", gloss_mn: "шаардлага",
+     example: "A driving licence is a requirement for this job."}
+  - {word: negotiate, stress: ne-GO-ti-ate, pos: verb, level: B2, deck: general,
+     gloss_en: "to discuss to reach an agreement", gloss_mn: "хэлэлцээр хийх",
+     example: "They negotiated a better price."}
+  - {word: persuade, stress: per-SUADE, pos: verb, level: B2, deck: general,
+     gloss_en: "to make someone agree with you", gloss_mn: "ятгах",
+     example: "She persuaded him to see the doctor."}
+  - {word: recommend, stress: rec-om-MEND, pos: verb, level: B2, deck: general,
+     gloss_en: "to say something is good to try", gloss_mn: "санал болгох",
+     example: "I recommend the soup at this café."}
+  - {word: efficient, stress: ef-FI-cient, pos: adj, level: B2, deck: general,
+     gloss_en: "working well without waste", gloss_mn: "үр ашигтай",
+     example: "The new system is fast and efficient."}
+  - {word: reliable, stress: re-LI-a-ble, pos: adj, level: B2, deck: general,
+     gloss_en: "always doing what is expected", gloss_mn: "найдвартай",
+     example: "She is the most reliable person I know."}
+  - {word: significant, stress: sig-NIF-i-cant, pos: adj, level: B2, deck: general,
+     gloss_en: "big enough to matter", gloss_mn: "мэдэгдэхүйц, чухал",
+     example: "There was a significant change in the results."}

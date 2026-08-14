@@ -147,7 +147,7 @@ function setTab(name) {
   document.querySelectorAll(".tab").forEach(t =>
     t.classList.toggle("active", t.dataset.tab === name));
   ({ path: renderPath, talk: renderTalkList, grammar: startGrammar,
-     vocab: startVocab, stats: renderStats }[name])();
+     vocab: renderVocabHome, stats: renderStats }[name])();
 }
 
 /* ── level picker ───────────────────────────────────────────────── */
@@ -364,12 +364,86 @@ function startGrammar(topic) {
   });
 }
 
-/* ── Vocab trainer — teach first, then ask ──────────────────────── */
+/* ── Vocab trainer — the level ladder ───────────────────────────────
+ * Words are organized A1 → A2 → B1 → B2. A word is KNOWN after 2 correct
+ * answers on different days. Know ALL words of your level → the next
+ * level unlocks. Lower-level words still return when the SRS says so. */
 
-function vocabPool() {
-  const maxRank = levelRank(profile.level || "B1") + 1;
-  const pool = DATA.vocab.filter(w => levelRank(w.level) <= maxRank);
-  return pool.length ? pool : DATA.vocab;
+function vocabLevel() {
+  if (!profile.vocabLevel) {
+    profile.vocabLevel = profile.level && LEVELS.includes(profile.level)
+      ? profile.level : "A1";
+    saveProfile();
+  }
+  return profile.vocabLevel;
+}
+
+function wordsOfLevel(l) { return DATA.vocab.filter(w => w.level === l); }
+
+function isKnown(word) {
+  const rec = profile.srs.vocab[word];
+  return !!rec && rec.reps >= 2;
+}
+
+function levelProgress(l) {
+  const words = wordsOfLevel(l);
+  return { known: words.filter(w => isKnown(w.word)).length, total: words.length };
+}
+
+function renderVocabHome() {
+  const current = vocabLevel();
+  const currentRank = levelRank(current);
+  const rows = LEVELS.map(l => {
+    const p = levelProgress(l);
+    const rank = levelRank(l);
+    const state = rank < currentRank ? "done" : rank === currentRank ? "now" : "locked";
+    const icon = state === "done" ? "✓" : state === "now" ? "▶" : "🔒";
+    const bar = p.total ? Math.round(100 * p.known / p.total) : 0;
+    return `<div class="row ${state === "locked" ? "locked-row" : ""}">
+      <span class="st">${icon}</span>
+      <span class="name"><b>${l}</b> — ${LEVEL_MN[l]}
+        <div class="bar"><div class="bar-fill" style="width:${bar}%"></div></div></span>
+      <span class="muted">${p.known}/${p.total}</span></div>`;
+  }).join("");
+
+  const p = levelProgress(current);
+  const complete = p.total > 0 && p.known === p.total;
+  const next = LEVELS[currentRank + 1];
+
+  let action;
+  if (complete && next) {
+    action = `<div class="feedback good">
+        <p>🎉 <b>Гоё! You know all ${p.total} words of ${current}!</b></p>
+        <p class="muted">Дараагийн түвшин нээгдлээ — the next level is open.</p>
+      </div>
+      <button class="primary" id="levelUp">Jump to ${next} →</button>`;
+  } else if (complete) {
+    action = `<div class="feedback good">
+        <p>🏆 <b>You know ALL the words in the app!</b></p>
+        <p class="muted">Reviews will keep them fresh — keep playing.</p>
+      </div>
+      <button class="primary" id="startSession">Review words</button>`;
+  } else {
+    action = `<button class="primary" id="startSession">
+        Learn ${current} words (${p.known}/${p.total} known)</button>`;
+  }
+
+  view.innerHTML = `
+    <div class="card"><h2>📚 Word ladder — Үгийн шат</h2>
+      <p class="muted">Memorize the words of your level (a word is "known"
+      after you answer it correctly twice on different days). Know them all
+      — the next level opens.</p>
+      ${action}</div>
+    <div class="card">${rows}</div>`;
+
+  const startBtn = document.getElementById("startSession");
+  if (startBtn) startBtn.addEventListener("click", startVocab);
+  const upBtn = document.getElementById("levelUp");
+  if (upBtn) upBtn.addEventListener("click", () => {
+    profile.vocabLevel = next;
+    recordActivity(20);  // level-up bonus
+    renderVocabHome();
+  });
 }
 
 function cloze(w) {
@@ -377,9 +451,18 @@ function cloze(w) {
 }
 
 function startVocab() {
-  const pool = vocabPool();
-  const byWord = Object.fromEntries(pool.map(w => [w.word, w]));
-  const session = srsPick(profile.srs.vocab, pool.map(w => w.word), SESSION_N);
+  const current = vocabLevel();
+  const currentRank = levelRank(current);
+  // due reviews from lower levels come along; new words only from the
+  // current level of the ladder
+  const t = today();
+  const lowerDue = DATA.vocab
+    .filter(w => levelRank(w.level) < currentRank)
+    .filter(w => profile.srs.vocab[w.word] && profile.srs.vocab[w.word].due <= t)
+    .map(w => w.word);
+  const ids = [...lowerDue, ...wordsOfLevel(current).map(w => w.word)];
+  const byWord = Object.fromEntries(DATA.vocab.map(w => [w.word, w]));
+  const session = srsPick(profile.srs.vocab, ids, SESSION_N);
   runRounds(session, 0, 0, [], {
     kind: "vocab",
     render(id, i, total, onAnswer) {
@@ -466,10 +549,10 @@ function runRounds(session, i, correct, badges, mode) {
         <p class="muted">${correct === session.length
           ? "Perfect round. Маргааш уулзацгаая!"
           : "Wrong answers come back sooner — that is how memory grows."}</p>
-        <button class="primary" id="again">Play again</button>
+        <button class="primary" id="again">${mode.kind === "grammar" ? "Play again" : "Continue"}</button>
       </div>`;
     document.getElementById("again").addEventListener("click", () =>
-      mode.kind === "grammar" ? startGrammar() : startVocab());
+      mode.kind === "grammar" ? startGrammar() : renderVocabHome());
     return;
   }
   mode.render(session[i], i, session.length, ok => {
@@ -493,6 +576,7 @@ function renderStats() {
       <p>⭐ <b>${profile.xp}</b> XP &nbsp; 🔥 <b>${profile.streakDays}</b>-day streak</p>
       <p class="muted">Grammar correct: ${profile.quizCorrect} ·
         Words correct: ${profile.vocabCorrect} ·
+        Word ladder: ${vocabLevel()} ·
         Lessons: ${profile.lessonsDone.length}/24 ·
         Talks: ${profile.talkDone.length}/${DATA.dialogues.length}</p>
       <div class="badge-grid">${grid}</div>

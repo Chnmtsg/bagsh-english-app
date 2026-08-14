@@ -37,20 +37,20 @@ dialogues:
     situation: "First day with a new team member."
     lines:
       - {sp: "A", en: "Hi, I'm Sarah. I don't think we've met.", mn: "Сайн уу, би Сара. Бид танилцаагүй юм шиг байна."}
-      - {sp: "B", en: "Hi Sarah, I'm Bold. I'm a geologist on the exploration team.", mn: "Сайн уу Сара, би Болд. Хайгуулын багийн геологич."}
+      - {sp: "B", en: "Hi Sarah, I'm Bold. I'm an accountant in the finance team.", mn: "Сайн уу Сара, би Болд. Санхүүгийн багийн нягтлан."}
       - {sp: "A", en: "Nice to meet you, Bold. How long have you been here?", mn: "Танилцахад таатай байна, Болд. Энд ажиллаад удаж байна уу?"}
       - {sp: "B", en: "About three years. And you? What do you do?", mn: "Гурван жил орчим. Та? Ямар ажил хийдэг вэ?"}
       - {sp: "A", en: "I'm the new data engineer. Still finding my feet!", mn: "Би шинэ дата инженер. Дасаж л байна!"}
       - {sp: "B", en: "You'll be fine. Let me know if you need anything.", mn: "Зүгээр дасна аа. Юм хэрэгтэй бол хэлээрэй."}
     key_phrases:
-      - {en: "I'm a geologist", note: "am + a — the two words Mongolian drops. Never 'I geologist'."}
+      - {en: "I'm an accountant", note: "am + an — the two words Mongolian drops. Never 'I accountant'."}
       - {en: "What do you do?", note: "= Ямар ажил хийдэг вэ? (NOT 'What is your job?' — this is the natural version)"}
       - {en: "Nice to meet you", note: "Say it once, at the first meeting only."}
     practice:
       situation: "Someone asks: 'What do you do?' — best reply?"
       options:
-        - {text: "I'm a geologist. I work in exploration.", correct: true, why: "Job + one detail. Perfect shape."}
-        - {text: "I am geologist.", correct: false, why: "Missing 'a' — job words need an article."}
+        - {text: "I'm an accountant. I work in finance.", correct: true, why: "Job + one detail. Perfect shape."}
+        - {text: "I am accountant.", correct: false, why: "Missing 'an' — job words need an article."}
         - {text: "I do many things.", correct: false, why: "'Things' says nothing — name the real job."}
 
   - id: shop
@@ -105,10 +105,10 @@ dialogues:
     title_mn: "Утсаар — дахин хэлүүлэх"
     situation: "A bad line. THE most important skill for real conversations."
     lines:
-      - {sp: "A", en: "Hi, this is Bold from the exploration team.", mn: "Сайн уу, хайгуулын багийн Болд байна."}
-      - {sp: "B", en: "Hi Bold. The samples arrive on the… (unclear) …day.", mn: "Сайн уу Болд. Дээжүүд … (тодорхойгүй) … өдөр ирнэ."}
+      - {sp: "A", en: "Hi, this is Bold from the sales team.", mn: "Сайн уу, борлуулалтын багийн Болд байна."}
+      - {sp: "B", en: "Hi Bold. The documents arrive on the… (unclear) …day.", mn: "Сайн уу Болд. Бичиг баримтууд … (тодорхойгүй) … өдөр ирнэ."}
       - {sp: "A", en: "Sorry, could you say that again? The line is bad.", mn: "Уучлаарай, дахин хэлж өгөхгүй юу? Холбоо муу байна."}
-      - {sp: "B", en: "Sure — the samples arrive on Thursday.", mn: "Тэгье — дээжүүд пүрэв гарагт ирнэ."}
+      - {sp: "B", en: "Sure — the documents arrive on Thursday.", mn: "Тэгье — бичиг баримтууд пүрэв гарагт ирнэ."}
       - {sp: "A", en: "Thursday, got it. Could you speak a little slower, please? English is my second language.", mn: "Пүрэв, ойлголоо. Жаахан удаан ярьж болох уу? Англи хэл миний хоёр дахь хэл."}
       - {sp: "B", en: "Of course, no problem at all.", mn: "Мэдээж, ямар ч асуудалгүй."}
     key_phrases:
@@ -151,10 +151,10 @@ dialogues:
     title_mn: "Хурал дээр санал хэлэх"
     situation: "A short project meeting; you need to update and disagree politely."
     lines:
-      - {sp: "A", en: "Bold, could you give us a quick update on the drilling?", mn: "Болд оо, өрөмдлөгийн талаар товч мэдээлэл өгөхгүй юу?"}
-      - {sp: "B", en: "Sure. We've finished hole twelve — the last assays come back on Friday.", mn: "Тэгье. Арван хоёрдугаар цооногийг дуусгасан — сүүлийн шинжилгээ баасанд гарна."}
-      - {sp: "A", en: "Great. So we can start hole thirteen on Monday?", mn: "Сайн байна. Тэгэхээр даваад арван гуравдугаарыг эхлүүлж болох нь ээ?"}
-      - {sp: "B", en: "I'm not sure that works, actually — the road may not be ready. Could we say Wednesday to be safe?", mn: "Бүтэхгүй байж магадгүй — зам бэлэн болоогүй байж мэднэ. Аюулгүй талаас нь лхагва гэж тохирох уу?"}
+      - {sp: "A", en: "Bold, could you give us a quick update on the project?", mn: "Болд оо, төслийн талаар товч мэдээлэл өгөхгүй юу?"}
+      - {sp: "B", en: "Sure. We've finished the first draft — the final numbers come in on Friday.", mn: "Тэгье. Эхний ноорог дууссан — эцсийн тоо баасанд ирнэ."}
+      - {sp: "A", en: "Great. So we can send it to the client on Monday?", mn: "Сайн байна. Тэгэхээр даваад захиалагч руу явуулж болох нь ээ?"}
+      - {sp: "B", en: "I'm not sure that works, actually — the numbers may not be checked. Could we say Wednesday to be safe?", mn: "Бүтэхгүй байж магадгүй — тоог шалгаж амжаагүй байж мэднэ. Аюулгүй талаас нь лхагва гэж тохирох уу?"}
       - {sp: "A", en: "Fair point. Wednesday it is.", mn: "Зөв санал. Лхагва болгоё."}
       - {sp: "B", en: "Thanks. I'll send a short summary after the meeting.", mn: "Баярлалаа. Хурлын дараа товч мэдээ явуулъя."}
     key_phrases:

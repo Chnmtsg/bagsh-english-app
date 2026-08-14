@@ -42,16 +42,16 @@
     }
    ],
    "lesson": {
-    "explain_b1": "English never drops the verb \"to be\". Mongolian says \"Би геологич\" — two words, no verb — and it is a complete sentence. English cannot do this: every sentence needs a verb, so you must add am/is/are. Notice that \"I am a geologist\" needs TWO additions: the verb \"am\" AND the article \"a\". This one four-word sentence contains the two biggest differences between your languages.",
-    "explain_a2": "Монголоор \"Би геологич\" гэж хэлдэг — үйл үг хэрэггүй. Англиар үйл үг ЗААВАЛ хэрэгтэй: I am a geologist. \"Am\" болон \"a\" хоёуланг нь нэм.",
+    "explain_b1": "English never drops the verb \"to be\". Mongolian says \"Би багш\" — two words, no verb — and it is a complete sentence. English cannot do this: every sentence needs a verb, so you must add am/is/are. Notice that \"I am a teacher\" needs TWO additions: the verb \"am\" AND the article \"a\". This one four-word sentence contains the two biggest differences between your languages.",
+    "explain_a2": "Монголоор \"Би багш\" гэж хэлдэг — үйл үг хэрэггүй. Англиар үйл үг ЗААВАЛ хэрэгтэй: I am a teacher. \"Am\" болон \"a\" хоёуланг нь нэм.",
     "extra_examples": [
      {
       "wrong": "She happy today.",
       "right": "She is happy today."
      },
      {
-      "wrong": "The samples ready.",
-      "right": "The samples are ready."
+      "wrong": "Dinner ready.",
+      "right": "Dinner is ready."
      },
      {
       "wrong": "My office small but warm.",
@@ -94,8 +94,8 @@
       "right": "I study English every day."
      },
      {
-      "wrong": "We last week the site visited.",
-      "right": "We visited the site last week."
+      "wrong": "We last week my parents visited.",
+      "right": "We visited my parents last week."
      },
      {
       "wrong": "He the report wrote.",
@@ -130,12 +130,12 @@
     }
    ],
    "lesson": {
-    "explain_b1": "Mongolian has no articles — but it DOES mark definiteness, with the accusative suffix -ыг/-ийг on specific objects. So you already have the concept; English just uses a separate word in front instead of a suffix behind. Use \"a/an\" for something new or general (\"we found a deposit\"), \"the\" for something both people know (\"the deposit we found\"), and nothing for general plurals and most names (\"samples\", \"Mongolia\"). \"An\" goes before a vowel SOUND: an hour, but a university.",
+    "explain_b1": "Mongolian has no articles — but it DOES mark definiteness, with the accusative suffix -ыг/-ийг on specific objects. So you already have the concept; English just uses a separate word in front instead of a suffix behind. Use \"a/an\" for something new or general (\"we found a nice café\"), \"the\" for something both people know (\"the café we found\"), and nothing for general plurals and most names (\"apples\", \"Mongolia\"). \"An\" goes before a vowel SOUND: an hour, but a university.",
     "explain_a2": "\"Ном уншсан\" (ямар ч ном) = a book. \"Номыг уншсан\" (тодорхой ном) = the book. -ыг гэдэг дагаврыг та мэднэ — англид \"the\" гэдэг үг урд нь ордог.",
     "extra_examples": [
      {
-      "wrong": "We found new deposit.",
-      "right": "We found a new deposit."
+      "wrong": "We found new café.",
+      "right": "We found a new café."
      },
      {
       "wrong": "I saw a rock. A rock was heavy.",
@@ -173,8 +173,8 @@
     "explain_a2": "HE, SHE, IT → үйл үг дээр -s нэм: he works, she lives, it takes. Би, та, тэд нар → -s хэрэггүй.",
     "extra_examples": [
      {
-      "wrong": "The drill produce good samples.",
-      "right": "The drill produces good samples."
+      "wrong": "My sister work in a bank.",
+      "right": "My sister works in a bank."
      },
      {
       "wrong": "My boss want the report.",
@@ -213,23 +213,23 @@
     }
    ],
    "lesson": {
-    "explain_b1": "In Mongolian, plural marking is optional, and after a numeral it is normally dropped — гурван ном, because \"three\" already says it. English repeats itself: three bookS, many sampleS, even when the number makes it obvious. This is not logical; it is simply obligatory. The one exception pattern: a number USED AS A DESCRIPTION stays singular — \"a 500-metre hole\", \"a three-day trip\".",
+    "explain_b1": "In Mongolian, plural marking is optional, and after a numeral it is normally dropped — гурван ном, because \"three\" already says it. English repeats itself: three bookS, many sampleS, even when the number makes it obvious. This is not logical; it is simply obligatory. The one exception pattern: a number USED AS A DESCRIPTION stays singular — \"a 500-metre road\", \"a three-day trip\".",
     "explain_a2": "Гурван ном = three bookS. Англи хэл давхардуулдаг: тоо байсан ч -s заавал нэм. Логикгүй ч дүрэм ийм.",
     "extra_examples": [
      {
-      "wrong": "We drilled five hole.",
-      "right": "We drilled five holes."
+      "wrong": "We bought five ticket.",
+      "right": "We bought five tickets."
      },
      {
       "wrong": "Many student came.",
       "right": "Many students came."
      },
      {
-      "wrong": "a 500-metres hole",
-      "right": "a 500-metre hole"
+      "wrong": "a 500-metres road",
+      "right": "a 500-metre road"
      }
     ],
-    "tip": "After every number bigger than one: -s. Before a noun (\"500-metre hole\"): no -s."
+    "tip": "After every number bigger than one: -s. Before a noun (\"500-metre road\"): no -s."
    }
   },
   "missing_subject": {
@@ -247,16 +247,16 @@
     }
    ],
    "lesson": {
-    "explain_b1": "English cannot tolerate a sentence without a subject — so it invents fake ones. Nothing is actually raining, but English says \"IT is raining\". Nothing is \"there\" in \"THERE are three samples\" — the word just fills the subject seat. Mongolian happily drops the subject when it is obvious; English never does. When your sentence has no natural subject, reach for \"it\" (weather, time, distance) or \"there is/are\" (existence).",
-    "explain_a2": "Англи өгүүлбэрт эзэн ЗААВАЛ хэрэгтэй. \"Бороо орж байна\" → IT is raining. \"Гурван дээж байна\" → THERE are three samples.",
+    "explain_b1": "English cannot tolerate a sentence without a subject — so it invents fake ones. Nothing is actually raining, but English says \"IT is raining\". Nothing is \"there\" in \"THERE are three cups\" — the word just fills the subject seat. Mongolian happily drops the subject when it is obvious; English never does. When your sentence has no natural subject, reach for \"it\" (weather, time, distance) or \"there is/are\" (existence).",
+    "explain_a2": "Англи өгүүлбэрт эзэн ЗААВАЛ хэрэгтэй. \"Бороо орж байна\" → IT is raining. \"Гурван аяга байна\" → THERE are three cups.",
     "extra_examples": [
      {
       "wrong": "Is raining today.",
       "right": "It is raining today."
      },
      {
-      "wrong": "Have three samples on the bench.",
-      "right": "There are three samples on the bench."
+      "wrong": "Have three cups on the table.",
+      "right": "There are three cups on the table."
      },
      {
       "wrong": "Is important to check the data.",
@@ -298,8 +298,8 @@
       "right": "The meeting was long."
      },
      {
-      "wrong": "About this deposit, the grade is high.",
-      "right": "This deposit has a high grade."
+      "wrong": "About this phone, the price is high.",
+      "right": "This phone has a high price."
      }
     ],
     "tip": "See \"About X, …\" in your writing? Delete \"About\", make X the subject."
@@ -330,12 +330,12 @@
     }
    ],
    "lesson": {
-    "explain_b1": "Mongolian marks a noun's role with a suffix on the end (-д, -аас, -тай); English marks it with a small word in FRONT (at, in, on, to, from, with). Those small words feel unimportant to a Mongolian ear — but they ARE the case system. Deleting \"at\" from \"at 6:30\" is like deleting -д from \"зургаан цагт\". Learn preposition + noun as one chunk: at night, on Monday, in July, at the site.",
+    "explain_b1": "Mongolian marks a noun's role with a suffix on the end (-д, -аас, -тай); English marks it with a small word in FRONT (at, in, on, to, from, with). Those small words feel unimportant to a Mongolian ear — but they ARE the case system. Deleting \"at\" from \"at 6:30\" is like deleting -д from \"зургаан цагт\". Learn preposition + noun as one chunk: at night, on Monday, in July, at the airport.",
     "explain_a2": "-д, -аас, -тай гэдэг дагаврын ажлыг англид жижиг үгс хийдэг: at, in, on, to. Жижиг үгийг хаявал дагаврыг хаясантай адил.",
     "extra_examples": [
      {
-      "wrong": "We arrived the site 8 o'clock.",
-      "right": "We arrived at the site at 8 o'clock."
+      "wrong": "We arrived the airport 8 o'clock.",
+      "right": "We arrived at the airport at 8 o'clock."
      },
      {
       "wrong": "I was born on July.",
@@ -386,8 +386,8 @@
       "right": "She doesn't like coffee."
      },
      {
-      "wrong": "Tell me where is the core shed.",
-      "right": "Tell me where the core shed is."
+      "wrong": "Tell me where is the bus stop.",
+      "right": "Tell me where the bus stop is."
      }
     ],
     "tip": "One rule: find the auxiliary → move it to the front → no auxiliary? borrow DO."
@@ -474,8 +474,8 @@
       "right": "The report was written yesterday."
      },
      {
-      "wrong": "I finished to log the core.",
-      "right": "I finished logging the core."
+      "wrong": "I finished to clean the kitchen.",
+      "right": "I finished cleaning the kitchen."
      }
     ],
     "tip": "After a preposition, always -ing — the one rule with no exceptions."
@@ -510,16 +510,16 @@
     "explain_a2": "Хоёр бүтэн өгүүлбэрийг таслалаар холбож БОЛОХГҮЙ. \"I'm tired, I'll stop\" ❌ → \"I'm tired. I'll stop.\" ✅",
     "extra_examples": [
      {
-      "wrong": "The assay came back, the grade is low.",
-      "right": "The assay came back. The grade is low."
+      "wrong": "The results came back, the score is low.",
+      "right": "The results came back. The score is low."
      },
      {
-      "wrong": "It was late, we kept drilling.",
-      "right": "It was late, but we kept drilling."
+      "wrong": "It was late, we kept walking.",
+      "right": "It was late, but we kept walking."
      },
      {
-      "wrong": "The samples, were shipped Monday.",
-      "right": "The samples were shipped on Monday."
+      "wrong": "The tickets, were booked Monday.",
+      "right": "The tickets were booked on Monday."
      }
     ],
     "tip": "Cover-the-comma test: complete sentence + complete sentence → the comma is illegal."
@@ -588,8 +588,8 @@
     "explain_a2": "Та гэдэг үг англид байхгүй. Эелдэг байдал modal үйл үгэнд байдаг: \"I want\" ❌ → \"I'd like\" ✅. Хүсэлт: \"Could you…?\"",
     "extra_examples": [
      {
-      "wrong": "Send me the assay results.",
-      "right": "Could you send me the assay results?"
+      "wrong": "Send me the meeting notes.",
+      "right": "Could you send me the meeting notes?"
      },
      {
       "wrong": "I want a day off tomorrow.",
@@ -716,7 +716,7 @@
     }
    ],
    "lesson": {
-    "explain_b1": "English allows only ONE central pointer word per noun: \"the my report\" is impossible — choose \"my report\" or \"the report\". \"A my friend\" becomes \"a friend of mine\". \"Another\" contains \"an\", so it takes a singular noun: another sample, but OTHER samples. \"Every\" also takes singular: every student KNOWS. And the apostrophe pair: its = possession, it's = it is.",
+    "explain_b1": "English allows only ONE central pointer word per noun: \"the my report\" is impossible — choose \"my report\" or \"the report\". \"A my friend\" becomes \"a friend of mine\". \"Another\" contains \"an\", so it takes a singular noun: another cup, but OTHER cups. \"Every\" also takes singular: every student KNOWS. And the apostrophe pair: its = possession, it's = it is.",
     "explain_a2": "Нэг нэр үгэнд нэг л заагч үг: my report (the my report ❌). another + ганц тоо, other + олон тоо. it's = it is; its = эзэмшил.",
     "extra_examples": [
      {
@@ -724,15 +724,15 @@
       "right": "My colleague is here."
      },
      {
-      "wrong": "We need another samples.",
-      "right": "We need other samples."
+      "wrong": "We need another chairs.",
+      "right": "We need other chairs."
      },
      {
       "wrong": "Its ready.",
       "right": "It's ready."
      }
     ],
-    "tip": "it's ready = it IS ready. its grade = түүний агуулга."
+    "tip": "it's ready = it IS ready. its name = түүний нэр."
    }
   },
   "collocation": {
@@ -764,8 +764,8 @@
     "explain_a2": "Үгс хосоороо явдаг: make a decision, do research, heavy rain, turn on the light. Дүрэм байхгүй — хосыг цээжил.",
     "extra_examples": [
      {
-      "wrong": "We did a plan for the survey.",
-      "right": "We made a plan for the survey."
+      "wrong": "We did a plan for the trip.",
+      "right": "We made a plan for the trip."
      },
      {
       "wrong": "Let's discuss about the budget.",
@@ -848,8 +848,8 @@
     }
    ],
    "lesson": {
-    "explain_b1": "In Mongolian, word order is free because suffixes mark each word's job; in English, position IS the job. Three placement rules: an adverb never sits between the verb and its object (\"examined the core carefully\", never \"examined carefully the core\"); frequency adverbs (always, never, often) go BEFORE a main verb but AFTER \"be\" (\"I always check\" / \"I am always careful\"); adjectives follow the order opinion–size–age–shape–colour–origin–material (\"an old black wooden box\").",
-    "explain_a2": "Үйл үг ба юуг нь хооронд нь үг бүү оруул: examined the core carefully. always/never → үндсэн үйл үгийн ӨМНӨ: I always check.",
+    "explain_b1": "In Mongolian, word order is free because suffixes mark each word's job; in English, position IS the job. Three placement rules: an adverb never sits between the verb and its object (\"read the letter carefully\", never \"read carefully the letter\"); frequency adverbs (always, never, often) go BEFORE a main verb but AFTER \"be\" (\"I always check\" / \"I am always careful\"); adjectives follow the order opinion–size–age–shape–colour–origin–material (\"an old black wooden box\").",
+    "explain_a2": "Үйл үг ба юуг нь хооронд нь үг бүү оруул: read the letter carefully. always/never → үндсэн үйл үгийн ӨМНӨ: I always check.",
     "extra_examples": [
      {
       "wrong": "He checked quickly the readings.",
@@ -896,12 +896,12 @@
     "explain_a2": "\"Надаас өндөр\" → taller THAN me. -er болон than хамт явдаг. \"More taller\" ❌ — зөвхөн нэг харьцуулалт.",
     "extra_examples": [
      {
-      "wrong": "This deposit is big from that one.",
-      "right": "This deposit is bigger than that one."
+      "wrong": "This city is big from that one.",
+      "right": "This city is bigger than that one."
      },
      {
-      "wrong": "The access road is more long.",
-      "right": "The access road is longer."
+      "wrong": "The queue is more long.",
+      "right": "The queue is longer."
      },
      {
       "wrong": "He is tall than me.",
@@ -926,8 +926,8 @@
     }
    ],
    "lesson": {
-    "explain_b1": "Mongolian describes BEFORE the noun: \"миний уншсан ном\" (my-read book). English describes AFTER it: \"the book THAT I READ\". Build from two simple sentences: \"I saw a hole. We drilled it yesterday.\" → \"I saw the hole that we drilled yesterday.\" Who = people, which = things, that = both. The professional bonus: reduced relatives drop \"that is/was\" — \"the samples collected yesterday\", \"mineralisation hosted in shear zones\" — the key to technical writing.",
-    "explain_a2": "Монголоор тодорхойлолт нэрийн ӨМНӨ, англиар АРД нь: the hole THAT we drilled. Хоёр энгийн өгүүлбэрээс эхэл.",
+    "explain_b1": "Mongolian describes BEFORE the noun: \"миний уншсан ном\" (my-read book). English describes AFTER it: \"the book THAT I READ\". Build from two simple sentences: \"I met a woman. She teaches maths.\" → \"I met a woman who teaches maths.\" Who = people, which = things, that = both. The professional bonus: reduced relatives drop \"that is/was\" — \"the photos taken yesterday\", \"the email sent this morning\" — the key to clear formal writing.",
+    "explain_a2": "Монголоор тодорхойлолт нэрийн ӨМНӨ, англиар АРД нь: the book THAT I read. Хоёр энгийн өгүүлбэрээс эхэл.",
     "extra_examples": [
      {
       "wrong": "The yesterday arrived equipment is broken.",
@@ -960,7 +960,7 @@
     }
    ],
    "lesson": {
-    "explain_b1": "Three rules. Say vs tell: TELL needs a person (\"he told ME\"), SAY does not (\"he said the grade was low\") — \"he said me\" is impossible. Backshift: reporting steps one tense back — \"I am tired\" becomes \"he said he WAS tired\". Reported questions lose their inversion and their question mark: \"Where do you work?\" becomes \"He asked where I workED\" — statement order, because it is no longer a question.",
+    "explain_b1": "Three rules. Say vs tell: TELL needs a person (\"he told ME\"), SAY does not (\"he said the price was low\") — \"he said me\" is impossible. Backshift: reporting steps one tense back — \"I am tired\" becomes \"he said he WAS tired\". Reported questions lose their inversion and their question mark: \"Where do you work?\" becomes \"He asked where I workED\" — statement order, because it is no longer a question.",
     "explain_a2": "tell + хүн: He told ME. say + үг: He said (that)… Асуултыг дамжуулахад дараалал энгийн болно: He asked where I worked.",
     "extra_examples": [
      {
@@ -998,8 +998,8 @@
     "explain_a2": "Англи үгийн бичлэг дуудлагыг дагадаггүй. Шинэ үгийг сурахдаа бичлэг + дуудлага хоёуланг нь хамт сур.",
     "extra_examples": [
      {
-      "wrong": "I recieved the sampels.",
-      "right": "I received the samples."
+      "wrong": "I recieved the pakage.",
+      "right": "I received the package."
      },
      {
       "wrong": "The wether was terrible.",
@@ -1818,604 +1818,1204 @@
  ],
  "vocab": [
   {
-   "word": "important",
-   "stress": "im-POR-tant",
-   "pos": "adj",
-   "level": "A2",
-   "deck": "core",
-   "gloss_en": "matters a lot",
-   "gloss_mn": "чухал",
-   "example": "Safety is the most important thing at the site."
-  },
-  {
-   "word": "decision",
-   "stress": "de-CI-sion",
-   "pos": "noun",
-   "level": "B1",
-   "deck": "core",
-   "gloss_en": "a choice you make after thinking",
-   "gloss_mn": "шийдвэр",
-   "example": "We made a decision about the new schedule."
-  },
-  {
-   "word": "improve",
-   "stress": "im-PROVE",
-   "pos": "verb",
-   "level": "B1",
-   "deck": "core",
-   "gloss_en": "to make something better",
-   "gloss_mn": "сайжруулах",
-   "example": "I want to improve my English every day."
-  },
-  {
-   "word": "experience",
-   "stress": "ex-PE-ri-ence",
-   "pos": "noun",
-   "level": "B1",
-   "deck": "core",
-   "gloss_en": "knowledge from doing things",
-   "gloss_mn": "туршлага",
-   "example": "She has ten years of experience in mining."
-  },
-  {
-   "word": "colleague",
-   "stress": "COL-league",
-   "pos": "noun",
-   "level": "B1",
-   "deck": "core",
-   "gloss_en": "a person you work with",
-   "gloss_mn": "хамтран ажиллагч",
-   "example": "My colleague helped me finish the report."
-  },
-  {
-   "word": "meeting",
-   "stress": "MEET-ing",
-   "pos": "noun",
-   "level": "A2",
-   "deck": "core",
-   "gloss_en": "when people come together to talk",
-   "gloss_mn": "хурал",
-   "example": "The meeting starts at nine in the morning."
-  },
-  {
-   "word": "schedule",
-   "stress": "SCHED-ule",
-   "pos": "noun",
-   "level": "B1",
-   "deck": "core",
-   "gloss_en": "a plan of times for doing things",
-   "gloss_mn": "хуваарь",
-   "example": "The drilling schedule changed because of the weather."
-  },
-  {
-   "word": "success",
-   "stress": "suc-CESS",
-   "pos": "noun",
-   "level": "B1",
-   "deck": "core",
-   "gloss_en": "when something goes the way you wanted",
-   "gloss_mn": "амжилт",
-   "example": "The project was a big success for our team."
-  },
-  {
-   "word": "difficult",
-   "stress": "DIF-fi-cult",
-   "pos": "adj",
-   "level": "A2",
-   "deck": "core",
-   "gloss_en": "not easy",
-   "gloss_mn": "хэцүү",
-   "example": "Reading in English is still difficult for me."
-  },
-  {
-   "word": "together",
-   "stress": "to-GETH-er",
-   "pos": "adv",
-   "level": "A2",
-   "deck": "core",
-   "gloss_en": "with each other",
-   "gloss_mn": "хамтдаа",
-   "example": "We solved the problem together after lunch."
-  },
-  {
-   "word": "yesterday",
-   "stress": "YES-ter-day",
-   "pos": "adv",
-   "level": "A1",
-   "deck": "core",
-   "gloss_en": "the day before today",
-   "gloss_mn": "өчигдөр",
-   "example": "I wrote my first journal entry yesterday."
-  },
-  {
-   "word": "tomorrow",
-   "stress": "to-MOR-row",
-   "pos": "adv",
-   "level": "A1",
-   "deck": "core",
-   "gloss_en": "the day after today",
-   "gloss_mn": "маргааш",
-   "example": "We will check the results tomorrow."
-  },
-  {
-   "word": "arrive",
-   "stress": "ar-RIVE",
-   "pos": "verb",
-   "level": "A2",
-   "deck": "core",
-   "gloss_en": "to reach a place",
-   "gloss_mn": "хүрэлцэн ирэх",
-   "example": "The trucks arrive at the site at six."
-  },
-  {
-   "word": "finish",
-   "stress": "FIN-ish",
-   "pos": "verb",
-   "level": "A2",
-   "deck": "core",
-   "gloss_en": "to complete something",
-   "gloss_mn": "дуусгах",
-   "example": "I finish work at seven most days."
-  },
-  {
-   "word": "forget",
-   "stress": "for-GET",
-   "pos": "verb",
-   "level": "A2",
-   "deck": "core",
-   "gloss_en": "to not remember",
-   "gloss_mn": "мартах",
-   "example": "Don't forget your helmet at the office."
-  },
-  {
-   "word": "remember",
-   "stress": "re-MEM-ber",
-   "pos": "verb",
-   "level": "A2",
-   "deck": "core",
-   "gloss_en": "to keep in your mind",
-   "gloss_mn": "санах",
-   "example": "I remember my first day at the mine."
-  },
-  {
-   "word": "understand",
-   "stress": "un-der-STAND",
-   "pos": "verb",
-   "level": "A2",
-   "deck": "core",
-   "gloss_en": "to know what something means",
-   "gloss_mn": "ойлгох",
-   "example": "Now I understand the rule about articles."
-  },
-  {
-   "word": "practice",
-   "stress": "PRAC-tice",
-   "pos": "noun",
-   "level": "B1",
-   "deck": "core",
-   "gloss_en": "doing something many times to learn it",
-   "gloss_mn": "дадлага",
-   "example": "Daily practice is better than one long lesson."
-  },
-  {
-   "word": "question",
-   "stress": "QUES-tion",
+   "word": "family",
+   "stress": "FAM-i-ly",
    "pos": "noun",
    "level": "A1",
-   "deck": "core",
-   "gloss_en": "something you ask",
-   "gloss_mn": "асуулт",
-   "example": "I asked a question at the end of the meeting."
+   "deck": "general",
+   "gloss_en": "parents, children, relatives",
+   "gloss_mn": "гэр бүл",
+   "example": "My family eats dinner together."
   },
   {
-   "word": "answer",
-   "stress": "AN-swer",
+   "word": "mother",
+   "stress": "MOTH-er",
    "pos": "noun",
    "level": "A1",
-   "deck": "core",
-   "gloss_en": "what you say to a question",
-   "gloss_mn": "хариулт",
-   "example": "Her answer was short and clear."
+   "deck": "general",
+   "gloss_en": "your female parent",
+   "gloss_mn": "ээж",
+   "example": "My mother makes very good soup."
   },
   {
-   "word": "mistake",
-   "stress": "mis-TAKE",
-   "pos": "noun",
-   "level": "A2",
-   "deck": "core",
-   "gloss_en": "something done wrong",
-   "gloss_mn": "алдаа",
-   "example": "Every mistake teaches me something new."
-  },
-  {
-   "word": "habit",
-   "stress": "HAB-it",
-   "pos": "noun",
-   "level": "B1",
-   "deck": "core",
-   "gloss_en": "something you do regularly",
-   "gloss_mn": "зуршил",
-   "example": "Writing at night became a good habit."
-  },
-  {
-   "word": "holiday",
-   "stress": "HOL-i-day",
-   "pos": "noun",
-   "level": "A2",
-   "deck": "core",
-   "gloss_en": "a day or time free from work",
-   "gloss_mn": "амралтын өдөр",
-   "example": "We planned a short holiday after the project."
-  },
-  {
-   "word": "weather",
-   "stress": "WEATH-er",
+   "word": "father",
+   "stress": "FA-ther",
    "pos": "noun",
    "level": "A1",
-   "deck": "core",
-   "gloss_en": "rain, sun, wind and snow",
-   "gloss_mn": "цаг агаар",
-   "example": "The weather was cold and windy at the camp."
+   "deck": "general",
+   "gloss_en": "your male parent",
+   "gloss_mn": "аав",
+   "example": "My father drives a blue car."
+  },
+  {
+   "word": "water",
+   "stress": "WA-ter",
+   "pos": "noun",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "the drink from rivers and rain",
+   "gloss_mn": "ус",
+   "example": "I drink water with every meal."
+  },
+  {
+   "word": "bread",
+   "stress": "BREAD",
+   "pos": "noun",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "food made from flour",
+   "gloss_mn": "талх",
+   "example": "We buy fresh bread every morning."
+  },
+  {
+   "word": "milk",
+   "stress": "MILK",
+   "pos": "noun",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "white drink from cows",
+   "gloss_mn": "сүү",
+   "example": "The children drink milk at breakfast."
+  },
+  {
+   "word": "house",
+   "stress": "HOUSE",
+   "pos": "noun",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "a building where people live",
+   "gloss_mn": "байшин",
+   "example": "Their house has a red door."
+  },
+  {
+   "word": "school",
+   "stress": "SCHOOL",
+   "pos": "noun",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "the place where children learn",
+   "gloss_mn": "сургууль",
+   "example": "The school opens at eight o'clock."
   },
   {
    "word": "morning",
    "stress": "MORN-ing",
    "pos": "noun",
    "level": "A1",
-   "deck": "core",
+   "deck": "general",
    "gloss_en": "the early part of the day",
    "gloss_mn": "өглөө",
-   "example": "I study English in the morning before work."
+   "example": "I read the news in the morning."
   },
   {
    "word": "evening",
    "stress": "EVE-ning",
    "pos": "noun",
    "level": "A1",
-   "deck": "core",
+   "deck": "general",
    "gloss_en": "the end part of the day",
    "gloss_mn": "орой",
-   "example": "In the evening I write my journal."
+   "example": "We watch TV in the evening."
   },
   {
-   "word": "family",
-   "stress": "FAM-i-ly",
+   "word": "night",
+   "stress": "NIGHT",
    "pos": "noun",
    "level": "A1",
-   "deck": "core",
-   "gloss_en": "parents, children, relatives",
-   "gloss_mn": "гэр бүл",
-   "example": "My family lives in Ulaanbaatar."
+   "deck": "general",
+   "gloss_en": "the dark time when people sleep",
+   "gloss_mn": "шөнө",
+   "example": "The city is quiet at night."
+  },
+  {
+   "word": "friend",
+   "stress": "FRIEND",
+   "pos": "noun",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "a person you like and trust",
+   "gloss_mn": "найз",
+   "example": "My best friend lives near me."
+  },
+  {
+   "word": "phone",
+   "stress": "PHONE",
+   "pos": "noun",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "the thing you call people with",
+   "gloss_mn": "утас",
+   "example": "Her phone is always in her hand."
+  },
+  {
+   "word": "money",
+   "stress": "MON-ey",
+   "pos": "noun",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "what you pay with",
+   "gloss_mn": "мөнгө",
+   "example": "He saves money for a new bike."
+  },
+  {
+   "word": "weather",
+   "stress": "WEATH-er",
+   "pos": "noun",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "rain, sun, wind and snow",
+   "gloss_mn": "цаг агаар",
+   "example": "The weather is cold and windy today."
+  },
+  {
+   "word": "question",
+   "stress": "QUES-tion",
+   "pos": "noun",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "something you ask",
+   "gloss_mn": "асуулт",
+   "example": "May I ask a question about the homework?"
+  },
+  {
+   "word": "answer",
+   "stress": "AN-swer",
+   "pos": "noun",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "what you say to a question",
+   "gloss_mn": "хариулт",
+   "example": "Her answer was short and clear."
+  },
+  {
+   "word": "yesterday",
+   "stress": "YES-ter-day",
+   "pos": "adv",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "the day before today",
+   "gloss_mn": "өчигдөр",
+   "example": "We visited my aunt yesterday."
+  },
+  {
+   "word": "tomorrow",
+   "stress": "to-MOR-row",
+   "pos": "adv",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "the day after today",
+   "gloss_mn": "маргааш",
+   "example": "The shop opens again tomorrow."
+  },
+  {
+   "word": "today",
+   "stress": "to-DAY",
+   "pos": "adv",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "this day",
+   "gloss_mn": "өнөөдөр",
+   "example": "Today is my sister's birthday."
+  },
+  {
+   "word": "happy",
+   "stress": "HAP-py",
+   "pos": "adj",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "feeling good",
+   "gloss_mn": "аз жаргалтай",
+   "example": "The children look happy in the park."
+  },
+  {
+   "word": "tired",
+   "stress": "TIRED",
+   "pos": "adj",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "needing rest or sleep",
+   "gloss_mn": "ядарсан",
+   "example": "I feel tired after long walks."
+  },
+  {
+   "word": "hungry",
+   "stress": "HUN-gry",
+   "pos": "adj",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "wanting food",
+   "gloss_mn": "өлссөн",
+   "example": "The baby cries when she is hungry."
+  },
+  {
+   "word": "big",
+   "stress": "BIG",
+   "pos": "adj",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "large in size",
+   "gloss_mn": "том",
+   "example": "They live in a big apartment."
+  },
+  {
+   "word": "small",
+   "stress": "SMALL",
+   "pos": "adj",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "little in size",
+   "gloss_mn": "жижиг",
+   "example": "A small cat sleeps on the chair."
+  },
+  {
+   "word": "hot",
+   "stress": "HOT",
+   "pos": "adj",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "with high temperature",
+   "gloss_mn": "халуун",
+   "example": "Careful — the tea is very hot."
+  },
+  {
+   "word": "cold",
+   "stress": "COLD",
+   "pos": "adj",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "with low temperature",
+   "gloss_mn": "хүйтэн",
+   "example": "Winter mornings are cold here."
+  },
+  {
+   "word": "eat",
+   "stress": "EAT",
+   "pos": "verb",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "to put food in your mouth",
+   "gloss_mn": "идэх",
+   "example": "We eat lunch at one o'clock."
+  },
+  {
+   "word": "drink",
+   "stress": "DRINK",
+   "pos": "verb",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "to take liquid into your body",
+   "gloss_mn": "уух",
+   "example": "Please drink more water in summer."
+  },
+  {
+   "word": "sleep",
+   "stress": "SLEEP",
+   "pos": "verb",
+   "level": "A1",
+   "deck": "general",
+   "gloss_en": "to rest with closed eyes",
+   "gloss_mn": "унтах",
+   "example": "I sleep eight hours every night."
+  },
+  {
+   "word": "breakfast",
+   "stress": "BREAK-fast",
+   "pos": "noun",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "the morning meal",
+   "gloss_mn": "өглөөний цай",
+   "example": "I make breakfast for the whole family."
+  },
+  {
+   "word": "dinner",
+   "stress": "DIN-ner",
+   "pos": "noun",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "the main evening meal",
+   "gloss_mn": "оройн хоол",
+   "example": "We cook dinner together on Sundays."
+  },
+  {
+   "word": "weekend",
+   "stress": "week-END",
+   "pos": "noun",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "Saturday and Sunday",
+   "gloss_mn": "амралтын өдрүүд",
+   "example": "What are your plans for the weekend?"
+  },
+  {
+   "word": "holiday",
+   "stress": "HOL-i-day",
+   "pos": "noun",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "time free from work or school",
+   "gloss_mn": "амралт",
+   "example": "Our summer holiday starts in July."
+  },
+  {
+   "word": "ticket",
+   "stress": "TICK-et",
+   "pos": "noun",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "paper that lets you enter or travel",
+   "gloss_mn": "тасалбар",
+   "example": "I bought a ticket for the evening bus."
+  },
+  {
+   "word": "airport",
+   "stress": "AIR-port",
+   "pos": "noun",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "where planes leave and arrive",
+   "gloss_mn": "нисэх буудал",
+   "example": "The airport is far from the city centre."
+  },
+  {
+   "word": "hospital",
+   "stress": "HOS-pi-tal",
+   "pos": "noun",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "where sick people get help",
+   "gloss_mn": "эмнэлэг",
+   "example": "The new hospital opened last year."
+  },
+  {
+   "word": "doctor",
+   "stress": "DOC-tor",
+   "pos": "noun",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "a person who helps sick people",
+   "gloss_mn": "эмч",
+   "example": "The doctor told me to rest for two days."
+  },
+  {
+   "word": "medicine",
+   "stress": "MED-i-cine",
+   "pos": "noun",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "what you take to get better",
+   "gloss_mn": "эм",
+   "example": "Take this medicine after food."
+  },
+  {
+   "word": "market",
+   "stress": "MAR-ket",
+   "pos": "noun",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "a place with many small shops",
+   "gloss_mn": "зах",
+   "example": "Vegetables are cheaper at the market."
+  },
+  {
+   "word": "kitchen",
+   "stress": "KITCH-en",
+   "pos": "noun",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "the room where you cook",
+   "gloss_mn": "гал тогоо",
+   "example": "The kitchen smells of fresh bread."
+  },
+  {
+   "word": "garden",
+   "stress": "GAR-den",
+   "pos": "noun",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "ground with plants near a house",
+   "gloss_mn": "цэцэрлэгт талбай",
+   "example": "She grows tomatoes in her garden."
+  },
+  {
+   "word": "clothes",
+   "stress": "CLOTHES",
+   "pos": "noun",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "things you wear",
+   "gloss_mn": "хувцас",
+   "example": "Warm clothes are important in winter."
+  },
+  {
+   "word": "shoes",
+   "stress": "SHOES",
+   "pos": "noun",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "what you wear on your feet",
+   "gloss_mn": "гутал",
+   "example": "These shoes are comfortable for walking."
+  },
+  {
+   "word": "umbrella",
+   "stress": "um-BREL-la",
+   "pos": "noun",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "what you hold over your head in rain",
+   "gloss_mn": "шүхэр",
+   "example": "Take an umbrella — it may rain later."
+  },
+  {
+   "word": "early",
+   "stress": "EAR-ly",
+   "pos": "adv",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "before the usual time",
+   "gloss_mn": "эрт",
+   "example": "He wakes up early on workdays."
+  },
+  {
+   "word": "late",
+   "stress": "LATE",
+   "pos": "adv",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "after the usual time",
+   "gloss_mn": "оройтсон",
+   "example": "The bus was late again this morning."
+  },
+  {
+   "word": "busy",
+   "stress": "BUS-y",
+   "pos": "adj",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "with many things to do",
+   "gloss_mn": "завгүй",
+   "example": "Mondays are always busy at work."
+  },
+  {
+   "word": "free",
+   "stress": "FREE",
+   "pos": "adj",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "with time to do things; costing nothing",
+   "gloss_mn": "чөлөөтэй, үнэгүй",
+   "example": "Are you free this Saturday afternoon?"
+  },
+  {
+   "word": "cheap",
+   "stress": "CHEAP",
+   "pos": "adj",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "costing little money",
+   "gloss_mn": "хямд",
+   "example": "This café is cheap and friendly."
+  },
+  {
+   "word": "expensive",
+   "stress": "ex-PEN-sive",
+   "pos": "adj",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "costing a lot of money",
+   "gloss_mn": "үнэтэй",
+   "example": "The hotel was too expensive for us."
+  },
+  {
+   "word": "easy",
+   "stress": "EAS-y",
+   "pos": "adj",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "not difficult",
+   "gloss_mn": "амархан",
+   "example": "The first lesson was easy for everyone."
+  },
+  {
+   "word": "difficult",
+   "stress": "DIF-fi-cult",
+   "pos": "adj",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "not easy",
+   "gloss_mn": "хэцүү",
+   "example": "Reading in English is still difficult for me."
+  },
+  {
+   "word": "start",
+   "stress": "START",
+   "pos": "verb",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "to begin",
+   "gloss_mn": "эхлэх",
+   "example": "The film starts at seven o'clock."
+  },
+  {
+   "word": "finish",
+   "stress": "FIN-ish",
+   "pos": "verb",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "to complete something",
+   "gloss_mn": "дуусгах",
+   "example": "I finish work at six most days."
+  },
+  {
+   "word": "help",
+   "stress": "HELP",
+   "pos": "verb",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "to make something easier for someone",
+   "gloss_mn": "туслах",
+   "example": "Can you help me carry these bags?"
+  },
+  {
+   "word": "buy",
+   "stress": "BUY",
+   "pos": "verb",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "to get something with money",
+   "gloss_mn": "худалдаж авах",
+   "example": "We buy fruit at the corner shop."
+  },
+  {
+   "word": "sell",
+   "stress": "SELL",
+   "pos": "verb",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "to give something for money",
+   "gloss_mn": "зарах",
+   "example": "They sell warm hats in winter."
+  },
+  {
+   "word": "travel",
+   "stress": "TRAV-el",
+   "pos": "verb",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "to go to other places",
+   "gloss_mn": "аялах",
+   "example": "She wants to travel to Japan next year."
+  },
+  {
+   "word": "visit",
+   "stress": "VIS-it",
+   "pos": "verb",
+   "level": "A2",
+   "deck": "general",
+   "gloss_en": "to go and see a person or place",
+   "gloss_mn": "зочлох",
+   "example": "We visit my grandparents every month."
+  },
+  {
+   "word": "experience",
+   "stress": "ex-PE-ri-ence",
+   "pos": "noun",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "knowledge from doing things",
+   "gloss_mn": "туршлага",
+   "example": "She has five years of experience in teaching."
+  },
+  {
+   "word": "decision",
+   "stress": "de-CI-sion",
+   "pos": "noun",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "a choice you make after thinking",
+   "gloss_mn": "шийдвэр",
+   "example": "Moving here was a good decision."
+  },
+  {
+   "word": "important",
+   "stress": "im-POR-tant",
+   "pos": "adj",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "mattering a lot",
+   "gloss_mn": "чухал",
+   "example": "Sleep is important for your health."
+  },
+  {
+   "word": "improve",
+   "stress": "im-PROVE",
+   "pos": "verb",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "to make something better",
+   "gloss_mn": "сайжруулах",
+   "example": "I want to improve my English every day."
+  },
+  {
+   "word": "colleague",
+   "stress": "COL-league",
+   "pos": "noun",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "a person you work with",
+   "gloss_mn": "хамтран ажиллагч",
+   "example": "A colleague helped me finish the report."
+  },
+  {
+   "word": "meeting",
+   "stress": "MEET-ing",
+   "pos": "noun",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "when people come together to talk",
+   "gloss_mn": "хурал",
+   "example": "The meeting starts at nine sharp."
+  },
+  {
+   "word": "schedule",
+   "stress": "SCHED-ule",
+   "pos": "noun",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "a plan of times for doing things",
+   "gloss_mn": "хуваарь",
+   "example": "My schedule is full on Tuesdays."
+  },
+  {
+   "word": "success",
+   "stress": "suc-CESS",
+   "pos": "noun",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "when something goes the way you wanted",
+   "gloss_mn": "амжилт",
+   "example": "The concert was a great success."
+  },
+  {
+   "word": "mistake",
+   "stress": "mis-TAKE",
+   "pos": "noun",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "something done wrong",
+   "gloss_mn": "алдаа",
+   "example": "Every mistake teaches you something."
+  },
+  {
+   "word": "habit",
+   "stress": "HAB-it",
+   "pos": "noun",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "something you do regularly",
+   "gloss_mn": "зуршил",
+   "example": "Reading before bed is a good habit."
   },
   {
    "word": "journey",
    "stress": "JOUR-ney",
    "pos": "noun",
    "level": "B1",
-   "deck": "core",
+   "deck": "general",
    "gloss_en": "a trip from one place to another",
    "gloss_mn": "аялал",
-   "example": "The journey to the site takes four hours."
+   "example": "The journey home takes two hours."
   },
   {
    "word": "describe",
    "stress": "de-SCRIBE",
    "pos": "verb",
    "level": "B1",
-   "deck": "core",
+   "deck": "general",
    "gloss_en": "to say what something is like",
    "gloss_mn": "дүрслэх",
-   "example": "Can you describe the rock you found?"
+   "example": "Can you describe the man you saw?"
   },
   {
    "word": "explain",
    "stress": "ex-PLAIN",
    "pos": "verb",
-   "level": "A2",
-   "deck": "core",
+   "level": "B1",
+   "deck": "general",
    "gloss_en": "to make something clear",
    "gloss_mn": "тайлбарлах",
-   "example": "Please explain the plan to me again."
+   "example": "The teacher explained the rule twice."
   },
   {
-   "word": "geology",
-   "stress": "ge-OL-o-gy",
+   "word": "understand",
+   "stress": "un-der-STAND",
+   "pos": "verb",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "to know what something means",
+   "gloss_mn": "ойлгох",
+   "example": "Now I understand the instructions."
+  },
+  {
+   "word": "remember",
+   "stress": "re-MEM-ber",
+   "pos": "verb",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "to keep in your mind",
+   "gloss_mn": "санах",
+   "example": "I remember my first day at work."
+  },
+  {
+   "word": "forget",
+   "stress": "for-GET",
+   "pos": "verb",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "to not remember",
+   "gloss_mn": "мартах",
+   "example": "Don't forget your keys again!"
+  },
+  {
+   "word": "practice",
+   "stress": "PRAC-tice",
    "pos": "noun",
    "level": "B1",
-   "deck": "work",
-   "gloss_en": "the science of the Earth and rocks",
-   "gloss_mn": "геологи",
-   "example": "She studied geology at university."
+   "deck": "general",
+   "gloss_en": "doing something many times to learn it",
+   "gloss_mn": "дадлага",
+   "example": "Daily practice beats one long lesson."
   },
   {
-   "word": "geologist",
-   "stress": "ge-OL-o-gist",
+   "word": "arrive",
+   "stress": "ar-RIVE",
+   "pos": "verb",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "to reach a place",
+   "gloss_mn": "хүрэлцэн ирэх",
+   "example": "The train arrives at half past nine."
+  },
+  {
+   "word": "prepare",
+   "stress": "pre-PARE",
+   "pos": "verb",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "to make something ready",
+   "gloss_mn": "бэлтгэх",
+   "example": "She prepared well for the exam."
+  },
+  {
+   "word": "suggest",
+   "stress": "sug-GEST",
+   "pos": "verb",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "to offer an idea",
+   "gloss_mn": "санал болгох",
+   "example": "I suggest meeting a little earlier."
+  },
+  {
+   "word": "agree",
+   "stress": "a-GREE",
+   "pos": "verb",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "to have the same opinion",
+   "gloss_mn": "зөвшөөрөх",
+   "example": "We agree about most things."
+  },
+  {
+   "word": "opinion",
+   "stress": "o-PIN-ion",
    "pos": "noun",
    "level": "B1",
-   "deck": "work",
-   "gloss_en": "a scientist who studies rocks",
-   "gloss_mn": "геологич",
-   "example": "The geologist logged the core all afternoon."
+   "deck": "general",
+   "gloss_en": "what you think about something",
+   "gloss_mn": "санал бодол",
+   "example": "In my opinion, the second plan is better."
   },
   {
-   "word": "geological",
-   "stress": "ge-o-LOG-i-cal",
-   "pos": "adj",
-   "level": "B1",
-   "deck": "work",
-   "gloss_en": "about geology",
-   "gloss_mn": "геологийн",
-   "example": "The geological map shows three rock units."
-  },
-  {
-   "word": "mineral",
-   "stress": "MIN-er-al",
+   "word": "reason",
+   "stress": "REA-son",
    "pos": "noun",
    "level": "B1",
-   "deck": "work",
-   "gloss_en": "a natural solid material from the ground",
-   "gloss_mn": "эрдэс",
-   "example": "Quartz is the most common mineral here."
+   "deck": "general",
+   "gloss_en": "why something happens",
+   "gloss_mn": "шалтгаан",
+   "example": "The reason for the delay was the snow."
   },
   {
-   "word": "deposit",
-   "stress": "de-POS-it",
+   "word": "result",
+   "stress": "re-SULT",
    "pos": "noun",
    "level": "B1",
-   "deck": "work",
-   "gloss_en": "minerals collected in one place underground",
-   "gloss_mn": "орд",
-   "example": "They found a new copper deposit last year."
+   "deck": "general",
+   "gloss_en": "what happens because of something",
+   "gloss_mn": "үр дүн",
+   "example": "The result of the test surprised everyone."
   },
   {
-   "word": "exploration",
-   "stress": "ex-plo-RA-tion",
+   "word": "problem",
+   "stress": "PROB-lem",
    "pos": "noun",
    "level": "B1",
-   "deck": "work",
-   "gloss_en": "searching an area for minerals",
-   "gloss_mn": "хайгуул",
-   "example": "The exploration program starts in spring."
+   "deck": "general",
+   "gloss_en": "something difficult to deal with",
+   "gloss_mn": "асуудал",
+   "example": "We solved the problem together."
   },
   {
-   "word": "resource",
-   "stress": "re-SOURCE",
+   "word": "solution",
+   "stress": "so-LU-tion",
    "pos": "noun",
    "level": "B1",
-   "deck": "work",
-   "gloss_en": "useful material that a place has",
-   "gloss_mn": "нөөц баялаг",
-   "example": "Water is a limited resource at the camp."
+   "deck": "general",
+   "gloss_en": "the answer to a problem",
+   "gloss_mn": "шийдэл",
+   "example": "There is a simple solution to this."
   },
   {
-   "word": "reserve",
-   "stress": "re-SERVE",
+   "word": "customer",
+   "stress": "CUS-tom-er",
    "pos": "noun",
    "level": "B1",
-   "deck": "work",
-   "gloss_en": "an amount kept for future use",
-   "gloss_mn": "нөөц",
-   "example": "The mine has a large coal reserve."
+   "deck": "general",
+   "gloss_en": "a person who buys something",
+   "gloss_mn": "үйлчлүүлэгч",
+   "example": "The customer asked for a smaller size."
   },
   {
-   "word": "anomaly",
-   "stress": "a-NOM-a-ly",
+   "word": "salary",
+   "stress": "SAL-a-ry",
+   "pos": "noun",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "the money you earn from work",
+   "gloss_mn": "цалин",
+   "example": "The new job offers a better salary."
+  },
+  {
+   "word": "interview",
+   "stress": "IN-ter-view",
+   "pos": "noun",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "a formal talk for a job or article",
+   "gloss_mn": "ярилцлага",
+   "example": "My interview went better than I expected."
+  },
+  {
+   "word": "promise",
+   "stress": "PROM-ise",
+   "pos": "verb",
+   "level": "B1",
+   "deck": "general",
+   "gloss_en": "to say you will surely do something",
+   "gloss_mn": "амлах",
+   "example": "He promised to call me back today."
+  },
+  {
+   "word": "achievement",
+   "stress": "a-CHIEVE-ment",
    "pos": "noun",
    "level": "B2",
-   "deck": "work",
-   "gloss_en": "something different from normal",
-   "gloss_mn": "гажиг",
-   "example": "The survey showed a magnetic anomaly near the hill."
+   "deck": "general",
+   "gloss_en": "something difficult you did successfully",
+   "gloss_mn": "амжилт, ололт",
+   "example": "Finishing the marathon was a real achievement."
   },
   {
-   "word": "lithology",
-   "stress": "li-THOL-o-gy",
+   "word": "opportunity",
+   "stress": "op-por-TU-ni-ty",
    "pos": "noun",
    "level": "B2",
-   "deck": "work",
-   "gloss_en": "the physical character of rocks",
-   "gloss_mn": "литологи",
-   "example": "The lithology changes at eighty metres."
+   "deck": "general",
+   "gloss_en": "a chance to do something good",
+   "gloss_mn": "боломж",
+   "example": "This job is a great opportunity for her."
   },
   {
-   "word": "sedimentary",
-   "stress": "sed-i-MEN-ta-ry",
-   "pos": "adj",
-   "level": "B2",
-   "deck": "work",
-   "gloss_en": "made from settled layers of material",
-   "gloss_mn": "тунамал",
-   "example": "Sandstone is a sedimentary rock."
-  },
-  {
-   "word": "metamorphic",
-   "stress": "met-a-MOR-phic",
-   "pos": "adj",
-   "level": "B2",
-   "deck": "work",
-   "gloss_en": "changed by heat and pressure",
-   "gloss_mn": "хувирмал",
-   "example": "The metamorphic rocks are harder to drill."
-  },
-  {
-   "word": "igneous",
-   "stress": "IG-ne-ous",
-   "pos": "adj",
-   "level": "B2",
-   "deck": "work",
-   "gloss_en": "formed from cooled magma",
-   "gloss_mn": "магмын",
-   "example": "Granite is an igneous rock."
-  },
-  {
-   "word": "overburden",
-   "stress": "O-ver-bur-den",
+   "word": "responsibility",
+   "stress": "re-spon-si-BIL-i-ty",
    "pos": "noun",
    "level": "B2",
-   "deck": "work",
-   "gloss_en": "the material above the useful rock",
-   "gloss_mn": "хучлага хөрс",
-   "example": "We removed the overburden before mining."
-  },
-  {
-   "word": "tailings",
-   "stress": "TAIL-ings",
-   "pos": "noun",
-   "level": "B2",
-   "deck": "work",
-   "gloss_en": "waste left after taking the mineral",
-   "gloss_mn": "хаягдал",
-   "example": "The tailings are stored behind the dam."
+   "deck": "general",
+   "gloss_en": "a duty you must take care of",
+   "gloss_mn": "хариуцлага",
+   "example": "Feeding the dog is my responsibility."
   },
   {
    "word": "environment",
    "stress": "en-VI-ron-ment",
    "pos": "noun",
-   "level": "B1",
-   "deck": "work",
+   "level": "B2",
+   "deck": "general",
    "gloss_en": "the natural world around us",
-   "gloss_mn": "орчин",
-   "example": "The mine must protect the environment."
+   "gloss_mn": "хүрээлэн буй орчин",
+   "example": "Small choices protect the environment."
   },
   {
-   "word": "analysis",
-   "stress": "a-NAL-y-sis",
-   "pos": "noun",
-   "level": "B1",
-   "deck": "work",
-   "gloss_en": "careful study of something",
-   "gloss_mn": "шинжилгээ",
-   "example": "The analysis of the samples takes two weeks."
-  },
-  {
-   "word": "analyse",
-   "stress": "AN-a-lyse",
-   "pos": "verb",
-   "level": "B1",
-   "deck": "work",
-   "gloss_en": "to study something carefully",
-   "gloss_mn": "шинжлэх",
-   "example": "We analyse the data every Friday."
-  },
-  {
-   "word": "feasibility",
-   "stress": "fea-si-BIL-i-ty",
+   "word": "government",
+   "stress": "GOV-ern-ment",
    "pos": "noun",
    "level": "B2",
-   "deck": "work",
-   "gloss_en": "how possible and practical a plan is",
-   "gloss_mn": "техник эдийн засгийн үндэслэл",
-   "example": "The feasibility study will finish in June."
+   "deck": "general",
+   "gloss_en": "the group that runs a country",
+   "gloss_mn": "засгийн газар",
+   "example": "The government announced new rules."
   },
   {
-   "word": "geophysics",
-   "stress": "ge-o-PHYS-ics",
+   "word": "society",
+   "stress": "so-CI-e-ty",
    "pos": "noun",
    "level": "B2",
-   "deck": "work",
-   "gloss_en": "physics used to study the Earth",
-   "gloss_mn": "геофизик",
-   "example": "Geophysics helped us find the buried structure."
+   "deck": "general",
+   "gloss_en": "people living together as a group",
+   "gloss_mn": "нийгэм",
+   "example": "Education changes a society slowly."
   },
   {
-   "word": "sample",
-   "stress": "SAM-ple",
+   "word": "culture",
+   "stress": "CUL-ture",
    "pos": "noun",
-   "level": "A2",
-   "deck": "work",
-   "gloss_en": "a small part taken for testing",
-   "gloss_mn": "дээж",
-   "example": "Label every sample before shipping it."
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "the ideas and customs of a people",
+   "gloss_mn": "соёл",
+   "example": "Food is a big part of every culture."
   },
   {
-   "word": "drilling",
-   "stress": "DRILL-ing",
+   "word": "economy",
+   "stress": "e-CON-o-my",
    "pos": "noun",
-   "level": "B1",
-   "deck": "work",
-   "gloss_en": "making deep holes in the ground",
-   "gloss_mn": "өрөмдлөг",
-   "example": "Drilling continues day and night this month."
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "the money system of a country",
+   "gloss_mn": "эдийн засаг",
+   "example": "The economy grew slowly last year."
   },
   {
-   "word": "survey",
-   "stress": "SUR-vey",
+   "word": "industry",
+   "stress": "IN-dus-try",
    "pos": "noun",
-   "level": "B1",
-   "deck": "work",
-   "gloss_en": "a careful measurement of an area",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "the making of things to sell",
+   "gloss_mn": "аж үйлдвэр",
+   "example": "The film industry employs thousands."
+  },
+  {
+   "word": "technology",
+   "stress": "tech-NOL-o-gy",
+   "pos": "noun",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "machines and tools from science",
+   "gloss_mn": "технологи",
+   "example": "New technology changes how we work."
+  },
+  {
+   "word": "research",
+   "stress": "re-SEARCH",
+   "pos": "noun",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "careful study to learn new facts",
    "gloss_mn": "судалгаа",
-   "example": "The survey covered the whole valley."
+   "example": "Her research is about sleep and memory."
   },
   {
-   "word": "estimate",
-   "stress": "ES-ti-mate",
-   "pos": "verb",
-   "level": "B1",
-   "deck": "work",
-   "gloss_en": "to judge a number without exact measuring",
-   "gloss_mn": "тооцоолох",
-   "example": "We estimate the depth at two hundred metres."
-  },
-  {
-   "word": "extraction",
-   "stress": "ex-TRAC-tion",
+   "word": "development",
+   "stress": "de-VEL-op-ment",
    "pos": "noun",
    "level": "B2",
-   "deck": "work",
-   "gloss_en": "taking something out of the ground",
-   "gloss_mn": "олборлолт",
-   "example": "Gold extraction starts next quarter."
+   "deck": "general",
+   "gloss_en": "the process of growing or improving",
+   "gloss_mn": "хөгжил",
+   "example": "The city's development has been fast."
   },
   {
-   "word": "equipment",
-   "stress": "e-QUIP-ment",
+   "word": "knowledge",
+   "stress": "KNOWL-edge",
    "pos": "noun",
-   "level": "B1",
-   "deck": "work",
-   "gloss_en": "tools and machines for a job",
-   "gloss_mn": "тоног төхөөрөмж",
-   "example": "The new equipment arrived at the site."
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "what you know",
+   "gloss_mn": "мэдлэг",
+   "example": "Practical knowledge comes from doing."
   },
   {
-   "word": "safety",
-   "stress": "SAFE-ty",
+   "word": "communication",
+   "stress": "com-mu-ni-CA-tion",
    "pos": "noun",
-   "level": "A2",
-   "deck": "work",
-   "gloss_en": "being protected from danger",
-   "gloss_mn": "аюулгүй байдал",
-   "example": "Safety comes first in every operation."
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "sharing information with others",
+   "gloss_mn": "харилцаа холбоо",
+   "example": "Good communication prevents most problems."
   },
   {
-   "word": "grade",
-   "stress": "GRADE",
+   "word": "relationship",
+   "stress": "re-LA-tion-ship",
    "pos": "noun",
-   "level": "B1",
-   "deck": "work",
-   "gloss_en": "how rich the ore is",
-   "gloss_mn": "агуулга",
-   "example": "The grade improves at depth."
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "the connection between people",
+   "gloss_mn": "харилцаа",
+   "example": "They have a strong working relationship."
   },
   {
-   "word": "fault",
-   "stress": "FAULT",
+   "word": "confidence",
+   "stress": "CON-fi-dence",
    "pos": "noun",
-   "level": "B1",
-   "deck": "work",
-   "gloss_en": "a break in the rock where it moved",
-   "gloss_mn": "хагарал",
-   "example": "The fault runs across the whole license area."
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "belief in yourself",
+   "gloss_mn": "өөртөө итгэх итгэл",
+   "example": "Speaking practice builds confidence."
   },
   {
-   "word": "vein",
-   "stress": "VEIN",
+   "word": "patience",
+   "stress": "PA-tience",
    "pos": "noun",
-   "level": "B1",
-   "deck": "work",
-   "gloss_en": "a thin band of mineral in rock",
-   "gloss_mn": "судал",
-   "example": "The quartz vein carries visible gold."
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "staying calm while waiting",
+   "gloss_mn": "тэвчээр",
+   "example": "Teaching children needs patience."
+  },
+  {
+   "word": "effort",
+   "stress": "EF-fort",
+   "pos": "noun",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "the energy you put into something",
+   "gloss_mn": "хичээл зүтгэл",
+   "example": "Her effort showed in the final result."
+  },
+  {
+   "word": "purpose",
+   "stress": "PUR-pose",
+   "pos": "noun",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "the reason for doing something",
+   "gloss_mn": "зорилго",
+   "example": "The purpose of the meeting is planning."
+  },
+  {
+   "word": "benefit",
+   "stress": "BEN-e-fit",
+   "pos": "noun",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "a good result you get",
+   "gloss_mn": "ашиг тус",
+   "example": "One benefit of walking is better sleep."
+  },
+  {
+   "word": "disadvantage",
+   "stress": "dis-ad-VAN-tage",
+   "pos": "noun",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "a bad side of something",
+   "gloss_mn": "сул тал",
+   "example": "The main disadvantage is the price."
+  },
+  {
+   "word": "comparison",
+   "stress": "com-PAR-i-son",
+   "pos": "noun",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "looking at how things are different",
+   "gloss_mn": "харьцуулалт",
+   "example": "In comparison, the train is faster."
+  },
+  {
+   "word": "influence",
+   "stress": "IN-flu-ence",
+   "pos": "noun",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "the power to change something",
+   "gloss_mn": "нөлөө",
+   "example": "Music has a strong influence on mood."
+  },
+  {
+   "word": "requirement",
+   "stress": "re-QUIRE-ment",
+   "pos": "noun",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "something that is needed",
+   "gloss_mn": "шаардлага",
+   "example": "A driving licence is a requirement for this job."
+  },
+  {
+   "word": "negotiate",
+   "stress": "ne-GO-ti-ate",
+   "pos": "verb",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "to discuss to reach an agreement",
+   "gloss_mn": "хэлэлцээр хийх",
+   "example": "They negotiated a better price."
+  },
+  {
+   "word": "persuade",
+   "stress": "per-SUADE",
+   "pos": "verb",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "to make someone agree with you",
+   "gloss_mn": "ятгах",
+   "example": "She persuaded him to see the doctor."
+  },
+  {
+   "word": "recommend",
+   "stress": "rec-om-MEND",
+   "pos": "verb",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "to say something is good to try",
+   "gloss_mn": "санал болгох",
+   "example": "I recommend the soup at this café."
+  },
+  {
+   "word": "efficient",
+   "stress": "ef-FI-cient",
+   "pos": "adj",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "working well without waste",
+   "gloss_mn": "үр ашигтай",
+   "example": "The new system is fast and efficient."
+  },
+  {
+   "word": "reliable",
+   "stress": "re-LI-a-ble",
+   "pos": "adj",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "always doing what is expected",
+   "gloss_mn": "найдвартай",
+   "example": "She is the most reliable person I know."
+  },
+  {
+   "word": "significant",
+   "stress": "sig-NIF-i-cant",
+   "pos": "adj",
+   "level": "B2",
+   "deck": "general",
+   "gloss_en": "big enough to matter",
+   "gloss_mn": "мэдэгдэхүйц, чухал",
+   "example": "There was a significant change in the results."
   }
  ],
  "dialogues": [
@@ -2506,8 +3106,8 @@
     },
     {
      "sp": "B",
-     "en": "Hi Sarah, I'm Bold. I'm a geologist on the exploration team.",
-     "mn": "Сайн уу Сара, би Болд. Хайгуулын багийн геологич."
+     "en": "Hi Sarah, I'm Bold. I'm an accountant in the finance team.",
+     "mn": "Сайн уу Сара, би Болд. Санхүүгийн багийн нягтлан."
     },
     {
      "sp": "A",
@@ -2532,8 +3132,8 @@
    ],
    "key_phrases": [
     {
-     "en": "I'm a geologist",
-     "note": "am + a — the two words Mongolian drops. Never 'I geologist'."
+     "en": "I'm an accountant",
+     "note": "am + an — the two words Mongolian drops. Never 'I accountant'."
     },
     {
      "en": "What do you do?",
@@ -2548,14 +3148,14 @@
     "situation": "Someone asks: 'What do you do?' — best reply?",
     "options": [
      {
-      "text": "I'm a geologist. I work in exploration.",
+      "text": "I'm an accountant. I work in finance.",
       "correct": true,
       "why": "Job + one detail. Perfect shape."
      },
      {
-      "text": "I am geologist.",
+      "text": "I am accountant.",
       "correct": false,
-      "why": "Missing 'a' — job words need an article."
+      "why": "Missing 'an' — job words need an article."
      },
      {
       "text": "I do many things.",
@@ -2720,13 +3320,13 @@
    "lines": [
     {
      "sp": "A",
-     "en": "Hi, this is Bold from the exploration team.",
-     "mn": "Сайн уу, хайгуулын багийн Болд байна."
+     "en": "Hi, this is Bold from the sales team.",
+     "mn": "Сайн уу, борлуулалтын багийн Болд байна."
     },
     {
      "sp": "B",
-     "en": "Hi Bold. The samples arrive on the… (unclear) …day.",
-     "mn": "Сайн уу Болд. Дээжүүд … (тодорхойгүй) … өдөр ирнэ."
+     "en": "Hi Bold. The documents arrive on the… (unclear) …day.",
+     "mn": "Сайн уу Болд. Бичиг баримтууд … (тодорхойгүй) … өдөр ирнэ."
     },
     {
      "sp": "A",
@@ -2735,8 +3335,8 @@
     },
     {
      "sp": "B",
-     "en": "Sure — the samples arrive on Thursday.",
-     "mn": "Тэгье — дээжүүд пүрэв гарагт ирнэ."
+     "en": "Sure — the documents arrive on Thursday.",
+     "mn": "Тэгье — бичиг баримтууд пүрэв гарагт ирнэ."
     },
     {
      "sp": "A",
@@ -2866,23 +3466,23 @@
    "lines": [
     {
      "sp": "A",
-     "en": "Bold, could you give us a quick update on the drilling?",
-     "mn": "Болд оо, өрөмдлөгийн талаар товч мэдээлэл өгөхгүй юу?"
+     "en": "Bold, could you give us a quick update on the project?",
+     "mn": "Болд оо, төслийн талаар товч мэдээлэл өгөхгүй юу?"
     },
     {
      "sp": "B",
-     "en": "Sure. We've finished hole twelve — the last assays come back on Friday.",
-     "mn": "Тэгье. Арван хоёрдугаар цооногийг дуусгасан — сүүлийн шинжилгээ баасанд гарна."
+     "en": "Sure. We've finished the first draft — the final numbers come in on Friday.",
+     "mn": "Тэгье. Эхний ноорог дууссан — эцсийн тоо баасанд ирнэ."
     },
     {
      "sp": "A",
-     "en": "Great. So we can start hole thirteen on Monday?",
-     "mn": "Сайн байна. Тэгэхээр даваад арван гуравдугаарыг эхлүүлж болох нь ээ?"
+     "en": "Great. So we can send it to the client on Monday?",
+     "mn": "Сайн байна. Тэгэхээр даваад захиалагч руу явуулж болох нь ээ?"
     },
     {
      "sp": "B",
-     "en": "I'm not sure that works, actually — the road may not be ready. Could we say Wednesday to be safe?",
-     "mn": "Бүтэхгүй байж магадгүй — зам бэлэн болоогүй байж мэднэ. Аюулгүй талаас нь лхагва гэж тохирох уу?"
+     "en": "I'm not sure that works, actually — the numbers may not be checked. Could we say Wednesday to be safe?",
+     "mn": "Бүтэхгүй байж магадгүй — тоог шалгаж амжаагүй байж мэднэ. Аюулгүй талаас нь лхагва гэж тохирох уу?"
     },
     {
      "sp": "A",

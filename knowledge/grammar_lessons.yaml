@@ -12,18 +12,18 @@ version: 1
 lessons:
   copula:
     explain_b1: >-
-      English never drops the verb "to be". Mongolian says "Би геологич" —
+      English never drops the verb "to be". Mongolian says "Би багш" —
       two words, no verb — and it is a complete sentence. English cannot do
       this: every sentence needs a verb, so you must add am/is/are. Notice
-      that "I am a geologist" needs TWO additions: the verb "am" AND the
+      that "I am a teacher" needs TWO additions: the verb "am" AND the
       article "a". This one four-word sentence contains the two biggest
       differences between your languages.
     explain_a2: >-
-      Монголоор "Би геологич" гэж хэлдэг — үйл үг хэрэггүй. Англиар үйл үг
-      ЗААВАЛ хэрэгтэй: I am a geologist. "Am" болон "a" хоёуланг нь нэм.
+      Монголоор "Би багш" гэж хэлдэг — үйл үг хэрэггүй. Англиар үйл үг
+      ЗААВАЛ хэрэгтэй: I am a teacher. "Am" болон "a" хоёуланг нь нэм.
     extra_examples:
       - {wrong: "She happy today.", right: "She is happy today."}
-      - {wrong: "The samples ready.", right: "The samples are ready."}
+      - {wrong: "Dinner ready.", right: "Dinner is ready."}
       - {wrong: "My office small but warm.", right: "My office is small but warm."}
     tip: >-
       Present forms: I am · he/she/it is · you/we/they are. Past: was/were.
@@ -42,7 +42,7 @@ lessons:
       ХЭН + ЮУ ХИЙСЭН + ЮУГ. I read a book.
     extra_examples:
       - {wrong: "I every day English study.", right: "I study English every day."}
-      - {wrong: "We last week the site visited.", right: "We visited the site last week."}
+      - {wrong: "We last week my parents visited.", right: "We visited my parents last week."}
       - {wrong: "He the report wrote.", right: "He wrote the report."}
     tip: >-
       Basic shape: WHO + ACTION + WHAT (+ where + when). Time words go at
@@ -54,8 +54,8 @@ lessons:
       accusative suffix -ыг/-ийг on specific objects. So you already have
       the concept; English just uses a separate word in front instead of a
       suffix behind. Use "a/an" for something new or general ("we found a
-      deposit"), "the" for something both people know ("the deposit we
-      found"), and nothing for general plurals and most names ("samples",
+      nice café"), "the" for something both people know ("the café we
+      found"), and nothing for general plurals and most names ("apples",
       "Mongolia"). "An" goes before a vowel SOUND: an hour, but a
       university.
     explain_a2: >-
@@ -63,7 +63,7 @@ lessons:
       the book. -ыг гэдэг дагаврыг та мэднэ — англид "the" гэдэг үг урд нь
       ордог.
     extra_examples:
-      - {wrong: "We found new deposit.", right: "We found a new deposit."}
+      - {wrong: "We found new café.", right: "We found a new café."}
       - {wrong: "I saw a rock. A rock was heavy.", right: "I saw a rock. The rock was heavy."}
       - {wrong: "He speaks the English.", right: "He speaks English."}
     tip: >-
@@ -82,7 +82,7 @@ lessons:
       HE, SHE, IT → үйл үг дээр -s нэм: he works, she lives, it takes.
       Би, та, тэд нар → -s хэрэггүй.
     extra_examples:
-      - {wrong: "The drill produce good samples.", right: "The drill produces good samples."}
+      - {wrong: "My sister work in a bank.", right: "My sister works in a bank."}
       - {wrong: "My boss want the report.", right: "My boss wants the report."}
       - {wrong: "It rain a lot in July.", right: "It rains a lot in July."}
     tip: >-
@@ -95,33 +95,33 @@ lessons:
       repeats itself: three bookS, many sampleS, even when the number makes
       it obvious. This is not logical; it is simply obligatory. The one
       exception pattern: a number USED AS A DESCRIPTION stays singular —
-      "a 500-metre hole", "a three-day trip".
+      "a 500-metre road", "a three-day trip".
     explain_a2: >-
       Гурван ном = three bookS. Англи хэл давхардуулдаг: тоо байсан ч -s
       заавал нэм. Логикгүй ч дүрэм ийм.
     extra_examples:
-      - {wrong: "We drilled five hole.", right: "We drilled five holes."}
+      - {wrong: "We bought five ticket.", right: "We bought five tickets."}
       - {wrong: "Many student came.", right: "Many students came."}
-      - {wrong: "a 500-metres hole", right: "a 500-metre hole"}
+      - {wrong: "a 500-metres road", right: "a 500-metre road"}
     tip: >-
       After every number bigger than one: -s. Before a noun ("500-metre
-      hole"): no -s.
+      road"): no -s.
 
   missing_subject:
     explain_b1: >-
       English cannot tolerate a sentence without a subject — so it invents
       fake ones. Nothing is actually raining, but English says "IT is
-      raining". Nothing is "there" in "THERE are three samples" — the word
+      raining". Nothing is "there" in "THERE are three cups" — the word
       just fills the subject seat. Mongolian happily drops the subject when
       it is obvious; English never does. When your sentence has no natural
       subject, reach for "it" (weather, time, distance) or "there is/are"
       (existence).
     explain_a2: >-
       Англи өгүүлбэрт эзэн ЗААВАЛ хэрэгтэй. "Бороо орж байна" → IT is
-      raining. "Гурван дээж байна" → THERE are three samples.
+      raining. "Гурван аяга байна" → THERE are three cups.
     extra_examples:
       - {wrong: "Is raining today.", right: "It is raining today."}
-      - {wrong: "Have three samples on the bench.", right: "There are three samples on the bench."}
+      - {wrong: "Have three cups on the table.", right: "There are three cups on the table."}
       - {wrong: "Is important to check the data.", right: "It is important to check the data."}
     tip: >-
       Weather, time, distance → "it". Existence → "there is / there are".
@@ -140,7 +140,7 @@ lessons:
     extra_examples:
       - {wrong: "About my English, it is not good.", right: "My English is not good."}
       - {wrong: "About the meeting, it was long.", right: "The meeting was long."}
-      - {wrong: "About this deposit, the grade is high.", right: "This deposit has a high grade."}
+      - {wrong: "About this phone, the price is high.", right: "This phone has a high price."}
     tip: >-
       See "About X, …" in your writing? Delete "About", make X the subject.
 
@@ -151,12 +151,12 @@ lessons:
       from, with). Those small words feel unimportant to a Mongolian ear —
       but they ARE the case system. Deleting "at" from "at 6:30" is like
       deleting -д from "зургаан цагт". Learn preposition + noun as one
-      chunk: at night, on Monday, in July, at the site.
+      chunk: at night, on Monday, in July, at the airport.
     explain_a2: >-
       -д, -аас, -тай гэдэг дагаврын ажлыг англид жижиг үгс хийдэг: at, in,
       on, to. Жижиг үгийг хаявал дагаврыг хаясантай адил.
     extra_examples:
-      - {wrong: "We arrived the site 8 o'clock.", right: "We arrived at the site at 8 o'clock."}
+      - {wrong: "We arrived the airport 8 o'clock.", right: "We arrived at the airport at 8 o'clock."}
       - {wrong: "I was born on July.", right: "I was born in July."}
       - {wrong: "It depends of the weather.", right: "It depends on the weather."}
     tip: >-
@@ -179,7 +179,7 @@ lessons:
     extra_examples:
       - {wrong: "Where you live?", right: "Where do you live?"}
       - {wrong: "She no like coffee.", right: "She doesn't like coffee."}
-      - {wrong: "Tell me where is the core shed.", right: "Tell me where the core shed is."}
+      - {wrong: "Tell me where is the bus stop.", right: "Tell me where the bus stop is."}
     tip: >-
       One rule: find the auxiliary → move it to the front → no auxiliary?
       borrow DO.
@@ -221,7 +221,7 @@ lessons:
     extra_examples:
       - {wrong: "She must to finish today.", right: "She must finish today."}
       - {wrong: "The report was wrote yesterday.", right: "The report was written yesterday."}
-      - {wrong: "I finished to log the core.", right: "I finished logging the core."}
+      - {wrong: "I finished to clean the kitchen.", right: "I finished cleaning the kitchen."}
     tip: >-
       After a preposition, always -ing — the one rule with no exceptions.
 
@@ -238,9 +238,9 @@ lessons:
       Хоёр бүтэн өгүүлбэрийг таслалаар холбож БОЛОХГҮЙ. "I'm tired, I'll
       stop" ❌ → "I'm tired. I'll stop." ✅
     extra_examples:
-      - {wrong: "The assay came back, the grade is low.", right: "The assay came back. The grade is low."}
-      - {wrong: "It was late, we kept drilling.", right: "It was late, but we kept drilling."}
-      - {wrong: "The samples, were shipped Monday.", right: "The samples were shipped on Monday."}
+      - {wrong: "The results came back, the score is low.", right: "The results came back. The score is low."}
+      - {wrong: "It was late, we kept walking.", right: "It was late, but we kept walking."}
+      - {wrong: "The tickets, were booked Monday.", right: "The tickets were booked on Monday."}
     tip: >-
       Cover-the-comma test: complete sentence + complete sentence → the
       comma is illegal.
@@ -276,7 +276,7 @@ lessons:
       Та гэдэг үг англид байхгүй. Эелдэг байдал modal үйл үгэнд байдаг:
       "I want" ❌ → "I'd like" ✅. Хүсэлт: "Could you…?"
     extra_examples:
-      - {wrong: "Send me the assay results.", right: "Could you send me the assay results?"}
+      - {wrong: "Send me the meeting notes.", right: "Could you send me the meeting notes?"}
       - {wrong: "I want a day off tomorrow.", right: "I'd like a day off tomorrow."}
       - {wrong: "Give me five minutes.", right: "Could you give me five minutes?"}
     tip: >-
@@ -325,7 +325,7 @@ lessons:
       English allows only ONE central pointer word per noun: "the my
       report" is impossible — choose "my report" or "the report". "A my
       friend" becomes "a friend of mine". "Another" contains "an", so it
-      takes a singular noun: another sample, but OTHER samples. "Every"
+      takes a singular noun: another cup, but OTHER cups. "Every"
       also takes singular: every student KNOWS. And the apostrophe pair:
       its = possession, it's = it is.
     explain_a2: >-
@@ -333,10 +333,10 @@ lessons:
       another + ганц тоо, other + олон тоо. it's = it is; its = эзэмшил.
     extra_examples:
       - {wrong: "The my colleague is here.", right: "My colleague is here."}
-      - {wrong: "We need another samples.", right: "We need other samples."}
+      - {wrong: "We need another chairs.", right: "We need other chairs."}
       - {wrong: "Its ready.", right: "It's ready."}
     tip: >-
-      it's ready = it IS ready. its grade = түүний агуулга.
+      it's ready = it IS ready. its name = түүний нэр.
 
   collocation:
     explain_b1: >-
@@ -351,7 +351,7 @@ lessons:
       Үгс хосоороо явдаг: make a decision, do research, heavy rain, turn
       on the light. Дүрэм байхгүй — хосыг цээжил.
     extra_examples:
-      - {wrong: "We did a plan for the survey.", right: "We made a plan for the survey."}
+      - {wrong: "We did a plan for the trip.", right: "We made a plan for the trip."}
       - {wrong: "Let's discuss about the budget.", right: "Let's discuss the budget."}
       - {wrong: "There was a strong rain last night.", right: "There was heavy rain last night."}
     tip: >-
@@ -380,14 +380,14 @@ lessons:
     explain_b1: >-
       In Mongolian, word order is free because suffixes mark each word's
       job; in English, position IS the job. Three placement rules: an
-      adverb never sits between the verb and its object ("examined the
-      core carefully", never "examined carefully the core"); frequency
+      adverb never sits between the verb and its object ("read the
+      letter carefully", never "read carefully the letter"); frequency
       adverbs (always, never, often) go BEFORE a main verb but AFTER "be"
       ("I always check" / "I am always careful"); adjectives follow the
       order opinion–size–age–shape–colour–origin–material ("an old black
       wooden box").
     explain_a2: >-
-      Үйл үг ба юуг нь хооронд нь үг бүү оруул: examined the core
+      Үйл үг ба юуг нь хооронд нь үг бүү оруул: read the letter
       carefully. always/never → үндсэн үйл үгийн ӨМНӨ: I always check.
     extra_examples:
       - {wrong: "He checked quickly the readings.", right: "He quickly checked the readings."}
@@ -408,8 +408,8 @@ lessons:
       "Надаас өндөр" → taller THAN me. -er болон than хамт явдаг.
       "More taller" ❌ — зөвхөн нэг харьцуулалт.
     extra_examples:
-      - {wrong: "This deposit is big from that one.", right: "This deposit is bigger than that one."}
-      - {wrong: "The access road is more long.", right: "The access road is longer."}
+      - {wrong: "This city is big from that one.", right: "This city is bigger than that one."}
+      - {wrong: "The queue is more long.", right: "The queue is longer."}
       - {wrong: "He is tall than me.", right: "He is taller than me."}
     tip: >-
       Short word → -er than. Long word → more … than. Never both.
@@ -418,14 +418,14 @@ lessons:
     explain_b1: >-
       Mongolian describes BEFORE the noun: "миний уншсан ном" (my-read
       book). English describes AFTER it: "the book THAT I READ". Build
-      from two simple sentences: "I saw a hole. We drilled it yesterday."
-      → "I saw the hole that we drilled yesterday." Who = people, which =
-      things, that = both. The professional bonus: reduced relatives drop
-      "that is/was" — "the samples collected yesterday", "mineralisation
-      hosted in shear zones" — the key to technical writing.
+      from two simple sentences: "I met a woman. She teaches maths." →
+      "I met a woman who teaches maths." Who = people, which = things,
+      that = both. The professional bonus: reduced relatives drop
+      "that is/was" — "the photos taken yesterday", "the email sent this
+      morning" — the key to clear formal writing.
     explain_a2: >-
-      Монголоор тодорхойлолт нэрийн ӨМНӨ, англиар АРД нь: the hole THAT we
-      drilled. Хоёр энгийн өгүүлбэрээс эхэл.
+      Монголоор тодорхойлолт нэрийн ӨМНӨ, англиар АРД нь: the book THAT I
+      read. Хоёр энгийн өгүүлбэрээс эхэл.
     extra_examples:
       - {wrong: "The yesterday arrived equipment is broken.", right: "The equipment that arrived yesterday is broken."}
       - {wrong: "The us helping engineer left.", right: "The engineer who was helping us left."}
@@ -437,7 +437,7 @@ lessons:
   reported_speech:
     explain_b1: >-
       Three rules. Say vs tell: TELL needs a person ("he told ME"), SAY
-      does not ("he said the grade was low") — "he said me" is impossible.
+      does not ("he said the price was low") — "he said me" is impossible.
       Backshift: reporting steps one tense back — "I am tired" becomes "he
       said he WAS tired". Reported questions lose their inversion and
       their question mark: "Where do you work?" becomes "He asked where I
@@ -466,7 +466,7 @@ lessons:
       Англи үгийн бичлэг дуудлагыг дагадаггүй. Шинэ үгийг сурахдаа бичлэг
       + дуудлага хоёуланг нь хамт сур.
     extra_examples:
-      - {wrong: "I recieved the sampels.", right: "I received the samples."}
+      - {wrong: "I recieved the pakage.", right: "I received the package."}
       - {wrong: "The wether was terrible.", right: "The weather was terrible."}
       - {wrong: "We have alot of work.", right: "We have a lot of work."}
     tip: >-
