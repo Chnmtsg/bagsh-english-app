@@ -1,0 +1,14 @@
+{
+  "name": "Багш — English for Mongolian speakers",
+  "short_name": "Багш",
+  "description": "Grammar and vocabulary trainer built for Mongolian speakers. Works offline.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#12151d",
+  "theme_color": "#1a1f2e",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
