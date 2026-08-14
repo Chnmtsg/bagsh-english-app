@@ -14,6 +14,13 @@
 # case_sensitive defaults to false (compiled with IGNORECASE).
 # Deterministic count: 64 (62 checklist + 2 bonus). Keep this in sync with
 # tests/test_matcher.py.
+#
+# Ids 103+ are the COVERAGE FLOOR block (see the section header below): drill
+# items added so the grammar game can recycle every category, not only the ones
+# the §KK checklist happened to hit hard. They are contextual by construction —
+# no `find`/`replace` — so the matcher, the 64-pattern contract and the
+# false-positive budget are all untouched. The floor is enforced by
+# tests/test_study_games.py::test_grammar_bank_meets_coverage_floor.
 
 version: 1
 source: "knowledge/contrastive-guide.md §KK"
@@ -1097,3 +1104,453 @@ patterns:
     replace: '\1'
     explanation: "One comparative only: better (never 'more better')."
     guide_ref: "§A insight 2, §KK — comparatives"
+
+  # ── Coverage-floor drill items (103–143) ─────────────────────────
+  #
+  # Why these exist: the §KK checklist is a list of the errors the guide
+  # documents, not a practice syllabus, so its coverage is lopsided —
+  # `articles` had 13 quiz items while `copula` (priority 1, blocking high)
+  # had one, and `missing_subject`, `spelling` and `copula` had no checklist
+  # entry at all. A category with one item cannot be spaced: the SRS shows it
+  # once and never has anything to bring back.
+  #
+  # Floor: every category ≥ 4 items, priorities 1–6 ≥ 6.
+  #
+  # Curation rules for anything added here:
+  #  - tier: contextual, no find/replace. These are drills, not matcher rules.
+  #  - Exactly ONE natural repair. The learner types the full sentence and
+  #    check_answer is an exact match — an item with two valid corrections
+  #    marks correct English wrong (standing rule 4).
+  #  - Short. The answer is typed on a phone; long sentences test typing.
+  #  - General-audience content, no domain vocabulary.
+  #  - Fresh sentences — never reuse a `wrong` string already in this file or
+  #    in grammar_lessons.yaml `extra_examples`, or the lesson and the game
+  #    show the learner the same line twice.
+
+  # copula (priority 1) — 1 item → 6
+
+  - id: 103
+    category: copula
+    tier: contextual
+    severity: high
+    wrong: "My brother a driver."
+    right: "My brother is a driver."
+    explanation: "English never drops 'to be': add is — and the article with it."
+    guide_ref: "§1.3.7, §KK 28 — coverage floor"
+
+  - id: 104
+    category: copula
+    tier: contextual
+    severity: high
+    wrong: "I very tired today."
+    right: "I am very tired today."
+    explanation: "No verb in the sentence → add am/is/are."
+    guide_ref: "§1.3.7, §KK 28 — coverage floor"
+
+  - id: 105
+    category: copula
+    tier: contextual
+    severity: high
+    wrong: "They at home now."
+    right: "They are at home now."
+    explanation: "they/we/you → are. The verb is never optional."
+    guide_ref: "§1.3.7, §KK 28 — coverage floor"
+
+  - id: 106
+    category: copula
+    tier: contextual
+    severity: high
+    wrong: "The weather cold in winter."
+    right: "The weather is cold in winter."
+    explanation: "One thing → is. Mongolian needs no verb here; English does."
+    guide_ref: "§1.3.7, §KK 28 — coverage floor"
+
+  - id: 107
+    category: copula
+    tier: contextual
+    severity: medium
+    wrong: "Does she is happy?"
+    right: "Is she happy?"
+    explanation: "Questions with 'be' flip the order and take NO do."
+    guide_ref: "§1.3.7, §E — coverage floor"
+
+  # word_order (priority 2) — 4 items → 6
+
+  - id: 108
+    category: word_order
+    tier: contextual
+    severity: high
+    wrong: "I yesterday finished the report."
+    right: "I finished the report yesterday."
+    explanation: "WHO + ACTION + WHAT, then when. Time words go to the end."
+    guide_ref: "§1.3.1, §T SVOMPT — coverage floor"
+
+  - id: 109
+    category: word_order
+    tier: contextual
+    severity: high
+    wrong: "We at seven o'clock start work."
+    right: "We start work at seven o'clock."
+    explanation: "The verb comes second — nothing sits between subject and verb."
+    guide_ref: "§1.3.1, §T SVOMPT — coverage floor"
+
+  # verb_agreement (priority 4) — 2 items → 6
+
+  - id: 110
+    category: verb_agreement
+    tier: contextual
+    severity: low
+    wrong: "My father drive a taxi."
+    right: "My father drives a taxi."
+    explanation: "One person → verb + s: my father driveS."
+    guide_ref: "§1.3.5, §KK 23 — coverage floor"
+
+  - id: 111
+    category: verb_agreement
+    tier: contextual
+    severity: low
+    wrong: "The office open at nine."
+    right: "The office opens at nine."
+    explanation: "One thing counts as he/she/it → + s."
+    guide_ref: "§1.3.5, §KK 23 — coverage floor"
+
+  - id: 112
+    category: verb_agreement
+    tier: contextual
+    severity: low
+    wrong: "Everyone know the answer."
+    right: "Everyone knows the answer."
+    explanation: "'Everyone' is singular in English → knowS."
+    guide_ref: "§1.3.5, §KK 23 — coverage floor"
+
+  - id: 113
+    category: verb_agreement
+    tier: contextual
+    severity: low
+    wrong: "My parents lives in the countryside."
+    right: "My parents live in the countryside."
+    explanation: "Two people → no -s. The -s belongs to he/she/it only."
+    guide_ref: "§1.3.5, §KK 23 — coverage floor"
+
+  # plurals (priority 5) — 2 items → 6
+
+  - id: 114
+    category: plurals
+    tier: contextual
+    severity: low
+    wrong: "I have two brother."
+    right: "I have two brothers."
+    explanation: "Any number above one → noun + s, even though the number says it."
+    guide_ref: "§1.3.6, §KK 13 — coverage floor"
+
+  - id: 115
+    category: plurals
+    tier: contextual
+    severity: low
+    wrong: "We stayed there for ten day."
+    right: "We stayed there for ten days."
+    explanation: "Time units take -s too: ten days, three weeks."
+    guide_ref: "§1.3.6, §KK 13 — coverage floor"
+
+  - id: 116
+    category: plurals
+    tier: contextual
+    severity: low
+    wrong: "There are three childrens."
+    right: "There are three children."
+    explanation: "Irregular plurals refuse -s: children, people, men, women."
+    guide_ref: "§1.3.6, §KK 13 — coverage floor"
+
+  - id: 117
+    category: plurals
+    tier: contextual
+    severity: low
+    wrong: "It was a three-days trip."
+    right: "It was a three-day trip."
+    explanation: "A number used as a DESCRIPTION before a noun stays singular."
+    guide_ref: "§Z hyphens in compound modifiers — coverage floor"
+
+  # missing_subject (priority 6) — 1 item → 6
+
+  - id: 118
+    category: missing_subject
+    tier: contextual
+    severity: high
+    wrong: "Is very cold today."
+    right: "It is very cold today."
+    explanation: "Weather, time and distance take the fake subject IT."
+    guide_ref: "§C — coverage floor"
+
+  - id: 119
+    category: missing_subject
+    tier: contextual
+    severity: high
+    wrong: "Was raining all night."
+    right: "It was raining all night."
+    explanation: "Nothing is raining — but English still needs a subject: IT."
+    guide_ref: "§C — coverage floor"
+
+  - id: 120
+    category: missing_subject
+    tier: contextual
+    severity: high
+    wrong: "Is difficult to learn English."
+    right: "It is difficult to learn English."
+    explanation: "Opinion about an action → IT is difficult to…"
+    guide_ref: "§C — coverage floor"
+
+  - id: 121
+    category: missing_subject
+    tier: contextual
+    severity: high
+    wrong: "Are many cars in the street."
+    right: "There are many cars in the street."
+    explanation: "Existence → THERE is/are. Match it to the noun after it."
+    guide_ref: "§C — coverage floor"
+
+  - id: 122
+    category: missing_subject
+    tier: contextual
+    severity: high
+    wrong: "Is a bank near the station."
+    right: "There is a bank near the station."
+    explanation: "Something exists → there is (one) / there are (many)."
+    guide_ref: "§C — coverage floor"
+
+  # topic_fronting (priority 7) — 1 item → 4
+
+  - id: 123
+    category: topic_fronting
+    tier: contextual
+    severity: medium
+    wrong: "About my job, it is very busy."
+    right: "My job is very busy."
+    explanation: "Delete 'About' and make the topic the subject."
+    guide_ref: "§C, §1.3.3, §KK 49 — coverage floor"
+
+  - id: 124
+    category: topic_fronting
+    tier: contextual
+    severity: medium
+    wrong: "About the price, it is too high."
+    right: "The price is too high."
+    explanation: "English has no topic particle — the topic becomes the subject."
+    guide_ref: "§C, §1.3.3, §KK 49 — coverage floor"
+
+  - id: 125
+    category: topic_fronting
+    tier: contextual
+    severity: medium
+    wrong: "About my sister, she lives in Erdenet."
+    right: "My sister lives in Erdenet."
+    explanation: "Announce nothing — give the topic the verb directly."
+    guide_ref: "§C, §1.3.3, §KK 49 — coverage floor"
+
+  # pronoun_gender (priority 13) — 1 item → 4
+
+  - id: 126
+    category: pronoun_gender
+    tier: contextual
+    severity: medium
+    wrong: "My father, she is a driver."
+    right: "My father, he is a driver."
+    explanation: "«Тэр» splits in English: male → he, female → she."
+    guide_ref: "§1.3.4, §KK 63 — coverage floor"
+
+  - id: 127
+    category: pronoun_gender
+    tier: contextual
+    severity: medium
+    wrong: "My daughter lost his phone."
+    right: "My daughter lost her phone."
+    explanation: "The possessive carries gender too: her phone, his phone."
+    guide_ref: "§1.3.4, §KK 63 — coverage floor"
+
+  - id: 128
+    category: pronoun_gender
+    tier: contextual
+    severity: medium
+    wrong: "I have a sister. He is a nurse."
+    right: "I have a sister. She is a nurse."
+    explanation: "The slip lands in the NEXT sentence — proofread pronouns separately."
+    guide_ref: "§1.3.4, §KK 63 — coverage floor"
+
+  # register (priority 14) — 3 non-professional items → 4
+
+  - id: 129
+    category: register
+    tier: contextual
+    severity: low
+    wrong: "I want to speak with the manager."
+    right: "I'd like to speak with the manager."
+    explanation: "Politeness lives in the modal: I want → I'd like."
+    guide_ref: "§1.4, §JJ — coverage floor"
+
+  # capitalization (priority 15) — 2 items → 4
+
+  - id: 130
+    category: capitalization
+    tier: contextual
+    severity: low
+    wrong: "we met on tuesday."
+    right: "We met on Tuesday."
+    explanation: "Sentence start and day names both take capitals."
+    guide_ref: "§Z capitalisation — coverage floor"
+
+  - id: 131
+    category: capitalization
+    tier: contextual
+    severity: low
+    wrong: "i think english is useful."
+    right: "I think English is useful."
+    explanation: "'I' is always capital; so are language names."
+    guide_ref: "§Z capitalisation — coverage floor"
+
+  # word_choice (priority 19) — 3 items → 4
+
+  - id: 132
+    category: word_choice
+    tier: contextual
+    severity: high
+    wrong: "The lesson was interested."
+    right: "The lesson was interesting."
+    explanation: "-ING for the thing causing the feeling; -ED for the person feeling it."
+    guide_ref: "§KK 40, §FF — coverage floor"
+
+  # comparatives (priority 21) — 2 items → 4
+
+  - id: 133
+    category: comparatives
+    tier: contextual
+    severity: medium
+    wrong: "My flat is small than yours."
+    right: "My flat is smaller than yours."
+    explanation: "-er and than always travel together."
+    guide_ref: "§A insight 2, §KK 58 — coverage floor"
+
+  - id: 134
+    category: comparatives
+    tier: contextual
+    severity: medium
+    wrong: "She is more young than me."
+    right: "She is younger than me."
+    explanation: "One syllable → -er, never 'more'."
+    guide_ref: "§A insight 2, §KK 58 — coverage floor"
+
+  # relative_clauses (priority 22) — 1 item → 4
+
+  - id: 135
+    category: relative_clauses
+    tier: contextual
+    severity: medium
+    wrong: "The woman who works here she is very kind."
+    right: "The woman who works here is very kind."
+    explanation: "The relative pronoun IS the subject — don't repeat it with she."
+    guide_ref: "§1.3.9, §V — coverage floor"
+
+  - id: 136
+    category: relative_clauses
+    tier: contextual
+    severity: medium
+    wrong: "I know a man which repairs phones."
+    right: "I know a man who repairs phones."
+    explanation: "who = people, which = things, that = both."
+    guide_ref: "§1.3.9, §V — coverage floor"
+
+  - id: 137
+    category: relative_clauses
+    tier: contextual
+    severity: medium
+    wrong: "I lost the book what you gave me."
+    right: "I lost the book that you gave me."
+    explanation: "'What' cannot join a noun to its clause — use that/which."
+    guide_ref: "§1.3.9, §V — coverage floor"
+
+  # reported_speech (priority 23) — 1 item → 4
+
+  - id: 138
+    category: reported_speech
+    tier: contextual
+    severity: medium
+    wrong: "She said me she was busy."
+    right: "She told me she was busy."
+    explanation: "A person after the verb → TELL. 'Said me' is impossible."
+    guide_ref: "§X say vs tell — coverage floor"
+
+  - id: 139
+    category: reported_speech
+    tier: contextual
+    severity: medium
+    wrong: "He told that he was late."
+    right: "He said that he was late."
+    explanation: "No person mentioned → SAY. The rule runs both ways."
+    guide_ref: "§X say vs tell — coverage floor"
+
+  - id: 140
+    category: reported_speech
+    tier: contextual
+    severity: medium
+    wrong: "She asked when does the meeting start."
+    right: "She asked when the meeting started."
+    explanation: "A reported question loses its inversion and steps one tense back."
+    guide_ref: "§X, §KK 74 — coverage floor"
+
+  # spelling (priority 24) — 1 item → 4
+
+  - id: 141
+    category: spelling
+    tier: contextual
+    severity: low
+    wrong: "There is alot to do."
+    right: "There is a lot to do."
+    explanation: "'A lot' is always two words."
+    guide_ref: "§1.3.12 — coverage floor"
+
+  - id: 142
+    category: spelling
+    tier: contextual
+    severity: low
+    wrong: "I beleive she is right."
+    right: "I believe she is right."
+    explanation: "i before e except after c: believe, receive."
+    guide_ref: "§1.3.12 — coverage floor"
+
+  - id: 143
+    category: spelling
+    tier: contextual
+    severity: low
+    wrong: "Wich bus goes to the centre?"
+    right: "Which bus goes to the centre?"
+    explanation: "which / witch — the h is silent but written."
+    guide_ref: "§1.3.12 — coverage floor"
+
+  # These three categories had NO checklist entry at all, so they also lost
+  # the taxonomy-example fallback in quiz.grammar_bank() once the drills above
+  # gave them coverage. One more each to clear the floor.
+
+  - id: 144
+    category: copula
+    tier: contextual
+    severity: high
+    wrong: "Her English very good."
+    right: "Her English is very good."
+    explanation: "No verb → add is. The description needs something to hang on."
+    guide_ref: "§1.3.7, §KK 28 — coverage floor"
+
+  - id: 145
+    category: missing_subject
+    tier: contextual
+    severity: high
+    wrong: "Is half past eight."
+    right: "It is half past eight."
+    explanation: "Clock time takes IT — the subject seat is never empty."
+    guide_ref: "§C — coverage floor"
+
+  - id: 146
+    category: spelling
+    tier: contextual
+    severity: low
+    wrong: "We have an importent meeting."
+    right: "We have an important meeting."
+    explanation: "Unstressed vowels are guesswork by ear — importANT."
+    guide_ref: "§1.3.12 — coverage floor"

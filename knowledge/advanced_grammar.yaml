@@ -223,8 +223,15 @@ topics:
       - {wrong: "Writing in 1990, the report is out of date.", right: "Written in 1990, the report is out of date.",
          explanation: "Passive meaning (the report was written) takes the third form."}
 
+  # Retagged C1 → B2. The second conditional ("If I had time, I would come")
+  # is B1 in every mainstream syllabus and the third is B2; C1 also split
+  # conditionals across two bands, because the FIRST conditional is already
+  # taught at B1 inside the `tense_aspect` core lesson ("After IF → present
+  # tense, never will") and practised in the B1 `making_plans` dialogue.
+  # In this app a cefr tag is a lock, not a label — bandUnlocked() hides the
+  # topic and grammarIds() drops its quiz items from free play.
   - id: adv_unreal_conditionals
-    cefr: C1
+    cefr: B2
     title: "Unreal conditionals"
     explain: >-
       Mongolian has one conditional form (-вал/-бол); English has four, and
@@ -258,8 +265,18 @@ topics:
       - {wrong: "If she studied harder last year, she passed.", right: "If she had studied harder last year, she would have passed.",
          explanation: "Lost past: if + had done → would have done."}
 
+  # Retagged C1 → B1. Most of this lesson — when to choose the passive, the
+  # be + third form machine, the by-agent, the verbs that cannot passivise —
+  # is B1, and the core `verb_form` lesson (B1) already teaches the mechanics
+  # ("In the passive → third form: was written") and drills "The report was
+  # wrote yesterday." Locking the WHY at C1 while teaching the HOW at B1 left
+  # the B1 learner with a rule and no reason for it.
+  # ⚠ One paragraph here is above band: the impersonal passive ("It is
+  # believed that…", "The results are thought to show…") is C1 register, and
+  # quiz item adv_passive_1 tests it. Split that out into its own C1 topic
+  # when someone next touches this file.
   - id: adv_passive
-    cefr: C1
+    cefr: B1
     title: "The passive voice"
     explain: >-
       English uses the passive when the doer is unknown, obvious, or less

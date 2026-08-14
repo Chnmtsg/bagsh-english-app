@@ -40,6 +40,16 @@
      "wrong": "I geologist.",
      "right": "I am a geologist.",
      "explanation": ""
+    },
+    {
+     "wrong": "My brother a driver.",
+     "right": "My brother is a driver.",
+     "explanation": "English never drops 'to be': add is — and the article with it."
+    },
+    {
+     "wrong": "I very tired today.",
+     "right": "I am very tired today.",
+     "explanation": "No verb in the sentence → add am/is/are."
     }
    ],
    "lesson": {
@@ -189,6 +199,11 @@
      "wrong": "She don't know.",
      "right": "She doesn't know.",
      "explanation": "he/she/it + doesn't (not don't)."
+    },
+    {
+     "wrong": "My father drive a taxi.",
+     "right": "My father drives a taxi.",
+     "explanation": "One person → verb + s: my father driveS."
     }
    ],
    "lesson": {
@@ -282,6 +297,16 @@
      "wrong": "Is raining.",
      "right": "It is raining.",
      "explanation": ""
+    },
+    {
+     "wrong": "Is very cold today.",
+     "right": "It is very cold today.",
+     "explanation": "Weather, time and distance take the fake subject IT."
+    },
+    {
+     "wrong": "Was raining all night.",
+     "right": "It was raining all night.",
+     "explanation": "Nothing is raining — but English still needs a subject: IT."
     }
    ],
    "lesson": {
@@ -328,6 +353,11 @@
      "wrong": "About the report, it's late.",
      "right": "The report is late.",
      "explanation": "English can't announce a topic with 'about' — make it the subject."
+    },
+    {
+     "wrong": "About my job, it is very busy.",
+     "right": "My job is very busy.",
+     "explanation": "Delete 'About' and make the topic the subject."
     }
    ],
    "lesson": {
@@ -632,6 +662,16 @@
      "wrong": "My wife, he works in a school.",
      "right": "My wife — she works in a school.",
      "explanation": ""
+    },
+    {
+     "wrong": "My father, she is a driver.",
+     "right": "My father, he is a driver.",
+     "explanation": "«Тэр» splits in English: male → he, female → she."
+    },
+    {
+     "wrong": "My daughter lost his phone.",
+     "right": "My daughter lost her phone.",
+     "explanation": "The possessive carries gender too: her phone, his phone."
     }
    ],
    "lesson": {
@@ -1088,6 +1128,16 @@
      "wrong": "The yesterday drilled hole was deep.",
      "right": "The hole that we drilled yesterday was deep.",
      "explanation": ""
+    },
+    {
+     "wrong": "The woman who works here she is very kind.",
+     "right": "The woman who works here is very kind.",
+     "explanation": "The relative pronoun IS the subject — don't repeat it with she."
+    },
+    {
+     "wrong": "I know a man which repairs phones.",
+     "right": "I know a man who repairs phones.",
+     "explanation": "who = people, which = things, that = both."
     }
    ],
    "lesson": {
@@ -1130,6 +1180,16 @@
      "wrong": "He said me the results.",
      "right": "He told me the results.",
      "explanation": ""
+    },
+    {
+     "wrong": "She said me she was busy.",
+     "right": "She told me she was busy.",
+     "explanation": "A person after the verb → TELL. 'Said me' is impossible."
+    },
+    {
+     "wrong": "He told that he was late.",
+     "right": "He said that he was late.",
+     "explanation": "No person mentioned → SAY. The rule runs both ways."
     }
    ],
    "lesson": {
@@ -1172,6 +1232,16 @@
      "wrong": "exercies",
      "right": "exercises",
      "explanation": ""
+    },
+    {
+     "wrong": "There is alot to do.",
+     "right": "There is a lot to do.",
+     "explanation": "'A lot' is always two words."
+    },
+    {
+     "wrong": "I beleive she is right.",
+     "right": "I believe she is right.",
+     "explanation": "i before e except after c: believe, receive."
     }
    ],
    "lesson": {
@@ -2076,29 +2146,398 @@
    "cefr": "B1"
   },
   {
-   "id": "t_copula",
+   "id": "g103",
    "category": "copula",
-   "prompt": "I geologist.",
-   "answer": "I am a geologist.",
-   "explanation": "English always needs am / is / are. 'I geologist' needs 'am'.",
+   "prompt": "My brother a driver.",
+   "answer": "My brother is a driver.",
+   "explanation": "English never drops 'to be': add is — and the article with it.",
    "bridge": "Монголоор 'Би геологич' гэж хэлдэг — үйл үг хэрэггүй. Англиар 'am' заавал хэрэгтэй. (Mongolian drops the linking verb; English cannot.)",
    "cefr": "A1"
   },
   {
-   "id": "t_missing_subject",
+   "id": "g104",
+   "category": "copula",
+   "prompt": "I very tired today.",
+   "answer": "I am very tired today.",
+   "explanation": "No verb in the sentence → add am/is/are.",
+   "bridge": "Монголоор 'Би геологич' гэж хэлдэг — үйл үг хэрэггүй. Англиар 'am' заавал хэрэгтэй. (Mongolian drops the linking verb; English cannot.)",
+   "cefr": "A1"
+  },
+  {
+   "id": "g105",
+   "category": "copula",
+   "prompt": "They at home now.",
+   "answer": "They are at home now.",
+   "explanation": "they/we/you → are. The verb is never optional.",
+   "bridge": "Монголоор 'Би геологич' гэж хэлдэг — үйл үг хэрэггүй. Англиар 'am' заавал хэрэгтэй. (Mongolian drops the linking verb; English cannot.)",
+   "cefr": "A1"
+  },
+  {
+   "id": "g106",
+   "category": "copula",
+   "prompt": "The weather cold in winter.",
+   "answer": "The weather is cold in winter.",
+   "explanation": "One thing → is. Mongolian needs no verb here; English does.",
+   "bridge": "Монголоор 'Би геологич' гэж хэлдэг — үйл үг хэрэггүй. Англиар 'am' заавал хэрэгтэй. (Mongolian drops the linking verb; English cannot.)",
+   "cefr": "A1"
+  },
+  {
+   "id": "g107",
+   "category": "copula",
+   "prompt": "Does she is happy?",
+   "answer": "Is she happy?",
+   "explanation": "Questions with 'be' flip the order and take NO do.",
+   "bridge": "Монголоор 'Би геологич' гэж хэлдэг — үйл үг хэрэггүй. Англиар 'am' заавал хэрэгтэй. (Mongolian drops the linking verb; English cannot.)",
+   "cefr": "A1"
+  },
+  {
+   "id": "g108",
+   "category": "word_order",
+   "prompt": "I yesterday finished the report.",
+   "answer": "I finished the report yesterday.",
+   "explanation": "WHO + ACTION + WHAT, then when. Time words go to the end.",
+   "bridge": "Би ном уншсан = I book read. One rule covers five error types: Mongolian builds backwards; English builds forwards.",
+   "cefr": "A1"
+  },
+  {
+   "id": "g109",
+   "category": "word_order",
+   "prompt": "We at seven o'clock start work.",
+   "answer": "We start work at seven o'clock.",
+   "explanation": "The verb comes second — nothing sits between subject and verb.",
+   "bridge": "Би ном уншсан = I book read. One rule covers five error types: Mongolian builds backwards; English builds forwards.",
+   "cefr": "A1"
+  },
+  {
+   "id": "g110",
+   "category": "verb_agreement",
+   "prompt": "My father drive a taxi.",
+   "answer": "My father drives a taxi.",
+   "explanation": "One person → verb + s: my father driveS.",
+   "bridge": "Монгол үйл үг хэн үйлдэхээс хамаарч өөрчлөгддөггүй. Англид зөвхөн he/she/it дээр -s нэмэгдэнэ.",
+   "cefr": "A1"
+  },
+  {
+   "id": "g111",
+   "category": "verb_agreement",
+   "prompt": "The office open at nine.",
+   "answer": "The office opens at nine.",
+   "explanation": "One thing counts as he/she/it → + s.",
+   "bridge": "Монгол үйл үг хэн үйлдэхээс хамаарч өөрчлөгддөггүй. Англид зөвхөн he/she/it дээр -s нэмэгдэнэ.",
+   "cefr": "A1"
+  },
+  {
+   "id": "g112",
+   "category": "verb_agreement",
+   "prompt": "Everyone know the answer.",
+   "answer": "Everyone knows the answer.",
+   "explanation": "'Everyone' is singular in English → knowS.",
+   "bridge": "Монгол үйл үг хэн үйлдэхээс хамаарч өөрчлөгддөггүй. Англид зөвхөн he/she/it дээр -s нэмэгдэнэ.",
+   "cefr": "A1"
+  },
+  {
+   "id": "g113",
+   "category": "verb_agreement",
+   "prompt": "My parents lives in the countryside.",
+   "answer": "My parents live in the countryside.",
+   "explanation": "Two people → no -s. The -s belongs to he/she/it only.",
+   "bridge": "Монгол үйл үг хэн үйлдэхээс хамаарч өөрчлөгддөггүй. Англид зөвхөн he/she/it дээр -s нэмэгдэнэ.",
+   "cefr": "A1"
+  },
+  {
+   "id": "g114",
+   "category": "plurals",
+   "prompt": "I have two brother.",
+   "answer": "I have two brothers.",
+   "explanation": "Any number above one → noun + s, even though the number says it.",
+   "bridge": "Гурван ном → three books. Монголд тоо нь олон тоог хэлчихдэг тул -s хэрэггүй; англи давхардуулдаг. Логикгүй ч хүлээн зөвшөөр.",
+   "cefr": "A1"
+  },
+  {
+   "id": "g115",
+   "category": "plurals",
+   "prompt": "We stayed there for ten day.",
+   "answer": "We stayed there for ten days.",
+   "explanation": "Time units take -s too: ten days, three weeks.",
+   "bridge": "Гурван ном → three books. Монголд тоо нь олон тоог хэлчихдэг тул -s хэрэггүй; англи давхардуулдаг. Логикгүй ч хүлээн зөвшөөр.",
+   "cefr": "A1"
+  },
+  {
+   "id": "g116",
+   "category": "plurals",
+   "prompt": "There are three childrens.",
+   "answer": "There are three children.",
+   "explanation": "Irregular plurals refuse -s: children, people, men, women.",
+   "bridge": "Гурван ном → three books. Монголд тоо нь олон тоог хэлчихдэг тул -s хэрэггүй; англи давхардуулдаг. Логикгүй ч хүлээн зөвшөөр.",
+   "cefr": "A1"
+  },
+  {
+   "id": "g117",
+   "category": "plurals",
+   "prompt": "It was a three-days trip.",
+   "answer": "It was a three-day trip.",
+   "explanation": "A number used as a DESCRIPTION before a noun stays singular.",
+   "bridge": "Гурван ном → three books. Монголд тоо нь олон тоог хэлчихдэг тул -s хэрэггүй; англи давхардуулдаг. Логикгүй ч хүлээн зөвшөөр.",
+   "cefr": "A1"
+  },
+  {
+   "id": "g118",
    "category": "missing_subject",
-   "prompt": "Is raining.",
-   "answer": "It is raining.",
-   "explanation": "Every English sentence needs a subject. Use 'it' or 'there': It is raining. There are three samples.",
+   "prompt": "Is very cold today.",
+   "answer": "It is very cold today.",
+   "explanation": "Weather, time and distance take the fake subject IT.",
    "bridge": "Монголоор өгүүлэгдэхүүнийг орхиж болно; англиар хэзээ ч болохгүй — 'it/there' гэсэн хиймэл өгүүлэгдэхүүн зохиодог.",
    "cefr": "A2"
   },
   {
-   "id": "t_spelling",
+   "id": "g119",
+   "category": "missing_subject",
+   "prompt": "Was raining all night.",
+   "answer": "It was raining all night.",
+   "explanation": "Nothing is raining — but English still needs a subject: IT.",
+   "bridge": "Монголоор өгүүлэгдэхүүнийг орхиж болно; англиар хэзээ ч болохгүй — 'it/there' гэсэн хиймэл өгүүлэгдэхүүн зохиодог.",
+   "cefr": "A2"
+  },
+  {
+   "id": "g120",
+   "category": "missing_subject",
+   "prompt": "Is difficult to learn English.",
+   "answer": "It is difficult to learn English.",
+   "explanation": "Opinion about an action → IT is difficult to…",
+   "bridge": "Монголоор өгүүлэгдэхүүнийг орхиж болно; англиар хэзээ ч болохгүй — 'it/there' гэсэн хиймэл өгүүлэгдэхүүн зохиодог.",
+   "cefr": "A2"
+  },
+  {
+   "id": "g121",
+   "category": "missing_subject",
+   "prompt": "Are many cars in the street.",
+   "answer": "There are many cars in the street.",
+   "explanation": "Existence → THERE is/are. Match it to the noun after it.",
+   "bridge": "Монголоор өгүүлэгдэхүүнийг орхиж болно; англиар хэзээ ч болохгүй — 'it/there' гэсэн хиймэл өгүүлэгдэхүүн зохиодог.",
+   "cefr": "A2"
+  },
+  {
+   "id": "g122",
+   "category": "missing_subject",
+   "prompt": "Is a bank near the station.",
+   "answer": "There is a bank near the station.",
+   "explanation": "Something exists → there is (one) / there are (many).",
+   "bridge": "Монголоор өгүүлэгдэхүүнийг орхиж болно; англиар хэзээ ч болохгүй — 'it/there' гэсэн хиймэл өгүүлэгдэхүүн зохиодог.",
+   "cefr": "A2"
+  },
+  {
+   "id": "g123",
+   "category": "topic_fronting",
+   "prompt": "About my job, it is very busy.",
+   "answer": "My job is very busy.",
+   "explanation": "Delete 'About' and make the topic the subject.",
+   "bridge": "«Тухай» бол нэр үгийн ард ордог дагавар үг. 'About the report, it is late' нь монгол бүтэц — англиар сэдвийг өгүүлэгдэхүүн болго: 'The report is late.'",
+   "cefr": "B1"
+  },
+  {
+   "id": "g124",
+   "category": "topic_fronting",
+   "prompt": "About the price, it is too high.",
+   "answer": "The price is too high.",
+   "explanation": "English has no topic particle — the topic becomes the subject.",
+   "bridge": "«Тухай» бол нэр үгийн ард ордог дагавар үг. 'About the report, it is late' нь монгол бүтэц — англиар сэдвийг өгүүлэгдэхүүн болго: 'The report is late.'",
+   "cefr": "B1"
+  },
+  {
+   "id": "g125",
+   "category": "topic_fronting",
+   "prompt": "About my sister, she lives in Erdenet.",
+   "answer": "My sister lives in Erdenet.",
+   "explanation": "Announce nothing — give the topic the verb directly.",
+   "bridge": "«Тухай» бол нэр үгийн ард ордог дагавар үг. 'About the report, it is late' нь монгол бүтэц — англиар сэдвийг өгүүлэгдэхүүн болго: 'The report is late.'",
+   "cefr": "B1"
+  },
+  {
+   "id": "g126",
+   "category": "pronoun_gender",
+   "prompt": "My father, she is a driver.",
+   "answer": "My father, he is a driver.",
+   "explanation": "«Тэр» splits in English: male → he, female → she.",
+   "bridge": "«Тэр» нь he, she, it гурвууланг нь хэлдэг. Энэ бол мэдлэгийн биш, хурдны асуудал.",
+   "cefr": "A1"
+  },
+  {
+   "id": "g127",
+   "category": "pronoun_gender",
+   "prompt": "My daughter lost his phone.",
+   "answer": "My daughter lost her phone.",
+   "explanation": "The possessive carries gender too: her phone, his phone.",
+   "bridge": "«Тэр» нь he, she, it гурвууланг нь хэлдэг. Энэ бол мэдлэгийн биш, хурдны асуудал.",
+   "cefr": "A1"
+  },
+  {
+   "id": "g128",
+   "category": "pronoun_gender",
+   "prompt": "I have a sister. He is a nurse.",
+   "answer": "I have a sister. She is a nurse.",
+   "explanation": "The slip lands in the NEXT sentence — proofread pronouns separately.",
+   "bridge": "«Тэр» нь he, she, it гурвууланг нь хэлдэг. Энэ бол мэдлэгийн биш, хурдны асуудал.",
+   "cefr": "A1"
+  },
+  {
+   "id": "g129",
+   "category": "register",
+   "prompt": "I want to speak with the manager.",
+   "answer": "I'd like to speak with the manager.",
+   "explanation": "Politeness lives in the modal: I want → I'd like.",
+   "bridge": "Та гэж хэлснээр эелдэг байдал монголоор илэрхийлэгддэг. Англид 'you' ганцхан тул эелдэг байдал modal үйл үг рүү нүүсэн. Та бүдүүлэг хэлээгүй — орчуулгад л алга болсон.",
+   "cefr": "B2"
+  },
+  {
+   "id": "g130",
+   "category": "capitalization",
+   "prompt": "we met on tuesday.",
+   "answer": "We met on Tuesday.",
+   "explanation": "Sentence start and day names both take capitals.",
+   "bridge": "Монголоор 'би' жижиг үсэгтэй; англиар 'I' үргэлж том. Хэлний нэр ч том үсгээр эхэлдэг.",
+   "cefr": "A1"
+  },
+  {
+   "id": "g131",
+   "category": "capitalization",
+   "prompt": "i think english is useful.",
+   "answer": "I think English is useful.",
+   "explanation": "'I' is always capital; so are language names.",
+   "bridge": "Монголоор 'би' жижиг үсэгтэй; англиар 'I' үргэлж том. Хэлний нэр ч том үсгээр эхэлдэг.",
+   "cefr": "A1"
+  },
+  {
+   "id": "g132",
+   "category": "word_choice",
+   "prompt": "The lesson was interested.",
+   "answer": "The lesson was interesting.",
+   "explanation": "-ING for the thing causing the feeling; -ED for the person feeling it.",
+   "bridge": "Орос гаралтай зээл үгс англид өөр утгатай: магазин бол shop, magazine биш; кабинет бол office, cabinet биш.",
+   "cefr": "A2"
+  },
+  {
+   "id": "g133",
+   "category": "comparatives",
+   "prompt": "My flat is small than yours.",
+   "answer": "My flat is smaller than yours.",
+   "explanation": "-er and than always travel together.",
+   "bridge": "Монголоор харьцуулалт гарах падежээр бүтдэг: надаас өндөр (миний-аас өндөр). Англид 'than' + -er хоёул хэрэгтэй.",
+   "cefr": "B1"
+  },
+  {
+   "id": "g134",
+   "category": "comparatives",
+   "prompt": "She is more young than me.",
+   "answer": "She is younger than me.",
+   "explanation": "One syllable → -er, never 'more'.",
+   "bridge": "Монголоор харьцуулалт гарах падежээр бүтдэг: надаас өндөр (миний-аас өндөр). Англид 'than' + -er хоёул хэрэгтэй.",
+   "cefr": "B1"
+  },
+  {
+   "id": "g135",
+   "category": "relative_clauses",
+   "prompt": "The woman who works here she is very kind.",
+   "answer": "The woman who works here is very kind.",
+   "explanation": "The relative pronoun IS the subject — don't repeat it with she.",
+   "bridge": "Миний уншсан ном = [я уншсан] ном — тодорхойлолт өмнө нь. Англиар ард нь: the book that I read.",
+   "cefr": "B2"
+  },
+  {
+   "id": "g136",
+   "category": "relative_clauses",
+   "prompt": "I know a man which repairs phones.",
+   "answer": "I know a man who repairs phones.",
+   "explanation": "who = people, which = things, that = both.",
+   "bridge": "Миний уншсан ном = [я уншсан] ном — тодорхойлолт өмнө нь. Англиар ард нь: the book that I read.",
+   "cefr": "B2"
+  },
+  {
+   "id": "g137",
+   "category": "relative_clauses",
+   "prompt": "I lost the book what you gave me.",
+   "answer": "I lost the book that you gave me.",
+   "explanation": "'What' cannot join a noun to its clause — use that/which.",
+   "bridge": "Миний уншсан ном = [я уншсан] ном — тодорхойлолт өмнө нь. Англиар ард нь: the book that I read.",
+   "cefr": "B2"
+  },
+  {
+   "id": "g138",
+   "category": "reported_speech",
+   "prompt": "She said me she was busy.",
+   "answer": "She told me she was busy.",
+   "explanation": "A person after the verb → TELL. 'Said me' is impossible.",
+   "bridge": "Монголоор «гэж» + шууд яриа, цаг хөрвүүлэлт байхгүй. Англи нэг алхам ухраадаг: is → was.",
+   "cefr": "B2"
+  },
+  {
+   "id": "g139",
+   "category": "reported_speech",
+   "prompt": "He told that he was late.",
+   "answer": "He said that he was late.",
+   "explanation": "No person mentioned → SAY. The rule runs both ways.",
+   "bridge": "Монголоор «гэж» + шууд яриа, цаг хөрвүүлэлт байхгүй. Англи нэг алхам ухраадаг: is → was.",
+   "cefr": "B2"
+  },
+  {
+   "id": "g140",
+   "category": "reported_speech",
+   "prompt": "She asked when does the meeting start.",
+   "answer": "She asked when the meeting started.",
+   "explanation": "A reported question loses its inversion and steps one tense back.",
+   "bridge": "Монголоор «гэж» + шууд яриа, цаг хөрвүүлэлт байхгүй. Англи нэг алхам ухраадаг: is → was.",
+   "cefr": "B2"
+  },
+  {
+   "id": "g141",
    "category": "spelling",
-   "prompt": "exercies",
-   "answer": "exercises",
-   "explanation": "English spelling does not follow sound. Learn the written word together with how it sounds.",
+   "prompt": "There is alot to do.",
+   "answer": "There is a lot to do.",
+   "explanation": "'A lot' is always two words.",
+   "bridge": "Кирилл үсэг = нэг үсэг, нэг авиа. Англид тийм биш: through, though, thought — гурван өөр дуудлага.",
+   "cefr": "A2"
+  },
+  {
+   "id": "g142",
+   "category": "spelling",
+   "prompt": "I beleive she is right.",
+   "answer": "I believe she is right.",
+   "explanation": "i before e except after c: believe, receive.",
+   "bridge": "Кирилл үсэг = нэг үсэг, нэг авиа. Англид тийм биш: through, though, thought — гурван өөр дуудлага.",
+   "cefr": "A2"
+  },
+  {
+   "id": "g143",
+   "category": "spelling",
+   "prompt": "Wich bus goes to the centre?",
+   "answer": "Which bus goes to the centre?",
+   "explanation": "which / witch — the h is silent but written.",
+   "bridge": "Кирилл үсэг = нэг үсэг, нэг авиа. Англид тийм биш: through, though, thought — гурван өөр дуудлага.",
+   "cefr": "A2"
+  },
+  {
+   "id": "g144",
+   "category": "copula",
+   "prompt": "Her English very good.",
+   "answer": "Her English is very good.",
+   "explanation": "No verb → add is. The description needs something to hang on.",
+   "bridge": "Монголоор 'Би геологич' гэж хэлдэг — үйл үг хэрэггүй. Англиар 'am' заавал хэрэгтэй. (Mongolian drops the linking verb; English cannot.)",
+   "cefr": "A1"
+  },
+  {
+   "id": "g145",
+   "category": "missing_subject",
+   "prompt": "Is half past eight.",
+   "answer": "It is half past eight.",
+   "explanation": "Clock time takes IT — the subject seat is never empty.",
+   "bridge": "Монголоор өгүүлэгдэхүүнийг орхиж болно; англиар хэзээ ч болохгүй — 'it/there' гэсэн хиймэл өгүүлэгдэхүүн зохиодог.",
+   "cefr": "A2"
+  },
+  {
+   "id": "g146",
+   "category": "spelling",
+   "prompt": "We have an importent meeting.",
+   "answer": "We have an important meeting.",
+   "explanation": "Unstressed vowels are guesswork by ear — importANT.",
    "bridge": "Кирилл үсэг = нэг үсэг, нэг авиа. Англид тийм биш: through, though, thought — гурван өөр дуудлага.",
    "cefr": "A2"
   },
@@ -2217,7 +2656,7 @@
    "answer": "If I knew the answer, I would tell you.",
    "explanation": "No 'would' in the if-clause: unreal present takes past tense.",
    "bridge": "Монголоор \"цаг байвал очно\" гэдэг нэг хэлбэр бүх нөхцөлд ажилладаг. Англиар өнгөрсөн цаг нь БОДИТ БУС гэдгийг заадаг — цаг хугацааг биш.",
-   "cefr": "C1"
+   "cefr": "B2"
   },
   {
    "id": "adv_unreal_conditionals_1",
@@ -2226,7 +2665,7 @@
    "answer": "If she had studied harder last year, she would have passed.",
    "explanation": "Lost past: if + had done → would have done.",
    "bridge": "Монголоор \"цаг байвал очно\" гэдэг нэг хэлбэр бүх нөхцөлд ажилладаг. Англиар өнгөрсөн цаг нь БОДИТ БУС гэдгийг заадаг — цаг хугацааг биш.",
-   "cefr": "C1"
+   "cefr": "B2"
   },
   {
    "id": "adv_passive_0",
@@ -2235,7 +2674,7 @@
    "answer": "The window was broken during the storm.",
    "explanation": "Passive needs the third form: broken, written, taken.",
    "bridge": "Монгол хэлний -гдах хэлбэртэй ойролцоо, гэхдээ англи passive нь be + 3-р хэлбэр гэсэн ХОЁР үгээр бүтдэг: was closed, is believed.",
-   "cefr": "C1"
+   "cefr": "B1"
   },
   {
    "id": "adv_passive_1",
@@ -2244,7 +2683,7 @@
    "answer": "It is believed that the plan will work.",
    "explanation": "Impersonal passive: It is believED / thought / said that…",
    "bridge": "Монгол хэлний -гдах хэлбэртэй ойролцоо, гэхдээ англи passive нь be + 3-р хэлбэр гэсэн ХОЁР үгээр бүтдэг: was closed, is believed.",
-   "cefr": "C1"
+   "cefr": "B1"
   },
   {
    "id": "adv_hedging_0",
@@ -2566,7 +3005,7 @@
   },
   {
    "id": "adv_unreal_conditionals",
-   "cefr": "C1",
+   "cefr": "B2",
    "title": "Unreal conditionals",
    "explain": "Mongolian has one conditional form (-вал/-бол); English has four, and the advanced ones use PAST TENSE TO MARK UNREALITY, not past time. \"If I had time, I would come\" — you do not have time NOW; the past form signals imagination, not history. Third conditional stacks it for lost pasts: \"If we had left earlier, we would have caught the train\" (we didn't, we missed it). The tense moves one step back from reality: real→present, unreal-now→past, unreal-past→past perfect.",
    "bridge": "Монголоор \"цаг байвал очно\" гэдэг нэг хэлбэр бүх нөхцөлд ажилладаг. Англиар өнгөрсөн цаг нь БОДИТ БУС гэдгийг заадаг — цаг хугацааг биш.",
@@ -2607,7 +3046,7 @@
   },
   {
    "id": "adv_passive",
-   "cefr": "C1",
+   "cefr": "B1",
    "title": "The passive voice",
    "explain": "English uses the passive when the doer is unknown, obvious, or less important than the action: \"The road was closed\", \"Mistakes were made\". Form: be + past participle, and the object moves to the subject seat. The impersonal passive is the backbone of formal writing: \"It is believed that…\", \"The results are thought to show…\". Overusing it makes writing heavy — modern style prefers active where the doer matters.",
    "bridge": "Монгол хэлний -гдах хэлбэртэй ойролцоо, гэхдээ англи passive нь be + 3-р хэлбэр гэсэн ХОЁР үгээр бүтдэг: was closed, is believed.",

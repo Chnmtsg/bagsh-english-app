@@ -3,6 +3,7 @@ gamification. All deterministic — no LLM anywhere in the games."""
 
 import random
 import re
+from collections import Counter
 from datetime import date
 
 from src import srs
@@ -89,6 +90,28 @@ def test_grammar_bank_excludes_professional_and_covers_categories():
     assert all("Mt" not in q["prompt"] for q in bank)      # §CC items are out
     covered = {q["category"] for q in bank}
     assert covered == set(categories().keys())  # the game covers all 24 systems
+
+
+def test_grammar_bank_meets_coverage_floor():
+    """A category with one item cannot be spaced — the SRS shows it once and
+    has nothing to bring back. Floor: 4 items per category, 6 for the six
+    highest-priority ones (top_100_patterns.yaml ids 103+ exist for this)."""
+    bank = grammar_bank()
+    cats = categories()
+    counts = Counter(q["category"] for q in bank)
+    thin = {
+        name: counts.get(name, 0)
+        for name, cat in cats.items()
+        if counts.get(name, 0) < (6 if cat["priority"] <= 6 else 4)
+    }
+    assert not thin, f"below the coverage floor: {thin}"
+
+
+def test_grammar_bank_prompts_are_unique():
+    """Two items with the same prompt are one item the SRS schedules twice."""
+    prompts = [q["prompt"] for q in grammar_bank()]
+    dupes = [p for p, n in Counter(prompts).items() if n > 1]
+    assert not dupes, f"duplicate prompts: {dupes}"
 
 
 def test_weak_categories_come_first():

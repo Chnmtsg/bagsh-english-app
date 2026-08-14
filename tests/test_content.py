@@ -29,10 +29,13 @@ def test_supplementary_grammar_completes_b1_to_c2():
             assert q["wrong"] != q["right"], t["id"]
             assert q.get("explanation"), t["id"]
         by_level.setdefault(t["cefr"], []).append(t["id"])
-    assert len(by_level.get("B1", [])) >= 2   # narrative tenses, gerund/infinitive
-    assert len(by_level.get("B2", [])) >= 3   # deduction, wishes, causative
-    assert len(by_level.get("C1", [])) >= 4
-    assert len(by_level.get("C2", [])) >= 3
+    assert len(by_level.get("B1", [])) >= 3   # narrative tenses, gerund/infinitive, passive
+    assert len(by_level.get("B2", [])) >= 4   # deduction, wishes, causative, unreal conditionals
+    assert len(by_level.get("C1", [])) >= 2   # participle clauses, hedging
+    assert len(by_level.get("C2", [])) >= 3   # inversion, cleft, register shift
+    # C1 is deliberately the thinnest band: the two topics that used to pad it
+    # (passive, unreal conditionals) were mis-banded and now sit where learners
+    # actually need them. Real C1 material is a content gap, not a tagging one.
 
 
 def test_every_category_has_a_cefr_band():
