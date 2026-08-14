@@ -192,14 +192,39 @@ def test_every_word_is_complete_and_stress_marked():
 
 
 def test_general_deck_is_a_level_ladder():
-    # the basic app is for everyone: general words only, 30 per level
+    # the basic app is for everyone: general words only, every level stocked.
+    # Deliberately NOT equal counts — the deck used to hold exactly 30 per
+    # level, and that symmetry was the sign the levels had been assigned for
+    # tidiness rather than for learners (ADR-0005).
     by_level = {}
     for w in vocab_bank():
         assert w["deck"] == "general", f"{w['word']}: professional word in core deck"
         by_level.setdefault(w["level"], []).append(w["word"])
     assert set(by_level) == {"A1", "A2", "B1", "B2"}
     for level, words in by_level.items():
-        assert len(words) == 30, f"{level} has {len(words)} words, expected 30"
+        assert len(words) >= 10, f"{level} has only {len(words)} cards"
+
+
+def test_the_deck_is_the_only_level_authority():
+    """ADR-0005. The frequency wordlist cannot level 43 of these words and
+    disagrees with a third of the rest, so nothing may read a level out of
+    it. This test fails the moment a card's level is taken from the list."""
+    import json
+
+    from src.knowledge import KNOWLEDGE_DIR
+
+    levels = json.loads(
+        (KNOWLEDGE_DIR / "cefr_wordlist.json").read_text(encoding="utf-8"))["levels"]
+    listed = {w: lv for lv, words in levels.items() for w in words}
+
+    uncoverable = [w["word"] for w in vocab_bank()
+                   if w["word"].lower() not in listed]
+    assert len(uncoverable) > 20, (
+        "the wordlist now covers the deck — re-open ADR-0005 before making it "
+        "an authority again, and check WHY it covers it")
+
+    for w in vocab_bank():
+        assert w.get("level") in {"A1", "A2", "B1", "B2"}, w["word"]
 
 
 def test_geology_deck_only_joins_for_geology_domain():

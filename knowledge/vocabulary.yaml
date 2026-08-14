@@ -1,6 +1,11 @@
-# General vocabulary — the level ladder (A1 → A2 → B1 → B2), 30 words each.
+# General vocabulary — the level ladder (A1 → A2 → B1 → B2).
 # For EVERYONE — no professional/domain words here (geology lives in
 # vocabulary_geology.yaml as an optional desktop deck).
+#
+# THIS FILE IS THE ONLY AUTHORITY ON A WORD'S LEVEL (ADR-0005). The 6,800-word
+# cefr_wordlist.json is a frequency ranking over a legal/governmental corpus —
+# it cannot level 43 of the words below (bread, milk, eat, sleep, hungry…) and
+# ranks `shall` and `county` at A2. It measures coverage, never level.
 #
 # Rules (guide §1.5, §1.3.12):
 # - `stress` is MANDATORY (capitals = stressed syllable). A word learned
@@ -9,7 +14,10 @@
 #   ⚠ Mongolian strings need native-speaker verification before shipping.
 # - `example` must contain the word verbatim (the cloze quiz blanks it).
 # - A learner "knows" a word after 2 correct answers on different days;
-#   knowing all words of a level unlocks the next (ADR-0003 extension).
+#   knowing 90% of a level's cards unlocks the next (ADR-0003, ADR-0005).
+# - `level` is a CEFR judgement about when to TEACH the word. Do NOT balance
+#   the levels by count — the old deck held exactly 30 each, and that tidiness
+#   was the tell that the levels were assigned for symmetry, not for learners.
 #
 # Extend by curation only. Never let a model write into this file.
 
@@ -207,7 +215,7 @@ words:
   - {word: decision, stress: de-CI-sion, pos: noun, level: B1, deck: general,
      gloss_en: "a choice you make after thinking", gloss_mn: "шийдвэр",
      example: "Moving here was a good decision."}
-  - {word: important, stress: im-POR-tant, pos: adj, level: B1, deck: general,
+  - {word: important, stress: im-POR-tant, pos: adj, level: A2, deck: general,
      gloss_en: "mattering a lot", gloss_mn: "чухал",
      example: "Sleep is important for your health."}
   - {word: improve, stress: im-PROVE, pos: verb, level: B1, deck: general,
@@ -216,7 +224,7 @@ words:
   - {word: colleague, stress: COL-league, pos: noun, level: B1, deck: general,
      gloss_en: "a person you work with", gloss_mn: "хамтран ажиллагч",
      example: "A colleague helped me finish the report."}
-  - {word: meeting, stress: MEET-ing, pos: noun, level: B1, deck: general,
+  - {word: meeting, stress: MEET-ing, pos: noun, level: A2, deck: general,
      gloss_en: "when people come together to talk", gloss_mn: "хурал",
      example: "The meeting starts at nine sharp."}
   - {word: schedule, stress: SCHED-ule, pos: noun, level: B1, deck: general,
@@ -234,25 +242,25 @@ words:
   - {word: journey, stress: JOUR-ney, pos: noun, level: B1, deck: general,
      gloss_en: "a trip from one place to another", gloss_mn: "аялал",
      example: "The journey home takes two hours."}
-  - {word: describe, stress: de-SCRIBE, pos: verb, level: B1, deck: general,
+  - {word: describe, stress: de-SCRIBE, pos: verb, level: A2, deck: general,
      gloss_en: "to say what something is like", gloss_mn: "дүрслэх",
      example: "Can you describe the man you saw?"}
-  - {word: explain, stress: ex-PLAIN, pos: verb, level: B1, deck: general,
+  - {word: explain, stress: ex-PLAIN, pos: verb, level: A2, deck: general,
      gloss_en: "to make something clear", gloss_mn: "тайлбарлах",
      example: "The teacher explained the rule twice."}
-  - {word: understand, stress: un-der-STAND, pos: verb, level: B1, deck: general,
+  - {word: understand, stress: un-der-STAND, pos: verb, level: A2, deck: general,
      gloss_en: "to know what something means", gloss_mn: "ойлгох",
      example: "Now I understand the instructions."}
-  - {word: remember, stress: re-MEM-ber, pos: verb, level: B1, deck: general,
+  - {word: remember, stress: re-MEM-ber, pos: verb, level: A2, deck: general,
      gloss_en: "to keep in your mind", gloss_mn: "санах",
      example: "I remember my first day at work."}
-  - {word: forget, stress: for-GET, pos: verb, level: B1, deck: general,
+  - {word: forget, stress: for-GET, pos: verb, level: A2, deck: general,
      gloss_en: "to not remember", gloss_mn: "мартах",
      example: "Don't forget your keys again!"}
   - {word: practice, stress: PRAC-tice, pos: noun, level: B1, deck: general,
      gloss_en: "doing something many times to learn it", gloss_mn: "дадлага",
      example: "Daily practice beats one long lesson."}
-  - {word: arrive, stress: ar-RIVE, pos: verb, level: B1, deck: general,
+  - {word: arrive, stress: ar-RIVE, pos: verb, level: A2, deck: general,
      gloss_en: "to reach a place", gloss_mn: "хүрэлцэн ирэх",
      example: "The train arrives at half past nine."}
   - {word: prepare, stress: pre-PARE, pos: verb, level: B1, deck: general,
@@ -261,19 +269,19 @@ words:
   - {word: suggest, stress: sug-GEST, pos: verb, level: B1, deck: general,
      gloss_en: "to offer an idea", gloss_mn: "санал болгох",
      example: "I suggest meeting a little earlier."}
-  - {word: agree, stress: a-GREE, pos: verb, level: B1, deck: general,
+  - {word: agree, stress: a-GREE, pos: verb, level: A2, deck: general,
      gloss_en: "to have the same opinion", gloss_mn: "зөвшөөрөх",
      example: "We agree about most things."}
   - {word: opinion, stress: o-PIN-ion, pos: noun, level: B1, deck: general,
      gloss_en: "what you think about something", gloss_mn: "санал бодол",
      example: "In my opinion, the second plan is better."}
-  - {word: reason, stress: REA-son, pos: noun, level: B1, deck: general,
+  - {word: reason, stress: REA-son, pos: noun, level: A2, deck: general,
      gloss_en: "why something happens", gloss_mn: "шалтгаан",
      example: "The reason for the delay was the snow."}
   - {word: result, stress: re-SULT, pos: noun, level: B1, deck: general,
      gloss_en: "what happens because of something", gloss_mn: "үр дүн",
      example: "The result of the test surprised everyone."}
-  - {word: problem, stress: PROB-lem, pos: noun, level: B1, deck: general,
+  - {word: problem, stress: PROB-lem, pos: noun, level: A2, deck: general,
      gloss_en: "something difficult to deal with", gloss_mn: "асуудал",
      example: "We solved the problem together."}
   - {word: solution, stress: so-LU-tion, pos: noun, level: B1, deck: general,

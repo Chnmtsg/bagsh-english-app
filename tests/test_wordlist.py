@@ -1,4 +1,10 @@
-"""Integrity of the imported CEFR word list (knowledge/cefr_wordlist.json)."""
+"""Integrity of the imported word list (knowledge/cefr_wordlist.json).
+
+These tests check the IMPORT is intact — sizes, shape, attribution. They are
+not a claim that the list levels words correctly: ADR-0005 demoted it to a
+coverage tool, and knowledge/vocabulary.yaml is the only authority on what
+level a word is.
+"""
 
 import json
 import re

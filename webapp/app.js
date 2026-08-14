@@ -566,10 +566,28 @@ function markKnown(word) {
   profile.studyList = profile.studyList.filter(w => w !== word);
 }
 
+/* ADR-0005: the card deck is the only authority on a word's level, so the
+ * ladder counts MASTERED CARDS — two correct answers on different days, the
+ * rule vocabulary.yaml has always documented. The 6,800-word frequency list
+ * measures coverage in its own round and no longer gates anything. */
+
+function cardMastered(word) {
+  const rec = profile.srs.vocab[word];
+  return !!rec && rec.reps >= 2;
+}
+
 function levelProgress(l) {
+  const cards = cardsOfLevel(l);
+  const known = cards.filter(w => cardMastered(w.word)).length;
+  return { known, total: cards.length,
+           pct: cards.length ? Math.round(100 * known / cards.length) : 0 };
+}
+
+function listProgress(l) {
   const list = listOfLevel(l);
   const known = list.filter(w => profile.knownWords[w]).length;
-  return { known, total: list.length, pct: list.length ? Math.round(100 * known / list.length) : 0 };
+  return { known, total: list.length,
+           pct: list.length ? Math.round(100 * known / list.length) : 0 };
 }
 
 function renderVocabHome() {
@@ -583,8 +601,10 @@ function renderVocabHome() {
     return `<div class="row ${state === "locked" ? "locked-row" : ""}">
       <span class="st">${icon}</span>
       <span class="name"><b>${l}</b> — ${LEVEL_MN[l]}
-        <div class="bar"><div class="bar-fill" style="width:${p.pct}%"></div></div></span>
-      <span class="muted">${p.known}/${p.total}</span></div>`;
+        ${p.total
+          ? `<div class="bar"><div class="bar-fill" style="width:${p.pct}%"></div></div>`
+          : `<br><span class="muted">no cards yet — картууд хараахан алга</span>`}</span>
+      <span class="muted">${p.total ? `${p.known}/${p.total}` : "—"}</span></div>`;
   }).join("");
 
   const p = levelProgress(current);
@@ -593,7 +613,13 @@ function renderVocabHome() {
   const hasCards = cardsOfLevel(current).length > 0;
 
   let action = "";
-  if (complete && next) {
+  if (!hasCards) {
+    action = `<div class="feedback">
+        <p>The card deck stops at B2 for now — there are no ${current} cards
+        yet. Keep the lower levels warm with the SRS, and use the coverage
+        check below to find gaps.</p>
+      </div>`;
+  } else if (complete && next) {
     action = `<div class="feedback good">
         <p>🎉 <b>Гоё! You know ${p.known} of the ${p.total} ${current} words!</b></p>
         <p class="muted">Дараагийн түвшин нээгдлээ — the next level is open.</p>
@@ -605,19 +631,31 @@ function renderVocabHome() {
       </div>`;
   }
   action += `
-    <button class="primary" id="checkBtn">✓✗ Check yourself — ${current} list</button>
-    ${hasCards ? `<button class="ghost" id="studyBtn">📖 Study cards with Mongolian (${cardsOfLevel(current).length})</button>` : ""}
+    ${hasCards ? `<button class="primary" id="studyBtn">📖 Study ${current} cards (${cardsOfLevel(current).length})</button>` : ""}
     ${profile.studyList.length ? `<button class="ghost" id="listBtn">📝 My study list (${profile.studyList.length})</button>` : ""}`;
+
+  const cov = listProgress(current);
 
   view.innerHTML = `
     <div class="card"><h2>📚 Word ladder — Үгийн шат</h2>
-      <p class="muted">Real level lists (${DATA.wordlist.levels["A1"].length + DATA.wordlist.levels["A2"].length + DATA.wordlist.levels["B1"].length} words to B1,
-      like the official Cambridge lists). Mark the words you know; study the
-      rest. Know ${LEVEL_DONE_PCT}% of your level — the next opens.</p>
+      <p class="muted">Your level rises by LEARNING the cards, not by ticking
+      a list: a word counts once you have answered it correctly on two
+      different days. Know ${LEVEL_DONE_PCT}% of your level — the next opens.</p>
       ${action}</div>
     <div class="card">${rows}</div>
-    <p class="muted" style="padding:0 6px">Word list: CEFR-J-based dataset (MIT).
-    Cards with Mongolian glosses grow by curation.</p>`;
+    <div class="card">
+      <h3>📊 Coverage check — Хэр олон үг мэдэх вэ?</h3>
+      <p class="muted">A separate, optional tool: the ${DATA.wordlist.levels[current].length}
+      most frequent ${current}-band words from a public frequency dataset.
+      Mark what you recognise to find gaps — honest answers only, and it does
+      not move your level.</p>
+      <div class="bar"><div class="bar-fill" style="width:${cov.pct}%"></div></div>
+      <p class="muted">${cov.known}/${cov.total} recognised</p>
+      <button class="ghost" id="checkBtn">✓✗ Check yourself — ${current} band</button>
+    </div>
+    <p class="muted" style="padding:0 6px">Cards: curated, stress-marked, with
+    Mongolian (ADR-0005 — the cards decide a word's level). Frequency bands:
+    CEFR-J-based dataset (MIT), used for coverage only.</p>`;
 
   document.getElementById("checkBtn").addEventListener("click", startCheck);
   const studyBtn = document.getElementById("studyBtn");

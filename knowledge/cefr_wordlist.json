@@ -1,7 +1,7 @@
 {
 "source": "Words-CEFR-Dataset (CEFR-J based), MIT license",
 "source_url": "https://github.com/Maximax67/Words-CEFR-Dataset",
-"note": "Most frequent words per CEFR level; caps chosen so cumulative sizes track official list sizes.",
+"note": "COVERAGE ONLY, NOT A LEVEL AUTHORITY (ADR-0005). Frequency ranking over a written corpus with heavy legal/governmental content: it has no entry for bread, milk, eat or hungry, and puts shall, upon and county at A2. knowledge/vocabulary.yaml decides what level a word is; these bands only measure how much of a frequency ranking a learner recognises.",
 "levels": {
 "A1": [
 "the",
