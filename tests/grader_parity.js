@@ -1,9 +1,10 @@
-/* Parity harness for the PWA's answer grader.
+/* Parity harness for PWA logic that also exists in Python.
  *
  *     node tests/grader_parity.js
  *
- * checkAnswer exists twice — src/quiz.py for the CLI, webapp/app.js for the
- * PWA — so the two can drift and silently grade the same answer differently.
+ * checkAnswer and the vocabulary distractor picker each exist twice —
+ * src/quiz.py for the CLI, webapp/app.js for the PWA — so the two can drift
+ * and silently behave differently for the same learner.
  * This pulls the REAL function bodies out of app.js (not a copy of them) and
  * runs the cases from tests/test_study_games.py against them, then sweeps
  * every shipped item for the two properties that matter: an item must accept
@@ -86,7 +87,38 @@ for (const q of DATA.grammar) {
 }
 ok(selfRejecting === 0, `${selfRejecting} items reject their own answer`);
 
+// ── vocabulary distractors (mirror of distractor_tiers in quiz.py) ─
+const distractorCode =
+  'const LEVELS = ["A1","A2","B1","B2","C1","C2"];' +
+  'function levelRank(l) { return Math.max(0, LEVELS.indexOf(l)); }' +
+  'const shuffle = a => { for (let i = a.length - 1; i > 0; i--) ' +
+  '{ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };' +
+  slice("function meaningDistractors(w, k)", "function cloze(w)");
+const meaningDistractors =
+  new Function("DATA", distractorCode + "\nreturn meaningDistractors;")(DATA);
+
+let unrelated = 0, tight = 0, drawn = 0;
+for (const w of DATA.vocab) {
+  for (let round = 0; round < 5; round++) {
+    const picked = meaningDistractors(w, 3);
+    ok(picked.length === 3, `only ${picked.length} distractors for ${w.word}`);
+    ok(new Set(picked.map(x => x.word)).size === picked.length,
+       `duplicate distractor for ${w.word}`);
+    for (const x of picked) {
+      drawn++;
+      if (x.pos !== w.pos && x.level !== w.level) {
+        console.log(`  FAIL unrelated distractor: ${w.word} (${w.level} ${w.pos})`
+                    + ` got ${x.word} (${x.level} ${x.pos})`);
+        unrelated++;
+      }
+      if (x.pos === w.pos && x.level === w.level) tight++;
+    }
+  }
+}
+ok(unrelated === 0, `${unrelated} distractors share neither level nor part of speech`);
+
 console.log(failed === 0
-  ? `JS grader: all checks passed (${DATA.grammar.length} items swept)`
-  : `JS grader: ${failed} FAILURE(S)`);
+  ? `JS parity: all checks passed (${DATA.grammar.length} grammar items, `
+    + `${drawn} distractors drawn, ${Math.round(100 * tight / drawn)}% from the tightest pool)`
+  : `JS parity: ${failed} FAILURE(S)`);
 process.exit(failed === 0 ? 0 : 1);

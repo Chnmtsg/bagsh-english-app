@@ -279,13 +279,51 @@ def cloze(word_entry: dict) -> str:
     return pattern.sub("_____", word_entry["example"], count=1)
 
 
+_LEVEL_RANK = {"A1": 0, "A2": 1, "B1": 2, "B2": 3, "C1": 4, "C2": 5}
+
+
+def distractor_tiers(word_entry: dict, others: list[dict]) -> list[list[dict]]:
+    """Candidate pools, best first. Sampling uniformly from the whole deck
+    makes the round free: a B2 noun offered against "white drink from cows"
+    and "this day" can be answered without knowing the word. Matching part of
+    speech and level forces the learner to actually read the glosses.
+
+    Five buckets are too thin to fill from level+pos alone (A1 verb has 3
+    cards), so this degrades one constraint at a time instead of failing."""
+    level, pos = word_entry.get("level"), word_entry.get("pos")
+
+    def near(w: dict) -> bool:
+        return abs(_LEVEL_RANK.get(w.get("level"), 9)
+                   - _LEVEL_RANK.get(level, 9)) <= 1
+
+    return [
+        [w for w in others if w.get("level") == level and w.get("pos") == pos],
+        [w for w in others if w.get("pos") == pos and near(w)],
+        [w for w in others if w.get("pos") == pos],
+        [w for w in others if w.get("level") == level],
+        others,
+    ]
+
+
 def meaning_options(word_entry: dict, k: int = 3,
                     rng: random.Random | None = None) -> list[str]:
-    """The right gloss plus k wrong glosses from other words, shuffled."""
+    """The right gloss plus k wrong ones, shuffled. Distractors come from the
+    same part of speech and level wherever the deck can supply them."""
     rng = rng or random.Random()
-    pool = [w["gloss_en"] for w in vocab_bank()
-            if w["word"] != word_entry["word"]]
-    options = rng.sample(pool, k) + [word_entry["gloss_en"]]
+    others = [w for w in vocab_bank() if w["word"] != word_entry["word"]]
+    chosen: list[str] = []
+    seen = {word_entry["gloss_en"]}
+    for tier in distractor_tiers(word_entry, others):
+        pool = [w["gloss_en"] for w in tier if w["gloss_en"] not in seen]
+        rng.shuffle(pool)
+        for gloss in pool:
+            if len(chosen) >= k:
+                break
+            chosen.append(gloss)
+            seen.add(gloss)
+        if len(chosen) >= k:
+            break
+    options = chosen[:k] + [word_entry["gloss_en"]]
     rng.shuffle(options)
     return options
 

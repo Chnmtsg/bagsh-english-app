@@ -818,6 +818,34 @@ function renderStudyList() {
   document.getElementById("home").addEventListener("click", renderVocabHome);
 }
 
+/* Distractors that share the target's part of speech and level where the deck
+ * allows — a port of distractor_tiers in src/quiz.py. Sampling the whole deck
+ * made the round free: a B2 noun against "white drink from cows" needs no
+ * knowledge of the word. Five (level, pos) buckets are too thin to fill on
+ * their own, so this drops one constraint at a time. */
+
+function meaningDistractors(w, k) {
+  const others = DATA.vocab.filter(x => x.word !== w.word);
+  const near = x => Math.abs(levelRank(x.level) - levelRank(w.level)) <= 1;
+  const tiers = [
+    others.filter(x => x.level === w.level && x.pos === w.pos),
+    others.filter(x => x.pos === w.pos && near(x)),
+    others.filter(x => x.pos === w.pos),
+    others.filter(x => x.level === w.level),
+    others,
+  ];
+  const chosen = [], seen = new Set([w.gloss_en]);
+  for (const tier of tiers) {
+    for (const cand of shuffle(tier.filter(x => !seen.has(x.gloss_en)))) {
+      if (chosen.length >= k) break;
+      chosen.push(cand);
+      seen.add(cand.gloss_en);
+    }
+    if (chosen.length >= k) break;
+  }
+  return chosen.slice(0, k);
+}
+
 function cloze(w) {
   return w.example.replace(new RegExp(w.word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"), "_____");
 }
@@ -870,9 +898,7 @@ function startVocab() {
             <button class="primary" id="learned">Got it — ask me ✓</button>
           </div>`;
         document.getElementById("learned").addEventListener("click", () => {
-          const wrong = shuffle(DATA.vocab.filter(x => x.word !== w.word))
-            .slice(0, 3);
-          const options = shuffle([...wrong, w]);
+          const options = shuffle([...meaningDistractors(w, 3), w]);
           view.innerHTML = `
             <div class="card">
               <h2>📚 Which meaning? <span class="pill">${i + 1}/${total}</span></h2>

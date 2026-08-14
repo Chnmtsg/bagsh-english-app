@@ -234,6 +234,44 @@ def test_every_word_is_complete_and_stress_marked():
             f"{w['word']}: example must contain the word (cloze depends on it)"
 
 
+def test_distractors_share_level_or_part_of_speech():
+    """A distractor from a different level AND a different word class is a
+    free point — the learner eliminates it without knowing the target."""
+    by_gloss = {w["gloss_en"]: w for w in vocab_bank()}
+    rng = random.Random(11)
+    for target in vocab_bank():
+        for _ in range(5):
+            options = meaning_options(target, rng=rng)
+            assert len(options) == 4 and len(set(options)) == 4, target["word"]
+            assert target["gloss_en"] in options, target["word"]
+            for gloss in options:
+                if gloss == target["gloss_en"]:
+                    continue
+                other = by_gloss[gloss]
+                assert (other["pos"] == target["pos"]
+                        or other["level"] == target["level"]), (
+                    f"{target['word']} ({target['level']} {target['pos']}) got "
+                    f"{other['word']} ({other['level']} {other['pos']})")
+
+
+def test_distractors_prefer_the_tightest_pool_available():
+    """When the deck has enough same-level, same-pos cards, all three
+    distractors must come from there — the fallback is for thin buckets."""
+    by_gloss = {w["gloss_en"]: w for w in vocab_bank()}
+    rich = [w for w in vocab_bank()
+            if len([x for x in vocab_bank()
+                    if x["level"] == w["level"] and x["pos"] == w["pos"]]) > 4]
+    assert rich, "expected some well-stocked buckets"
+    rng = random.Random(3)
+    for target in rich:
+        for gloss in meaning_options(target, rng=rng):
+            if gloss == target["gloss_en"]:
+                continue
+            other = by_gloss[gloss]
+            assert other["level"] == target["level"], target["word"]
+            assert other["pos"] == target["pos"], target["word"]
+
+
 def test_general_deck_is_a_level_ladder():
     # the basic app is for everyone: general words only, every level stocked.
     # Deliberately NOT equal counts — the deck used to hold exactly 30 per
