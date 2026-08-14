@@ -8,8 +8,11 @@
 const STORE_KEY = "bagsh_profile_v1";
 const SESSION_N = 5;
 const NEW_PER_SESSION = 3;
-const LEVELS = ["A1", "A2", "B1", "B2"];
-const LEVEL_MN = { A1: "Эхлэгч", A2: "Бага дунд", B1: "Дунд", B2: "Ахисан дунд" };
+const LEVELS = ["A1", "A2", "B1", "B2"];               // explanation language
+const VOCAB_LEVELS = ["A1", "A2", "B1", "B2", "C1+"];   // the word ladder
+const LEVEL_MN = { A1: "Эхлэгч", A2: "Бага дунд", B1: "Дунд", B2: "Ахисан дунд", "C1+": "Ахисан" };
+const CHECK_ROUND = 20;          // words per check-yourself round
+const LEVEL_DONE_PCT = 90;       // % of the level list known to unlock next
 
 const XP = { lesson: 10, quizCorrect: 4, quizAttempt: 1, vocabCorrect: 3, vocabAttempt: 1, talk: 5 };
 
@@ -38,6 +41,8 @@ function loadProfile() {
   const blank = {
     level: null, xp: 0, streakDays: 0, lastActive: null, badges: [],
     quizCorrect: 0, vocabCorrect: 0, lessonsDone: [], talkDone: [],
+    knownWords: {},      // word -> 1 (self-checked or card-mastered)
+    studyList: [],       // words the learner marked as unknown
     srs: { grammar: {}, vocab: {} },
   };
   try {
@@ -370,74 +375,81 @@ function startGrammar(topic) {
  * level unlocks. Lower-level words still return when the SRS says so. */
 
 function vocabLevel() {
-  if (!profile.vocabLevel) {
-    profile.vocabLevel = profile.level && LEVELS.includes(profile.level)
+  if (!profile.vocabLevel || !VOCAB_LEVELS.includes(profile.vocabLevel)) {
+    profile.vocabLevel = profile.level && VOCAB_LEVELS.includes(profile.level)
       ? profile.level : "A1";
     saveProfile();
   }
   return profile.vocabLevel;
 }
 
-function wordsOfLevel(l) { return DATA.vocab.filter(w => w.level === l); }
+function vocabRank(l) { return Math.max(0, VOCAB_LEVELS.indexOf(l)); }
+function cardsOfLevel(l) { return DATA.vocab.filter(w => w.level === l); }
+function listOfLevel(l) { return DATA.wordlist.levels[l] || []; }
 
-function isKnown(word) {
-  const rec = profile.srs.vocab[word];
-  return !!rec && rec.reps >= 2;
+function markKnown(word) {
+  if (!profile.knownWords[word]) profile.knownWords[word] = 1;
+  profile.studyList = profile.studyList.filter(w => w !== word);
 }
 
 function levelProgress(l) {
-  const words = wordsOfLevel(l);
-  return { known: words.filter(w => isKnown(w.word)).length, total: words.length };
+  const list = listOfLevel(l);
+  const known = list.filter(w => profile.knownWords[w]).length;
+  return { known, total: list.length, pct: list.length ? Math.round(100 * known / list.length) : 0 };
 }
 
 function renderVocabHome() {
   const current = vocabLevel();
-  const currentRank = levelRank(current);
-  const rows = LEVELS.map(l => {
+  const currentRank = vocabRank(current);
+  const rows = VOCAB_LEVELS.map(l => {
     const p = levelProgress(l);
-    const rank = levelRank(l);
+    const rank = vocabRank(l);
     const state = rank < currentRank ? "done" : rank === currentRank ? "now" : "locked";
     const icon = state === "done" ? "✓" : state === "now" ? "▶" : "🔒";
-    const bar = p.total ? Math.round(100 * p.known / p.total) : 0;
     return `<div class="row ${state === "locked" ? "locked-row" : ""}">
       <span class="st">${icon}</span>
       <span class="name"><b>${l}</b> — ${LEVEL_MN[l]}
-        <div class="bar"><div class="bar-fill" style="width:${bar}%"></div></div></span>
+        <div class="bar"><div class="bar-fill" style="width:${p.pct}%"></div></div></span>
       <span class="muted">${p.known}/${p.total}</span></div>`;
   }).join("");
 
   const p = levelProgress(current);
-  const complete = p.total > 0 && p.known === p.total;
-  const next = LEVELS[currentRank + 1];
+  const complete = p.pct >= LEVEL_DONE_PCT;
+  const next = VOCAB_LEVELS[currentRank + 1];
+  const hasCards = cardsOfLevel(current).length > 0;
 
-  let action;
+  let action = "";
   if (complete && next) {
     action = `<div class="feedback good">
-        <p>🎉 <b>Гоё! You know all ${p.total} words of ${current}!</b></p>
+        <p>🎉 <b>Гоё! You know ${p.known} of the ${p.total} ${current} words!</b></p>
         <p class="muted">Дараагийн түвшин нээгдлээ — the next level is open.</p>
       </div>
       <button class="primary" id="levelUp">Jump to ${next} →</button>`;
   } else if (complete) {
     action = `<div class="feedback good">
-        <p>🏆 <b>You know ALL the words in the app!</b></p>
-        <p class="muted">Reviews will keep them fresh — keep playing.</p>
-      </div>
-      <button class="primary" id="startSession">Review words</button>`;
-  } else {
-    action = `<button class="primary" id="startSession">
-        Learn ${current} words (${p.known}/${p.total} known)</button>`;
+        <p>🏆 <b>You have climbed the whole ladder — ${p.known} words at ${current}!</b></p>
+      </div>`;
   }
+  action += `
+    <button class="primary" id="checkBtn">✓✗ Check yourself — ${current} list</button>
+    ${hasCards ? `<button class="ghost" id="studyBtn">📖 Study cards with Mongolian (${cardsOfLevel(current).length})</button>` : ""}
+    ${profile.studyList.length ? `<button class="ghost" id="listBtn">📝 My study list (${profile.studyList.length})</button>` : ""}`;
 
   view.innerHTML = `
     <div class="card"><h2>📚 Word ladder — Үгийн шат</h2>
-      <p class="muted">Memorize the words of your level (a word is "known"
-      after you answer it correctly twice on different days). Know them all
-      — the next level opens.</p>
+      <p class="muted">Real level lists (${DATA.wordlist.levels["A1"].length + DATA.wordlist.levels["A2"].length + DATA.wordlist.levels["B1"].length} words to B1,
+      like the official Cambridge lists). Mark the words you know; study the
+      rest. Know ${LEVEL_DONE_PCT}% of your level — the next opens.</p>
       ${action}</div>
-    <div class="card">${rows}</div>`;
+    <div class="card">${rows}</div>
+    <p class="muted" style="padding:0 6px">Word list: CEFR-J-based dataset (MIT).
+    Cards with Mongolian glosses grow by curation.</p>`;
 
-  const startBtn = document.getElementById("startSession");
-  if (startBtn) startBtn.addEventListener("click", startVocab);
+  document.getElementById("checkBtn").addEventListener("click", startCheck);
+  const studyBtn = document.getElementById("studyBtn");
+  if (studyBtn) studyBtn.addEventListener("click", startVocab);
+  const listBtn = document.getElementById("listBtn");
+  if (listBtn) listBtn.addEventListener("click", renderStudyList);
   const upBtn = document.getElementById("levelUp");
   if (upBtn) upBtn.addEventListener("click", () => {
     profile.vocabLevel = next;
@@ -446,21 +458,97 @@ function renderVocabHome() {
   });
 }
 
+/* check-yourself: fast ✓/✗ through the level's official-size list */
+
+function startCheck() {
+  const current = vocabLevel();
+  const pending = listOfLevel(current).filter(
+    w => !profile.knownWords[w] && !profile.studyList.includes(w));
+  const round = pending.slice(0, CHECK_ROUND);
+  if (!round.length) {
+    renderStudyList();
+    return;
+  }
+  const cardByWord = Object.fromEntries(DATA.vocab.map(w => [w.word, w]));
+  let i = 0, knew = 0;
+
+  function step() {
+    if (i >= round.length) {
+      recordActivity(5);  // finishing a check round feeds the streak
+      view.innerHTML = `
+        <div class="card">
+          <h2>Round done — you knew ${knew}/${round.length}</h2>
+          <p class="muted">Unknown words went to your study list. Honest
+          answers make the ladder true — no one is watching. 🐫</p>
+          <button class="primary" id="more">Next 20 words</button>
+          <button class="ghost" id="home">Back to ladder</button>
+        </div>`;
+      document.getElementById("more").addEventListener("click", startCheck);
+      document.getElementById("home").addEventListener("click", renderVocabHome);
+      return;
+    }
+    const word = round[i];
+    const card = cardByWord[word];
+    view.innerHTML = `
+      <div class="card">
+        <h2>Do you know this word? <span class="pill">${i + 1}/${round.length}</span></h2>
+        <p class="q-wrong" style="font-size:26px"><b>${esc(word)}</b></p>
+        ${card ? `<p class="muted stress">${esc(card.stress)}</p>` : ""}
+        <button class="primary" id="know">✓ I know it — Мэднэ</button>
+        <button class="ghost" id="dont">✗ I don't know — Мэдэхгүй</button>
+      </div>`;
+    document.getElementById("know").addEventListener("click", () => {
+      markKnown(word); knew += 1; i += 1; saveProfile(); step();
+    });
+    document.getElementById("dont").addEventListener("click", () => {
+      if (!profile.studyList.includes(word)) profile.studyList.push(word);
+      i += 1; saveProfile(); step();
+    });
+  }
+  step();
+}
+
+function renderStudyList() {
+  const cardByWord = Object.fromEntries(DATA.vocab.map(w => [w.word, w]));
+  const items = profile.studyList.map(w => {
+    const card = cardByWord[w];
+    return `<div class="row"><span class="name"><b>${esc(w)}</b>
+      ${card ? `<br><span class="muted">${esc(card.stress)} — ${esc(card.gloss_en)} (${esc(card.gloss_mn)})</span>`
+             : `<br><span class="muted">толь бичгээс хараарай — look it up, then mark it known</span>`}
+      </span>
+      <button class="ghost known-btn" data-w="${esc(w)}">✓ know it now</button></div>`;
+  }).join("");
+  view.innerHTML = `
+    <div class="card"><h2>📝 My study list — Сурах үгс</h2>
+      <p class="muted">Words you marked as unknown. The ones with Mongolian
+      come from the card deck; study the rest with a dictionary, then mark
+      them known.</p></div>
+    <div class="card">${items || "<p class='muted'>Empty — сайхан байна!</p>"}</div>
+    <button class="ghost" id="home" style="margin:0 6px">← Back to ladder</button>`;
+  view.querySelectorAll(".known-btn").forEach(b =>
+    b.addEventListener("click", () => {
+      markKnown(b.dataset.w); saveProfile(); renderStudyList();
+    }));
+  document.getElementById("home").addEventListener("click", renderVocabHome);
+}
+
 function cloze(w) {
   return w.example.replace(new RegExp(w.word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"), "_____");
 }
 
 function startVocab() {
   const current = vocabLevel();
-  const currentRank = levelRank(current);
-  // due reviews from lower levels come along; new words only from the
-  // current level of the ladder
+  const currentRank = vocabRank(current);
+  // due reviews from lower levels come along; new cards only from the
+  // current level, study-list words first
   const t = today();
   const lowerDue = DATA.vocab
-    .filter(w => levelRank(w.level) < currentRank)
+    .filter(w => vocabRank(w.level) < currentRank)
     .filter(w => profile.srs.vocab[w.word] && profile.srs.vocab[w.word].due <= t)
     .map(w => w.word);
-  const ids = [...lowerDue, ...wordsOfLevel(current).map(w => w.word)];
+  const levelCards = cardsOfLevel(current).map(w => w.word)
+    .sort((a, b) => profile.studyList.includes(b) - profile.studyList.includes(a));
+  const ids = [...lowerDue, ...levelCards];
   const byWord = Object.fromEntries(DATA.vocab.map(w => [w.word, w]));
   const session = srsPick(profile.srs.vocab, ids, SESSION_N);
   runRounds(session, 0, 0, [], {
@@ -470,6 +558,7 @@ function startVocab() {
       const rec = profile.srs.vocab[id];
       const finish = ok => {
         srsReview(profile.srs.vocab, id, ok);
+        if (profile.srs.vocab[id].reps >= 2) markKnown(id);  // card mastery counts on the ladder
         recordActivity(ok ? XP.vocabCorrect : XP.vocabAttempt, ok ? "vocabCorrect" : null);
         document.getElementById("fb").innerHTML = `
           <div class="feedback ${ok ? "good" : "bad"}">
@@ -575,8 +664,8 @@ function renderStats() {
         <button class="ghost" id="lvlBtn" style="margin-left:8px;padding:4px 12px">Change</button></p>
       <p>⭐ <b>${profile.xp}</b> XP &nbsp; 🔥 <b>${profile.streakDays}</b>-day streak</p>
       <p class="muted">Grammar correct: ${profile.quizCorrect} ·
-        Words correct: ${profile.vocabCorrect} ·
-        Word ladder: ${vocabLevel()} ·
+        Words known: ${Object.keys(profile.knownWords).length} ·
+        Word ladder: ${vocabLevel()} (${levelProgress(vocabLevel()).pct}%) ·
         Lessons: ${profile.lessonsDone.length}/24 ·
         Talks: ${profile.talkDone.length}/${DATA.dialogues.length}</p>
       <div class="badge-grid">${grid}</div>

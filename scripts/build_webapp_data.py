@@ -16,6 +16,8 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO))
 
+WORDLIST = REPO / "knowledge" / "cefr_wordlist.json"
+
 from src.curriculum import category_examples, curriculum_order  # noqa: E402
 from src.knowledge import categories, load_conversations, load_grammar_lessons  # noqa: E402
 from src.quiz import grammar_bank, vocab_bank  # noqa: E402
@@ -43,6 +45,7 @@ def main() -> int:
         "grammar": grammar_bank(),
         "vocab": vocab_bank(),
         "dialogues": load_conversations(),
+        "wordlist": json.loads(WORDLIST.read_text(encoding="utf-8")),
     }
     out = REPO / "webapp" / "data.json"
     out.parent.mkdir(exist_ok=True)
