@@ -2,6 +2,7 @@
 
     python -m src.play grammar   # fix-the-sentence game (all 24 systems)
     python -m src.play vocab     # word trainer (meaning + spelling rounds)
+    python -m src.play talk      # conversation drills (say the missing chunk)
     python -m src.play stats     # XP, streak, badges
     options: --n 5  --learner ID
 
@@ -24,6 +25,7 @@ from .quiz import (
     cloze,
     grammar_items_for,
     meaning_options,
+    talk_bank,
     vocab_items_for,
 )
 from .state import LearnerProfile
@@ -91,6 +93,51 @@ def play_grammar(profile: LearnerProfile, n: int) -> None:
     _finish(profile, correct, len(session), new_badges)
 
 
+def play_talk(profile: LearnerProfile, n: int) -> None:
+    """Conversation drills (ADR-0006): say the missing chunk, or pick the
+    natural reply — one attempt each, scheduled by the same SRS."""
+    rng = random.Random()
+    items = {i["id"]: i for i in talk_bank()}
+    store = srs.load_store(profile["learner_id"], "talk")
+    session = srs.pick_session(store, list(items.keys()), n)
+    print(f"🗣️  Everyday talk ({len(session)} rounds)\n")
+
+    correct, new_badges = 0, []
+    for round_no, item_id in enumerate(session, 1):
+        item = items[item_id]
+        print(f"{round_no}. {item['situation']}")
+        if item["kind"] == "cloze":
+            print(f"   🇲🇳 {item['cue_mn']}")
+            print(f"   {item['prompt']}")
+            answer = _ask("   ✏️  ")
+            ok = check_answer(answer, item["answer"], None, True)
+            if not ok:
+                print(f"   ✅ {item['answer']}")
+            if item["note"]:
+                print(f"   💡 {item['note']}")
+        else:
+            options = list(item["options"])
+            rng.shuffle(options)
+            for n_opt, option in enumerate(options, 1):
+                print(f"   {n_opt}) {option['text']}")
+            raw = _ask("   Your choice: ")
+            chosen = options[int(raw) - 1] if raw.isdigit() and 1 <= int(raw) <= len(options) else None
+            ok = bool(chosen and chosen.get("correct"))
+            if chosen:
+                print(f"   💡 {chosen['why']}")
+            if not ok:
+                best = next(o for o in item["options"] if o.get("correct"))
+                print(f"   ✅ {best['text']}")
+        print(f"   {rng.choice(_RIGHT) if ok else rng.choice(_WRONG)}\n")
+        correct += 1 if ok else 0
+        srs.review(store, item_id, ok)
+        new_badges += record_activity(profile, XP["quiz_correct"] if ok
+                                      else XP["quiz_attempt"])
+
+    srs.save_store(profile["learner_id"], "talk", store)
+    _finish(profile, correct, len(session), new_badges)
+
+
 def play_vocab(profile: LearnerProfile, n: int) -> None:
     rng = random.Random()
     items = {w["word"]: w for w in vocab_items_for(profile)}
@@ -148,7 +195,7 @@ def main() -> None:
     from .nodes.memory import load_profile
 
     parser = argparse.ArgumentParser(description="Bagsh study games")
-    parser.add_argument("mode", choices=["grammar", "vocab", "stats"])
+    parser.add_argument("mode", choices=["grammar", "vocab", "talk", "stats"])
     parser.add_argument("--n", type=int, default=5, help="questions per session")
     parser.add_argument("--learner", default="default")
     args = parser.parse_args()
@@ -158,6 +205,8 @@ def main() -> None:
         play_grammar(profile, args.n)
     elif args.mode == "vocab":
         play_vocab(profile, args.n)
+    elif args.mode == "talk":
+        play_talk(profile, args.n)
     else:
         show_stats(profile)
 

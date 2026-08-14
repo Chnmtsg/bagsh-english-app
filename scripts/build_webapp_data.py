@@ -26,7 +26,12 @@ from src.knowledge import (  # noqa: E402
     load_conversations,
     load_grammar_lessons,
 )
-from src.quiz import CONTRACTIONS, grammar_bank, vocab_bank  # noqa: E402
+from src.quiz import (  # noqa: E402
+    CONTRACTIONS,
+    grammar_bank,
+    talk_bank,
+    vocab_bank,
+)
 
 
 def main() -> int:
@@ -72,6 +77,7 @@ def main() -> int:
         "advanced": load_advanced_grammar(),
         "vocab": vocab_bank(),
         "dialogues": load_conversations(),
+        "talk": talk_bank(),
         "wordlist": json.loads(WORDLIST.read_text(encoding="utf-8")),
     }
     out = REPO / "webapp" / "data.json"

@@ -6167,6 +6167,1069 @@
    }
   }
  ],
+ "talk": [
+  {
+   "id": "tk_greetings_0",
+   "dialogue": "greetings",
+   "level": "A1",
+   "kind": "cloze",
+   "situation": "Two colleagues meet in the morning.",
+   "cue_mn": "Өглөөний мэнд, Болд оо! Сайн уу?",
+   "prompt": "Morning, Bold! _____",
+   "answer": "How are you?",
+   "note": "Answer is short: 'Good, thanks. And you?' — nobody gives a real report."
+  },
+  {
+   "id": "tk_greetings_1",
+   "dialogue": "greetings",
+   "level": "A1",
+   "kind": "cloze",
+   "situation": "Two colleagues meet in the morning.",
+   "cue_mn": "Гайгүй ээ. Өнөөдөр завгүй юу?",
+   "prompt": "_____. Busy day today?",
+   "answer": "Not bad",
+   "note": "= сайн байна. Very common, friendly."
+  },
+  {
+   "id": "tk_greetings_2",
+   "dialogue": "greetings",
+   "level": "A1",
+   "kind": "cloze",
+   "situation": "Two colleagues meet in the morning.",
+   "cue_mn": "Уулзъя!",
+   "prompt": "_____",
+   "answer": "See you!",
+   "note": "Casual goodbye between people who meet often."
+  },
+  {
+   "id": "tk_greetings_reply",
+   "dialogue": "greetings",
+   "level": "A1",
+   "kind": "reply",
+   "situation": "A colleague says: 'Morning! How are you?' — best reply?",
+   "options": [
+    {
+     "text": "Good, thanks. And you?",
+     "correct": true,
+     "why": "Short + return the question — that is the whole game."
+    },
+    {
+     "text": "I am fine thank you and how are you my friend today.",
+     "correct": false,
+     "why": "Too long and formal — textbook English, not real life."
+    },
+    {
+     "text": "Yes.",
+     "correct": false,
+     "why": "'How are you?' needs a feeling word, not yes/no."
+    }
+   ]
+  },
+  {
+   "id": "tk_introductions_0",
+   "dialogue": "introductions",
+   "level": "A1",
+   "kind": "cloze",
+   "situation": "First day with a new team member.",
+   "cue_mn": "Сайн уу Сара, би Болд. Санхүүгийн багийн нягтлан.",
+   "prompt": "Hi Sarah, I'm Bold. _____ in the finance team.",
+   "answer": "I'm an accountant",
+   "note": "am + an — the two words Mongolian drops. Never 'I accountant'."
+  },
+  {
+   "id": "tk_introductions_1",
+   "dialogue": "introductions",
+   "level": "A1",
+   "kind": "cloze",
+   "situation": "First day with a new team member.",
+   "cue_mn": "Гурван жил орчим. Та? Ямар ажил хийдэг вэ?",
+   "prompt": "About three years. And you? _____",
+   "answer": "What do you do?",
+   "note": "= Ямар ажил хийдэг вэ? (NOT 'What is your job?' — this is the natural version)"
+  },
+  {
+   "id": "tk_introductions_2",
+   "dialogue": "introductions",
+   "level": "A1",
+   "kind": "cloze",
+   "situation": "First day with a new team member.",
+   "cue_mn": "Танилцахад таатай байна, Болд. Энд ажиллаад удаж байна уу?",
+   "prompt": "_____, Bold. How long have you been here?",
+   "answer": "Nice to meet you",
+   "note": "Say it once, at the first meeting only."
+  },
+  {
+   "id": "tk_introductions_reply",
+   "dialogue": "introductions",
+   "level": "A1",
+   "kind": "reply",
+   "situation": "Someone asks: 'What do you do?' — best reply?",
+   "options": [
+    {
+     "text": "I'm an accountant. I work in finance.",
+     "correct": true,
+     "why": "Job + one detail. Perfect shape."
+    },
+    {
+     "text": "I am accountant.",
+     "correct": false,
+     "why": "Missing 'an' — job words need an article."
+    },
+    {
+     "text": "I do many things.",
+     "correct": false,
+     "why": "'Things' says nothing — name the real job."
+    }
+   ]
+  },
+  {
+   "id": "tk_shop_0",
+   "dialogue": "shop",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "Buying water and asking the price.",
+   "cue_mn": "Уучлаарай, хийжүүлсэн ус байгаа юу?",
+   "prompt": "_____, do you have sparkling water?",
+   "answer": "Excuse me",
+   "note": "Opens ANY question to a stranger. Never start with the bare question."
+  },
+  {
+   "id": "tk_shop_1",
+   "dialogue": "shop",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "Buying water and asking the price.",
+   "cue_mn": "Баярлалаа. Энэ ямар үнэтэй вэ?",
+   "prompt": "Thanks. _____ one?",
+   "answer": "How much is this",
+   "note": "= Энэ ямар үнэтэй вэ?"
+  },
+  {
+   "id": "tk_shop_2",
+   "dialogue": "shop",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "Buying water and asking the price.",
+   "cue_mn": "Хоёрыг авъя. Картаар төлж болох уу?",
+   "prompt": "_____, please. Can I pay by card?",
+   "answer": "I'll take two",
+   "note": "'I'll take…' is the natural buying phrase — not 'I want two'."
+  },
+  {
+   "id": "tk_shop_reply",
+   "dialogue": "shop",
+   "level": "A2",
+   "kind": "reply",
+   "situation": "You want to know the price. Best question?",
+   "options": [
+    {
+     "text": "Excuse me, how much is this?",
+     "correct": true,
+     "why": "Excuse me + the set phrase."
+    },
+    {
+     "text": "What is the money of this?",
+     "correct": false,
+     "why": "Word-for-word translation — this phrase doesn't exist."
+    },
+    {
+     "text": "Give me the price.",
+     "correct": false,
+     "why": "A bare command sounds rude in English (politeness lives in the phrasing)."
+    }
+   ]
+  },
+  {
+   "id": "tk_directions_0",
+   "dialogue": "directions",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "Finding a pharmacy in an unfamiliar part of town.",
+   "cue_mn": "Уучлаарай, энд ойрхон эмийн сан байгаа юу?",
+   "prompt": "Excuse me, _____ pharmacy near here?",
+   "answer": "is there a",
+   "note": "THERE IS = байна. The question form for finding anything."
+  },
+  {
+   "id": "tk_directions_1",
+   "dialogue": "directions",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "Finding a pharmacy in an unfamiliar part of town.",
+   "cue_mn": "Байгаа — чигээрээ яваад, банкан дээр зүүн тийш эргэ.",
+   "prompt": "Yes — go straight, then _____ at the bank.",
+   "answer": "turn left",
+   "note": "зүүн / баруун тийш эргэх"
+  },
+  {
+   "id": "tk_directions_2",
+   "dialogue": "directions",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "Finding a pharmacy in an unfamiliar part of town.",
+   "cue_mn": "Үгүй, явганаар таван минут орчим. Баруун гар талд, кафений хажууд.",
+   "prompt": "No, about five minutes on foot. It's _____, next to a café.",
+   "answer": "on your right",
+   "note": "ON for sides: on the right, on the left."
+  },
+  {
+   "id": "tk_directions_reply",
+   "dialogue": "directions",
+   "level": "A2",
+   "kind": "reply",
+   "situation": "You repeat the directions to check you understood. Best way?",
+   "options": [
+    {
+     "text": "So — straight, then left at the bank?",
+     "correct": true,
+     "why": "Repeating back short is exactly what natives do to confirm."
+    },
+    {
+     "text": "I understood everything perfectly.",
+     "correct": false,
+     "why": "Saying you understood ≠ checking you understood."
+    },
+    {
+     "text": "Again.",
+     "correct": false,
+     "why": "One-word commands sound rude — use 'Sorry, could you say that again?'"
+    }
+   ]
+  },
+  {
+   "id": "tk_phone_repeat_0",
+   "dialogue": "phone_repeat",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "A bad line. THE most important skill for real conversations.",
+   "cue_mn": "Уучлаарай, дахин хэлж өгөхгүй юу? Холбоо муу байна.",
+   "prompt": "_____ The line is bad.",
+   "answer": "Sorry, could you say that again?",
+   "note": "Use it PROUDLY. Native speakers say it constantly too."
+  },
+  {
+   "id": "tk_phone_repeat_1",
+   "dialogue": "phone_repeat",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "A bad line. THE most important skill for real conversations.",
+   "cue_mn": "Пүрэв, ойлголоо. Жаахан удаан ярьж болох уу? Англи хэл миний хоёр дахь хэл.",
+   "prompt": "Thursday, got it. _____, please? English is my second language.",
+   "answer": "Could you speak a little slower",
+   "note": "Nobody minds. It shows confidence, not weakness."
+  },
+  {
+   "id": "tk_phone_repeat_2",
+   "dialogue": "phone_repeat",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "A bad line. THE most important skill for real conversations.",
+   "cue_mn": "Пүрэв, ойлголоо. Жаахан удаан ярьж болох уу? Англи хэл миний хоёр дахь хэл.",
+   "prompt": "Thursday, _____. Could you speak a little slower, please? English is my second language.",
+   "answer": "got it",
+   "note": "= ойлголоо. Confirms you understood."
+  },
+  {
+   "id": "tk_phone_repeat_reply",
+   "dialogue": "phone_repeat",
+   "level": "A2",
+   "kind": "reply",
+   "situation": "You didn't understand. Best response?",
+   "options": [
+    {
+     "text": "Sorry, could you say that again?",
+     "correct": true,
+     "why": "The single most useful sentence in spoken English."
+    },
+    {
+     "text": "(Say nothing and hope)",
+     "correct": false,
+     "why": "Guessing builds wrong information — asking builds trust."
+    },
+    {
+     "text": "What?!",
+     "correct": false,
+     "why": "'What?' alone sounds annoyed. Add sorry + could you."
+    }
+   ]
+  },
+  {
+   "id": "tk_making_plans_0",
+   "dialogue": "making_plans",
+   "level": "B1",
+   "kind": "cloze",
+   "situation": "Arranging to meet at the weekend.",
+   "cue_mn": "Хөөе, бямбад завтай юу?",
+   "prompt": "Hey, _____",
+   "answer": "are you free on Saturday?",
+   "note": "free = завтай. ON + day."
+  },
+  {
+   "id": "tk_making_plans_1",
+   "dialogue": "making_plans",
+   "level": "B1",
+   "kind": "cloze",
+   "situation": "Arranging to meet at the weekend.",
+   "cue_mn": "Нэг цагт ямар вэ? Дараа нь алхаж болно.",
+   "prompt": "_____ We could walk after.",
+   "answer": "How about one o'clock?",
+   "note": "'How about…?' — the softest way to suggest anything."
+  },
+  {
+   "id": "tk_making_plans_2",
+   "dialogue": "making_plans",
+   "level": "B1",
+   "kind": "cloze",
+   "situation": "Arranging to meet at the weekend.",
+   "cue_mn": "Болно. Ямар нэг зүйл гарвал мессеж бичье.",
+   "prompt": "Perfect. _____, I'll text you.",
+   "answer": "If something comes up",
+   "note": "= Ямар нэг зүйл гарвал… ('comes up', present — no 'will' after if!)"
+  },
+  {
+   "id": "tk_making_plans_reply",
+   "dialogue": "making_plans",
+   "level": "B1",
+   "kind": "reply",
+   "situation": "You want to suggest 2 pm. Best way?",
+   "options": [
+    {
+     "text": "How about two o'clock?",
+     "correct": true,
+     "why": "Soft suggestion — leaves room for the other person."
+    },
+    {
+     "text": "We will meet at two o'clock.",
+     "correct": false,
+     "why": "A decision, not a suggestion — sounds like an order."
+    },
+    {
+     "text": "If you will be free at two, we meet.",
+     "correct": false,
+     "why": "No 'will' after 'if': if you're free at two…"
+    }
+   ]
+  },
+  {
+   "id": "tk_work_meeting_0",
+   "dialogue": "work_meeting",
+   "level": "B1",
+   "kind": "cloze",
+   "situation": "A short project meeting; you need to update and disagree politely.",
+   "cue_mn": "Бүтэхгүй байж магадгүй — тоог шалгаж амжаагүй байж мэднэ. Аюулгүй талаас нь лхагва гэж тохирох уу?",
+   "prompt": "_____ — the numbers may not be checked. Could we say Wednesday to be safe?",
+   "answer": "I'm not sure that works, actually",
+   "note": "How natives say NO politely — never a bare 'No, impossible'."
+  },
+  {
+   "id": "tk_work_meeting_1",
+   "dialogue": "work_meeting",
+   "level": "B1",
+   "kind": "cloze",
+   "situation": "A short project meeting; you need to update and disagree politely.",
+   "cue_mn": "Бүтэхгүй байж магадгүй — тоог шалгаж амжаагүй байж мэднэ. Аюулгүй талаас нь лхагва гэж тохирох уу?",
+   "prompt": "I'm not sure that works, actually — the numbers may not be checked. _____ to be safe?",
+   "answer": "Could we say Wednesday",
+   "note": "Suggesting a change as a question keeps everyone comfortable."
+  },
+  {
+   "id": "tk_work_meeting_2",
+   "dialogue": "work_meeting",
+   "level": "B1",
+   "kind": "cloze",
+   "situation": "A short project meeting; you need to update and disagree politely.",
+   "cue_mn": "Зөв санал. Лхагва болгоё.",
+   "prompt": "_____. Wednesday it is.",
+   "answer": "Fair point",
+   "note": "= Зөв юм байна. Accepting someone's argument gracefully."
+  },
+  {
+   "id": "tk_work_meeting_reply",
+   "dialogue": "work_meeting",
+   "level": "B1",
+   "kind": "reply",
+   "situation": "You disagree with a date. Best way to say it?",
+   "options": [
+    {
+     "text": "I'm not sure that works — could we say Wednesday?",
+     "correct": true,
+     "why": "Soft no + alternative = professional disagreement."
+    },
+    {
+     "text": "No. That is wrong.",
+     "correct": false,
+     "why": "Bare 'no' burns goodwill — English wraps disagreement in softeners."
+    },
+    {
+     "text": "(Stay silent and worry)",
+     "correct": false,
+     "why": "Silence = agreement in meetings. Speak, softly."
+    }
+   ]
+  },
+  {
+   "id": "tk_family_0",
+   "dialogue": "family",
+   "level": "A1",
+   "kind": "cloze",
+   "situation": "A new friend asks about your family.",
+   "cue_mn": "Танд ах дүү бий юу?",
+   "prompt": "_____ brothers or sisters?",
+   "answer": "Do you have",
+   "note": "The A1 question machine: Do you have brothers? Do you have time?"
+  },
+  {
+   "id": "tk_family_1",
+   "dialogue": "family",
+   "level": "A1",
+   "kind": "cloze",
+   "situation": "A new friend asks about your family.",
+   "cue_mn": "Ганц эгчтэй. Тэр Дарханд амьдардаг.",
+   "prompt": "Just one sister. _____ Darkhan.",
+   "answer": "She lives in",
+   "note": "he/she + livES — the -s that Mongolian never asks for."
+  },
+  {
+   "id": "tk_family_2",
+   "dialogue": "family",
+   "level": "A1",
+   "kind": "cloze",
+   "situation": "A new friend asks about your family.",
+   "cue_mn": "Тийм, нэг ах, хоёр эгч дүү. Та?",
+   "prompt": "Yes, one brother and two sisters. _____",
+   "answer": "And you?",
+   "note": "Two words that keep every conversation alive."
+  },
+  {
+   "id": "tk_family_reply",
+   "dialogue": "family",
+   "level": "A1",
+   "kind": "reply",
+   "situation": "Someone asks: 'Do you have brothers or sisters?' Best reply?",
+   "options": [
+    {
+     "text": "Yes, one brother. And you?",
+     "correct": true,
+     "why": "Answer + return the question — conversation is ping-pong."
+    },
+    {
+     "text": "Yes.",
+     "correct": false,
+     "why": "One word ends the game. Add a detail and 'And you?'"
+    },
+    {
+     "text": "My family is a difficult and long story from history.",
+     "correct": false,
+     "why": "Too much for small talk — keep A1 answers light."
+    }
+   ]
+  },
+  {
+   "id": "tk_doctor_0",
+   "dialogue": "doctor",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "Describing a simple illness.",
+   "cue_mn": "Хоолой өвдөж, толгой өвдөж байна. Хоёр хоногийн өмнө эхэлсэн.",
+   "prompt": "_____ and a headache. It started two days ago.",
+   "answer": "I have a sore throat",
+   "note": "Illness = I HAVE + a + body problem. Never 'my throat is pain'."
+  },
+  {
+   "id": "tk_doctor_1",
+   "dialogue": "doctor",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "Describing a simple illness.",
+   "cue_mn": "Хоолой өвдөж, толгой өвдөж байна. Хоёр хоногийн өмнө эхэлсэн.",
+   "prompt": "I have a sore throat and a headache. _____.",
+   "answer": "It started two days ago",
+   "note": "ago = өмнө; the past-simple marker doctors always ask for."
+  },
+  {
+   "id": "tk_doctor_2",
+   "dialogue": "doctor",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "Describing a simple illness.",
+   "cue_mn": "Ханиад шиг байна. Амарч, бүлээн юм ууж, үүнийг өдөрт хоёр удаа ууна уу.",
+   "prompt": "It looks like a cold. Rest, warm drinks, and take this _____.",
+   "answer": "twice a day",
+   "note": "once / twice / three times a day — өдөрт нэг/хоёр/гурван удаа."
+  },
+  {
+   "id": "tk_doctor_reply",
+   "dialogue": "doctor",
+   "level": "A2",
+   "kind": "reply",
+   "situation": "The doctor asks what's wrong. Best answer?",
+   "options": [
+    {
+     "text": "I have a headache. It started yesterday.",
+     "correct": true,
+     "why": "Symptom + when it started — exactly what a doctor needs."
+    },
+    {
+     "text": "My head is pain.",
+     "correct": false,
+     "why": "'Pain' is a noun: I have a pain / my head hurts / I have a headache."
+    },
+    {
+     "text": "I am sick of everything.",
+     "correct": false,
+     "why": "'Sick of' means annoyed, not ill! Say 'I feel sick.'"
+    }
+   ]
+  },
+  {
+   "id": "tk_taxi_0",
+   "dialogue": "taxi",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "Getting across town with a talkative driver.",
+   "cue_mn": "Төв номын сан руу. Хэр удах вэ?",
+   "prompt": "The central library, please. _____",
+   "answer": "How long will it take?",
+   "note": "TAKE = хугацаа зарцуулах: It takes 20 minutes."
+  },
+  {
+   "id": "tk_taxi_1",
+   "dialogue": "taxi",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "Getting across town with a talkative driver.",
+   "cue_mn": "Зүгээр. Гол хаалган дээр буулгаж өгөхгүй юу?",
+   "prompt": "No problem. _____ the main entrance?",
+   "answer": "Could you drop me at",
+   "note": "drop me at = буулгаж өгөх. Polite request shape again."
+  },
+  {
+   "id": "tk_taxi_2",
+   "dialogue": "taxi",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "Getting across town with a talkative driver.",
+   "cue_mn": "Тэгье. Ирлээ — найман мянга болно.",
+   "prompt": "Sure. Here we are — _____.",
+   "answer": "that'll be eight thousand",
+   "note": "How sellers say the price — 'that will be…'"
+  },
+  {
+   "id": "tk_taxi_reply",
+   "dialogue": "taxi",
+   "level": "A2",
+   "kind": "reply",
+   "situation": "You want to know the journey time. Best question?",
+   "options": [
+    {
+     "text": "How long will it take?",
+     "correct": true,
+     "why": "The fixed phrase with TAKE for time."
+    },
+    {
+     "text": "How many time we go?",
+     "correct": false,
+     "why": "Time here is uncountable, and the verb is TAKE: how long will it take?"
+    },
+    {
+     "text": "When we are there?",
+     "correct": false,
+     "why": "Needs do-support and 'arrive': When do we arrive?"
+    }
+   ]
+  },
+  {
+   "id": "tk_complaint_0",
+   "dialogue": "complaint",
+   "level": "B1",
+   "kind": "cloze",
+   "situation": "Your order arrived wrong. Getting it fixed without a fight.",
+   "cue_mn": "Уучлаарай, миний захиалгад асуудал гарсан бололтой.",
+   "prompt": "Excuse me, _____ with my order.",
+   "answer": "I'm afraid there's a problem",
+   "note": "'I'm afraid' = complaint airbag. It softens whatever follows."
+  },
+  {
+   "id": "tk_complaint_2",
+   "dialogue": "complaint",
+   "level": "B1",
+   "kind": "cloze",
+   "situation": "Your order arrived wrong. Getting it fixed without a fight.",
+   "cue_mn": "Баярлалаа, талархаж байна.",
+   "prompt": "Thanks, _____.",
+   "answer": "I appreciate it",
+   "note": "Warmer than 'thanks' — perfect after someone fixes a mistake."
+  },
+  {
+   "id": "tk_complaint_reply",
+   "dialogue": "complaint",
+   "level": "B1",
+   "kind": "reply",
+   "situation": "Your soup is wrong. Open the complaint how?",
+   "options": [
+    {
+     "text": "Excuse me, I'm afraid there's a problem with my order.",
+     "correct": true,
+     "why": "Soft opener → cooperative waiter. English complaints start apologetically."
+    },
+    {
+     "text": "This is wrong food! Change it!",
+     "correct": false,
+     "why": "Wins the argument, loses the room. Bare commands read as aggression."
+    },
+    {
+     "text": "(Eat it silently and never return)",
+     "correct": false,
+     "why": "The most common learner choice — and the only truly wrong one."
+    }
+   ]
+  },
+  {
+   "id": "tk_hobbies_0",
+   "dialogue": "hobbies",
+   "level": "B1",
+   "kind": "cloze",
+   "situation": "Small talk that builds friendships.",
+   "cue_mn": "Амралтын өдрөөр юу хийв?",
+   "prompt": "_____",
+   "answer": "Did you get up to anything at the weekend?",
+   "note": "How natives really ask — not 'What did you do?'"
+  },
+  {
+   "id": "tk_hobbies_1",
+   "dialogue": "hobbies",
+   "level": "B1",
+   "kind": "cloze",
+   "situation": "Small talk that builds friendships.",
+   "cue_mn": "Дуртайяа. Гадаа илүү их гарах гэж бодож л явдаг юм.",
+   "prompt": "I'd love to. _____ get outdoors more.",
+   "answer": "I've been meaning to",
+   "note": "= …хийе гэж бодож явдаг. Perfect continuous for a long intention."
+  },
+  {
+   "id": "tk_hobbies_2",
+   "dialogue": "hobbies",
+   "level": "B1",
+   "kind": "cloze",
+   "situation": "Small talk that builds friendships.",
+   "cue_mn": "Голын ойролцоо, нэг цаг орчим зайтай. Дараагийн удаад та ирээрэй.",
+   "prompt": "Near the river, about an hour out. _____ next time.",
+   "answer": "You should come along",
+   "note": "The friendly invitation — 'come along' = хамт ирэх."
+  },
+  {
+   "id": "tk_hobbies_reply",
+   "dialogue": "hobbies",
+   "level": "B1",
+   "kind": "reply",
+   "situation": "Someone invites you hiking and you want to go. Best reply?",
+   "options": [
+    {
+     "text": "I'd love to. When were you thinking?",
+     "correct": true,
+     "why": "Enthusiasm + a practical question — the accepting formula."
+    },
+    {
+     "text": "Yes. I will come.",
+     "correct": false,
+     "why": "Grammatical but flat — 'I'd love to' carries the warmth."
+    },
+    {
+     "text": "Maybe, if I am not busy or tired or something.",
+     "correct": false,
+     "why": "Three escape doors in one sentence reads as 'no'."
+    }
+   ]
+  },
+  {
+   "id": "tk_opinion_0",
+   "dialogue": "opinion",
+   "level": "C1",
+   "kind": "cloze",
+   "situation": "Disagreeing with the room — and being thanked for it.",
+   "cue_mn": "Ерөнхийдөө тийм — гэхдээ нэг зүйл дээр эсэргүүцэл хэлье, зөвшөөрвөл.",
+   "prompt": "Broadly, yes — though _____, if I may.",
+   "answer": "I'd push back on one point",
+   "note": "C1 disagreement: technical, impersonal, no 'you are wrong'."
+  },
+  {
+   "id": "tk_opinion_1",
+   "dialogue": "opinion",
+   "level": "C1",
+   "kind": "cloze",
+   "situation": "Disagreeing with the room — and being thanked for it.",
+   "cue_mn": "Миний харж байгаагаар тестийн хугацаа өөдрөг харагдаж байна. Мэдэгдэж буй алдаатай нээснээс хоёр долоо хоног хойшлуулсан нь дээр.",
+   "prompt": "_____, the testing window looks optimistic. I'd sooner slip two weeks than launch with known bugs.",
+   "answer": "From where I stand",
+   "note": "Frames opinion as perspective — leaves room for other views."
+  },
+  {
+   "id": "tk_opinion_reply",
+   "dialogue": "opinion",
+   "level": "C1",
+   "kind": "reply",
+   "situation": "The room agrees; you don't. Open with?",
+   "options": [
+    {
+     "text": "Broadly yes — though I'd push back on one point, if I may.",
+     "correct": true,
+     "why": "Agree first, then one precise challenge — dissent that gets heard."
+    },
+    {
+     "text": "Everyone here is wrong.",
+     "correct": false,
+     "why": "Even if true, the room stops listening at word three."
+    },
+    {
+     "text": "(Agree aloud, complain later)",
+     "correct": false,
+     "why": "The meeting is where opinions count — corridors change nothing."
+    }
+   ]
+  },
+  {
+   "id": "tk_presentation_0",
+   "dialogue": "presentation",
+   "level": "C1",
+   "kind": "cloze",
+   "situation": "The Q&A — where presentations are won or lost (guide §II).",
+   "cue_mn": "…ингээд төгсгөлд хүрлээ. Асуултаа асууна уу.",
+   "prompt": "…and _____. I'm happy to take questions.",
+   "answer": "that brings me to the end",
+   "note": "The standard landing phrase — signals Q&A cleanly."
+  },
+  {
+   "id": "tk_presentation_1",
+   "dialogue": "presentation",
+   "level": "C1",
+   "kind": "cloze",
+   "situation": "The Q&A — where presentations are won or lost (guide §II).",
+   "cue_mn": "Үргэлжлүүлж асуухад — таны харж буй хамгийн том эрсдэл юу вэ?",
+   "prompt": "And _____ — what's the biggest risk you see?",
+   "answer": "if I could follow up",
+   "note": "Q&A rituals: buy a second to think, extend politely."
+  },
+  {
+   "id": "tk_presentation_2",
+   "dialogue": "presentation",
+   "level": "C1",
+   "kind": "cloze",
+   "situation": "The Q&A — where presentations are won or lost (guide §II).",
+   "cue_mn": "Үнэнээр хэлэхэд? Хүн авах хурд. Загвар зургадугаар сар гэхэд бүрэн бүрэлдэхүүнтэй болно гэж үзсэн — энэ таамаглалыг л ажиглах хэрэгтэй.",
+   "prompt": "Honestly? Hiring speed. The model assumes we staff up by June, and _____.",
+   "answer": "that's the assumption I'd watch",
+   "note": "Naming your own weak point builds more trust than hiding it."
+  },
+  {
+   "id": "tk_presentation_reply",
+   "dialogue": "presentation",
+   "level": "C1",
+   "kind": "reply",
+   "situation": "You're asked something you can't fully answer. Best move?",
+   "options": [
+    {
+     "text": "Good question — I don't have the exact figure here, but I'll send it to you today.",
+     "correct": true,
+     "why": "Honesty + a concrete follow-up beats bluffing every time."
+    },
+    {
+     "text": "(Invent a number confidently)",
+     "correct": false,
+     "why": "One caught bluff and the whole presentation is doubted."
+    },
+    {
+     "text": "Next question.",
+     "correct": false,
+     "why": "Dodging is visible — the room remembers the question you skipped."
+    }
+   ]
+  },
+  {
+   "id": "tk_bad_news_0",
+   "dialogue": "bad_news",
+   "level": "C2",
+   "kind": "cloze",
+   "situation": "Telling a client the deadline will slip — keeping the relationship.",
+   "cue_mn": "Яаж ч чимэглэх аргагүй: бид гуравдугаар сарын хугацааг алдана. Бодитоор дөрөвдүгээр сарын сүүл гэж харж байна.",
+   "prompt": "_____: we're going to miss the March deadline. Realistically we're looking at late April.",
+   "answer": "There's no way to dress it up",
+   "note": "Announcing directness — paradoxically, the politest way to deliver bad news."
+  },
+  {
+   "id": "tk_bad_news_1",
+   "dialogue": "bad_news",
+   "level": "C2",
+   "kind": "cloze",
+   "situation": "Telling a client the deadline will slip — keeping the relationship.",
+   "cue_mn": "Хоёр нийлүүлэгч бидэнд гологдол өгсөн, мөн өөрсдийн бурууг хүлээе: бид байх ёстойгоос оройтож мэдсэн. Одоо ингэж засаж байна — хариуд нь танд үүнийг санал болгож чадна.",
+   "prompt": "Two suppliers failed us, and _____: we spotted it later than we should have. Here's what we're doing about it — and what I can offer you in return.",
+   "answer": "I'll own our part",
+   "note": "'Own' a mistake = responsibility language that saves relationships."
+  },
+  {
+   "id": "tk_bad_news_2",
+   "dialogue": "bad_news",
+   "level": "C2",
+   "kind": "cloze",
+   "situation": "Telling a client the deadline will slip — keeping the relationship.",
+   "cue_mn": "Хоёр нийлүүлэгч бидэнд гологдол өгсөн, мөн өөрсдийн бурууг хүлээе: бид байх ёстойгоос оройтож мэдсэн. Одоо ингэж засаж байна — хариуд нь танд үүнийг санал болгож чадна.",
+   "prompt": "Two suppliers failed us, and I'll own our part: we spotted it later than we should have. _____ — and what I can offer you in return.",
+   "answer": "Here's what we're doing about it",
+   "note": "Bad news must arrive WITH the plan — never alone."
+  },
+  {
+   "id": "tk_bad_news_reply",
+   "dialogue": "bad_news",
+   "level": "C2",
+   "kind": "reply",
+   "situation": "You must tell a client about a delay. Structure?",
+   "options": [
+    {
+     "text": "Warn them personally, state it plainly, own your part, bring the fix.",
+     "correct": true,
+     "why": "The four-step bad-news formula — honesty plus a plan."
+    },
+    {
+     "text": "Let them find it in the monthly report.",
+     "correct": false,
+     "why": "Discovered bad news costs double the trust of delivered bad news."
+    },
+    {
+     "text": "Blame the suppliers for everything.",
+     "correct": false,
+     "why": "Even where true, pure blame reads as evasion — own your slice."
+    }
+   ]
+  },
+  {
+   "id": "tk_indirect_0",
+   "dialogue": "indirect",
+   "level": "C2",
+   "kind": "cloze",
+   "situation": "British-style indirectness — what the words are NOT saying.",
+   "cue_mn": "Лавтай яахав… том санаа юм. Дотор нь нэлээд сонирхолтой санаанууд байна.",
+   "prompt": "It's certainly… ambitious. There are some _____ ideas in there.",
+   "answer": "quite interesting",
+   "note": "⚠ In British English these often mean the OPPOSITE — praise this faint is criticism."
+  },
+  {
+   "id": "tk_indirect_1",
+   "dialogue": "indirect",
+   "level": "C2",
+   "kind": "cloze",
+   "situation": "British-style indirectness — what the words are NOT saying.",
+   "cue_mn": "Тэгтлээ хэлэхгүй ээ. Төсвийн хэсэг дахин нэг нягтлахад гэмгүй гэж хэлье дээ.",
+   "prompt": "I wouldn't go that far. Let's say the budget section _____.",
+   "answer": "might benefit from another pass",
+   "note": "= it needs rework. The conditional hides the verdict."
+  },
+  {
+   "id": "tk_indirect_2",
+   "dialogue": "indirect",
+   "level": "C2",
+   "kind": "cloze",
+   "situation": "British-style indirectness — what the words are NOT saying.",
+   "cue_mn": "Тэгтлээ хэлэхгүй ээ. Төсвийн хэсэг дахин нэг нягтлахад гэмгүй гэж хэлье дээ.",
+   "prompt": "_____. Let's say the budget section might benefit from another pass.",
+   "answer": "I wouldn't go that far",
+   "note": "Soft disagreement with your interpretation — while confirming half of it."
+  },
+  {
+   "id": "tk_indirect_reply",
+   "dialogue": "indirect",
+   "level": "C2",
+   "kind": "reply",
+   "situation": "A British colleague calls your plan 'quite interesting, certainly ambitious'. They mean…?",
+   "options": [
+    {
+     "text": "They have serious doubts and expect a revision.",
+     "correct": true,
+     "why": "Faint praise + 'ambitious' is classic coded criticism — ask what to improve."
+    },
+    {
+     "text": "They love it and will approve it.",
+     "correct": false,
+     "why": "If they loved it you'd hear 'brilliant, let's do it' — enthusiasm is never this quiet."
+    },
+    {
+     "text": "They were not listening.",
+     "correct": false,
+     "why": "The wording is too careful for inattention — coded language IS the message."
+    }
+   ]
+  },
+  {
+   "id": "tk_job_interview_0",
+   "dialogue": "job_interview",
+   "level": "B2",
+   "kind": "cloze",
+   "situation": "The classic questions — and answers that sound confident, not memorized.",
+   "cue_mn": "Дарамтад тайван байдаг гэж хэлнэ — өнгөрсөн жил системийн доголдлыг нэг ч үйлчлүүлэгч алдалгүй давсан.",
+   "prompt": "_____ staying calm under pressure — last year we handled a system failure without losing a single client.",
+   "answer": "I'd say",
+   "note": "Softens any self-praise: 'I'd say my strength is…' — confident but not arrogant."
+  },
+  {
+   "id": "tk_job_interview_1",
+   "dialogue": "job_interview",
+   "level": "B2",
+   "kind": "cloze",
+   "situation": "The classic questions — and answers that sound confident, not memorized.",
+   "cue_mn": "Тэгье. Би таван жил үйлчилгээний салбарт ажилласан, гол нь жижиг баг ахалж байсан.",
+   "prompt": "Sure. _____ customer service for five years, mostly leading small teams.",
+   "answer": "I've worked in",
+   "note": "Present perfect + for/since — the interview tense (experience touching today)."
+  },
+  {
+   "id": "tk_job_interview_2",
+   "dialogue": "job_interview",
+   "level": "B2",
+   "kind": "cloze",
+   "situation": "The classic questions — and answers that sound confident, not memorized.",
+   "cue_mn": "Тэндээс их зүйл сурсан ч илүү хариуцлагатай ажил хайж байгаа — энэ албан тушаал яг тийм боломж юм.",
+   "prompt": "I've learned a lot there, but _____, and this role offers exactly that.",
+   "answer": "I'm looking for more responsibility",
+   "note": "The polite reason for leaving — never criticise the old employer."
+  },
+  {
+   "id": "tk_job_interview_reply",
+   "dialogue": "job_interview",
+   "level": "B2",
+   "kind": "reply",
+   "situation": "Interviewer asks why you left your last job. Best answer?",
+   "options": [
+    {
+     "text": "I've learned a lot, but I'm looking for a new challenge.",
+     "correct": true,
+     "why": "Positive about the past + forward-looking. The formula interviewers expect."
+    },
+    {
+     "text": "My boss was terrible and the salary was small.",
+     "correct": false,
+     "why": "Criticising a past employer is the classic interview mistake in any culture."
+    },
+    {
+     "text": "I don't know. I just want money.",
+     "correct": false,
+     "why": "Honest, maybe — but it answers a different question than the one asked."
+    }
+   ]
+  },
+  {
+   "id": "tk_negotiating_0",
+   "dialogue": "negotiating",
+   "level": "B2",
+   "kind": "cloze",
+   "situation": "Softening techniques (guide §JJ): disagree without a single hard 'no'.",
+   "cue_mn": "Ойлголоо. Үнэнийг хэлэхэд, энэ бидний бодож байснаас арай өндөр байна.",
+   "prompt": "I see. To be honest, that's _____.",
+   "answer": "a little higher than we had in mind",
+   "note": "'A little' + comparative = polite disagreement. Never 'too expensive!'"
+  },
+  {
+   "id": "tk_negotiating_1",
+   "dialogue": "negotiating",
+   "level": "B2",
+   "kind": "cloze",
+   "situation": "Softening techniques (guide §JJ): disagree without a single hard 'no'.",
+   "cue_mn": "4,000 орчим. Бүтэн жилээр гэрээ хийвэл та үүнийг хүлээж авах уу?",
+   "prompt": "Somewhere around 4,000. _____ that if we signed for a full year?",
+   "answer": "Would you be open to",
+   "note": "Softest way to propose — a question, not a demand."
+  },
+  {
+   "id": "tk_negotiating_2",
+   "dialogue": "negotiating",
+   "level": "B2",
+   "kind": "cloze",
+   "situation": "Softening techniques (guide §JJ): disagree without a single hard 'no'.",
+   "cue_mn": "Жилийн гэрээтэй бол... дундуур нь тохирч магадгүй. 4,500 гэвэл?",
+   "prompt": "With a yearly contract… we might be able to _____. Say 4,500?",
+   "answer": "meet you in the middle",
+   "note": "= дундуур нь тохирох. The compromise idiom of every negotiation."
+  },
+  {
+   "id": "tk_negotiating_reply",
+   "dialogue": "negotiating",
+   "level": "B2",
+   "kind": "reply",
+   "situation": "Their price is too high for you. Best response?",
+   "options": [
+    {
+     "text": "To be honest, that's a little higher than we had in mind.",
+     "correct": true,
+     "why": "Softened disagreement keeps the negotiation alive — English hides the 'no'."
+    },
+    {
+     "text": "No. Too expensive. Give discount.",
+     "correct": false,
+     "why": "Bare commands burn the relationship — politeness lives in the phrasing."
+    },
+    {
+     "text": "OK, we accept.",
+     "correct": false,
+     "why": "Accepting the first price is not negotiating — and 'Would you be open to…?' costs nothing."
+    }
+   ]
+  },
+  {
+   "id": "tk_restaurant_0",
+   "dialogue": "restaurant",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "Ordering food with a colleague.",
+   "cue_mn": "Бараг — та юу санал болгох вэ?",
+   "prompt": "Almost — _____",
+   "answer": "what do you recommend?",
+   "note": "The friendliest question in any restaurant."
+  },
+  {
+   "id": "tk_restaurant_1",
+   "dialogue": "restaurant",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "Ordering food with a colleague.",
+   "cue_mn": "Тэгвэл түүнийг авъя. Бас ногоон цай.",
+   "prompt": "_____ that, please. And a green tea.",
+   "answer": "I'll have",
+   "note": "The set phrase for ordering — not 'I want' and not 'give me'."
+  },
+  {
+   "id": "tk_restaurant_2",
+   "dialogue": "restaurant",
+   "level": "A2",
+   "kind": "cloze",
+   "situation": "Ordering food with a colleague.",
+   "cue_mn": "Үгүй, боллоо, баярлалаа. Дараа нь тооцоог авчирч өгөхгүй юу?",
+   "prompt": "No, that's all, thanks. _____ after?",
+   "answer": "Could we get the bill",
+   "note": "= Тооцоо авах. Also common: 'the check' (US)."
+  },
+  {
+   "id": "tk_restaurant_reply",
+   "dialogue": "restaurant",
+   "level": "A2",
+   "kind": "reply",
+   "situation": "Ordering soup. Best sentence?",
+   "options": [
+    {
+     "text": "I'll have the soup, please.",
+     "correct": true,
+     "why": "'I'll have… please' is exactly how everyone orders."
+    },
+    {
+     "text": "I want soup.",
+     "correct": false,
+     "why": "Grammatical but blunt — 'I want' loses the politeness та carried."
+    },
+    {
+     "text": "Soup me.",
+     "correct": false,
+     "why": "Not an English structure."
+    }
+   ]
+  }
+ ],
  "wordlist": {
   "source": "Words-CEFR-Dataset (CEFR-J based), MIT license",
   "source_url": "https://github.com/Maximax67/Words-CEFR-Dataset",

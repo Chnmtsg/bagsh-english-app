@@ -14,7 +14,7 @@ const LEVEL_MN = { A1: "Эхлэгч", A2: "Бага дунд", B1: "Дунд", 
 const CHECK_ROUND = 20;          // words per check-yourself round
 const LEVEL_DONE_PCT = 90;       // % of the level list known to unlock next
 
-const XP = { lesson: 10, quizCorrect: 4, quizAttempt: 1, vocabCorrect: 3, vocabAttempt: 1, talk: 5 };
+const XP = { lesson: 10, quizCorrect: 4, quizAttempt: 1, vocabCorrect: 3, vocabAttempt: 1, talk: 5, talkAttempt: 1 };
 
 const BADGES = [
   ["first_step", "🐫", "Эхний алхам — First step", "earn any XP", p => p.xp > 0],
@@ -45,7 +45,7 @@ function loadProfile() {
     studyList: [],       // words the learner marked as unknown
     showStreak: true,    // the streak is optional — pressure off if you like
     rewards: [],         // self-set prizes: {id,title,type,target,claimed,claimedDate}
-    srs: { grammar: {}, vocab: {} },
+    srs: { grammar: {}, vocab: {}, talk: {} },
   };
   try {
     const stored = JSON.parse(localStorage.getItem(STORE_KEY)) || {};
@@ -170,10 +170,11 @@ function readings(text) {
   return seen;
 }
 
-function checkAnswer(user, right, alsoAccept) {
-  const typed = readings(normalise(user));
+function checkAnswer(user, right, alsoAccept, ignoreCase) {
+  const fold = ignoreCase ? (s => s.toLowerCase()) : (s => s);
+  const typed = readings(fold(normalise(user)));
   for (const target of [right, ...(alsoAccept || [])]) {
-    for (const form of readings(normalise(target))) {
+    for (const form of readings(fold(normalise(target)))) {
       if (typed.has(form)) return true;
       if (form.endsWith(".") && typed.has(form.slice(0, -1).trimEnd())) return true;
     }
@@ -415,24 +416,126 @@ function renderTalkList() {
   });
   const rows = sorted.map(d => {
     const locked = levelRank(d.level) > myRank;
-    const isDone = profile.talkDone.includes(d.id);
+    const p = talkProgress(d.id);
+    const isDone = p.total > 0 && p.known === p.total;
     return `<div class="row ${locked ? "locked-row" : ""}" data-id="${locked ? "" : d.id}">
       <span class="st">${locked ? "🔒" : isDone ? "✓" : "🗣️"}</span>
       <span class="name">${esc(d.title_en)}<br>
-        <span class="mn">${esc(d.title_mn)}</span></span>
+        <span class="mn">${esc(d.title_mn)}</span>
+        ${locked || !p.total ? "" : `<br><span class="muted">${p.known}/${p.total} phrases learned</span>`}</span>
       <span class="pill">${d.level}</span>
     </div>`;
   }).join("");
+  const due = talkIds(null).filter(id => {
+    const rec = profile.srs.talk[id];
+    return !rec || rec.due <= today();
+  }).length;
   view.innerHTML = `
     <div class="card"><h2>🗣️ Everyday talk — Өдөр тутмын яриа</h2>
-      <p class="muted">Conversations for YOUR level first (yours:
-      <b>${profile.level}</b>), easier ones below for review, harder ones
-      🔒 until you raise your level in Stats.</p></div>
+      <p class="muted">Read a conversation, then SAY the lines yourself —
+      the phrases come back on a schedule until they stick. Conversations for
+      YOUR level first (yours: <b>${profile.level}</b>), harder ones 🔒 until
+      you raise your level in Stats.</p>
+      <button class="primary" id="practiceAll">🎤 Practise phrases${due ? ` (${due} due)` : ""}</button></div>
     <div class="card">${rows}</div>`;
+  document.getElementById("practiceAll").addEventListener("click", () => startTalk(null));
   view.querySelectorAll(".row[data-id]").forEach(r => {
     if (r.dataset.id) {
       r.addEventListener("click", () => renderDialogue(r.dataset.id));
     }
+  });
+}
+
+/* ── Talk drills (ADR-0006) ──────────────────────────────────────────
+ * The conversation strand used to be 19 one-shot multiple-choice questions
+ * with no memory. It is now 74 SRS-scheduled items, 55 of which the learner
+ * TYPES: the dialogue's Mongolian line as the cue, its English line with the
+ * key phrase blanked. Both derived in code from conversations.yaml. */
+
+function talkIds(dialogueId) {
+  const myRank = levelRank(profile.level || "B1");
+  return DATA.talk
+    .filter(i => (dialogueId ? i.dialogue === dialogueId
+                             : levelRank(i.level) <= myRank))
+    .map(i => i.id);
+}
+
+function talkProgress(dialogueId) {
+  const ids = DATA.talk.filter(i => i.dialogue === dialogueId).map(i => i.id);
+  const known = ids.filter(id => {
+    const rec = profile.srs.talk[id];
+    return rec && rec.reps >= 2;
+  }).length;
+  return { known, total: ids.length };
+}
+
+function startTalk(dialogueId) {
+  const byId = Object.fromEntries(DATA.talk.map(i => [i.id, i]));
+  const session = srsPick(profile.srs.talk, talkIds(dialogueId), SESSION_N);
+  runRounds(session, 0, 0, [], {
+    kind: "talk",
+    dialogueId,
+    render(id, i, total, onAnswer) {
+      const item = byId[id];
+      const finish = ok => {
+        srsReview(profile.srs.talk, id, ok);
+        recordActivity(ok ? XP.talk : XP.talkAttempt);
+        document.querySelectorAll(".options button, #go").forEach(b => b.disabled = true);
+        document.getElementById("next").addEventListener("click", () => onAnswer(ok));
+      };
+
+      if (item.kind === "cloze") {
+        view.innerHTML = `
+          <div class="card">
+            <h2>🎤 Say it in English <span class="pill">${i + 1}/${total}</span></h2>
+            <p class="muted">${esc(item.situation)}</p>
+            <p class="mn">🇲🇳 ${esc(item.cue_mn)}</p>
+            <p class="q-wrong">${esc(item.prompt)}</p>
+            <input type="text" id="ans" autocomplete="off" autocapitalize="sentences"
+                   placeholder="The missing words…">
+            <button class="primary" id="go">Check</button>
+            <div id="fb"></div>
+          </div>`;
+        const input = document.getElementById("ans");
+        input.focus();
+        const submit = () => {
+          const ok = checkAnswer(input.value, item.answer, null, true);
+          document.getElementById("fb").innerHTML = `
+            <div class="feedback ${ok ? "good" : "bad"}">
+              <p>${ok ? esc(pick(PRAISE)) : esc(pick(MISS))}</p>
+              ${ok ? "" : `<p>✅ <b>${esc(item.answer)}</b></p>`}
+              ${item.note ? `<p>💡 ${esc(item.note)}</p>` : ""}
+            </div>
+            <button class="primary" id="next">Next →</button>`;
+          finish(ok);
+        };
+        document.getElementById("go").addEventListener("click", submit);
+        input.addEventListener("keydown", e => { if (e.key === "Enter") submit(); });
+      } else {
+        const options = shuffle([...item.options]);
+        view.innerHTML = `
+          <div class="card">
+            <h2>🗣️ Your turn <span class="pill">${i + 1}/${total}</span></h2>
+            <p>${esc(item.situation)}</p>
+            <div class="options">${options.map((o, n) =>
+              `<button class="ghost" data-i="${n}">${esc(o.text)}</button>`).join("")}</div>
+            <div id="fb"></div>
+          </div>`;
+        view.querySelectorAll(".options button").forEach(b =>
+          b.addEventListener("click", () => {
+            const o = options[Number(b.dataset.i)];
+            // one attempt, scored — no guessing until it turns green
+            document.getElementById("fb").innerHTML = `
+              <div class="feedback ${o.correct ? "good" : "bad"}">
+                <p>${o.correct ? esc(pick(PRAISE)) : "Not the natural choice."}</p>
+                <p>💡 ${esc(o.why)}</p>
+                ${o.correct ? "" : `<p>✅ <b>${esc(item.options.find(x => x.correct).text)}</b></p>`}
+              </div>
+              <button class="primary" id="next">Next →</button>`;
+            finish(o.correct);
+          }));
+      }
+    },
   });
 }
 
@@ -451,40 +554,11 @@ function renderDialogue(id) {
       <p class="muted">${esc(d.situation)}</p>
       <div class="chat">${lines}</div>
       <h3>Key phrases</h3>${phrases}
-      <button class="primary" id="practiceBtn">Your turn →</button>
+      <button class="primary" id="practiceBtn">Your turn — practise these ${talkProgress(d.id).total} →</button>
       <button class="ghost" id="backBtn">← All conversations</button>
     </div>`;
-  document.getElementById("practiceBtn").addEventListener("click", () => renderTalkPractice(d));
+  document.getElementById("practiceBtn").addEventListener("click", () => startTalk(d.id));
   document.getElementById("backBtn").addEventListener("click", renderTalkList);
-}
-
-function renderTalkPractice(d) {
-  const options = shuffle([...d.practice.options]);
-  view.innerHTML = `
-    <div class="card">
-      <h2>Your turn — Таны ээлж</h2>
-      <p>${esc(d.practice.situation)}</p>
-      <div class="options">${options.map((o, i) =>
-        `<button class="ghost" data-i="${i}">${esc(o.text)}</button>`).join("")}</div>
-      <div id="fb"></div>
-    </div>`;
-  view.querySelectorAll(".options button").forEach(b =>
-    b.addEventListener("click", () => {
-      const o = options[Number(b.dataset.i)];
-      if (o.correct && !profile.talkDone.includes(d.id)) {
-        profile.talkDone.push(d.id);
-        recordActivity(XP.talk);
-      } else { saveProfile(); }
-      document.getElementById("fb").innerHTML = `
-        <div class="feedback ${o.correct ? "good" : "bad"}">
-          <p>${o.correct ? esc(pick(PRAISE)) : "Not the natural choice."}</p>
-          <p>💡 ${esc(o.why)}</p>
-          ${o.correct ? "" : `<p>✅ <b>${esc(d.practice.options.find(x => x.correct).text)}</b></p>`}
-        </div>
-        <button class="primary" id="next">${o.correct ? "Done — back to talks" : "Try again"}</button>`;
-      document.getElementById("next").addEventListener("click", () =>
-        o.correct ? renderTalkList() : renderTalkPractice(d));
-    }));
 }
 
 /* ── Grammar game ───────────────────────────────────────────────── */
@@ -850,10 +924,13 @@ function runRounds(session, i, correct, badges, mode) {
         <p class="muted">${correct === session.length
           ? "Perfect round. Маргааш уулзацгаая!"
           : "Wrong answers come back sooner — that is how memory grows."}</p>
-        <button class="primary" id="again">${mode.kind === "grammar" ? "Play again" : "Continue"}</button>
+        <button class="primary" id="again">${mode.kind === "vocab" ? "Continue" : "Practise more"}</button>
       </div>`;
-    document.getElementById("again").addEventListener("click", () =>
-      mode.kind === "grammar" ? startGrammar() : renderVocabHome());
+    document.getElementById("again").addEventListener("click", () => {
+      if (mode.kind === "grammar") startGrammar();
+      else if (mode.kind === "talk") startTalk(mode.dialogueId);
+      else renderVocabHome();
+    });
     return;
   }
   mode.render(session[i], i, session.length, ok => {

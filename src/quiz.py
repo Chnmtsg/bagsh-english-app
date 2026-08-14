@@ -11,7 +11,12 @@ from functools import lru_cache
 
 import yaml
 
-from .knowledge import KNOWLEDGE_DIR, categories, load_patterns
+from .knowledge import (
+    KNOWLEDGE_DIR,
+    categories,
+    load_conversations,
+    load_patterns,
+)
 from .state import LearnerProfile
 
 
@@ -141,22 +146,100 @@ def readings(text: str) -> set[str]:
 
 
 def check_answer(user: str, right: str,
-                 also_accept: list[str] | None = None) -> bool:
+                 also_accept: list[str] | None = None,
+                 ignore_case: bool = False) -> bool:
     """True when the learner produced the target sentence, a contraction of
     it, or one of the item's documented alternative answers. A missing final
     full stop is forgiven (typing, not punctuation, is being tested there).
 
-    Deliberately still strict about capitals and about wording — accepting a
-    second correct answer is right, accepting a wrong one teaches wrong
-    English."""
-    typed = readings(_normalise(user))
+    Deliberately still strict about wording — accepting a second correct
+    answer is right, accepting a wrong one teaches wrong English. Capitals
+    matter unless `ignore_case`, which the talk drills set: a phrase blanked
+    out of the middle of a line is testing the chunk, and capitalisation has
+    its own taxonomy category to be tested by."""
+    fold = (lambda s: s.lower()) if ignore_case else (lambda s: s)
+    typed = readings(fold(_normalise(user)))
     for target in [right, *(also_accept or [])]:
-        for form in readings(_normalise(target)):
+        for form in readings(fold(_normalise(target))):
             if form in typed:
                 return True
             if form.endswith(".") and form[:-1].rstrip() in typed:
                 return True
     return False
+
+
+# ── everyday conversation drills (ADR-0006) ──────────────────────────
+
+def _phrase_stems(phrase: str) -> list[str]:
+    """A key phrase like "Is there a … near here?" is a template, not a
+    quotable string. Its stems are the literal fragments around the ellipsis
+    and slash, longest first — those ARE quotable."""
+    parts = re.split(r"…|\.\.\.|/", phrase)
+    return sorted((p.strip(" ,?.!") for p in parts), key=len, reverse=True)
+
+
+def _locate(phrase: str, lines: list[dict]) -> tuple[dict, int, int] | None:
+    """Find the line containing this phrase (or its longest stem) and the
+    exact span it occupies, so the drill's answer is always text a curator
+    wrote, never something this function assembled."""
+    for candidate in [phrase.strip(" …"), *_phrase_stems(phrase)]:
+        if len(candidate.split()) < 2:
+            continue
+        for line in lines:
+            at = line["en"].lower().find(candidate.lower())
+            if at >= 0:
+                return line, at, at + len(candidate)
+    return None
+
+
+@lru_cache(maxsize=1)
+def talk_bank() -> list[dict]:
+    """Production drills for the conversation strand.
+
+    Two kinds, both derived in code from knowledge/conversations.yaml — no
+    new content, and in particular no new Mongolian, since every Mongolian
+    string in the repo still needs native-speaker verification:
+
+    - `cloze`  — the dialogue's own Mongolian line as the cue, its English
+                 line with the key phrase blanked out. The learner TYPES the
+                 chunk. This is the strand's first production item.
+    - `reply`  — the existing "choose the best reply" question, one attempt,
+                 scored into the SRS instead of looping until right.
+    """
+    bank: list[dict] = []
+    for dialogue in load_conversations():
+        seen: set[str] = set()
+        for i, phrase in enumerate(dialogue.get("key_phrases", [])):
+            found = _locate(phrase["en"], dialogue["lines"])
+            if not found:
+                continue  # X/Y placeholder templates have no fixed form
+            line, start, end = found
+            answer = line["en"][start:end]
+            if answer.lower() in seen:
+                continue
+            seen.add(answer.lower())
+            bank.append({
+                "id": f"tk_{dialogue['id']}_{i}",
+                "dialogue": dialogue["id"],
+                "level": dialogue["level"],
+                "kind": "cloze",
+                "situation": dialogue["situation"],
+                "cue_mn": line["mn"],
+                "prompt": line["en"][:start] + "_____" + line["en"][end:],
+                "answer": answer,
+                "note": phrase.get("note", ""),
+            })
+        practice = dialogue.get("practice") or {}
+        if practice.get("options"):
+            bank.append({
+                "id": f"tk_{dialogue['id']}_reply",
+                "dialogue": dialogue["id"],
+                "level": dialogue["level"],
+                "kind": "reply",
+                "situation": practice["situation"],
+                "options": practice["options"],
+            })
+    return bank
 
 
 # ── vocabulary trainer ───────────────────────────────────────────────

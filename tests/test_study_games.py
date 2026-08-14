@@ -8,7 +8,7 @@ from datetime import date
 
 from src import srs
 from src.game import BADGES, record_activity, stats_line
-from src.knowledge import categories
+from src.knowledge import categories, load_conversations
 from src.quiz import (
     check_answer,
     check_word,
@@ -17,6 +17,7 @@ from src.quiz import (
     grammar_bank,
     grammar_items_for,
     meaning_options,
+    talk_bank,
     vocab_bank,
     vocab_items_for,
 )
@@ -176,6 +177,48 @@ def test_no_item_accepts_its_own_error():
         for alt in item.get("also_accept", []):
             assert alt != item["prompt"], item["id"]
             assert alt != item["answer"], item["id"]
+
+
+# ── talk drills (ADR-0006) ───────────────────────────────────────────
+
+def test_talk_bank_is_derived_not_invented():
+    """Every cloze answer must be text a curator wrote, appearing verbatim
+    in the dialogue line the drill shows. Nothing here may be assembled by
+    code — and no new Mongolian may be introduced, because every Mongolian
+    string in the repo is still awaiting native-speaker verification."""
+    dialogues = {d["id"]: d for d in load_conversations()}
+    for item in talk_bank():
+        d = dialogues[item["dialogue"]]
+        assert item["level"] == d["level"], item["id"]
+        if item["kind"] != "cloze":
+            continue
+        assert "_____" in item["prompt"], item["id"]
+        line = next((l for l in d["lines"] if l["en"].find(item["answer"]) >= 0), None)
+        assert line, f"{item['id']}: answer not verbatim in any line"
+        assert item["cue_mn"] == line["mn"], f"{item['id']}: cue is not the line's own Mongolian"
+        assert item["prompt"].replace("_____", item["answer"]) == line["en"], item["id"]
+
+
+def test_talk_bank_covers_the_strand():
+    bank = talk_bank()
+    cloze = [i for i in bank if i["kind"] == "cloze"]
+    replies = [i for i in bank if i["kind"] == "reply"]
+    assert len(replies) == len(load_conversations()), "every dialogue keeps its reply item"
+    # production is the point: most of the bank must be typed, not clicked
+    assert len(cloze) > len(replies) * 2
+    assert len({i["id"] for i in bank}) == len(bank), "ids must be unique"
+    # every dialogue contributes something to practise
+    assert {i["dialogue"] for i in bank} == {d["id"] for d in load_conversations()}
+
+
+def test_talk_answers_grade_case_insensitively():
+    """A phrase blanked from mid-sentence is testing the chunk, not capitals
+    — those have their own taxonomy category."""
+    for item in talk_bank():
+        if item["kind"] != "cloze":
+            continue
+        assert check_answer(item["answer"], item["answer"], None, True), item["id"]
+        assert check_answer(item["answer"].lower(), item["answer"], None, True), item["id"]
 
 
 # ── vocabulary deck ──────────────────────────────────────────────────
