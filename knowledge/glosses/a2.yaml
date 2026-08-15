@@ -1,0 +1,439 @@
+# Plain-English glosses, A2 band (ADR-0010). House style: see a1.yaml.
+
+version: 1
+level: A2
+words:
+  state: a condition something is in; also a part of a country like Texas
+  part: one piece of something bigger
+  system: parts working together by a set of rules
+  law: a rule that a country makes everyone follow
+  act: to do something; also one law
+  court: the place where a judge decides cases
+  within: inside; also before a time is over
+  company: a business that people work for
+  power: the ability to control things; also electricity
+  university: a school for adults, above college level
+  committee: a small group chosen to decide something
+  area: a part of a place; also how much space a shape covers
+  public: for everyone, not private
+  fact: something that is true and can be checked
+  value: how much something is worth
+  education: teaching and learning, usually at school
+  control: to decide what something does
+  report: writing that tells what happened or what was found
+  interest: wanting to know more; also money the bank pays you
+  possible: able to happen
+  country: a land with its own government, like Mongolia
+  certain: sure; also particular
+  among: in the middle of a group
+  effect: the change one thing causes in another
+  rate: how fast or how often something happens; also a price
+  several: more than two but not many
+  land: the dry part of the earth; also ground somebody owns
+  local: belonging to the place near you
+  production: making things, usually in large numbers
+  national: belonging to a whole country
+  figure: a number; also the shape of a person
+  necessary: needed, you cannot do without it
+  air: what you breathe
+  therefore: for that reason
+  rather: a little; also to prefer one thing to another
+  chapter: one main part of a book
+  level: how high something is; also a stage of ability
+  far: a long distance away
+  evidence: facts that show something is true
+  provide: to give what is needed
+  cost: the money you must pay for something
+  political: about government and power
+  position: where something is; also a job
+  trade: buying and selling between people or countries
+  cent: a small coin; one hundredth of a dollar
+  low: near the ground; also a small amount
+  association: a group of people joined for one purpose
+  common: happening often; also shared by many
+  nature: plants, animals and the earth; also what something is really like
+  material: what a thing is made of
+  method: an organised way of doing something
+  human: a person, not an animal or a machine
+  view: what you can see from a place; also an opinion
+  member: one person in a group or a club
+  south: the direction opposite north
+  similar: almost the same
+  secretary: somebody who writes letters and keeps records for an office
+  death: the end of a life
+  model: a small copy; also an example to follow
+  force: strength or power used on something
+  include: to have something as one of its parts
+  major: large and important
+  support: to help somebody; also to hold something up
+  oil: thick liquid from under the ground, used for fuel; also for cooking
+  north: the direction opposite south
+  whole: all of something
+  population: all the people living in a place
+  west: the direction the sun goes down
+  account: a record of money; also a report of what happened
+  structure: the way parts are put together; also a building
+  addition: adding one thing to another
+  capital: the main city of a country; also money for a business
+  single: only one
+  training: teaching somebody the skills for a job
+  plant: a living thing that grows in the ground; also a factory
+  especially: more than usual, above the others
+  except: not including
+  specific: exact, one particular thing
+  statement: something said or written clearly
+  private: only for one person, not public
+  space: an empty place; also the sky beyond the earth
+  quite: fairly, more than a little
+  gas: air-like material, not liquid or solid; also fuel
+  quality: how good something is
+  increase: to become larger in number or amount
+  probably: most likely
+  clear: easy to see or understand
+  sense: a feeling or an understanding; also sight, hearing and the others
+  road: the hard way that cars travel on
+  source: where something comes from
+  range: everything between two limits
+  additional: extra, more than what is there
+  title: the name of a book, film or job
+  pressure: force pushing on something; also being made to do something
+  function: the job a thing does
+  record: information kept in writing; also the best ever done
+  temperature: how hot or cold something is
+  natural: made by nature, not by people
+  performance: how well somebody does something; also a show
+  issue: a subject people argue about; also one copy of a magazine
+  international: between countries
+  century: one hundred years
+  situation: what is happening at a place and time
+  publish: to print a book or put writing where people can read it
+  director: somebody who runs a company or a film
+  unit: one whole thing counted as one; also a measure like a metre
+  condition: the state something is in; also a rule that must be met
+  enough: as much as you need
+  attention: watching or listening carefully
+  normal: usual, what you expect
+  chairman: the person who leads a meeting or a company
+  product: something made to be sold
+  staff: the people who work somewhere
+  complete: whole, with nothing missing; also to finish
+  agency: a business that does something for other people
+  average: the usual middle amount
+  recent: happening a short time ago
+  original: the first one; also new and different
+  blood: the red liquid inside your body
+  final: last; coming at the end
+  response: an answer or a reaction
+  physical: about the body or about material things
+  direct: going straight, with nothing in between
+  degree: a unit for measuring heat or angles; also a university award
+  military: about soldiers and the army
+  consider: to think about something carefully
+  appear: to come into sight; also to seem
+  discussion: people talking about something together
+  east: the direction the sun comes up
+  appropriate: right for the situation
+  weight: how heavy something is
+  basic: simple and most important
+  direction: the way somebody or something is going
+  indeed: really, truly
+  base: the bottom part; also the main place of an army
+  simple: easy, not complicated
+  author: the person who wrote a book
+  wide: measuring a lot from side to side
+  importance: how much something matters
+  text: the written words of something
+  medical: about medicine and treating illness
+  credit: money you can borrow; also praise for doing something
+  notice: to see or become aware of something; also a written sign
+  beyond: further than
+  modern: of the present time, not old
+  exchange: to give one thing and get another
+  proper: right and correct for the situation
+  simply: in an easy way; also only
+  actually: really, in fact
+  cause: to make something happen; also the reason it happened
+  seem: to look or feel like something is true
+  heat: being hot; also to make hot
+  continue: to keep going without stopping
+  earth: the world we live on; also soil
+  refer: to speak about something; also to send somebody to a source
+  trust: to believe somebody will do the right thing
+  voice: the sound you make when you speak
+  chemical: a substance used in or made by science
+  apply: to ask officially for a job or a place; also to put something on
+  behaviour: the way somebody acts
+  behavior: the way somebody acts
+  contact: to get in touch with somebody; also touching
+  nation: a country and its people
+  police: the people whose job is to stop crime
+  produce: to make or grow something
+  sample: a small part that shows what the whole is like
+  strength: how strong somebody or something is
+  ability: being able to do something
+  return: to come or go back
+  receive: to get something that is given or sent
+  affairs: matters somebody deals with, especially in business or government
+  description: words that say what something is like
+  impact: a strong effect; also one thing hitting another
+  develop: to grow or make something grow
+  allow: to let somebody do something
+  fully: completely
+  claim: to say something is true without proof; also to ask for what is yours
+  budget: a plan for how much money to spend
+  scale: the size of something compared with other things; also for weighing
+  separate: not joined; to divide into parts
+  remain: to stay; to be left after the rest is gone
+  metal: hard material like iron, gold or copper
+  request: to ask for something politely
+  expression: the look on your face; also words used to say something
+  agent: somebody who acts for another person or company
+  serve: to give food or help to somebody
+  useful: helping you do something
+  professional: doing a job as paid work, and doing it well
+  easily: without difficulty
+  deep: going a long way down
+  error: a mistake
+  task: a piece of work to be done
+  image: a picture; also how people see somebody
+  net: the amount left after costs are taken away; also material with holes
+  lack: not having enough of something
+  choice: what you pick when there is more than one
+  arm: the part of your body from shoulder to hand; also a weapon
+  manager: somebody who runs a team or a business
+  drug: medicine; also an illegal substance
+  film: a moving picture story; also a thin layer
+  create: to make something new
+  summary: a short account giving only the main points
+  prevent: to stop something from happening
+  freedom: being able to do what you want
+  regular: happening again and again at the same times
+  speed: how fast something moves
+  forward: towards the front
+  indicate: to show or point something out
+  labour: work, especially hard physical work
+  negative: saying no; also bad or harmful
+  educational: about teaching and learning
+  branch: a part of a tree; also a local office of a company
+  rock: hard stone
+  whatever: anything at all
+  establish: to start something that will last
+  context: what is around something and helps explain it
+  cash: money in coins and notes
+  coast: the land beside the sea
+  doubt: not being sure
+  traffic: the cars moving on the roads
+  traditional: done the same way for a long time
+  dead: not alive any more
+  assistant: somebody who helps another person at work
+  plate: a flat dish for food
+  scientific: about science, tested carefully
+  latter: the second of two things named
+  village: a small group of houses in the country
+  send: to make something go somewhere without taking it yourself
+  valley: low land between hills
+  enter: to go into a place
+  lead: to go first and show the way
+  avoid: to stay away from something
+  principal: most important; also the head of a school
+  represent: to act or speak for somebody else
+  advantage: something that helps you do better
+  argument: people disagreeing; also reasons given for an opinion
+  sound: what you hear
+  concern: worry; also a matter that involves you
+  popular: liked by many people
+  cross: to go from one side to the other
+  accept: to say yes to something offered
+  exist: to be real, to be there
+  pass: to go by; also to succeed in a test
+  impossible: not able to happen
+  centre: the middle
+  competition: trying to do better than others
+  official: approved by the people in charge
+  electric: working by electricity
+  style: the way something is done or looks
+  editor: somebody who prepares writing to be published
+  deal: an agreement in business; also to handle something
+  usual: happening most of the time
+  citizen: somebody who belongs to a country
+  apparently: it seems that way, from what people say
+  attempt: to try to do something
+  chance: the possibility that something happens; also an opportunity
+  zone: an area kept for one purpose
+  kingdom: a country ruled by a king or queen
+  appearance: how somebody or something looks
+  fall: to drop down; also autumn
+  detail: one small fact or part
+  passage: a part of a text; also a way through
+  suitable: right for the purpose
+  reach: to arrive at; also to stretch out your hand
+  museum: a building where old or important things are shown
+  fresh: new and clean; not old food
+  married: joined as husband and wife
+  exactly: with no difference at all
+  contrast: a clear difference between two things
+  generation: all the people born at about the same time
+  shape: the form of something — round, square and so on
+  background: what is behind; also somebody's past and training
+  consist: to be made of certain parts
+  crime: something the law does not allow
+  ancient: from a very long time ago
+  youth: the time when you are young; also a young person
+  search: to look carefully for something
+  load: what is carried; also to put goods on a vehicle
+  native: born in a place; also belonging there naturally
+  path: a narrow way for walking
+  strategy: a plan for reaching a goal
+  sign: a mark or notice; also to write your name
+  fear: to be afraid of something
+  expect: to think something will happen
+  emergency: a dangerous situation needing action now
+  bit: a small piece or amount
+  difficulty: something that is hard to do
+  highway: a big road between towns
+  mainly: mostly, more than anything else
+  organize: to arrange things so they work well
+  seek: to look for; to try to get
+  possibly: perhaps, it may be so
+  attack: to try to hurt or defeat somebody
+  daily: happening every day
+  apart: separated by space or time
+  award: a prize given for good work
+  instrument: a tool; also something you play music on
+  female: of the sex that can have babies
+  wave: water rising and falling on the sea; also to move your hand
+  extremely: very, very much
+  safe: not in danger
+  perform: to do a task; also to act or play in front of people
+  admit: to agree that something bad is true; also to let somebody in
+  perfect: with nothing wrong at all
+  clerk: somebody who keeps records in an office or serves in a shop
+  attitude: how somebody thinks and feels about something
+  slowly: not fast
+  captain: the person in charge of a ship or a team
+  powerful: very strong, or able to control much
+  feature: an important part of something
+  scene: a place where something happens; also one part of a play
+  trouble: a problem or difficulty
+  double: two times as much
+  release: to let something go free; also to make public
+  column: a line of writing down a page; also a tall post
+  explanation: words that make something clear
+  royal: belonging to a king or queen
+  silver: a shiny grey metal used for money and jewellery
+  extra: more than what is usual or needed
+  danger: the chance that something bad will happen
+  soft: not hard; nice to touch
+  achieve: to succeed in doing something after effort
+  software: the programs a computer runs
+  tradition: a custom passed down over many years
+  advertising: telling people about things to make them buy
+  advice: what somebody says you should do
+  fee: money paid for a service
+  accident: something bad that happens without anybody planning it
+  die: to stop living
+  operate: to make a machine work; also to cut a body to treat illness
+  frame: the border that holds a picture or a window
+  intelligence: the ability to learn and understand; also secret information
+  target: what you aim at; also a goal to reach
+  familiar: known to you because you have met it before
+  flight: a journey by plane
+  till: until; also the drawer where a shop keeps money
+  square: a shape with four equal straight sides
+  adult: a fully grown person
+  suit: a jacket and trousers made to match; also to be right for somebody
+  inner: on the inside
+  ahead: in front, further forward
+  web: the internet; also what a spider makes
+  elsewhere: in or to another place
+  couple: two people together; also two of something
+  complaint: saying that something is wrong or bad
+  appointment: an arranged time to meet somebody
+  soldier: somebody in the army
+  independence: not being controlled by anybody else
+  license: official permission, usually on paper
+  permission: being allowed to do something
+  male: of the sex that does not have babies
+  raise: to lift up; also to bring up children
+  designate: to choose somebody or something for a purpose
+  besides: as well as; also anyway
+  chain: metal rings joined in a line; also shops under one owner
+  wild: living in nature, not kept by people
+  opposite: as different as possible; also facing
+  beauty: the quality of being lovely to see
+  ownership: having something as yours
+  weak: not strong
+  ill: not well, sick
+  track: a rough path; also the rails a train runs on
+  debate: a formal argument about a subject
+  unknown: not known to anybody
+  reflect: to throw back light; also to think carefully
+  pull: to move something towards you
+  favor: an act of kindness; also to prefer
+  audience: the people watching or listening
+  decide: to choose after thinking
+  spread: to cover a wider area
+  argue: to disagree in words; also to give reasons
+  wealth: a lot of money and property
+  novel: a long written story; also new and unusual
+  lose: to stop having something; also not to win
+  gradually: slowly, a little at a time
+  truly: really, honestly
+  reveal: to show something that was hidden
+  guard: somebody who protects a place; also to protect
+  consequence: what happens because of something else
+  wine: an alcoholic drink made from grapes
+  replace: to put something new where the old one was
+  inform: to tell somebody officially
+  personality: what somebody is like as a person
+  depend: to need somebody or something; also to be decided by
+  lie: to say something untrue; also to rest flat
+  crown: what a king or queen wears on the head
+  nursing: caring for sick people as a job
+  uniform: clothes everybody in a group wears; also always the same
+  oppose: to be against something
+  host: somebody who has guests
+  tone: the sound or feeling of a voice
+  raw: not cooked; also not treated yet
+  express: to say what you think or feel
+  publishing: the business of printing books and papers
+  senior: older or higher in rank
+  screen: the flat part of a computer or phone you look at
+  liberty: freedom
+  abroad: in or to another country
+  challenge: something difficult that tests you
+  quick: fast
+  fail: not to succeed
+  fit: the right size or shape; also healthy
+  encourage: to give somebody courage to keep going
+  commitment: a promise to do something, and sticking to it
+  delay: to make something late
+  repair: to mend something broken
+  entrance: the way into a place
+  unusual: not common, not what you expect
+  architecture: the art of designing buildings
+  destroy: to damage something so badly it is gone
+  realize: to understand something suddenly
+  unlike: different from
+  fault: a mistake; also being to blame
+  occupation: a job; also taking control of a place
+  empty: with nothing inside
+  calendar: a chart of the days and months of a year
+  seriously: in an important way, not as a joke
+  fashion: the clothes and styles popular now
+  productivity: how much work gets done in a time
+  gender: being male or female
+  advanced: at a high level, past the beginning
+  reply: to answer
+  smooth: flat and even to touch, not rough
+  root: the part of a plant under the ground; also the origin
+  unfortunately: sadly, it is a pity
+  print: to put words on paper with a machine
+  hit: to strike something
+  lip: one of the two soft edges of your mouth
+  compare: to look at two things and see how they differ
+  chest: the front of your body between neck and stomach
+  display: to put something where people can see it
+  gun: a weapon that fires bullets
+  shell: the hard cover of an egg or a nut
+  passenger: somebody travelling in a car, bus or plane, not driving

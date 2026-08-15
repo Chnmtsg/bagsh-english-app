@@ -1,0 +1,261 @@
+# Grammar words, numbers, and the stragglers the band files missed (ADR-0010).
+# House style: see a1.yaml.
+#
+# These are the words a learner is most likely to tick "I don't know" early on
+# and least likely to find in a dictionary in a form that helps: `of` and
+# `although` need a use, not a definition. So several of these glosses show the
+# word working rather than describing it.
+
+version: 1
+level: A1
+words:
+  # ── the grammar of the sentence
+  a: one, but not a particular one — "a bus came"
+  an: the form of "a" before a vowel sound — "an hour"
+  the: shows we both know which one — "the bus I take"
+  and: joins two things — "bread and tea"
+  but: joins two things that do not fit together — "cold but sunny"
+  or: shows a choice — "tea or coffee"
+  so: for that reason — "it was late, so I walked"
+  if: on condition that — "if it snows, stay home"
+  because: gives the reason — "I walked because the car failed"
+  though: even so; used to add a surprising fact
+  although: even though something is true
+  however: but; used to start a contrasting sentence
+  instead: in place of that
+  while: during the time that; also whereas
+  since: from that time; also because
+  until: up to that time and not later
+  during: through the whole of a period
+  before: earlier than
+  after: later than
+  when: at the time that
+  where: in what place
+  which: what particular one
+  who: what person
+  whom: the form of "who" used after a verb or preposition
+  whose: belonging to which person
+  why: for what reason
+  how: in what way
+  what: which thing
+  whether: if; used when there are two possibilities
+  that: the one being talked about; also introduces a clause
+  this: the one here
+  these: the ones here
+  those: the ones there
+  there: in that place
+  here: in this place
+  then: at that time; also next
+  than: used to compare — "colder than yesterday"
+  as: in the same way; also because
+  such: of that kind
+  same: not different
+  another: one more; also a different one
+  each: every one taken separately
+  every: all of them, one by one
+  either: one of two; also both ends
+  neither: not one and not the other
+  both: the two together
+  all: the whole number or amount
+  some: an amount, not stated exactly
+  any: it does not matter which
+  many: a large number of
+  much: a large amount of
+  more: a larger amount
+  most: the largest amount; also nearly all
+  less: a smaller amount
+  least: the smallest amount
+  few: not many
+  only: and nothing else
+  just: exactly; also a moment ago
+  even: used to show something is surprising
+  still: continuing up to now
+  yet: up to now; also but
+  already: before now, sooner than expected
+  also: as well
+  too: as well; also more than you want
+  very: to a high degree
+  quite: fairly, more than a little
+  almost: nearly but not quite
+  nearly: almost
+  perhaps: maybe, it is possible
+  maybe: perhaps
+  always: every time
+  never: not at any time
+  often: many times
+  sometimes: at some times, not always
+  once: one time; also in the past
+  twice: two times
+  now: at this moment
+  soon: in a short time
+  again: one more time
+  ago: back in time from now — "two years ago"
+  ever: at any time
+  "yes": agreeing
+  "no": not any; also refusing
+  not: makes a sentence negative
+  nothing: not one thing
+  none: not any of them
+  nobody: not one person
+  somebody: a person you do not name
+  someone: a person you do not name
+  something: a thing you do not name
+  anything: any thing at all
+  anyone: any person at all
+  everyone: every person
+  everybody: every person
+  everything: every thing
+  somewhere: in a place you do not name
+  anywhere: in any place
+  everywhere: in all places
+  nowhere: in no place
+  together: with each other
+  apart: away from each other
+  # ── prepositions and place
+  of: belonging to, or made of
+  for: intended to go to; also because of — "a letter for you"
+  in: inside
+  "on": touching the top of
+  at: in that exact place or time
+  to: towards; also the start of a verb — "to work"
+  from: starting at that place or time
+  by: next to; also showing who did it
+  with: together with; also using
+  without: not having
+  about: on the subject of; also nearly
+  into: to the inside of
+  onto: to a position on
+  upon: on
+  over: above; also more than
+  under: below
+  below: lower than
+  above: higher than
+  between: in the space or time separating two things
+  among: in the middle of a group
+  through: from one end or side to the other
+  across: from one side to the other
+  around: on all sides; also approximately
+  behind: at the back of
+  beside: next to
+  against: touching and pushing; also opposed to
+  toward: in the direction of
+  towards: in the direction of
+  along: following the length of
+  beyond: further than
+  up: to a higher place
+  down: to a lower place
+  out: away from the inside
+  "off": away from; also not working
+  away: to another place
+  back: to where it was before; also the rear part
+  outside: not inside
+  inside: within
+  middle: the centre, with equal space on each side
+  outer: on the outside
+  near: not far away
+  next: coming after this one
+  # ── being and having
+  be: to exist, or to have a quality — "I am tired"
+  am: the form of "be" that goes with "I"
+  is: the form of "be" for he, she and it
+  are: the form of "be" for you, we and they
+  was: the past of "am" and "is"
+  were: the past of "are"
+  been: the past form of "be" after have
+  being: the form of "be" ending in -ing
+  have: to own or hold
+  has: the form of "have" for he, she and it
+  had: the past of "have"
+  having: the form of "have" ending in -ing
+  do: to perform an action
+  does: the form of "do" for he, she and it
+  did: the past of "do"
+  done: the past form of "do" after have
+  doing: the form of "do" ending in -ing
+  go: to move from here to another place
+  went: the past of "go"
+  gone: the past form of "go" after have
+  let: to allow
+  become: to start to be something
+  became: the past of "become"
+  seek: to look for; to try to get
+  sought: the past of "seek"
+  bear: to carry or to suffer something; also a large wild animal
+  bore: the past of "bear"; also to make somebody feel no interest
+  lift: to raise something up
+  # ── modals
+  will: shows the future — "I will go"
+  would: shows what could happen, or a polite request
+  can: to be able to
+  could: the past of "can"; also a polite way to ask
+  shall: shows the future, in formal or British English
+  should: shows what is the right thing to do
+  may: shows something is possible; also a polite way to ask
+  might: shows something is possible but not certain
+  must: shows something is necessary
+  # ── people words
+  i: the person speaking
+  me: the person speaking, after a verb
+  my: belonging to the person speaking
+  myself: the speaker, used when they are also the object
+  you: the person spoken to
+  your: belonging to the person spoken to
+  yourself: the person spoken to, used when they are also the object
+  he: a male person already mentioned
+  him: that male person, after a verb
+  his: belonging to that male person
+  himself: that male person, used when he is also the object
+  she: a female person already mentioned
+  her: that female person, after a verb; also belonging to her
+  herself: that female person, used when she is also the object
+  it: a thing already mentioned
+  its: belonging to that thing
+  itself: that thing, used when it is also the object
+  we: the speaker and others
+  us: the speaker and others, after a verb
+  our: belonging to the speaker and others
+  ourselves: the speaker and others, used when they are also the object
+  they: the people or things already mentioned
+  them: those people or things, after a verb
+  their: belonging to them
+  themselves: those people, used when they are also the object
+  # ── numbers and amounts
+  one: the number 1
+  two: the number 2
+  three: the number 3
+  four: the number 4
+  five: the number 5
+  six: the number 6
+  seven: the number 7
+  eight: the number 8
+  nine: the number 9
+  ten: the number 10
+  twenty: the number 20
+  thirty: the number 30
+  hundred: the number 100
+  thousand: the number 1,000
+  million: the number 1,000,000
+  first: number one in an order
+  second: number two in an order; also a sixtieth of a minute
+  third: number three in an order
+  fifth: number five in an order
+  half: one of two equal parts
+  quarter: one of four equal parts
+  dozen: twelve
+  percent: out of every hundred
+  plus: added to
+  minus: less; also below zero
+  # ── the stragglers the band files missed
+  thing: an object or a matter, not named exactly
+  thought: an idea in your mind; also the past of think
+  well: in a good way; also healthy; also a deep hole for water
+  forest: a large area covered with trees
+  offer: to say you are willing to give or do something
+  patient: able to wait without getting angry; also somebody a doctor treats
+  engine: the part of a vehicle or machine that makes it move
+  security: being safe; also people who guard a place
+  securities: papers showing you own part of a company or a debt
+  preserve: to keep something safe from harm or decay
+  alike: in the same way; also similar
+  dioxide: a gas with two oxygen atoms in each molecule
+  ad: a short notice telling people about something for sale

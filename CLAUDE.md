@@ -22,12 +22,13 @@ says "the prompt engineer", it means the subagent.
 ```
 src/            graph.py, state.py, nodes/, llm.py
                 srs.py, error_queue.py, session.py, metrics.py  (learning engine)
-                reading.py  (the input strand)
+                reading.py, glossary.py  (input strand, word meanings)
 prompts/        runtime agent prompts, versioned frontmatter
 knowledge/      error_taxonomy.yaml, top_100_patterns.yaml,
                 contrastive-guide.md, crisis_resources.yaml,
                 pseudowords.yaml (Coverage Check anchors — never teachable),
-                readings.yaml + core_words.yaml (the graded library)
+                readings.yaml + core_words.yaml (the graded library),
+                glosses/*.yaml (plain-English meanings, ADR-0010)
 evals/          regression.jsonl, reports/
 docs/           architecture.md, learning-engine.md, adr/, prompt-principles.md
 scripts/        run_regression.py, validate_patterns.py, category_frequency.py
@@ -44,6 +45,7 @@ webapp/         offline PWA — mirrors the scheduler and session builder in JS
 | Change what a runtime agent says | `prompt-engineer` |
 | Add a category, rule, bridge, or regex pattern | `linguistics-curator` |
 | Add a reading text or a core word | `linguistics-curator`, then `validate_readings.py` |
+| Write or fix a word gloss | `linguistics-curator`; `tests/test_glossary.py` is the contract |
 | Measure after any change | `eval-runner` |
 | Anything touching distress, wellbeing or minors | `safety-reviewer`, before commit |
 
@@ -105,6 +107,7 @@ python scripts/validate_patterns.py --corpus data/clean_english.txt
 python -m src.play today           # the learner's daily session
 python -m src.play fluency         # timed round on mastered items
 python -m src.play read            # the input strand
+python -m src.play define --word X # what a word means
 python scripts/validate_readings.py   # every text is graded, or the build fails
 python -m src.play progress        # the honest metrics
 ```

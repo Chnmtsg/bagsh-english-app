@@ -9,6 +9,7 @@ zero LLM cost.
     python -m src.play fluency   # 60 timed seconds on what you already know
     python -m src.play read      # read something at your level (input strand)
     python -m src.play library   # what there is to read
+    python -m src.play define --word snow   # what a word means
     python -m src.play progress  # what you can do — the honest metrics
     python -m src.play stats     # XP, streak, badges
     options: --n 5  --learner ID
@@ -368,6 +369,27 @@ def play_read(profile: LearnerProfile, text_id: str | None = None) -> None:
     print("Next text: python -m src.play read")
 
 
+def define_word(word: str | None) -> None:
+    """What a word means, from the same glossary the study list uses."""
+    from . import glossary
+    if not word:
+        print("Which word? python -m src.play define --word snow")
+        return
+    entry = glossary.explain(word)
+    if not entry:
+        print(f"{word}: nothing in the app explains this one yet.")
+        return
+    base = f"  (from {entry['base']})" if entry.get("base") else ""
+    print(f"{entry['word']}{base}")
+    if entry.get("stress"):
+        print(f"  🔊 {entry['stress']}")
+    print(f"  {entry['gloss_en']}")
+    if entry.get("gloss_mn"):
+        print(f"  🇲🇳 {entry['gloss_mn']}")
+    if entry.get("example"):
+        print(f"  e.g. {entry['example']}")
+
+
 def list_readings(profile: LearnerProfile) -> None:
     from . import reading
     store = reading.load_progress(profile["learner_id"])
@@ -533,12 +555,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Bagsh study games")
     parser.add_argument("mode", choices=["today", "errors", "grammar", "vocab",
                                          "talk", "fluency", "read", "library",
-                                         "progress", "stats"])
+                                         "define", "progress", "stats"])
     parser.add_argument("--n", type=int, default=None,
                         help="questions per session (default 12 for today, "
                              "else 5)")
     parser.add_argument("--learner", default="default")
     parser.add_argument("--id", help="which text to read")
+    parser.add_argument("--word", help="the word to explain")
     args = parser.parse_args()
 
     profile = load_profile(args.learner)
@@ -559,6 +582,8 @@ def main() -> None:
         play_read(profile, args.id)
     elif args.mode == "library":
         list_readings(profile)
+    elif args.mode == "define":
+        define_word(args.word)
     elif args.mode == "progress":
         show_progress(profile)
     else:

@@ -148,13 +148,32 @@ def stems(word: str) -> list[str]:
         ("es", ""), ("s", ""),
         ("ing", ""), ("ing", "e"), ("ed", ""), ("ed", "e"),
         ("er", ""), ("er", "e"), ("est", ""), ("est", "e"),
-        ("ly", ""), ("nning", "n"), ("tting", "t"), ("pping", "p"),
+        ("ly", ""),
+        # derivational, not just inflectional: `accessibility` is not a new
+        # word to somebody who has `accessible`, and a gloss for the base is
+        # a better answer than none. Over-stemming is safe — a form that is
+        # not a real word matches no source.
+        ("ness", ""), ("ment", ""), ("ation", "e"), ("ation", ""),
+        ("ition", "ite"), ("tion", "te"), ("sion", "de"), ("ity", "e"),
+        ("ity", ""), ("ive", "e"), ("ive", ""), ("ous", ""), ("ful", ""),
+        ("less", ""), ("able", ""), ("able", "e"), ("ible", "e"),
+        ("ism", ""), ("ist", ""), ("ise", ""), ("ize", ""), ("ally", "al"),
+        ("nning", "n"), ("tting", "t"), ("pping", "p"),
         ("gging", "g"), ("mming", "m"), ("nned", "n"), ("tted", "t"),
-        ("pped", "p"), ("gged", "g"),
+        ("pped", "p"), ("gged", "g"), ("rred", "r"), ("lled", "l"),
+        ("rring", "r"), ("lling", "l"), ("mmed", "m"), ("bbed", "b"),
     ]
-    for suffix, replacement in rules:
-        if word.endswith(suffix) and len(word) - len(suffix) >= 2:
-            out.append(word[: -len(suffix)] + replacement)
+    def strip(form: str) -> list[str]:
+        return [form[: -len(suffix)] + replacement
+                for suffix, replacement in rules
+                if form.endswith(suffix) and len(form) - len(suffix) >= 2]
+
+    first = strip(word)
+    out.extend(first)
+    # one more round, so `workers` reaches `work` through `worker`. Over-
+    # stemming is harmless: a form that is not a real word matches no source.
+    for form in first:
+        out.extend(strip(form))
     return out
 
 

@@ -1,0 +1,318 @@
+# Plain-English glosses, A1 band (ADR-0010).
+#
+# Why this file exists: the Coverage Check hands a learner a list of words they
+# said they did not know, and until now the study list answered that with
+# "look it up in a dictionary". An app that can tell you a word is missing and
+# then cannot tell you what it means is doing half a job.
+#
+# House style for a gloss:
+#   1. Simple English, using words from this band or an easier one. This is a
+#      dictionary for someone whose English is small, not for a linguist.
+#   2. Never circular: a gloss may not contain the word itself or its stem.
+#      "to work: to do work" teaches nothing. A test enforces this.
+#   3. Three to about twelve words. If it needs a paragraph, it needs a card in
+#      vocabulary.yaml instead.
+#   4. The most common meaning first. A second meaning goes after "; also".
+#   5. English only. Mongolian comes from vocabulary.yaml where the word is
+#      already a card — never written fresh here (the ADR-0006 rule).
+#   6. Base forms only. `workers` finds `worker` finds `work` in code.
+
+version: 1
+level: A1
+words:
+  time: the thing a clock measures — minutes, hours, days
+  see: to notice something with your eyes
+  where: in what place
+  new: made or bought a short time ago; not old
+  work: what you do for a job, or the effort you put into something
+  year: twelve months, from January to December
+  number: a word or sign for counting, like 3 or 40
+  case: one example of a situation; also a box for carrying things
+  make: to build or produce something
+  way: how you do something; also a road or direction
+  section: one part of something bigger
+  life: the time from birth until death; being alive
+  like: to enjoy something; also similar to
+  order: to ask for something to be brought; also the way things are arranged
+  man: an adult male person
+  good: of a kind you want; not bad
+  use: to do something with a thing
+  world: the earth and everyone on it
+  information: facts about somebody or something
+  day: twenty-four hours; also the time when it is light
+  own: belonging to you and nobody else
+  high: far from the ground; also a big amount
+  know: to have something in your mind as true
+  take: to move something with your hand; also to need time
+  different: not the same
+  great: very good; also very big
+  large: big
+  city: a very big town
+  business: buying and selling; also a company
+  get: to receive or take something
+  place: a spot where something is
+  group: a number of people or things together
+  point: the main idea; also to show with your finger
+  think: to use your mind
+  come: to move towards the person speaking
+  period: a length of time
+  program: a plan of things that will happen; also software
+  office: the room or building where people do desk work
+  study: to learn about something
+  say: to speak words
+  end: the last part; to finish
+  health: how well your body is
+  war: fighting between countries
+  long: measuring a lot from one end to the other; also lasting many hours
+  board: a flat piece of wood; also a group who run something
+  form: the shape of something; also a paper with spaces to fill
+  little: small; not much
+  old: not new; having lived many years
+  action: something that somebody does
+  example: one thing that shows what the others are like
+  home: the place where you live
+  give: to put something in somebody's hand for them to keep
+  course: a set of lessons; also the way something goes
+  line: a long thin mark; also people standing one behind another
+  present: here, not away; also a gift; also now
+  social: about people being together
+  person: one human being
+  hand: the part of your body at the end of your arm
+  history: everything that happened in the past
+  find: to see something you were looking for
+  table: furniture with a flat top and legs
+  set: a group that belongs together; to put something somewhere
+  book: pages with words, held together to read
+  field: land for growing food or playing on; also an area of study
+  side: the left or the right part of something
+  full: with no space left
+  name: the word people call you
+  type: a kind of something; also to write with a keyboard
+  put: to move something to a place
+  head: the top part of your body, above your neck
+  body: all of a person or animal
+  special: not ordinary; better or different
+  become: to start to be something
+  due: expected at a certain time; also owed
+  matter: to be important; also a subject to deal with
+  want: to wish to have something
+  age: how many years old somebody is
+  party: people meeting to enjoy themselves; also a political group
+  change: to make or become different
+  right: correct; also the side opposite the left
+  paper: thin flat material for writing on
+  class: a group of students; also a lesson
+  child: a young person
+  almost: nearly, but not quite
+  price: how much money something costs
+  room: a space inside a building with walls
+  need: to have to have something
+  date: the day, month and year
+  bank: a place that keeps your money; also the side of a river
+  food: what people and animals eat
+  plan: what you have decided to do
+  street: a road in a town with houses along it
+  young: not old; having lived a short time
+  college: a school for people after eighteen
+  along: from one end of something to the other
+  "true": agreeing with the facts; not false
+  care: to feel that something is important; also looking after somebody
+  short: not long; also not tall
+  building: a place with walls and a roof
+  test: questions to see what you know; to try something out
+  river: a lot of water moving across land to the sea
+  church: a building where Christians pray
+  science: knowledge about the world from studying and testing
+  light: brightness from the sun or a lamp; also not heavy
+  real: existing, not imagined
+  language: the words a people speak, like English or Mongolian
+  show: to let somebody see something
+  foreign: from another country
+  kind: a type of something; also nice to other people
+  design: to plan how something will look and work
+  describe: to say what somebody or something is like
+  read: to look at words and understand them
+  white: the colour of snow
+  size: how big or small something is
+  art: pictures, music and other work made to be beautiful
+  word: a group of letters with a meaning
+  mind: the part of you that thinks
+  review: to look at something again to judge it
+  open: not closed
+  believe: to think something is true
+  look: to turn your eyes towards something
+  activity: something people do
+  rule: what you are allowed and not allowed to do
+  keep: to have something and not give it away
+  page: one side of a sheet in a book
+  face: the front of your head
+  ground: the earth under your feet
+  king: a man who rules a country because of his family
+  role: the part somebody plays in a job or a story
+  article: a piece of writing in a newspaper or journal
+  tell: to say something to somebody
+  woman: an adult female person
+  personal: belonging to one person, private
+  library: a place with many books to borrow
+  near: not far away
+  letter: a written message you send; also a sign like A or B
+  heart: the part of your body that pushes blood around
+  subject: what something is about; also a school topic
+  code: rules written down; also secret signs for a message
+  strong: having a lot of power; not weak
+  fire: the hot bright thing that burns
+  black: the colour of night
+  soon: in a short time from now
+  town: a place with houses and shops, smaller than a city
+  note: a short piece of writing to remember something
+  job: the work you are paid to do
+  idea: a thought or a plan in your mind
+  feel: to notice something in your body or your heart
+  pay: to give money for something
+  love: to like somebody or something very much
+  week: seven days
+  list: names or things written one under another
+  self: the person you are
+  story: what happened, told to somebody
+  meet: to come together with somebody
+  moment: a very short time
+  difference: the way two things are not the same
+  sea: the salt water that covers most of the earth
+  character: the kind of person somebody is; also a person in a story
+  wife: the woman a man is married to
+  sure: certain, with no doubt
+  box: a container with straight sides
+  mean: to have a meaning; also unkind
+  door: what you open to go into a room
+  car: a machine with four wheels that you drive
+  bring: to carry something to where you are going
+  stage: the raised floor where actors stand; also one step of a process
+  music: sounds made by singing or by instruments
+  survey: questions asked of many people to learn what they think
+  ask: to say a question
+  station: the place where trains or buses stop
+  site: the place where something is or will be built
+  month: about thirty days; one of the twelve parts of a year
+  sale: selling something; also selling at a lower price
+  poor: having very little money
+  student: somebody who studies
+  future: the time that has not happened yet
+  leave: to go away from a place
+  call: to telephone somebody; also to give a name to
+  computer: a machine that stores information and runs programs
+  minute: sixty seconds
+  hard: difficult; also not soft
+  farm: land where somebody grows food or keeps animals
+  peace: no war; also being calm
+  wall: the side of a room or building
+  lot: a large amount
+  discuss: to talk about something with other people
+  island: land with water all around it
+  hold: to have something in your hand
+  live: to have your home somewhere; also to be alive
+  collection: a group of things kept together
+  machine: something with moving parts that does work
+  fine: good enough; also money you pay for doing wrong
+  front: the side that faces forward
+  parent: a mother or a father
+  red: the colour of blood
+  build: to make something by putting parts together
+  follow: to come or go after somebody
+  park: open ground with grass and trees in a town
+  fish: an animal that lives in water
+  past: the time before now
+  summer: the warm season of the year
+  hour: sixty minutes
+  judge: the person who decides in a court; also to form an opinion
+  write: to make words on paper or a screen
+  try: to make an effort to do something
+  post: to send a letter; also a job
+  address: where a building is — street, town, number
+  add: to put one thing with another
+  floor: the flat part of a room you walk on; also one level of a building
+  step: one movement of your foot; also one part of a plan
+  hall: a large room for meetings; also the space inside a front door
+  spring: the season when plants start to grow
+  item: one thing in a list or a group
+  run: to move fast on your feet
+  hear: to notice sound with your ears
+  teacher: somebody whose job is to help others learn
+  ready: able to start now
+  else: other, different
+  event: something that happens, often planned
+  successful: having got what you wanted
+  bad: not good
+  top: the highest part
+  dollar: the money used in America and some other countries
+  move: to go from one place to another
+  cut: to make a hole or a piece with a knife
+  color: red, blue, green and the rest
+  bed: the furniture you sleep on
+  carry: to hold something and take it somewhere
+  glass: hard clear material for windows; also a cup for drinking
+  paragraph: a group of sentences about one idea
+  sell: to give something for money
+  introduce: to tell people about something new; also to say who somebody is
+  picture: a drawing or a photograph
+  interesting: making you want to know more
+  bar: a place that sells drinks; also a long piece of metal
+  dark: with little or no light
+  eye: the part of your face you see with
+  speak: to say words
+  telephone: the machine you use to talk to somebody far away
+  girl: a young female person
+  tree: a tall plant with a wooden trunk
+  boy: a young male person
+  husband: the man a woman is married to
+  share: to give part of what you have to somebody else
+  copy: to make another one the same
+  turn: to move so that you face another way
+  animal: a living thing that moves, like a dog or a horse
+  speech: talking to a group of people; also the ability to talk
+  quickly: fast, in a short time
+  winter: the cold season of the year
+  brother: a boy or man with the same parents as you
+  learn: to get knowledge or a skill
+  game: something you play with rules and a winner
+  radio: a machine that plays sound sent through the air
+  begin: to start
+  memory: the ability to remember; also a thing you remember
+  wrong: not correct
+  team: a group who work or play together
+  miss: to fail to hit or catch; also to be sad that somebody is away
+  fair: treating everybody the same way
+  dry: with no water in or on it
+  spend: to use money; also to use time
+  hair: what grows on your head
+  brown: the colour of earth or wood
+  play: to do something for fun; also to make music
+  please: the polite word you add when you ask
+  stand: to be on your feet
+  mouth: the part of your face you eat and speak with
+  ship: a big boat that crosses the sea
+  wish: to want something that may not happen
+  leader: the person others follow
+  club: a group of people who meet for the same interest
+  happen: to take place
+  sit: to rest on your bottom on a chair
+  thank: to tell somebody you are glad for what they did
+  daughter: somebody's female child
+  close: to shut; also near
+  correct: right, with no mistakes
+  piece: one part of something
+  collect: to bring things together; also to go and get something
+  file: papers kept together; also a document on a computer
+  mail: letters sent by post
+  key: what opens a lock; also the most important thing
+  window: the glass in a wall you look through
+  map: a drawing of a place from above
+  green: the colour of grass
+  talk: to speak with somebody
+  skill: something you can do well because you learned it
+  fill: to make something full
+  bridge: what carries a road over a river
+  stop: to end a movement or an action
+  message: words sent to somebody
+  brain: the part inside your head that thinks
+  farmer: somebody whose job is growing food or keeping animals
+  smith: a family name; also somebody who makes things from metal

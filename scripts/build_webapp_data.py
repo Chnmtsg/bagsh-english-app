@@ -27,6 +27,7 @@ from src.knowledge import (  # noqa: E402
     load_grammar_lessons,
     load_pseudowords,
 )
+from src.glossary import explain_all, load_glosses  # noqa: E402
 from src.reading import glossary, load_readings  # noqa: E402
 from src.quiz import (  # noqa: E402
     CONTRACTIONS,
@@ -37,6 +38,7 @@ from src.quiz import (  # noqa: E402
 
 
 def main() -> int:
+    wordlist = json.loads(WORDLIST.read_text(encoding="utf-8"))
     cats = categories()
     lessons = load_grammar_lessons()
     bands = cefr_bands()
@@ -80,7 +82,16 @@ def main() -> int:
         "vocab": vocab_bank(),
         "dialogues": load_conversations(),
         "talk": talk_bank(),
-        "wordlist": json.loads(WORDLIST.read_text(encoding="utf-8")),
+        "wordlist": wordlist,
+        # every word the Coverage Check can offer, explained — so the
+        # study list never has to say "look it up in a dictionary"
+        "glosses": explain_all(sorted(
+            {w.lower() for level in wordlist["levels"].values() for w in level}
+            | set(load_glosses())
+            | {w["word"].lower() for w in vocab_bank()}
+            | {g.lower() for text in load_readings()
+               for g in (text.get("glosses") or {})}
+        )),
         # honesty anchors for the coverage check — never teachable content
         "pseudowords": load_pseudowords(),
         # the reading library, with each text's glossary resolved against
@@ -96,7 +107,7 @@ def main() -> int:
                    encoding="utf-8")
     print(f"wrote {out} — {len(data['grammar'])} grammar items, "
           f"{len(data['vocab'])} words, {len(data['categories'])} categories, "
-          f"{len(data['readings'])} texts")
+          f"{len(data['readings'])} texts, {len(data['glosses'])} glosses")
     return 0
 
 

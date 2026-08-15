@@ -741,7 +741,13 @@ function vocabLevel() {
 
 function vocabRank(l) { return Math.max(0, VOCAB_LEVELS.indexOf(l)); }
 function cardsOfLevel(l) { return DATA.vocab.filter(w => w.level === l); }
-function listOfLevel(l) { return DATA.wordlist.levels[l] || []; }
+/* The frequency list is built from a corpus with legal citations in it,
+ * so it contains stray single letters like `p` and `s`. They are not
+ * vocabulary and must never be offered as words to learn. */
+function listOfLevel(l) {
+  return (DATA.wordlist.levels[l] || [])
+    .filter(w => w.length > 1 || w === "a" || w === "i");
+}
 
 function markKnown(word) {
   if (!profile.knownWords[word]) profile.knownWords[word] = 1;
@@ -894,12 +900,16 @@ function startCheck() {
   const cardByWord = Object.fromEntries(DATA.vocab.map(w => [w.word, w]));
   if (!profile.anchors) profile.anchors = { shown: 0, ticked: 0 };
   let i = 0, knew = 0;
-  const caught = [];
+  const caught = [], unknown = [];
 
   function step() {
     if (i >= round.length) {
       recordActivity(5);  // finishing a check round feeds the streak
       const realCount = round.length - fakes.length;
+      // the words they just said they did not know, explained here and now —
+      // the gap is the moment to close it, not a dictionary trip later
+      const learned = unknown.map(w => `<div class="row"><span class="name plain">
+          <b>${esc(w)}</b><br>${glossHtml(explain(w))}</span></div>`).join("");
       view.innerHTML = `
         <div class="card">
           <h2>Round done — you knew ${knew}/${realCount}</h2>
@@ -917,8 +927,10 @@ function startCheck() {
                    : "both invented words"} in this round — your count is
                  trustworthy.</p>
                </div>`}
-          <p class="muted">Unknown words went to your study list. Honest
-          answers make the ladder true — no one is watching. 🐫</p>
+          ${learned ? `<h3>The ones you did not know</h3>
+            <p class="muted">Here is what each of them means. They are in your
+            study list too, so you do not have to remember them now.</p>
+            ${learned}` : ""}
           <button class="primary" id="more">Next ${CHECK_ROUND} words</button>
           <button class="ghost" id="home">Back to ladder</button>
         </div>`;
@@ -948,29 +960,54 @@ function startCheck() {
       i += 1; saveProfile(); step();
     });
     document.getElementById("dont").addEventListener("click", () => {
-      if (entry.fake) profile.anchors.shown += 1;
-      else if (!profile.studyList.includes(entry.word)) profile.studyList.push(entry.word);
+      if (entry.fake) {
+        profile.anchors.shown += 1;
+      } else {
+        unknown.push(entry.word);
+        if (!profile.studyList.includes(entry.word)) profile.studyList.push(entry.word);
+      }
       i += 1; saveProfile(); step();
     });
   }
   step();
 }
 
+/* Every word in the study list carries its own explanation (ADR-0010).
+ * It used to say "look it up in a dictionary", which is a strange thing for
+ * an offline app to say to somebody who has just told it they do not know a
+ * word. DATA.glosses is built from the curated deck, the reading glosses and
+ * knowledge/glosses/*.yaml, and it resolves inflections: `workers` answers
+ * with `work`. */
+
+function explain(word) {
+  const glosses = DATA.glosses || {};
+  return glosses[String(word || "").toLowerCase()] || null;
+}
+
+function glossHtml(entry) {
+  if (!entry) {
+    return `<span class="muted">no explanation in the app for this one yet —
+      it is not in the word list the glossary was written from</span>`;
+  }
+  return `<span class="muted">${entry.stress ? `<span class="stress">${esc(entry.stress)}</span> — ` : ""}${
+    esc(entry.gloss_en)}${entry.gloss_mn ? `<br>🇲🇳 ${esc(entry.gloss_mn)}` : ""}${
+    entry.base ? `<br>from <b>${esc(entry.base)}</b>` : ""}${
+    entry.example ? `<br><i>${esc(entry.example)}</i>` : ""}</span>`;
+}
+
 function renderStudyList() {
-  const cardByWord = Object.fromEntries(DATA.vocab.map(w => [w.word, w]));
   const items = profile.studyList.map(w => {
-    const card = cardByWord[w];
-    return `<div class="row"><span class="name"><b>${esc(w)}</b>
-      ${card ? `<br><span class="muted">${esc(card.stress)} — ${esc(card.gloss_en)} (${esc(card.gloss_mn)})</span>`
-             : `<br><span class="muted">толь бичгээс хараарай — look it up, then mark it known</span>`}
-      </span>
+    return `<div class="row"><span class="name plain"><b>${esc(w)}</b>
+      <br>${glossHtml(explain(w))}</span>
       <button class="ghost known-btn" data-w="${esc(w)}">✓ know it now</button></div>`;
   }).join("");
+  const explained = profile.studyList.filter(w => explain(w)).length;
   view.innerHTML = `
     <div class="card"><h2>📝 My study list — Сурах үгс</h2>
-      <p class="muted">Words you marked as unknown. The ones with Mongolian
-      come from the card deck; study the rest with a dictionary, then mark
-      them known.</p></div>
+      <p class="muted">Words you marked as unknown, each with what it means —
+      ${explained}/${profile.studyList.length} explained. Words from the card
+      deck also bring their Mongolian and an example; the rest are explained in
+      simple English, which is how you should be meeting them anyway.</p></div>
     <div class="card">${items || "<p class='muted'>Empty — сайхан байна!</p>"}</div>
     <button class="ghost" id="home" style="margin:0 6px">← Back to ladder</button>`;
   view.querySelectorAll(".known-btn").forEach(b =>

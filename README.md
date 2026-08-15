@@ -49,6 +49,7 @@ python -m src.play talk        # conversation drills: type the missing chunk
 python -m src.play fluency     # 60 timed seconds on what you already know
 python -m src.play read        # read something graded to your level
 python -m src.play library     # what there is to read
+python -m src.play define --word deposit   # what a word means
 python -m src.play progress    # what you can actually do (not XP)
 python -m src.play stats       # XP, streak, badges — habit, not progress
 ```

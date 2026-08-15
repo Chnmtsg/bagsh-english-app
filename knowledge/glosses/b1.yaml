@@ -1,0 +1,977 @@
+# Plain-English glosses, B1 band (ADR-0010). House style: see a1.yaml.
+
+version: 1
+level: B1
+words:
+  per: for each
+  service: work done for other people; also a bus or train route
+  general: about the whole thing, not the details
+  department: one part of a company, government or shop
+  thus: for this reason; in this way
+  process: a set of steps that produce a result
+  county: an area of a country with its own local government
+  available: there to be used or bought
+  president: the head of a country or a company
+  amount: how much of something there is
+  policy: an official plan of what to do
+  property: what somebody owns, especially land or buildings
+  analysis: careful study of the parts of something
+  various: several different ones
+  management: the people who run a company; also running it
+  total: the whole amount when everything is added
+  district: one area of a city or country
+  economic: about money, trade and industry
+  tax: money people must pay to the government
+  application: a formal written request; also a use for something
+  press: newspapers and journalists; also to push
+  income: money that comes in regularly
+  union: a group of workers joined to protect their rights
+  treatment: what a doctor does to cure you; also how you behave towards somebody
+  basis: the facts or ideas something rests on
+  able: having the power or skill to do something
+  surface: the outside or top layer of something
+  council: a group elected to run a town or organisation
+  growth: getting bigger over time
+  construction: building something
+  authority: the power to give orders; also an official body
+  series: several things of the same kind, one after another
+  current: happening now; also water or air moving in one direction
+  equipment: the tools and machines needed for a job
+  operation: the way something works; also a medical cutting
+  administration: the running of a company or government
+  theory: an idea that explains something, not yet proved by use
+  agreement: when people decide the same thing together
+  organization: a group of people working for one purpose
+  effective: working well, producing the result you wanted
+  distribution: giving or sending things out to many places
+  respect: to think well of somebody; also a way of considering something
+  term: a word for something; also part of a school year; also a condition
+  insurance: money you pay so a company will pay if something goes wrong
+  nor: and not
+  main: most important
+  journal: a serious magazine about one subject; also a daily record
+  loss: losing something; also money spent more than earned
+  individual: one single person; also separate
+  employment: having a paid job
+  volume: how loud a sound is; also how much space something fills
+  region: a large area of a country
+  financial: about money
+  particularly: especially, more than the others
+  approach: a way of dealing with something; also to come near
+  movement: moving; also a group working for a change
+  disease: an illness with a name and a cause
+  army: the soldiers of a country
+  length: how long something is
+  extent: how far or how much something goes
+  annual: happening once a year
+  protection: keeping somebody or something safe
+  legal: allowed by law; also about the law
+  supply: to provide what is needed; also the amount available
+  throughout: in every part of; also for the whole time
+  unless: except if
+  fund: money kept for one purpose
+  capacity: how much something can hold or do
+  judgment: an opinion formed after thinking; also a court decision
+  institute: an organisation for study or a special purpose
+  soil: the earth that plants grow in
+  engineering: designing and building machines, roads and structures
+  determine: to decide; also to find out for certain
+  charge: the price asked; also to accuse somebody
+  flow: to move steadily like water
+  safety: being safe from harm
+  previous: coming before this one
+  justice: fair treatment under the law
+  steel: strong metal made from iron
+  entire: whole, complete
+  industrial: about factories and making things
+  equal: the same in size, value or rights
+  assistance: help
+  otherwise: if not; in other ways
+  central: in the middle; also most important
+  presence: being in a place
+  require: to need; also to demand officially
+  consideration: careful thought; also something you take into account
+  risk: the chance that something bad happens
+  relation: how two things or people are connected
+  duty: what you must do because of your job or morals
+  failure: not succeeding
+  connection: a link between two things
+  literature: novels, poems and plays; also writing on a subject
+  sufficient: enough
+  active: doing things, not resting
+  mass: a large amount; also how much matter something has
+  relative: compared with something else; also a family member
+  commercial: about business and making money
+  demand: to ask forcefully; also how much people want to buy
+  progress: moving forward towards a goal
+  iron: a hard grey metal
+  distance: how far it is between two places
+  coal: black rock burned for heat
+  standard: the level something should reach; also usual
+  transportation: moving people or goods from place to place
+  access: the right or the way to reach something
+  religious: about religion and belief in god
+  positive: sure and hopeful; also saying yes
+  defense: protecting against attack
+  rest: what is left; also to stop working for a while
+  balance: keeping steady; also what is left in an account
+  approximately: about, close to but not exactly
+  introduction: the first part of a book or a talk
+  examination: a careful look at something; also a test
+  initial: first, at the beginning
+  motor: the part of a machine that makes it move
+  agriculture: farming
+  chief: the leader; also most important
+  occur: to happen
+  spirit: the part of a person that is not the body; also mood
+  transfer: to move somebody or something to another place
+  independent: not controlled by anybody else
+  content: what is inside something; also satisfied
+  considerable: fairly large or important
+  maintenance: keeping something in good condition
+  serious: important and needing thought; also not joking
+  professor: a senior teacher at a university
+  essential: absolutely necessary
+  majority: more than half
+  object: a thing you can see and touch; also to say you disagree
+  reduction: making something smaller in size or amount
+  regard: to think of somebody in a certain way; also attention
+  reasonable: fair and sensible
+  responsible: having the duty to deal with something; also to blame
+  practical: useful in real life, not only in theory
+  instance: one example
+  principle: a basic rule or belief
+  critical: very important; also saying what is wrong
+  frequency: how often something happens
+  cultural: about the arts and customs of a people
+  appeal: to ask strongly for something; also to attract
+  obtain: to get something
+  existence: being real, being there
+  location: where something is
+  election: choosing leaders by voting
+  potential: what somebody could become; also possible
+  foundation: the base a building stands on; also an organisation that gives money
+  investigation: an official search for the facts
+  pattern: a regular way things repeat
+  determination: not giving up; also deciding officially
+  concept: an idea in general form
+  complex: with many parts, not simple
+  network: things or people connected to each other
+  civil: about ordinary citizens, not the army or church
+  laboratory: a room where scientific work is done
+  regulation: an official rule
+  improvement: making something better
+  internal: on the inside
+  upper: higher
+  maintain: to keep something the same; also to say firmly
+  fuel: what is burned to make heat or power
+  constitution: the basic laws of a country
+  forth: forward, onward
+  vice: second in rank — the deputy of a president or chairman
+  reduce: to make smaller in size or amount
+  despite: even though something is true
+  ordinary: usual, nothing special
+  historical: about the past and its records
+  environmental: about the air, water and land around us
+  concentration: paying close attention; also how much of something is in a mixture
+  agricultural: about farming
+  measure: to find the size or amount; also a step taken to do something
+  governor: the person who governs a state or region
+  pain: the feeling when part of your body hurts
+  conclusion: the end; also what you decide after thinking
+  absence: not being there
+  storage: keeping things until they are needed
+  definition: what a word means, said exactly
+  occurred: happened
+  element: one basic part; also a simple chemical substance
+  transport: to carry goods or people from place to place
+  railway: the rails and stations for trains
+  selection: choosing; also the things chosen
+  session: one period of an activity
+  grant: money given for a purpose; also to allow
+  religion: belief in a god, with its practices
+  politics: the activity of governing and of parties
+  permanent: lasting for ever, not temporary
+  firm: a business; also hard and steady
+  race: a competition of speed; also a group of people with shared origin
+  sex: being male or female; also what a couple does to make a baby
+  damage: harm that makes something worse
+  marriage: being husband and wife
+  debt: money you owe
+  sort: a kind or type; also to put in order
+  combination: two or more things joined
+  skin: the outside covering of your body
+  mental: about the mind
+  nuclear: about the centre of atoms and the power from them
+  origin: where something began
+  season: one of the four parts of the year
+  conflict: serious disagreement or fighting
+  numerous: many
+  waste: to use badly and lose; also rubbish
+  substantial: large enough to matter
+  preparation: getting ready
+  joint: shared by two or more; also where two bones meet
+  efficiency: doing a job without wasting time or money
+  possibility: something that may happen
+  moral: about right and wrong
+  vehicle: a car, bus, truck or anything that carries people
+  establishment: setting something up; also those in power
+  stress: worry that presses on you; also force on a material
+  contain: to hold inside
+  composition: what something is made of; also a piece of writing or music
+  electrical: about electricity
+  solid: hard and firm, not liquid or gas
+  consumption: using something up, especially food or fuel
+  regional: about one region
+  broad: wide
+  bond: a link between people; also a paper promising to repay money
+  maximum: the largest possible amount
+  injury: harm done to a body
+  inches: units of length, a little over two centimetres each
+  moreover: and also, in addition
+  edition: one printing of a book or paper
+  experiment: a test to find out what happens
+  reality: the way things really are
+  affect: to change or influence something
+  immediate: happening at once
+  quantity: how much there is
+  typical: like most others of its kind
+  edge: the part where something ends
+  dependent: needing somebody or something else
+  laid: put down flat
+  teaching: helping others learn, as a job
+  mechanical: worked by machines
+  proportion: one part compared with the whole
+  instruction: telling somebody what to do; also teaching
+  cancer: a serious illness where cells grow wrongly
+  finance: managing money
+  primarily: mainly, first of all
+  philosophy: the study of ideas about life and knowledge
+  foot: the part of your leg you stand on; also a unit of length
+  settlement: an agreement ending an argument; also a place people settled
+  desire: to want something strongly
+  consumer: somebody who buys and uses things
+  representative: somebody chosen to speak for others
+  southern: in or from the south
+  lay: to put something down carefully
+  delivery: bringing goods to somebody
+  derived: taken or developed from something else
+  mission: an important job somebody is sent to do
+  depth: how deep something is
+  aware: knowing that something is there
+  signal: a sign or sound that tells you something
+  command: an order; also to be in charge
+  approval: agreeing officially that something is good
+  entry: going in; also one item written in a list
+  continuous: going on without a break
+  device: a machine or tool made for one job
+  channel: a way for water or information to travel
+  technique: a special way of doing something skilfully
+  cotton: soft white material from a plant, used for cloth
+  ensure: to make certain something happens
+  proof: facts that show something is true
+  contribution: what you give to a shared effort
+  protect: to keep safe from harm
+  document: an official paper or computer file
+  port: a town where ships load and unload
+  assume: to think something is true without checking
+  leadership: leading a group; also the leaders themselves
+  prove: to show that something is true
+  conduct: to carry out an activity; also how somebody behaves
+  identity: who somebody is
+  recovery: getting better after illness or loss
+  membership: belonging to a group
+  pure: with nothing else mixed in
+  apparent: easy to see; also seeming true
+  formal: following official rules and manners
+  guide: somebody who shows the way; also a book of advice
+  battle: a fight between armies
+  nevertheless: even so, in spite of that
+  sand: tiny grains of rock on a beach or in a desert
+  radiation: energy sent out as rays
+  possession: having something; also a thing you own
+  height: how tall or high something is
+  cycle: events that repeat in the same order; also a bicycle
+  expense: money you have to spend
+  obvious: easy to see or understand at once
+  criminal: somebody who breaks the law; also about crime
+  sheet: a thin flat piece of paper or material; also for a bed
+  proposal: a plan somebody puts forward
+  suddenly: quickly and without warning
+  marked: clear and easy to notice; also written on
+  rise: to go up
+  crop: plants grown for food
+  measurement: the size or amount found by measuring
+  vessels: ships; also tubes that carry blood
+  conservation: protecting nature or old things
+  severe: very bad or very strict
+  inspection: an official careful look at something
+  emphasis: special importance given to something
+  bound: certain to happen; also tied
+  limit: the point beyond which you cannot go
+  capable: able to do something
+  marine: about the sea
+  assigned: given to somebody as their job or share
+  rapid: fast
+  northern: in or from the north
+  scope: how much a subject or job covers
+  significance: how important something is
+  brief: short
+  resource: something useful you can use, like money or materials
+  valuable: worth a lot of money or importance
+  revised: changed to make better or correct
+  minimum: the smallest possible amount
+  facility: a building or equipment provided for a purpose
+  unable: not able to
+  global: about the whole world
+  enemy: somebody who wants to harm you
+  unique: the only one of its kind
+  interaction: two things or people acting on each other
+  vision: the ability to see; also an idea of the future
+  worth: having a value of; also good enough to deserve
+  curve: a line that bends smoothly
+  tissue: the material that body parts are made of; also soft paper
+  remove: to take something away
+  diameter: the distance straight across a circle
+  permit: to allow; also an official paper allowing something
+  temporary: lasting only a short time
+  sequence: things coming one after another in order
+  category: a group of things of the same kind
+  distributed: given or spread out to many
+  violence: using force to hurt people
+  angle: the space between two lines that meet
+  anti: against
+  suppose: to think something is probably true
+  boundary: the line where one area ends and another begins
+  belief: something you think is true
+  estimate: to guess an amount carefully
+  eventually: in the end, after a long time
+  minor: small and not important
+  opposition: being against something; also those who are against
+  arrangement: a plan agreed with others; also how things are placed
+  crisis: a dangerous moment when things must change
+  alcohol: what makes beer and wine strong
+  household: everybody living in one house
+  oxygen: the gas in air that living things need
+  stream: a small river; also a steady flow
+  electron: a very small part of an atom with negative charge
+  behalf: acting for somebody else
+  observation: watching carefully; also what you noticed
+  medium: in the middle; also a way of communicating
+  electronic: working by electricity and small parts, like a computer
+  tend: to usually do something; also to look after
+  visual: about seeing
+  symptoms: signs that show an illness
+  narrow: not wide
+  via: by way of, through
+  mere: only that and nothing more
+  absolute: complete, with no limits
+  spiritual: about the spirit and religion, not the body
+  registration: putting your name on an official list
+  rare: not happening or found often
+  formula: a rule written in signs; also a fixed way of doing something
+  composed: made up of parts; also calm
+  wire: a thin thread of metal
+  aspect: one part or side of a subject
+  consequently: as a result
+  cattle: cows and bulls kept on a farm
+  furthermore: and also, in addition
+  exposed: not covered or protected
+  probability: how likely something is
+  occasion: a particular time when something happens
+  infection: illness spread by very small living things
+  accurate: exactly right
+  recognize: to know somebody or something you have seen before
+  option: a choice you may take
+  organic: from living things; also grown without chemicals
+  oral: spoken, not written; also about the mouth
+  extend: to make longer or larger
+  bulletin: a short official news report
+  evident: clear, easy to see
+  unemployment: being without a job
+  psychological: about the mind and how it works
+  enable: to make it possible for somebody to do something
+  partial: only part, not complete
+  announced: told publicly
+  academy: a school for a special subject; also a society of experts
+  chemistry: the science of what things are made of
+  academic: about study at school or university
+  poetry: writing in verse, with rhythm
+  outstanding: much better than the rest; also not yet paid
+  democratic: run by everyone voting
+  separation: keeping or being kept apart
+  aside: to one side
+  eastern: in or from the east
+  copyright: the legal right to control who copies your work
+  customs: the office that checks goods entering a country; also traditions
+  examine: to look at carefully
+  physics: the science of matter, energy and forces
+  accompanied: went together with
+  alternative: another choice you could take
+  tendency: what usually happens or what somebody usually does
+  whenever: at any time that
+  constitute: to be the parts that make up something
+  gain: to get more of something
+  atmosphere: the air around the earth; also the feeling of a place
+  stable: steady, not likely to change
+  literary: about literature and writing
+  distinction: a clear difference; also special honour
+  climate: the usual weather of a place over years
+  intention: what you mean to do
+  assist: to help
+  superior: better or higher in rank
+  struggle: to try hard against difficulty
+  excess: more than is needed or allowed
+  league: a group of teams that play each other
+  mineral: a natural substance dug from the earth
+  liquid: something that flows, like water
+  atlantic: the ocean between Europe and America
+  competitive: wanting to win; also with many rivals
+  democracy: a country where the people vote for their government
+  promote: to help something grow; also to give somebody a higher job
+  presentation: showing or explaining something to a group
+  secure: safe; also to fix firmly
+  increasingly: more and more
+  canal: a waterway made by people
+  discovery: finding something for the first time
+  definite: certain and clear
+  vast: extremely large
+  vary: to be different from one another; to change
+  mixed: made of different kinds together
+  emotional: about strong feelings
+  poverty: being very poor
+  accuracy: being exactly right
+  muscle: the parts of the body that pull the bones to move you
+  slight: small, not important
+  prison: the building where criminals are locked up
+  acceptance: agreeing to take or believe something
+  characteristic: a typical quality of somebody or something
+  sharp: with a fine cutting edge; also sudden and strong
+  visible: able to be seen
+  discrimination: treating a group worse for unfair reasons
+  minority: less than half; also a small group among a larger one
+  define: to say exactly what something means
+  huge: very big
+  satisfaction: the good feeling when you get what you wanted
+  border: the line between two countries
+  exact: completely correct in every detail
+  defence: protecting against attack
+  taxation: the system of taking taxes
+  threat: a warning that harm may come
+  inquiry: an official attempt to find out the facts
+  guidance: help and advice about what to do
+  breath: the air you take into your body
+  involve: to include as a necessary part
+  contribute: to give a share to something shared
+  trend: the way things are changing over time
+  tank: a large container for liquid; also an armoured vehicle
+  classical: of an old and respected style
+  destruction: destroying something completely
+  depression: deep sadness that lasts; also a fall in business
+  beneath: under
+  frequent: happening often
+  proceed: to go on to the next step
+  exclusive: only for some people, not shared
+  decrease: to become smaller in amount
+  respective: belonging to each one separately
+  surgery: medical treatment by cutting the body
+  guilty: having done something wrong
+  objective: a goal; also fair and not personal
+  era: a long period of history
+  satisfied: pleased because you got what you wanted
+  arise: to happen or appear
+  decline: to go down in amount; also to say no politely
+  incident: something that happened, often unpleasant
+  electricity: the power that comes through wires
+  declaration: an official public statement
+  bishop: a senior Christian priest
+  admission: letting somebody in; also saying that something is true
+  transformation: a complete change
+  analyses: careful studies of the parts of things
+  mutual: felt or done by two people to each other
+  notion: an idea or belief
+  surrounding: all around something
+  comment: to say what you think about something
+  characterized: described as having certain qualities
+  mathematics: the study of numbers and shapes
+  logic: careful reasoning from facts to conclusions
+  tobacco: the dried leaves smoked in cigarettes
+  currency: the money used in a country
+  negotiations: formal talks to reach an agreement
+  disability: a condition that limits what somebody can do
+  tension: worry or bad feeling between people; also being stretched tight
+  remarkable: unusual and worth noticing
+  atomic: about atoms and their energy
+  attend: to go to an event; also to look after
+  poet: somebody who writes poetry
+  pub: a place in Britain that sells beer
+  adapted: changed to fit a new use
+  participate: to take part in something
+  steady: not changing or shaking
+  prayer: words said to a god
+  survival: staying alive through danger
+  impression: the feeling or idea you get about something
+  prominent: important and well known
+  artist: somebody who makes art
+  monitoring: watching something over time to check it
+  profession: a job that needs long training, like law or medicine
+  objection: a reason for being against something
+  limitation: how far something may go, and no further
+  demonstrate: to show clearly; also to march in protest
+  constantly: all the time, again and again
+  illness: being ill
+  rail: the metal bar a train runs on; also the railway
+  respond: to answer or react
+  gap: an empty space between two things
+  differ: to be unlike something else
+  assignment: a piece of work given to somebody
+  intermediate: in the middle, between two levels
+  moderate: not too much and not too little
+  register: an official list; also to put your name on one
+  virus: a very small thing that causes illness; also harmful computer code
+  experts: people who know a subject very well
+  plain: simple and clear; also flat open land
+  installed: put in place and ready to work
+  mile: a unit of distance, about 1.6 kilometres
+  link: a connection between two things
+  taxable: something you must pay tax on
+  restricted: kept within limits
+  reserves: supplies kept for later; also soldiers kept back
+  ward: a room in a hospital; also an area of a town
+  sports: games played with physical effort
+  strategic: planned carefully for a long-term goal
+  compound: something made of two or more parts; also an enclosed area
+  rank: position in an order of importance
+  select: to choose
+  afford: to have enough money for something
+  victory: winning
+  curriculum: all the subjects taught in a school or course
+  treat: to behave towards somebody; also to give medical care
+  awareness: knowing about something
+  rough: not smooth; also not exact
+  allowance: money given regularly; also what is permitted
+  accused: said to have done something wrong
+  circular: round like a circle; also a letter sent to many people
+  governing: ruling or controlling
+  phenomenon: something that happens and can be seen or studied
+  observe: to watch carefully; also to say what you noticed
+  preference: liking one thing more than another
+  varieties: different kinds of the same thing
+  occurrence: something that happens
+  absent: not there
+  retail: selling goods to ordinary buyers in shops
+  recover: to get better; also to get something back
+  narrative: a story or an account of events
+  aim: what you are trying to reach
+  punishment: something bad done to somebody for breaking a rule
+  package: a wrapped parcel; also things offered together
+  genetic: about the parts of cells that pass from parents to children
+  organisation: a group of people working for one purpose
+  adopt: to take something on as your own; also to take a child into a family
+  engage: to take part; also to employ somebody
+  phenomena: things that happen and can be studied
+  score: the points won in a game; also to win a point
+  phrase: a small group of words used together
+  divine: about god; also wonderful
+  arrival: coming to a place
+  dramatic: sudden and impressive; also about plays
+  breast: the front upper part of the body; also a woman's milk gland
+  slope: ground that goes up or down
+  abstract: about ideas rather than things you can touch
+  overcome: to defeat a difficulty
+  wing: what a bird or plane flies with; also one side part of a building
+  favorable: helpful and good for you
+  conscious: awake and knowing what is happening
+  calculation: working something out with numbers
+  revision: going over work again to correct or improve it
+  afterwards: later, after that
+  anxiety: a worried feeling about what may happen
+  distant: far away
+  reflection: careful thought; also an image in a mirror
+  technological: about machines and modern methods
+  silent: making no sound
+  filter: something that removes what you do not want from air or liquid
+  translated: put into another language
+  holy: sacred, belonging to a religion
+  trustee: somebody trusted to look after money or property for others
+  moisture: small amounts of water in air or on a surface
+  simultaneously: at the same time
+  researchers: people whose job is to study a subject deeply
+  wildlife: the animals and plants living in nature
+  powder: a dry substance in tiny loose grains
+  respondents: the people who answered a survey
+  racial: about race and the differences people make of it
+  occurring: happening
+  confusion: not understanding what is going on
+  rational: based on clear reasoning
+  imported: brought in from another country
+  recall: to remember; also to call something back
+  extraordinary: very unusual and surprising
+  historic: important in history
+  syndrome: a set of symptoms that go together
+  neutral: on neither side
+  taste: the flavour of food; also what somebody likes
+  systematic: done in an organised, thorough way
+  eliminate: to get rid of completely
+  deliver: to take goods to somebody; also to give a speech
+  biology: the science of living things
+  suffer: to feel pain or something bad
+  photographs: pictures taken with a camera
+  productive: producing a lot
+  conclude: to end; also to decide after thinking
+  victim: somebody harmed by a crime or accident
+  reserved: kept for somebody; also quiet and shy
+  platform: a raised flat surface, as at a station
+  construct: to build
+  demonstration: showing how something works; also a public protest
+  possess: to own or have
+  interval: the time between two events
+  contrary: opposite
+  immigration: people coming into a country to live
+  sacred: holy, treated with deep respect
+  altogether: completely; also counting everything
+  reputation: what people generally think of somebody
+  resident: somebody who lives in a place
+  publisher: a company that prints and sells books
+  exploration: travelling or searching to find out
+  pound: British money; also a unit of weight
+  relate: to show or feel a connection
+  massive: very large and heavy
+  preservation: keeping something safe from harm or decay
+  darkness: having no light
+  inhabitants: the people who live in a place
+  deed: something somebody did; also a legal paper about property
+  anger: the strong feeling when somebody treats you badly
+  intense: very strong
+  indirect: not going straight to the point or place
+  digital: stored as numbers, as on a computer
+  deficiency: not having enough of something needed
+  finger: one of the five parts at the end of your hand
+  protective: keeping somebody or something safe
+  retain: to keep
+  conservative: not wanting change
+  format: the way something is arranged or presented
+  acquire: to get something over time
+  associate: to connect in your mind; also a work partner
+  priest: somebody who leads religious ceremonies
+  tiny: very small
+  uncertainty: not knowing what will happen
+  widespread: found over a large area or among many people
+  somehow: in a way that is not known
+  correction: making something right
+  nutrition: getting the food your body needs
+  comfort: a feeling of ease; also to make somebody feel better
+  lab: a room where scientific work is done
+  equality: everybody having the same rights
+  neighborhood: the area around where you live
+  worthy: deserving respect or attention
+  peculiar: strange; also belonging only to one
+  mechanics: how machines and forces work
+  civilian: somebody not in the army or police
+  furnish: to provide; also to put furniture in
+  reconstruction: building again after damage
+  appreciation: understanding the value of something; also thanks
+  pale: light in colour, with little blood in the face
+  deny: to say something is not true
+  attachment: a strong feeling for somebody; also a file sent with an email
+  organs: parts of the body with one job, like the heart
+  generate: to produce
+  restoration: bringing something back to its earlier state
+  refuse: to say you will not do something
+  railroads: the rails and companies that run trains
+  distinguish: to see the difference between things
+  passion: very strong feeling or interest
+  honest: telling the truth
+  expand: to become larger
+  rely: to depend on somebody or something
+  civilization: an advanced, organised society
+  glory: great fame and honour
+  warning: telling somebody that danger may come
+  intensive: concentrated, with great effort in a short time
+  isolation: being alone and apart from others
+  wherever: in any place that
+  satellite: something that goes round a planet; also a machine sent to orbit
+  stem: the main stalk of a plant; also to come from
+  prize: something given to the winner
+  diverse: of many different kinds
+  surrounded: with things on every side
+  occasional: happening sometimes, not often
+  courage: not being stopped by fear
+  residential: with houses, where people live
+  trail: a rough path; also marks left behind
+  essence: the most important quality of something
+  blind: not able to see
+  meanwhile: at the same time
+  primitive: from an early, simple stage
+  departure: leaving
+  usage: the way something is used
+  disaster: a very bad event causing great harm
+  log: a thick piece of a tree; also a record kept over time
+  scattered: spread out in different directions
+  settle: to decide finally; also to make your home somewhere
+  disk: a flat round object; also computer storage
+  habitat: the natural home of an animal or plant
+  geology: the science of rocks and the earth
+  pace: the speed of walking or working
+  humanity: all people; also kindness
+  trace: a very small remaining sign; also to follow a mark
+  critics: people who say what is wrong with something
+  workshop: a room for making or repairing; also a working meeting
+  scholarship: money given to a student; also serious study
+  refusal: saying no
+  abundant: much more than enough
+  strip: a long narrow piece; also to take a covering off
+  complicated: with many parts, hard to understand
+  switch: to change from one to another; also what turns power on
+  slavery: owning people and forcing them to work
+  captured: caught and held
+  fragments: small broken pieces
+  merchants: people who buy and sell goods
+  silk: soft fine cloth made by insects
+  dissolved: mixed into a liquid until it disappeared
+  terminal: the building where journeys start and end; also final
+  folk: ordinary people; also traditional
+  coastal: near the sea
+  graph: a drawing that shows how numbers change
+  curious: wanting to know; also strange
+  dialogue: people talking together; also talks to solve a problem
+  propose: to suggest a plan; also to ask somebody to marry you
+  inform: to tell officially
+  genes: the parts of cells that decide what a living thing is like
+  pole: a long round stick; also the top or bottom of the earth
+  buyer: somebody who buys
+  counter: the long table in a shop; also to act against
+  remedy: a cure or a way to fix a problem
+  thorough: complete and careful, missing nothing
+  insisted: said firmly and would not change
+  dedicated: giving all your effort to one thing
+  christian: following the religion of Jesus
+  defend: to protect from attack
+  rolled: turned over and over; also made flat with a roller
+  arose: happened or appeared
+  artistic: about art; also good at art
+  craft: a skill of making things by hand; also a boat
+  inevitable: certain to happen, impossible to avoid
+  tropical: from the hot wet parts of the world
+  lecture: a formal talk to teach a group
+  stared: looked at for a long time without moving the eyes
+  mild: not strong or severe
+  signature: your name written by you
+  tale: a story
+  weakness: not being strong; also a fault
+  routine: the usual order of doing things
+  agenda: the list of things to discuss at a meeting
+  outline: the main points without the detail; also the outer line of a shape
+  geography: the study of the earth, its places and peoples
+  accomplish: to succeed in doing something
+  hidden: put or kept out of sight
+  weapon: something used to fight or harm
+  sympathy: sharing the sadness of somebody else
+  invasion: an army entering another country by force
+  farther: at a greater distance
+  haven: a safe place
+  scattering: spreading things about
+  documentation: papers or files that record something officially
+  tremendous: very great
+  guarantee: a firm promise that something will happen
+  attained: reached after effort
+  gay: attracted to people of the same sex; also happy in old use
+  variance: the amount by which things differ
+  northwest: the direction between north and west
+  reception: how something is received; also the desk at an entrance
+  accessible: easy to reach or understand
+  praise: words saying somebody did well
+  insight: a clear deep understanding
+  pupil: a school student; also the dark centre of the eye
+  bare: with nothing covering it
+  eternal: lasting for ever
+  absorbed: taken in; also giving all your attention
+  sword: a long sharp weapon held in the hand
+  innocent: not guilty; also without experience of bad things
+  arrest: to take somebody to the police as a suspect
+  carriage: a vehicle pulled by horses; also part of a train
+  calculate: to work out with numbers
+  enthusiasm: strong interest and eagerness
+  inspired: given the wish and energy to do something
+  breeding: keeping animals to produce young
+  prohibition: officially forbidding something
+  destination: the place you are travelling to
+  motivation: the reason that makes you want to act
+  worn: damaged by long use; also carried on the body as clothes
+  abundance: a very large amount
+  geographical: about places and the earth
+  emotion: a strong feeling
+  abnormal: not normal
+  mixing: putting different things together
+  prosperity: being successful and having money
+  tourism: the business of people travelling for pleasure
+  reproduced: copied; also had young
+  bitter: a sharp unpleasant taste; also angry about unfairness
+  prejudice: an unfair opinion formed before you know the facts
+  realistic: seeing things as they really are; also true to life
+  surgeon: a doctor who cuts the body to treat it
+  consumed: used up; also eaten or drunk
+  expertise: deep skill and knowledge in one area
+  meaningful: having a real purpose or importance
+  reservation: booking a place in advance; also a doubt
+  launched: started; also sent up or put into water
+  wound: an injury where the skin is broken
+  companion: somebody who is with you
+  privacy: being free from other people watching
+  resist: to fight against; also to stop yourself wanting something
+  instructor: somebody who teaches a practical skill
+  restore: to bring back to the earlier condition
+  aggressive: ready to attack or argue
+  guilt: the feeling after doing wrong; also being to blame
+  citizenship: being a citizen of a country
+  shortage: not having enough of something
+  architect: somebody who designs buildings
+  studio: a room where an artist works or programmes are made
+  repeatedly: again and again
+  mud: soft wet earth
+  passive: not acting, letting things happen
+  governed: ruled or controlled
+  appoint: to choose somebody for a job officially
+  hanging: fixed at the top so the rest is free
+  pot: a deep round container for cooking or plants
+  enclosed: shut in on all sides; also sent inside a letter
+  palm: the inside of your hand; also a tree of hot countries
+  suicide: killing yourself
+  loud: making a lot of noise
+  emphasize: to give something special importance
+  seized: taken quickly and by force
+  hunt: to chase animals to catch them; also to search hard
+  confirm: to say that something is definitely true
+  specialist: somebody who knows one narrow area very well
+  virtual: almost the same in effect; also made by computer
+  steadily: at an even, unchanging rate
+  disc: a flat round object
+  beat: to hit again and again; also to defeat
+  proportional: changing at the same rate as something else
+  strengthen: to make stronger
+  invitation: asking somebody to come
+  generous: giving more than is expected
+  acknowledge: to admit that something is true; also to say you received it
+  developmental: about growing and developing
+  hazard: a danger
+  brass: a yellow metal made of copper and zinc
+  renewed: made new again; also started again
+  salmon: a large pink fish that swims up rivers
+  pit: a deep hole in the ground; also a coal mine
+  rolls: turns over and over; also small round breads
+  delicate: easily broken or harmed; also finely made
+  glance: a quick look
+  declare: to say something officially and publicly
+  nucleus: the centre part, as of an atom or a cell
+  molecule: the smallest part of a substance that is still that substance
+  irregular: not even or not following the usual rule
+  excitement: a strong happy feeling that something is happening
+  modify: to change a little
+  summarized: given in a short form with the main points
+  specialized: for one narrow purpose or skill
+  discount: money taken off the price
+  resolve: to settle a problem; also to decide firmly
+  combine: to join two or more things
+  painful: hurting
+  tide: the sea rising and falling twice a day
+  liberation: setting free
+  laughter: the sound of people laughing
+  continually: happening again and again over time
+  organism: any living thing
+  precious: worth a lot, or loved very much
+  substitute: somebody or something used in place of another
+  loyalty: staying faithful to a person or group
+  commit: to promise to do; also to do something wrong
+  rainfall: how much rain falls
+  analyze: to study the parts of something carefully
+  telecommunications: sending messages by phone, radio or internet
+  southwest: the direction between south and west
+  compete: to try to win against others
+  pregnant: going to have a baby
+  politicians: people whose job is government
+  aid: help
+  compromise: an agreement where each side gives up something
+  tragedy: a very sad event; also a serious play with a sad end
+  ecology: the study of living things and their surroundings
+  minimize: to make as small as possible
+  occupy: to fill a space or time; also to take control of a place
+  shallow: not deep
+  terror: very great fear
+  arrange: to plan and organise; also to put in order
+  attract: to make somebody interested or to pull towards
+  myth: an old story about gods; also a common false belief
+  ignore: to pay no attention on purpose
+  ceremony: a formal event for an important occasion
+  intend: to plan to do something
+  souls: the spirits of people
+  reject: to refuse to accept
+  cave: a large hole in a hill or under the ground
+  filling: what is put inside something
+  approve: to say officially that something is good or allowed
+  reorganization: arranging something in a new way
+  naked: with no clothes on
+  southeast: the direction between south and east
+  hired: employed for pay
+  similarity: being alike
+  certainty: being completely sure
+  convey: to carry or to make a meaning clear
+  nonetheless: even so
+  unexpected: not what you thought would happen
+  ecological: about living things and their surroundings
+  reward: something good given for good work
+  pumps: machines that push liquid or air along
+  dull: not interesting; also not bright or not sharp
+  bent: not straight
+  disturbance: something that stops peace or order
+  urgent: needing action at once
+  transform: to change completely
+  extensively: over a wide area or in great detail
+  announcement: a public statement
+  connect: to join two things
+  impressive: so good that people admire it
+  warned: told about a danger in advance
+  owing: still to be paid; also because of
+  cultivated: grown as a crop; also refined in manners
+  constructive: helping to improve something
+  recognised: known again from before; also officially accepted
+  ingredients: the things you put together to make food
+  funeral: the ceremony when somebody is buried
+  emerge: to come out into view
+  exhausted: very tired; also completely used up
+  unfortunate: unlucky
+  suspicion: a feeling that something is wrong
+  bold: brave; also strong and clear to see
+  tips: useful pieces of advice; also the pointed ends
+  biography: the story of somebody's life
+  eager: wanting very much to do something
+  outdoor: outside, not in a building
+  variability: how much something changes
+  gallons: units for measuring liquid
+  participant: somebody who takes part
+  historian: somebody who studies and writes history
+  encouragement: words or acts that give somebody courage
+  questionnaire: a set of written questions for many people
+  collapse: to fall down suddenly
+  invest: to put money into something to gain more later
+  qualify: to reach the standard needed
+  wrapped: covered in paper or cloth
+  explosion: a sudden violent bursting
+  grave: a hole where a dead person is buried; also very serious
+  nearby: close to here
+  caution: care taken to avoid danger
+  confirmation: proof or a statement that something is true
+  subpart: a smaller part inside a part of a document
+  exit: the way out
+  scholar: somebody who studies a subject deeply
+  resort: a place people go for holidays; also to turn to as a last choice
+  voyage: a long journey by sea or in space
+  defeat: to beat somebody in a fight or game
+  affection: a warm liking for somebody
+  locate: to find where something is
+  slipped: slid by accident; also moved quietly
+  counseling: talking with a trained person about your problems
+  flash: a sudden short light
+  burn: to be on fire; also to hurt with heat
+  cell: the smallest unit of a living thing; also a small room in a prison
+  doc: short for document; also short for doctor
+  killing: causing death
