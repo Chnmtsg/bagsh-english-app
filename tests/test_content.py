@@ -95,3 +95,47 @@ def test_dialogues_are_complete_and_leveled():
 def test_dialogue_levels_span_all_bands():
     levels = {d["level"] for d in load_conversations()}
     assert ALL_LEVELS <= levels  # every level A1–C2 has talks
+
+
+# ── pseudoword anchors (ADR-0008) ────────────────────────────────────
+#
+# A "fake" word that turns out to be real would punish an honest advanced
+# learner for knowing English — the exact failure the anchors exist to
+# prevent. These tests are the guard, and they are why the list may only be
+# extended by someone who runs them.
+
+def test_pseudowords_are_never_real_words():
+    import json
+    import re
+
+    from src.knowledge import KNOWLEDGE_DIR, load_pseudowords
+    from src.quiz import geology_bank, vocab_bank
+
+    fake = load_pseudowords()
+    assert len(fake) >= 30, "too few anchors: rounds would repeat them"
+    assert len(set(fake)) == len(fake), "duplicate anchor"
+
+    wordlist = json.loads(
+        (KNOWLEDGE_DIR / "cefr_wordlist.json").read_text(encoding="utf-8"))
+    real = {w.lower() for level in wordlist["levels"].values() for w in level}
+    real |= {w["word"].lower() for w in vocab_bank()}
+    real |= {w["word"].lower() for w in geology_bank()}
+    assert not (set(fake) & real), "an anchor is a real word"
+
+    # nor may one appear in any curated English the learner is ever shown
+    text = " ".join(
+        path.read_text(encoding="utf-8")
+        for path in KNOWLEDGE_DIR.glob("*.yaml")
+        if path.name != "pseudowords.yaml"
+    )
+    corpus = set(re.findall(r"[a-z]+", text.lower()))
+    assert not (set(fake) & corpus), "an anchor appears in curated content"
+
+
+def test_pseudowords_look_like_english():
+    from src.knowledge import load_pseudowords
+
+    for word in load_pseudowords():
+        assert word.islower() and word.isalpha(), word
+        assert 5 <= len(word) <= 9, f"{word}: implausible length"
+        assert any(v in word for v in "aeiou"), f"{word}: unpronounceable"

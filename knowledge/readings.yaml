@@ -1,0 +1,605 @@
+# The reading library (ADR-0009) — meaning-focused input, Nation's missing
+# strand. Curated English only: a model never writes into this file, for the
+# same reason it never writes a quiz answer.
+#
+# Every text must pass `python scripts/validate_readings.py`, which checks that
+# a learner at the text's level already knows >=95% of its running words and
+# that every remaining word carries a gloss. That check is what the word
+# "graded" means here — it is measured, not claimed.
+#
+# Glosses are English-in-English. The Mongolian a learner sees comes from
+# knowledge/vocabulary.yaml when the word is already a card, and is never
+# written fresh here: every Mongolian string in this repo still needs a native
+# speaker to check it (the rule ADR-0006 set).
+#
+# Questions are about MEANING, never about vocabulary or grammar. This is the
+# input strand; the point is to read for the story, not to be tested on it.
+
+version: 1
+texts:
+
+  # ── A1 ────────────────────────────────────────────────────────────
+  - id: a1_morning
+    level: A1
+    title: My morning
+    topic: daily life
+    body: |
+      I wake up at six. Outside it is still dark. My room is cold, so I put on
+      warm clothes first. Then I wash my face and make tea.
+
+      My wife makes breakfast. We eat bread and drink hot tea. We do not talk
+      much in the morning. We are both tired.
+
+      At half past seven I put on my coat, my hat and my gloves. Outside, the
+      snow is hard and white. The sun is not up yet.
+
+      I walk to the bus stop. It takes ten minutes. My face is cold, but I like
+      this walk. The city is quiet before eight.
+
+      Then the bus comes. It is full of people. I stand near the door and think
+      about my day. I have a lot of work today, but first I have this quiet
+      walk in the snow.
+    glosses:
+      breakfast: the first food of the day
+      clothes: the things you wear
+      gloves: you wear them on your hands in winter
+    questions:
+      - q: How does the writer feel about the walk to the bus stop?
+        options:
+          - text: He likes it, even though it is cold
+            correct: true
+          - text: He hates it because of the snow
+          - text: He never walks, he takes a car
+          - text: He walks because the bus is full
+      - q: Why do he and his wife not talk much in the morning?
+        options:
+          - text: They are both tired
+            correct: true
+          - text: They are angry with each other
+          - text: They do not have time to eat
+          - text: The radio is too loud
+
+  - id: a1_cold_day
+    level: A1
+    title: A cold day
+    topic: weather
+    body: |
+      Today is very cold. The radio says minus thirty. In winter this is normal
+      here, but it is still hard.
+
+      Before I go out, I check my clothes. Two pairs of socks. Big boots. A
+      long coat. A hat that covers my ears. If I forget my gloves, my hands
+      hurt after five minutes.
+
+      The car does not go. It is too cold for the car, and it is the same for
+      my neighbour. We stand in the street and laugh, because there is nothing
+      else to do.
+
+      So we walk. The snow is dry and it makes a small noise under our boots.
+      The sky is very blue. On days like this the city is beautiful, and also a
+      little dangerous.
+
+      At the office everybody talks about the cold. Then we drink tea and work,
+      and nobody talks about it again.
+    glosses:
+      socks: you wear them on your feet, inside your shoes
+      hurt: to feel pain
+      clothes: the things you wear
+      forget: to not remember
+      beautiful: very nice to look at
+      dangerous: it can hurt you
+    questions:
+      - q: Why do the writer and his neighbour walk?
+        options:
+          - text: Their cars will not start in the cold
+            correct: true
+          - text: They want to buy something in the street
+          - text: The bus does not come in winter
+          - text: They live very close to the office
+      - q: How does the writer feel about a day like this?
+        options:
+          - text: It is beautiful and also a little dangerous
+            correct: true
+          - text: It is the worst day of his life
+          - text: It is warm enough to go out without a hat
+          - text: It is normal in summer
+
+  - id: a1_shop_after_work
+    level: A1
+    title: The shop after work
+    topic: shopping
+    body: |
+      After work I stop at the shop near my flat. It is small and always warm.
+      The same woman works there in the evening.
+
+      I buy bread, milk, rice and two apples. I want meat, but it is expensive
+      this week, so I do not buy it. On Friday I will have more money.
+
+      The woman knows me now. She asks about my work. I say it is fine. My
+      English is not very good, but she waits, and she is never angry.
+
+      Outside it is dark again. I carry my bag home. It is not heavy.
+
+      At home I cook rice and eat alone. My wife comes home at nine this month.
+      I read a little, then I sleep. Tomorrow is the same day again, and that
+      is fine.
+    glosses:
+      buy: to give money and take the thing
+      expensive: it costs a lot of money
+      rice: small white food, you cook it in water
+      apples: a round fruit, red or green
+      meat: food from an animal
+      heavy: hard to carry
+      alone: with nobody
+    questions:
+      - q: Why does the writer not buy meat?
+        options:
+          - text: It costs too much this week
+            correct: true
+          - text: The shop does not sell it
+          - text: He does not like it
+          - text: His wife will buy it later
+      - q: What do we learn about the woman in the shop?
+        options:
+          - text: She waits when his English is slow
+            correct: true
+          - text: She never speaks to him
+          - text: She works only in the morning
+          - text: She is his neighbour
+
+  # ── A2 ────────────────────────────────────────────────────────────
+  - id: a2_first_day
+    level: A2
+    title: My first day
+    topic: work
+    body: |
+      On my first day I arrived twenty minutes early. I did not want to be
+      late, so I stood outside the building and waited in the cold.
+
+      A woman opened the door at eight. She was my manager. She showed me the
+      office, the kitchen and my desk. Everything was new: the computer, the
+      screen, even the chair.
+
+      Then the problems started. I could not open my email. Nobody explained
+      where the printer was. At eleven o'clock my manager asked me a question
+      and I did not understand it. I said yes, because I was afraid to say "I
+      do not understand".
+
+      That was a mistake. At three o'clock we discovered that I had done the
+      wrong task for four hours.
+
+      My manager was not angry. She said, "Next time, ask me twice." Then she
+      sat down and explained the task again, slowly.
+
+      I remember that sentence now, two years later. Ask me twice. It was the
+      most useful English I learned that year.
+    glosses:
+      desk: the table you work at
+      mistake: something you did wrong
+      discovered: found out
+      twice: two times
+    questions:
+      - q: Why did the writer do the wrong task?
+        options:
+          - text: He said yes when he did not understand
+            correct: true
+          - text: His manager gave him bad information
+          - text: The computer did not work
+          - text: He arrived twenty minutes late
+      - q: What did the manager do when she found the mistake?
+        options:
+          - text: She explained the task again, slowly
+            correct: true
+          - text: She sent him home
+          - text: She gave the task to somebody else
+          - text: She wrote an email to her boss
+
+  - id: a2_doctor
+    level: A2
+    title: At the doctor
+    topic: health
+    body: |
+      I waited three weeks before I went to the doctor. I thought the cough
+      would stop by itself. It did not.
+
+      The waiting room was full. An old man next to me talked about his knees
+      for twenty minutes. I understood about half of it, and I nodded at the
+      wrong moments.
+
+      The doctor was young and quick. She asked me questions and typed at the
+      same time. How long? Any fever? Do you smoke?
+
+      I wanted to explain that the dust at work is bad in winter, when all the
+      windows are closed. But my English was slower than her questions, and she
+      had already decided.
+
+      She gave me some pills and told me to come back if it did not improve.
+
+      Outside, I sat in the car and felt stupid. Not because of the cough,
+      because of the words I did not say. That evening I wrote them all down:
+      dust, closed windows, all winter. Next time I will read my paper to her
+      if I have to.
+    glosses:
+      cough: when your throat pushes air out loudly and it hurts
+      knees: the middle part of your legs
+      nodded: moved my head up and down for yes
+      smoke: to use cigarettes
+      improve: get better
+      stupid: not clever
+    questions:
+      - q: What did the writer want to tell the doctor?
+        options:
+          - text: That the dust at work is bad in winter
+            correct: true
+          - text: That the pills did not work
+          - text: That he had waited three weeks
+          - text: That the old man talked too much
+      - q: Why did he feel bad in the car?
+        options:
+          - text: Because he could not say what he wanted to say
+            correct: true
+          - text: Because the doctor was angry with him
+          - text: Because the pills were expensive
+          - text: Because he had to come back next week
+
+  - id: a2_sisters_house
+    level: A2
+    title: A weekend at my sister's
+    topic: family
+    body: |
+      My sister lives four hours away. I visit her twice a year, and every time
+      the children are taller.
+
+      This weekend her son asked me to help with his English homework. He is
+      eleven. He read the questions faster than I did.
+
+      "You lived in the city with English people," he said. "So you speak
+      English."
+
+      I told him the truth: I worked with English people for two years and I
+      still made the same mistakes on the last day as on the first. I did not
+      practise. I only listened and said yes.
+
+      He looked at me for a long time. Then he asked, "So what do I do?"
+
+      I said: write something every day, even three sentences. Say it out loud.
+      Make mistakes where somebody can hear them.
+
+      On Sunday, when I left, he gave me a paper. Six sentences about his dog.
+      Two of them were wrong. I was very proud of him, and a little angry with
+      myself.
+    glosses:
+      mistakes: things you did wrong
+      taller: higher, bigger in height
+      homework: school work you do at home
+      truth: the real facts
+      practise: to do something again and again to get better
+      proud: very pleased with somebody
+    questions:
+      - q: What mistake does the writer say he made in the city?
+        options:
+          - text: He listened but never practised speaking
+            correct: true
+          - text: He never met English people
+          - text: He studied only grammar books
+          - text: He was too proud to ask questions
+      - q: Why was he a little angry with himself on Sunday?
+        options:
+          - text: His nephew had done what he himself had not done
+            correct: true
+          - text: He had corrected the boy too hard
+          - text: He had forgotten to bring a present
+          - text: He had missed the last bus home
+
+  # ── B1 ────────────────────────────────────────────────────────────
+  - id: b1_shift_at_the_mine
+    level: B1
+    title: A shift at the mine
+    topic: work
+    body: |
+      The bus leaves the town at half past five, and by six the sky is only
+      starting to change colour. Nobody talks much. Some men sleep sitting up.
+
+      At the gate we put on helmets and boots, and the shift leader reads the
+      safety notes out loud. He has read the same notes for eleven years. Most
+      of the crew could say them from memory, and that is exactly the problem:
+      when you know the words too well, you stop hearing them.
+
+      My job is samples. I collect rock from three levels, write the numbers in
+      the book, and carry the bags to the office. It sounds simple. It is not.
+      If I write one number wrong, somebody makes a decision about a whole
+      area based on rock that came from somewhere else.
+
+      Last month a new engineer arrived from Canada. She asked me why we do it
+      this way and not another way. I did not have the English to explain the
+      reason, so I said "it is the procedure". She wrote something down.
+
+      Two weeks later the procedure changed, and it changed in the way I would
+      have suggested, if I had been able to suggest it.
+
+      I am still thinking about that. The English I do not have is not only
+      about being understood. Sometimes it is about being useful.
+    glosses:
+      shift: the hours a group of people work together
+      crew: a team of workers
+      procedure: the official way of doing something
+      engineer: somebody who designs or manages technical work
+      suggested: said as an idea
+    questions:
+      - q: What does the writer say is the problem with the safety notes?
+        options:
+          - text: People know them so well that they stop listening
+            correct: true
+          - text: They are read in the wrong language
+          - text: They are too long for the morning
+          - text: The shift leader reads them badly
+      - q: Why is he still thinking about the new engineer?
+        options:
+          - text: The change he could not explain happened without him
+            correct: true
+          - text: She took his job at the office
+          - text: She wrote his name in the report
+          - text: She spoke English too quickly
+
+  - id: b1_english_at_thirty
+    level: B1
+    title: Learning English at thirty-four
+    topic: learning
+    body: |
+      At school I learned English for six years and remembered almost nothing.
+      I could name the days of the week. I could not ask for anything.
+
+      At thirty-four I started again, and the difference is not that my memory
+      is better. It is worse. The difference is that I now have a reason, and
+      the reason has a date on it: my company signed a contract with a foreign
+      partner, and I want the job that comes with it.
+
+      What surprised me is how much of the work is not about English at all. It
+      is about doing a small thing every day when nobody is watching, and about
+      being wrong in front of other people without deciding that you are
+      stupid.
+
+      I keep a notebook. On the left I write what I wanted to say. On the right
+      I write what I actually said. The distance between the two columns is my
+      real level, and it is smaller than it was in March.
+
+      Some evenings I do fifteen minutes. Some evenings I do nothing, and the
+      next day I do not punish myself, because the month before I quit, and I
+      am not doing that again.
+
+      Progress is boring to look at from close up. I only see it when I read
+      something I wrote in the spring.
+    glosses:
+      contract: a written business agreement
+      surprised: felt something you did not expect
+      notebook: a small book with empty pages
+      columns: lines of writing going down a page
+      punish: to make somebody suffer for something they did
+    questions:
+      - q: What does the writer say is different now, compared with school?
+        options:
+          - text: He has a real reason with a date attached to it
+            correct: true
+          - text: His memory works better than before
+          - text: His teacher is better than his school teacher
+          - text: English has become easier for everybody
+      - q: What does he write in the two columns of his notebook?
+        options:
+          - text: What he wanted to say, and what he actually said
+            correct: true
+          - text: New words, and their meanings
+          - text: His mistakes, and his teacher's corrections
+          - text: The date, and how many minutes he studied
+
+  - id: b1_apartment
+    level: B1
+    title: The heating problem
+    topic: city life
+    body: |
+      Our building is thirty years old and the heating has its own opinions.
+      In October it is too hot. In January, when we need it, one pipe on the
+      fourth floor decides to stop.
+
+      This winter it stopped on a Friday evening, which is the worst possible
+      time. I called the company. A recorded voice said the office was closed
+      until Monday.
+
+      By Saturday morning it was eleven degrees inside. We put the children in
+      the warmest room, closed the other doors and boiled water on the stove.
+      My neighbour brought an old electric heater and refused to take money for
+      it.
+
+      On Monday a man came, looked at the pipe for four minutes and said the
+      part had to be ordered. I asked how long. He said, "Some days."
+
+      In the end it was nine days. Nobody apologised, and nobody expected an
+      apology.
+
+      What I remember is not the cold. It is my neighbour standing in the
+      doorway with that heater, which he needed himself. In a building where
+      the heating fails, people are the heating.
+    glosses:
+      heating: the system that keeps a building warm
+      pipe: a long round tube that carries water
+      degrees: the units we measure temperature in
+      boiled: made water very hot, until it bubbles
+      doorway: the open space where a door is
+      stove: the hot part of a kitchen where you cook
+      apologised: said sorry
+    questions:
+      - q: Why was Friday evening the worst possible time?
+        options:
+          - text: The repair company was closed until Monday
+            correct: true
+          - text: The children were already asleep
+          - text: The neighbour was away for the weekend
+          - text: It was the coldest night of the year
+      - q: What does the writer remember most about those nine days?
+        options:
+          - text: A neighbour lending a heater he needed himself
+            correct: true
+          - text: The exact temperature in the flat
+          - text: The four minutes the repair man spent
+          - text: The apology from the company
+
+  # ── B2 ────────────────────────────────────────────────────────────
+  - id: b2_hard_winter
+    level: B2
+    title: Why the winters are harder
+    topic: environment
+    body: |
+      Ask anyone over fifty about the winters and you will hear the same
+      sentence: they are not what they were. It is easy to treat that as
+      nostalgia, the way every generation believes its own weather was more
+      serious. In this case the records agree with them, although not in the
+      way most people expect.
+
+      The problem is not simply that the cold is deeper. It is that the pattern
+      has become less reliable. A warm autumn followed by heavy snow can leave
+      a layer of ice over the grass, and livestock that could survive extreme
+      cold cannot get through ice to feed. A single bad combination in the
+      wrong month does more damage than a whole season of ordinary winter.
+
+      Families who have kept animals for generations read these signs earlier
+      than any forecast does, and they have started to move differently
+      because of them. Some have moved to the edges of the city instead, into
+      districts that were built for far fewer people.
+
+      That is where the effect stops being about weather. A district designed
+      for two thousand families does not become a district for ten thousand
+      simply because ten thousand arrive. The heating, the water and the
+      schools were all sized for the smaller number.
+
+      So when people say the winters are harder, they are usually describing
+      something wider than temperature: a chain that begins with ice on grass
+      and ends in a queue at a clinic in a city three hundred kilometres away.
+    glosses:
+      nostalgia: a warm feeling about the past
+      reliable: it behaves the same way every time, so you can trust it
+      layer: one thickness of something, lying on top of another
+      extreme: as far as it can go, very severe
+      forecast: an official statement about what the weather will do
+      districts: areas of a city
+      clinic: a small medical building
+    questions:
+      - q: According to the text, what does the most damage?
+        options:
+          - text: An unusual combination of warm weather and then snow
+            correct: true
+          - text: A long season of very deep cold
+          - text: Too little snow in the autumn
+          - text: Warmer summers in the city
+      - q: Why does the writer bring the city into an article about weather?
+        options:
+          - text: Because the effects of the weather end up as pressure on city services
+            correct: true
+          - text: Because city winters are colder than country winters
+          - text: Because the forecasts are made in the city
+          - text: Because the schools teach families how to read the signs
+
+  - id: b2_foreign_team
+    level: B2
+    title: Working with a team you cannot hear
+    topic: work
+    body: |
+      The call starts at four, which is eight in the morning for them. There
+      are nine people on it and four of them are in the same room, which means
+      their microphone catches everything: the coffee machine, the laughing,
+      the half-sentences that never make it into the notes.
+
+      For the first six months I said almost nothing on those calls. It was not
+      that I had nothing to say. It was that by the time I had built the
+      sentence, the conversation had moved two topics further on, and arriving
+      late with a good point felt worse than arriving not at all.
+
+      What changed was a small piece of advice from a colleague who had done
+      the same job for a decade. Do not try to join the conversation, she said.
+      Change it. Come with one prepared sentence, and say it in the first five
+      minutes, before the speed builds up.
+
+      It sounds like a trick, and it is. But it works because the difficulty
+      was never really the English. It was the speed at which unprepared
+      English has to be produced, and preparation removes exactly that.
+
+      There is a second half to her advice which took me longer to accept. If
+      you did not understand something, say so immediately, in public. Everyone
+      assumes you will lose status by admitting it. In my experience the
+      opposite happens, because at least two other people on the call did not
+      understand it either and were waiting for somebody braver.
+    glosses:
+      microphone: the device that picks up sound in a call
+      decade: ten years
+      prepared: made ready in advance
+      status: your position in the eyes of other people
+      admitting: saying that something is true when it is difficult to say
+      braver: less afraid
+      unprepared: not made ready in advance
+    questions:
+      - q: Why did the writer stay silent for six months?
+        options:
+          - text: By the time his sentence was ready, the topic had changed
+            correct: true
+          - text: He was not invited to speak on the calls
+          - text: He could not hear the other team
+          - text: He disagreed with what was being decided
+      - q: What is the colleague's advice?
+        options:
+          - text: Prepare one sentence and say it early, before the pace increases
+            correct: true
+          - text: Ask the team to speak more slowly
+          - text: Write everything down and send it afterwards
+          - text: Join the call from the same room as the others
+
+  - id: b2_money_did_not_fix
+    level: B2
+    title: What the money did not fix
+    topic: reflection
+    body: |
+      When the contract was signed, everyone in my family assumed the hard part
+      was over. The salary was roughly three times what I had earned before,
+      and for about four months it felt like the answer to a question we had
+      been asking for years.
+
+      Money solved the things money solves. The heating in my mother's flat was
+      repaired properly rather than temporarily. My daughter stopped hearing
+      the word "later" every time she asked for something small.
+
+      What it did not touch was the reason I had wanted the job in the first
+      place, which was to stop feeling like a visitor in my own working life.
+      In the new position I sat in more meetings and understood a smaller
+      percentage of them. I had more responsibility and less confidence, and
+      those two things pulling in opposite directions is a specific kind of
+      tiredness that a higher salary does not reach.
+
+      I am not writing this to complain about a good job. I am writing it
+      because I spent two years believing that one change would fix everything,
+      and the belief itself cost me time. If I had spent thirty minutes a day
+      on my English during those two years instead of waiting for the promotion
+      to solve it, the promotion would have arrived at a person who was ready
+      for it.
+
+      The money was never the problem. The problem was that I had made it the
+      answer to a question it was not about.
+    glosses:
+      salary: the money you are paid for a job, usually monthly
+      temporarily: only for a short time, not properly
+      percentage: a part of a hundred
+      confidence: the feeling that you can do something
+      tiredness: the state of being tired
+      visitor: somebody who comes for a short time and then leaves
+      promotion: a move to a more senior job
+    questions:
+      - q: What does the writer say the money did not change?
+        options:
+          - text: The feeling of not belonging in his own working life
+            correct: true
+          - text: His mother's heating
+          - text: The number of meetings he attended
+          - text: What his daughter asked for
+      - q: What does he regret?
+        options:
+          - text: Waiting for the promotion instead of working on his English
+            correct: true
+          - text: Taking a job with a higher salary
+          - text: Spending the money too quickly
+          - text: Telling his family about the contract

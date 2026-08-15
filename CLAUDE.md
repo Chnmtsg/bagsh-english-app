@@ -21,13 +21,18 @@ says "the prompt engineer", it means the subagent.
 
 ```
 src/            graph.py, state.py, nodes/, llm.py
+                srs.py, error_queue.py, session.py, metrics.py  (learning engine)
+                reading.py  (the input strand)
 prompts/        runtime agent prompts, versioned frontmatter
 knowledge/      error_taxonomy.yaml, top_100_patterns.yaml,
-                contrastive-guide.md, crisis_resources.yaml
+                contrastive-guide.md, crisis_resources.yaml,
+                pseudowords.yaml (Coverage Check anchors — never teachable),
+                readings.yaml + core_words.yaml (the graded library)
 evals/          regression.jsonl, reports/
-docs/           architecture.md, adr/, prompt-principles.md
+docs/           architecture.md, learning-engine.md, adr/, prompt-principles.md
 scripts/        run_regression.py, validate_patterns.py, category_frequency.py
 tests/
+webapp/         offline PWA — mirrors the scheduler and session builder in JS
 ```
 
 ## Delegation
@@ -38,6 +43,7 @@ tests/
 | Implement an accepted ADR | `graph-engineer` |
 | Change what a runtime agent says | `prompt-engineer` |
 | Add a category, rule, bridge, or regex pattern | `linguistics-curator` |
+| Add a reading text or a core word | `linguistics-curator`, then `validate_readings.py` |
 | Measure after any change | `eval-runner` |
 | Anything touching distress, wellbeing or minors | `safety-reviewer`, before commit |
 
@@ -79,14 +85,32 @@ this conversation.
 6. **Rules come from the taxonomy, not the model.** Consistency across weeks
    beats freshness in any single response.
 7. **Every prompt is versioned** and the version is stored on each feedback row.
+8. **Prompt, don't recast** (ADR-0007). Feedback asks the learner to produce the
+   fix before it shows one. A correction they only read is not retrieval.
+9. **One right answer is not knowing.** Mastery is a criterion — correct on
+   three different days — and it is measured by whether the error stopped
+   appearing in free writing, not by a passed drill.
+10. **Habit numbers are never progress.** XP, streaks and badges stay; they may
+    never answer "am I improving?". That question is answered by
+    `src/metrics.py` only.
 
 ## Commands
 
 ```bash
 pytest tests/ -q
+node tests/grader_parity.js        # the PWA's grader AND scheduler match Python
+python scripts/build_webapp_data.py   # after any knowledge/*.yaml change
 python scripts/run_regression.py --set evals/regression.jsonl
 python scripts/validate_patterns.py --corpus data/clean_english.txt
+python -m src.play today           # the learner's daily session
+python -m src.play fluency         # timed round on mastered items
+python -m src.play read            # the input strand
+python scripts/validate_readings.py   # every text is graded, or the build fails
+python -m src.play progress        # the honest metrics
 ```
+
+Any change to scheduling, session composition or a metric exists twice —
+`src/*.py` and `webapp/app.js`. Change both, then run the parity harness.
 
 ## Notes
 

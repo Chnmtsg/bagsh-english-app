@@ -7,6 +7,11 @@
 # recompute from real incidence at ~200 entries (scripts/category_frequency.py).
 # blocking: how much the error blocks understanding. frequency: how often
 # Mongolian speakers make it. Two different dimensions — never conflate.
+# treatable (ADR-0007): is the error rule-governed and closed enough that
+# explicit correction works? Ferris (1999), Bitchener & Knoch (2010).
+# true  -> the error queue drills it and scores a repair.
+# false -> idiomatic/open class; expose a natural alternative, never drill
+#          a rule and never score it. See docs/learning-engine.md Part 4.
 
 version: 1
 source: knowledge/contrastive-guide.md
@@ -15,6 +20,7 @@ categories:
 
   copula:
     family: sentence_architecture
+    treatable: true
     blocking: high
     frequency: very_high
     priority: 1
@@ -26,6 +32,7 @@ categories:
 
   word_order:
     family: sentence_architecture
+    treatable: true
     blocking: high
     frequency: very_high
     priority: 2
@@ -37,6 +44,7 @@ categories:
 
   articles:
     family: nouns_determiners
+    treatable: true
     blocking: low
     frequency: very_high
     priority: 3
@@ -48,6 +56,7 @@ categories:
 
   verb_agreement:
     family: verbs
+    treatable: true
     blocking: low
     frequency: very_high
     priority: 4
@@ -59,6 +68,7 @@ categories:
 
   plurals:
     family: nouns_determiners
+    treatable: true
     blocking: low
     frequency: very_high
     priority: 5
@@ -70,6 +80,7 @@ categories:
 
   missing_subject:
     family: sentence_architecture
+    treatable: true
     blocking: high
     frequency: high
     priority: 6
@@ -81,6 +92,7 @@ categories:
 
   topic_fronting:
     family: sentence_architecture
+    treatable: true
     blocking: medium
     frequency: very_high
     priority: 7
@@ -92,6 +104,7 @@ categories:
 
   prepositions:
     family: connectors
+    treatable: false
     blocking: medium
     frequency: very_high
     priority: 8
@@ -103,6 +116,7 @@ categories:
 
   questions_negation:
     family: questions_negation
+    treatable: true
     blocking: medium
     frequency: very_high
     priority: 9
@@ -114,6 +128,7 @@ categories:
 
   tense_aspect:
     family: verbs
+    treatable: false
     blocking: medium
     frequency: very_high
     priority: 10
@@ -125,6 +140,7 @@ categories:
 
   verb_form:
     family: verbs
+    treatable: true
     blocking: high
     frequency: high
     priority: 11
@@ -136,6 +152,7 @@ categories:
 
   punctuation:
     family: mechanics
+    treatable: true
     blocking: medium
     frequency: very_high
     priority: 12
@@ -147,6 +164,7 @@ categories:
 
   pronoun_gender:
     family: nouns_determiners
+    treatable: true
     blocking: medium
     frequency: very_high
     priority: 13
@@ -158,6 +176,7 @@ categories:
 
   register:
     family: word_choice_register
+    treatable: false
     blocking: low
     frequency: very_high
     priority: 14
@@ -169,6 +188,7 @@ categories:
 
   capitalization:
     family: mechanics
+    treatable: true
     blocking: low
     frequency: very_high
     priority: 15
@@ -180,6 +200,7 @@ categories:
 
   countability:
     family: nouns_determiners
+    treatable: true
     blocking: low
     frequency: high
     priority: 16
@@ -191,6 +212,7 @@ categories:
 
   determiners:
     family: nouns_determiners
+    treatable: true
     blocking: low
     frequency: high
     priority: 17
@@ -202,6 +224,7 @@ categories:
 
   collocation:
     family: word_choice_register
+    treatable: false
     blocking: medium
     frequency: very_high
     priority: 18
@@ -213,6 +236,7 @@ categories:
 
   word_choice:
     family: word_choice_register
+    treatable: false
     blocking: high
     frequency: high
     priority: 19
@@ -224,6 +248,7 @@ categories:
 
   modifier_placement:
     family: connectors
+    treatable: true
     blocking: low
     frequency: high
     priority: 20
@@ -235,6 +260,7 @@ categories:
 
   comparatives:
     family: connectors
+    treatable: true
     blocking: medium
     frequency: medium
     priority: 21
@@ -246,6 +272,7 @@ categories:
 
   relative_clauses:
     family: connectors
+    treatable: true
     blocking: medium
     frequency: medium
     priority: 22
@@ -257,6 +284,7 @@ categories:
 
   reported_speech:
     family: verbs
+    treatable: true
     blocking: medium
     frequency: medium
     priority: 23
@@ -268,6 +296,7 @@ categories:
 
   spelling:
     family: mechanics
+    treatable: true
     blocking: low
     frequency: high
     priority: 24

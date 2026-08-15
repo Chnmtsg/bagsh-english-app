@@ -117,8 +117,201 @@ for (const w of DATA.vocab) {
 }
 ok(unrelated === 0, `${unrelated} distractors share neither level nor part of speech`);
 
+// ── the scheduler and the session builder (ADR-0007) ──────────────
+// srs.py and app.js now both decide when an item comes back, how many days
+// a lapse costs and when something is mastered. Same inputs, same records —
+// checked by running the real Python module, not a copy of its rules.
+
+const schedulerCode =
+  slice("const SESSION_N", "const XP = {") +
+  slice("function srsHash(text)", "/* ── the attempt log") +
+  slice("function interleave(queues)", "function todayPools()") +
+  slice("function requeue(items, index, lag)", "function runSession(items, mode)") +
+  'function today() { return "2026-08-14"; }';
+const sched = new Function(
+  schedulerCode + "\nreturn { srsReview, srsIntroduce, srsMastered, srsLeech,"
+  + " srsPick, srsDue, interleave, requeue };"
+)();
+
+const SEQUENCES = [
+  { id: "g1", answers: [["2026-08-14", true], ["2026-08-15", true],
+                        ["2026-08-18", true], ["2026-08-26", true]] },
+  { id: "g1", answers: [["2026-08-14", true], ["2026-08-14", true],
+                        ["2026-08-14", true]] },                       // same day
+  { id: "articles:am geologist",
+    answers: [["2026-08-14", true], ["2026-08-15", false],
+              ["2026-08-15", true], ["2026-08-16", true],
+              ["2026-08-19", true], ["2026-09-01", false]] },
+  { id: "tk_cafe_order_0", answers: [["2026-08-14", false], ["2026-08-14", false],
+                                     ["2026-08-15", false], ["2026-08-16", false]] },
+  { id: "милк", answers: [["2026-08-14", true], ["2026-08-15", true],
+                          ["2026-08-18", true], ["2026-08-26", true],
+                          ["2026-09-20", true]] },
+  // pretest first (ADR-0008): introduced, then really tested from tomorrow
+  { id: "deposit", intro: "2026-08-14",
+    answers: [["2026-08-15", false], ["2026-08-15", true],
+              ["2026-08-17", true], ["2026-08-20", true]] },
+  { id: "outcrop", intro: "2026-08-14",
+    answers: [["2026-08-15", true], ["2026-08-18", true]] },
+];
+
+const FIELDS = ["ease", "interval", "reps", "streak", "lapses", "due", "days"];
+
+function jsRun() {
+  return SEQUENCES.map(seq => {
+    const store = {};
+    if (seq.intro) sched.srsIntroduce(store, seq.id, seq.intro);
+    return seq.answers.map(([day, correct]) => {
+      const rec = sched.srsReview(store, seq.id, correct, day);
+      const out = {};
+      FIELDS.forEach(f => { out[f] = f === "ease" ? Number(rec[f].toFixed(9)) : rec[f]; });
+      out.mastered = sched.srsMastered(rec);
+      out.leech = sched.srsLeech(rec);
+      return out;
+    });
+  });
+}
+
+const PY = `
+import json, sys
+sys.path.insert(0, ${JSON.stringify(REPO)})
+from datetime import date
+from src import srs, session
+seqs = json.load(sys.stdin)
+out = []
+for seq in seqs:
+    store, steps = {}, []
+    if seq.get("intro"):
+        srs.introduce(store, seq["id"], date.fromisoformat(seq["intro"]))
+    for day, correct in seq["answers"]:
+        rec = srs.review(store, seq["id"], correct, date.fromisoformat(day))
+        row = {f: rec[f] for f in ${JSON.stringify(FIELDS)}}
+        row["ease"] = round(row["ease"], 9)
+        row["mastered"] = srs.mastered(rec)
+        row["leech"] = srs.is_leech(rec)
+        steps.append(row)
+    out.append(steps)
+mixed = session.interleave([["a1", "a2", "a3"], ["b1", "b2"], ["c1"]])
+items = [{"deck": "grammar", "id": "g%d" % i, "kind": "review"} for i in range(6)]
+print(json.dumps({
+    "sequences": out,
+    "interleave": [list(p) for p in mixed],
+    "requeue": session.requeue(items, 0),
+    "constants": {"mastery": srs.MASTERY_STREAK, "leech": srs.LEECH_LAPSES,
+                  "backlog": srs.BACKLOG_CAP, "new": srs.NEW_PER_SESSION,
+                  "idle": srs.NEW_WHEN_IDLE,
+                  "lag": session.LAG},
+}))
+`;
+
+let python = null;
+for (const exe of ["python", "python3", "py"]) {
+  try {
+    python = JSON.parse(require("child_process").execFileSync(
+      exe, ["-c", PY], {
+        input: JSON.stringify(SEQUENCES),
+        encoding: "utf8",
+        // Windows would otherwise hand Python the locale codepage on stdin and
+        // mangle any non-ASCII item id — a fake failure that looks like drift
+        env: Object.assign({}, process.env, { PYTHONUTF8: "1", PYTHONIOENCODING: "utf-8" }),
+      }));
+    break;
+  } catch (e) { /* try the next interpreter */ }
+}
+
+if (!python) {
+  console.log("  SKIP scheduler parity — no working python on PATH");
+} else {
+  const js = jsRun();
+  SEQUENCES.forEach((seq, i) => {
+    seq.answers.forEach((answer, step) => {
+      const a = JSON.stringify(js[i][step]), b = JSON.stringify(python.sequences[i][step]);
+      if (a !== b) {
+        console.log(`  FAIL scheduler drift on ${seq.id} step ${step + 1}\n    js: ${a}\n    py: ${b}`);
+        failed++;
+      }
+    });
+  });
+
+  const jsMixed = JSON.stringify(sched.interleave([["a1", "a2", "a3"], ["b1", "b2"], ["c1"]]));
+  ok(jsMixed === JSON.stringify(python.interleave), "interleave order matches Python");
+
+  const items = Array.from({ length: 6 }, (_, i) => ({ deck: "grammar", id: "g" + i, kind: "review" }));
+  ok(JSON.stringify(sched.requeue(items, 0)) === JSON.stringify(python.requeue),
+     "a missed item is requeued to the same position as Python");
+
+  const c = python.constants;
+  const jsConsts = new Function(
+    slice("const SESSION_N", "const XP = {")
+    + "\nreturn { mastery: MASTERY_STREAK, leech: LEECH_LAPSES, backlog: BACKLOG_CAP,"
+    + " new: NEW_PER_SESSION, idle: NEW_WHEN_IDLE, lag: LAG };")();
+  ok(JSON.stringify(jsConsts) === JSON.stringify(c),
+     `scheduler constants match (js ${JSON.stringify(jsConsts)} vs py ${JSON.stringify(c)})`);
+}
+
+// ── the honest metrics (ADR-0007, ADR-0008) ───────────────────────
+// delayed accuracy and the fluency trend are computed twice too — once for
+// `python -m src.play progress`, once for the PWA's Stats screen. Same log in,
+// same numbers out, or one of the two surfaces is lying to the learner.
+
+const ATTEMPTS = [
+  { d: "2026-08-10", deck: "grammar", id: "g1", iv: 9, ok: false, prod: true },
+  { d: "2026-08-10", deck: "grammar", id: "g1", iv: 0, ok: true, prod: true },
+  { d: "2026-08-10", deck: "vocab", id: "milk", iv: 21, ok: true, prod: false },
+  { d: "2026-08-10", deck: "talk", id: "tk_1", iv: 3, ok: true, prod: true },
+  { d: "2026-08-10", deck: "grammar", id: "g9", iv: 30, ok: true, prod: true, ms: 4000, fl: 1 },
+  { d: "2026-08-10", deck: "grammar", id: "g8", iv: 30, ok: true, prod: true, ms: 6000, fl: 1 },
+  { d: "2026-08-14", deck: "grammar", id: "g2", iv: 14, ok: true, prod: true },
+  { d: "2026-08-14", deck: "grammar", id: "g9", iv: 30, ok: true, prod: true, ms: 0, fl: 1 },
+  { d: "2026-08-14", deck: "grammar", id: "g8", iv: 30, ok: false, prod: true, ms: 9000, fl: 1 },
+];
+
+const metricsCode =
+  slice("const STORE_KEY", "const XP = {") +
+  slice("function logAttempt(", "/* ── answer checking") +
+  slice("function delayedAccuracy()", "function progressCard()") +
+  'function today() { return "2026-08-14"; }';
+const jsMetrics = new Function("profile",
+  metricsCode + "\nreturn { delayedAccuracy, fluencyTrend };"
+)({ log: ATTEMPTS, srs: { grammar: {}, vocab: {}, talk: {} } });
+
+const PY_METRICS = `
+import json, sys
+sys.path.insert(0, ${JSON.stringify(REPO)})
+from src import metrics
+rows = json.load(sys.stdin)
+flu = metrics.fluency(rows)
+print(json.dumps({
+    "delayed": metrics.delayed_accuracy(rows),
+    "fluency": {"median": flu["median_ms"], "previous": flu["previous_ms"],
+                "rounds": flu["rounds"]},
+}))
+`;
+
+if (python) {
+  let pyMetrics = null;
+  for (const exe of ["python", "python3", "py"]) {
+    try {
+      pyMetrics = JSON.parse(require("child_process").execFileSync(
+        exe, ["-c", PY_METRICS], {
+          input: JSON.stringify(ATTEMPTS),
+          encoding: "utf8",
+          env: Object.assign({}, process.env, { PYTHONUTF8: "1", PYTHONIOENCODING: "utf-8" }),
+        }));
+      break;
+    } catch (e) { /* try the next interpreter */ }
+  }
+  const dfa = jsMetrics.delayedAccuracy();
+  ok(dfa.n === pyMetrics.delayed.n && dfa.pct === pyMetrics.delayed.pct,
+     `delayed accuracy matches (js ${JSON.stringify(dfa)} vs py ${JSON.stringify(pyMetrics.delayed)})`);
+  const flu = jsMetrics.fluencyTrend();
+  ok(JSON.stringify(flu) === JSON.stringify(pyMetrics.fluency),
+     `fluency trend matches (js ${JSON.stringify(flu)} vs py ${JSON.stringify(pyMetrics.fluency)})`);
+}
+
 console.log(failed === 0
   ? `JS parity: all checks passed (${DATA.grammar.length} grammar items, `
-    + `${drawn} distractors drawn, ${Math.round(100 * tight / drawn)}% from the tightest pool)`
+    + `${drawn} distractors drawn, ${Math.round(100 * tight / drawn)}% from the tightest pool`
+    + (python ? `, ${SEQUENCES.length} scheduler sequences` : ", scheduler skipped") + ")"
   : `JS parity: ${failed} FAILURE(S)`);
 process.exit(failed === 0 ? 0 : 1);

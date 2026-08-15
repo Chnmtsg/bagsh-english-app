@@ -42,7 +42,9 @@ class LearnerProfile(TypedDict, total=False):
     weak_points: list[str]                # top categories by incidence
     fossilised: list[str]                 # "category:span" keys seen >= 3 entries
     accuracy_history: list[float]         # errors-per-100-words, most recent last
+    length_history: list[int]             # words per entry, same order (ADR-0007)
     lessons_done: list[str]               # curriculum categories studied
+    study_list: list[str]                 # words met in reading (ADR-0009)
     last_entry_date: str | None
     # gamification (ADR-0003) — all computed in code
     xp: int

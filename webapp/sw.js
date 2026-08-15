@@ -2,7 +2,7 @@
  * offline after the first visit. Bump VERSION on every deploy that changes
  * any cached file. */
 
-const VERSION = "bagsh-v8";
+const VERSION = "bagsh-v10";
 const SHELL = [
   "./",
   "./index.html",

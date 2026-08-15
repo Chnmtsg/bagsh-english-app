@@ -42,6 +42,14 @@ def load_advanced_grammar() -> list[dict]:
 
 
 @lru_cache(maxsize=None)
+def load_pseudowords() -> list[str]:
+    """Non-words for the Coverage Check's honesty anchor (ADR-0008). Never
+    teachable content — see the header of the file for the rules."""
+    with open(KNOWLEDGE_DIR / "pseudowords.yaml", encoding="utf-8") as fh:
+        return list(yaml.safe_load(fh)["words"])
+
+
+@lru_cache(maxsize=None)
 def load_conversations() -> list[dict]:
     with open(KNOWLEDGE_DIR / "conversations.yaml", encoding="utf-8") as fh:
         return yaml.safe_load(fh)["dialogues"]

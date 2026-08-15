@@ -38,7 +38,10 @@ word is.** The wordlist is demoted to what it actually is.
 
 1. **Level ladder = the deck.** `levelProgress(l)` counts *cards* of level
    `l` the learner has mastered, where mastered means the SRS record has
-   `reps >= 2` — two correct answers on different days. This is the rule
+   `reps >= 2` — two correct answers on different days. (ADR-0007 supersedes
+   this: mastery is now three correct answers on three *distinct* days, and
+   distinctness is actually enforced — `reps` counted same-day repeats.)
+   This is the rule
    `knowledge/vocabulary.yaml` already documented in its own header and that
    ADR-0003 intended; the wordlist had quietly taken the job over.
 2. **Unlock = deck mastery**, same source, so the bar the learner watches and

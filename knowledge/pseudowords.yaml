@@ -1,0 +1,70 @@
+# Pseudoword anchors for the vocabulary Coverage Check (ADR-0008).
+#
+# Owned by linguistics-curator. These are NOT English words and must never
+# appear anywhere else in the app — not in a lesson, not in a deck, not in an
+# example sentence. Their only job is to catch over-claiming: a learner who
+# ticks "I know it" for `brimtle` is telling you their other ticks are worth
+# discounting too. This is the standard correction used by vocabulary-size
+# tests (Anderson & Freebody 1981; the Vocabulary Size Test literature).
+#
+# Rules for adding one:
+#   1. It must be pronounceable and English-shaped, or it is not a fair lure —
+#      a learner should not be able to spot it by how it looks.
+#   2. It must not be a real English word, a proper noun, a brand, or a
+#      near-homograph of one (no `velmet` for velvet, no `sturnip` for turnip):
+#      a genuine word marked fake would punish an honest advanced learner,
+#      which is exactly the failure this feature exists to prevent.
+#   3. tests/test_content.py checks every entry against the CEFR frequency
+#      list, both vocabulary decks and all curated example text. Run it.
+#   4. It must not be a word in Mongolian either, transliterated or otherwise.
+
+version: 1
+words:
+  - brimtle
+  - quandrup
+  - flurnet
+  - morvex
+  - plindal
+  - trascot
+  - gundrip
+  - sprenak
+  - dorbish
+  - kelmoth
+  - vantril
+  - prosket
+  - jandlon
+  - wibbern
+  - corvant
+  - lunthar
+  - fesbry
+  - marnick
+  - quibnal
+  - rendisk
+  - zorbline
+  - blantic
+  - crembol
+  - drakel
+  - emmerish
+  - fanquil
+  - glimtox
+  - hastrel
+  - indrale
+  - jorbeck
+  - kravish
+  - lundrap
+  - moltrik
+  - nubbard
+  - ostrell
+  - pilvern
+  - quorlin
+  - rablist
+  - snorvel
+  - tredmin
+  - ulmarch
+  - vundle
+  - wolgrim
+  - yandrel
+  - zeprock
+  - chandrip
+  - flembast
+  - gribbeth

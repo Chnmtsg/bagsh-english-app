@@ -13,6 +13,7 @@ import os
 from datetime import date
 from pathlib import Path
 
+from .. import error_queue
 from ..game import XP, record_activity
 from ..state import JournalState, LearnerProfile
 
@@ -109,7 +110,33 @@ def memory(state: JournalState) -> dict:
             history = list(profile.get("accuracy_history", []))
             history.append(round(rate, 2))
             profile["accuracy_history"] = history[-50:]
+            # lengths travel with rates: an error rate that falls because the
+            # entries got shorter is avoidance, and Part 5 refuses to report
+            # one without the other
+            lengths = list(profile.get("length_history", []))
+            lengths.append(word_count)
+            profile["length_history"] = lengths[-50:]
             _adjust_level(profile)
+
+        # ADR-0007: the counters above say WHICH errors recur; the queue is
+        # what brings one back. Same code layer, same determinism guarantee.
+        #
+        # Retention gate: the queue stores the SENTENCE an error appeared in,
+        # because a repair drill replays it ("You wrote: ..."). That is a step
+        # up in sensitivity from the spans the profile already keeps, so it is
+        # taken only from entries the classifier rated `none`. An entry with
+        # any distress signal still feeds every counter above — it just never
+        # comes back as a grammar exercise. The classifier also fails toward
+        # `elevated`, so a transient failure costs a day of queue data and
+        # never risks replaying a hard sentence back at the learner.
+        if state.get("distress", {}).get("risk") == "none":
+            learner_id = str(profile.get("learner_id", "default"))
+            try:
+                queue = error_queue.load(learner_id)
+                error_queue.fold(queue, edits, entry_id, state.get("text", ""))
+                error_queue.save(learner_id, queue)
+            except (OSError, ValueError) as exc:
+                logger.error("error queue write failed (continuing): %s", exc)
 
     try:
         directory = _data_dir()

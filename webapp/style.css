@@ -51,11 +51,11 @@ body {
   padding-bottom: env(safe-area-inset-bottom);
 }
 .tab {
-  flex: 1; border: 0; background: none; color: var(--muted);
-  font: inherit; font-size: 20px; padding: 8px 0 6px; cursor: pointer;
+  flex: 1; min-width: 0; border: 0; background: none; color: var(--muted);
+  font: inherit; font-size: 18px; padding: 8px 0 6px; cursor: pointer;
   display: flex; flex-direction: column; align-items: center; gap: 1px;
 }
-.tab span { font-size: 11px; }
+.tab span { font-size: 10.5px; }
 .tab.active { color: var(--accent); }
 
 .card {
@@ -74,6 +74,7 @@ h3 { font-size: 15px; margin: 10px 0 4px; }
 .row:last-child { border-bottom: 0; }
 .row .num { color: var(--muted); width: 22px; text-align: right; font-size: 13px; }
 .row .name { flex: 1; text-transform: capitalize; }
+.row .name.plain { text-transform: none; }
 .row .st { font-size: 14px; }
 
 button.primary, button.ghost {
@@ -132,3 +133,12 @@ ol.how li { margin: 5px 0; }
 }
 .ok    { color: var(--good); }
 .wrong { color: var(--bad); }
+
+/* reading (ADR-0009): prose wants a longer line and more air than UI text */
+.prose { margin: 10px 0 4px; font-size: 17px; line-height: 1.72; }
+.prose p { margin: 0 0 14px; }
+.gl {
+  border-bottom: 1.5px dotted var(--accent); cursor: pointer;
+  padding-bottom: 1px;
+}
+.gl:active { background: var(--chip); }

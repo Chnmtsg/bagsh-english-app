@@ -36,23 +36,35 @@ python -m src.lessons --list           # path only
 python -m src.lessons --done copula    # mark a topic studied
 ```
 
-Study games (offline, free, no API key needed — spaced repetition + XP,
-streaks and badges; see `docs/app-review.md` for where the mechanics come
-from and ADR-0003 for the design):
+Study (offline, free, no API key needed — spaced repetition, error repair and
+honest metrics; the reasoning is in `docs/learning-engine.md`, the decisions in
+ADR-0003 and ADR-0007):
 
 ```bash
+python -m src.play today       # THE session: everything due, decks interleaved
+python -m src.play errors      # repair YOUR sentences from the journal queue
 python -m src.play grammar     # fix-the-sentence game, covers all 24 systems
 python -m src.play vocab       # word trainer: meaning + spelling, stress-marked
 python -m src.play talk        # conversation drills: type the missing chunk
-python -m src.play stats       # XP, streak, badges
+python -m src.play fluency     # 60 timed seconds on what you already know
+python -m src.play read        # read something graded to your level
+python -m src.play library     # what there is to read
+python -m src.play progress    # what you can actually do (not XP)
+python -m src.play stats       # XP, streak, badges — habit, not progress
 ```
 
-All modes share the learner profile: errors in your journal pull that
-topic's lesson and quiz items forward, journaling/lessons/games all feed
-the same daily streak, and your level rises automatically from journal
-accuracy — no speaking or listening anywhere, by design (word stress is
-taught in text: `de-POS-it`). Vocabulary grows by curation in
-`knowledge/vocabulary.yaml`; never let a model write into it.
+`today` is the one to run daily: it pulls whatever is due across all decks and
+mixes them, because in real English nobody tells you which rule is coming. An
+item is learned after three correct answers on three *different* days, a miss
+comes back later in the same session, and four misses take an item out of
+rotation — that one needs its lesson again, not another quiz.
+
+All modes share the learner profile: errors in your journal become scheduled
+repair drills, journaling/lessons/games all feed the same daily streak, and
+your level rises automatically from journal accuracy — no speaking or listening
+anywhere, by design (word stress is taught in text: `de-POS-it`). Vocabulary
+grows by curation in `knowledge/vocabulary.yaml`; never let a model write into
+it.
 
 ## Develop
 
@@ -60,7 +72,8 @@ taught in text: `de-POS-it`). Vocabulary grows by curation in
 pytest tests/ -q
 python scripts/validate_patterns.py --corpus data/clean_english.txt
 python scripts/run_regression.py --set evals/regression.jsonl
-node tests/grader_parity.js      # PWA grader matches src/quiz.py
+node tests/grader_parity.js      # PWA grader AND scheduler match Python
+python scripts/validate_readings.py   # every reading text is really graded
 ```
 
 Re-run `python scripts/build_webapp_data.py` after any `knowledge/*.yaml`

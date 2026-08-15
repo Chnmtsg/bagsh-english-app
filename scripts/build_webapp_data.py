@@ -25,7 +25,9 @@ from src.knowledge import (  # noqa: E402
     load_advanced_grammar,
     load_conversations,
     load_grammar_lessons,
+    load_pseudowords,
 )
+from src.reading import glossary, load_readings  # noqa: E402
 from src.quiz import (  # noqa: E402
     CONTRACTIONS,
     grammar_bank,
@@ -79,13 +81,22 @@ def main() -> int:
         "dialogues": load_conversations(),
         "talk": talk_bank(),
         "wordlist": json.loads(WORDLIST.read_text(encoding="utf-8")),
+        # honesty anchors for the coverage check — never teachable content
+        "pseudowords": load_pseudowords(),
+        # the reading library, with each text's glossary resolved against
+        # the deck so the PWA never has to do the lookup itself
+        "readings": [
+            {**text, "glossary": glossary(text)}
+            for text in load_readings()
+        ],
     }
     out = REPO / "webapp" / "data.json"
     out.parent.mkdir(exist_ok=True)
     out.write_text(json.dumps(data, ensure_ascii=False, indent=1),
                    encoding="utf-8")
     print(f"wrote {out} — {len(data['grammar'])} grammar items, "
-          f"{len(data['vocab'])} words, {len(data['categories'])} categories")
+          f"{len(data['vocab'])} words, {len(data['categories'])} categories, "
+          f"{len(data['readings'])} texts")
     return 0
 
 
