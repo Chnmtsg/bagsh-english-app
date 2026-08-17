@@ -53,7 +53,7 @@ only ever replayed from a calm entry. An `elevated` entry still gets its
 correction and still feeds every counter, ranking and fossilisation check. The
 classifier fails toward `elevated`, so failure costs data, never exposure.
 
-## The learning engine (ADR-0007 … ADR-0013)
+## The learning engine (ADR-0007 … ADR-0014)
 
 Evidence review and rankings: `docs/learning-engine.md`. Four modules, all in
 the code layer:
@@ -67,6 +67,7 @@ the code layer:
 | `src/glossary.py` | What a word means, offline: the deck, then the reading glosses, then `knowledge/glosses/*.yaml`, then all three through the stemmer. A test holds A1–B1 at 100% coverage of the frequency list, so the study list can never again tell a learner to find a dictionary. |
 | `src/verbs.py` | The irregular verb table (ADR-0011): 102 verbs, two typed drills each, a fourth deck in the scheduler. The `-ing` form is computed here from the doubling rules and shipped, so the PWA never has to know them. |
 | `src/sounds.py` | Spelling→sound tables with a Mongolian foothold (ADR-0012). Reference, not a deck: a silent app cannot mark pronunciation. Every row stands without its Cyrillic, and `mongolian_verified` stays false until a native speaker has read the 40 strings `play sounds --review` lists. |
+| `src/chunks.py` | Word partners (ADR-0014): 139 prepositions and collocations as typed clozes. Teaches what the error queue may not drill — `prepositions` and `collocation` stay untreatable as ERRORS; this is the other half, teaching the phrase before it goes wrong. |
 | `src/metrics.py` | Proficiency separated from habit. Errors/100 words *with* entry length, delayed first-attempt accuracy, productive mature count, categories graduated, fluency-round speed. XP and streaks are shown, and never used to answer "am I improving?". |
 
 Two rules that are easy to break by accident: a **pretest guess is never

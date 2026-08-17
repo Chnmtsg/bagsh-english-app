@@ -35218,6 +35218,1398 @@
    "same_forms": false
   }
  ],
+ "chunks": [
+  {
+   "id": "c_depend_on",
+   "chunk": "depend on",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "It depends _____ the weather.",
+   "answer": "on",
+   "example": "It depends on the weather.",
+   "note": ""
+  },
+  {
+   "id": "c_listen_to",
+   "chunk": "listen to",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "I listen _____ the radio every morning.",
+   "answer": "to",
+   "example": "I listen to the radio every morning.",
+   "note": ""
+  },
+  {
+   "id": "c_wait_for",
+   "chunk": "wait for",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "We waited _____ the bus in the cold.",
+   "answer": "for",
+   "example": "We waited for the bus in the cold.",
+   "note": ""
+  },
+  {
+   "id": "c_look_for",
+   "chunk": "look for",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "She is looking _____ her keys.",
+   "answer": "for",
+   "example": "She is looking for her keys.",
+   "note": ""
+  },
+  {
+   "id": "c_look_after",
+   "chunk": "look after",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "My sister looks _____ the children.",
+   "answer": "after",
+   "example": "My sister looks after the children.",
+   "note": ""
+  },
+  {
+   "id": "c_ask_for",
+   "chunk": "ask for",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "He asked _____ more time.",
+   "answer": "for",
+   "example": "He asked for more time.",
+   "note": ""
+  },
+  {
+   "id": "c_pay_for",
+   "chunk": "pay for",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "I paid _____ the coffee.",
+   "answer": "for",
+   "example": "I paid for the coffee.",
+   "note": ""
+  },
+  {
+   "id": "c_belong_to",
+   "chunk": "belong to",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "These tools _____ to the company.",
+   "answer": "belong",
+   "example": "These tools belong to the company.",
+   "note": ""
+  },
+  {
+   "id": "c_agree_with",
+   "chunk": "agree with",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "I agree _____ your plan.",
+   "answer": "with",
+   "example": "I agree with your plan.",
+   "note": "Монголоор 'би санал нийлж байна' — англид I am agree биш, I agree."
+  },
+  {
+   "id": "c_apologise_for",
+   "chunk": "apologise for",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "She apologised _____ the delay.",
+   "answer": "for",
+   "example": "She apologised for the delay.",
+   "note": ""
+  },
+  {
+   "id": "c_apply_for",
+   "chunk": "apply for",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "I applied _____ the job last week.",
+   "answer": "for",
+   "example": "I applied for the job last week.",
+   "note": ""
+  },
+  {
+   "id": "c_believe_in",
+   "chunk": "believe in",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "They believe _____ hard work.",
+   "answer": "in",
+   "example": "They believe in hard work.",
+   "note": ""
+  },
+  {
+   "id": "c_complain_about",
+   "chunk": "complain about",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "The neighbours complained _____ the noise.",
+   "answer": "about",
+   "example": "The neighbours complained about the noise.",
+   "note": ""
+  },
+  {
+   "id": "c_concentrate_on",
+   "chunk": "concentrate on",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "Please concentrate _____ the main problem.",
+   "answer": "on",
+   "example": "Please concentrate on the main problem.",
+   "note": ""
+  },
+  {
+   "id": "c_consist_of",
+   "chunk": "consist of",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "The team consists _____ six engineers.",
+   "answer": "of",
+   "example": "The team consists of six engineers.",
+   "note": ""
+  },
+  {
+   "id": "c_deal_with",
+   "chunk": "deal with",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "He deals _____ the customers.",
+   "answer": "with",
+   "example": "He deals with the customers.",
+   "note": ""
+  },
+  {
+   "id": "c_insist_on",
+   "chunk": "insist on",
+   "kind": "preposition",
+   "level": "B2",
+   "prompt": "She insisted _____ paying.",
+   "answer": "on",
+   "example": "She insisted on paying.",
+   "note": ""
+  },
+  {
+   "id": "c_participate_in",
+   "chunk": "participate in",
+   "kind": "preposition",
+   "level": "B2",
+   "prompt": "Everyone participated _____ the training.",
+   "answer": "in",
+   "example": "Everyone participated in the training.",
+   "note": ""
+  },
+  {
+   "id": "c_prepare_for",
+   "chunk": "prepare for",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "We prepared _____ the inspection.",
+   "answer": "for",
+   "example": "We prepared for the inspection.",
+   "note": ""
+  },
+  {
+   "id": "c_rely_on",
+   "chunk": "rely on",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "You can rely _____ him.",
+   "answer": "on",
+   "example": "You can rely on him.",
+   "note": ""
+  },
+  {
+   "id": "c_succeed_in",
+   "chunk": "succeed in",
+   "kind": "preposition",
+   "level": "B2",
+   "prompt": "They succeeded _____ finishing early.",
+   "answer": "in",
+   "example": "They succeeded in finishing early.",
+   "note": ""
+  },
+  {
+   "id": "c_suffer_from",
+   "chunk": "suffer from",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "He suffers _____ headaches.",
+   "answer": "from",
+   "example": "He suffers from headaches.",
+   "note": ""
+  },
+  {
+   "id": "c_worry_about",
+   "chunk": "worry about",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "Do not worry _____ the money.",
+   "answer": "about",
+   "example": "Do not worry about the money.",
+   "note": ""
+  },
+  {
+   "id": "c_think_about",
+   "chunk": "think about",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "I am thinking _____ the offer.",
+   "answer": "about",
+   "example": "I am thinking about the offer.",
+   "note": ""
+  },
+  {
+   "id": "c_laugh_at",
+   "chunk": "laugh at",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "Nobody laughed _____ my question.",
+   "answer": "at",
+   "example": "Nobody laughed at my question.",
+   "note": ""
+  },
+  {
+   "id": "c_shout_at",
+   "chunk": "shout at",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "He never shouts _____ the crew.",
+   "answer": "at",
+   "example": "He never shouts at the crew.",
+   "note": ""
+  },
+  {
+   "id": "c_borrow_from",
+   "chunk": "borrow from",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "I borrowed a heater _____ my neighbour.",
+   "answer": "from",
+   "example": "I borrowed a heater from my neighbour.",
+   "note": ""
+  },
+  {
+   "id": "c_lend_to",
+   "chunk": "lend to",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "She lent her coat _____ a colleague.",
+   "answer": "to",
+   "example": "She lent her coat to a colleague.",
+   "note": ""
+  },
+  {
+   "id": "c_explain_to",
+   "chunk": "explain to",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "Please explain the rule _____ me.",
+   "answer": "to",
+   "example": "Please explain the rule to me.",
+   "note": "Англид explain me биш, explain TO me."
+  },
+  {
+   "id": "c_talk_to",
+   "chunk": "talk to",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "I talked _____ the manager yesterday.",
+   "answer": "to",
+   "example": "I talked to the manager yesterday.",
+   "note": ""
+  },
+  {
+   "id": "c_happen_to",
+   "chunk": "happen to",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "What happened _____ your phone?",
+   "answer": "to",
+   "example": "What happened to your phone?",
+   "note": ""
+  },
+  {
+   "id": "c_translate_into",
+   "chunk": "translate into",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "He translated the report _____ Mongolian.",
+   "answer": "into",
+   "example": "He translated the report into Mongolian.",
+   "note": ""
+  },
+  {
+   "id": "c_divide_into",
+   "chunk": "divide into",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "The shift is divided _____ two halves.",
+   "answer": "into",
+   "example": "The shift is divided into two halves.",
+   "note": ""
+  },
+  {
+   "id": "c_spend_on",
+   "chunk": "spend on",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "We spend too much _____ transport.",
+   "answer": "on",
+   "example": "We spend too much on transport.",
+   "note": ""
+  },
+  {
+   "id": "c_invite_to",
+   "chunk": "invite to",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "They invited me _____ the meeting.",
+   "answer": "to",
+   "example": "They invited me to the meeting.",
+   "note": ""
+  },
+  {
+   "id": "c_good_at",
+   "chunk": "good at",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "She is very good _____ mathematics.",
+   "answer": "at",
+   "example": "She is very good at mathematics.",
+   "note": "Монголоор '-д сайн' — англид good in биш, good AT."
+  },
+  {
+   "id": "c_bad_at",
+   "chunk": "bad at",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "I am bad _____ remembering names.",
+   "answer": "at",
+   "example": "I am bad at remembering names.",
+   "note": ""
+  },
+  {
+   "id": "c_interested_in",
+   "chunk": "interested in",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "He is interested _____ geology.",
+   "answer": "in",
+   "example": "He is interested in geology.",
+   "note": ""
+  },
+  {
+   "id": "c_afraid_of",
+   "chunk": "afraid of",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "I was afraid _____ saying the wrong thing.",
+   "answer": "of",
+   "example": "I was afraid of saying the wrong thing.",
+   "note": ""
+  },
+  {
+   "id": "c_proud_of",
+   "chunk": "proud of",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "She is proud _____ her daughter.",
+   "answer": "of",
+   "example": "She is proud of her daughter.",
+   "note": ""
+  },
+  {
+   "id": "c_tired_of",
+   "chunk": "tired of",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "I am tired _____ waiting.",
+   "answer": "of",
+   "example": "I am tired of waiting.",
+   "note": ""
+  },
+  {
+   "id": "c_full_of",
+   "chunk": "full of",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "The bus was _____ of people.",
+   "answer": "full",
+   "example": "The bus was full of people.",
+   "note": ""
+  },
+  {
+   "id": "c_married_to",
+   "chunk": "married to",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "She is married _____ an engineer.",
+   "answer": "to",
+   "example": "She is married to an engineer.",
+   "note": "married with биш, married TO."
+  },
+  {
+   "id": "c_responsible_for",
+   "chunk": "responsible for",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "He is responsible _____ safety on site.",
+   "answer": "for",
+   "example": "He is responsible for safety on site.",
+   "note": ""
+  },
+  {
+   "id": "c_similar_to",
+   "chunk": "similar to",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "This case is similar _____ the last one.",
+   "answer": "to",
+   "example": "This case is similar to the last one.",
+   "note": ""
+  },
+  {
+   "id": "c_different_from",
+   "chunk": "different from",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "Winter here is different _____ winter in the city.",
+   "answer": "from",
+   "example": "Winter here is different from winter in the city.",
+   "note": ""
+  },
+  {
+   "id": "c_famous_for",
+   "chunk": "famous for",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "The region is famous _____ its horses.",
+   "answer": "for",
+   "example": "The region is famous for its horses.",
+   "note": ""
+  },
+  {
+   "id": "c_aware_of",
+   "chunk": "aware of",
+   "kind": "preposition",
+   "level": "B2",
+   "prompt": "I was not aware _____ the change.",
+   "answer": "of",
+   "example": "I was not aware of the change.",
+   "note": ""
+  },
+  {
+   "id": "c_capable_of",
+   "chunk": "capable of",
+   "kind": "preposition",
+   "level": "B2",
+   "prompt": "The machine is capable _____ much more.",
+   "answer": "of",
+   "example": "The machine is capable of much more.",
+   "note": ""
+  },
+  {
+   "id": "c_satisfied_with",
+   "chunk": "satisfied with",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "The client was satisfied _____ the result.",
+   "answer": "with",
+   "example": "The client was satisfied with the result.",
+   "note": ""
+  },
+  {
+   "id": "c_worried_about",
+   "chunk": "worried about",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "She is worried _____ the deadline.",
+   "answer": "about",
+   "example": "She is worried about the deadline.",
+   "note": ""
+  },
+  {
+   "id": "c_keen_on",
+   "chunk": "keen on",
+   "kind": "preposition",
+   "level": "B2",
+   "prompt": "He is not very _____ on early meetings.",
+   "answer": "keen",
+   "example": "He is not very keen on early meetings.",
+   "note": ""
+  },
+  {
+   "id": "c_dependent_on",
+   "chunk": "dependent on",
+   "kind": "preposition",
+   "level": "B2",
+   "prompt": "The schedule is _____ on the weather.",
+   "answer": "dependent",
+   "example": "The schedule is dependent on the weather.",
+   "note": ""
+  },
+  {
+   "id": "c_reason_for",
+   "chunk": "reason for",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "There is no reason _____ panic.",
+   "answer": "for",
+   "example": "There is no reason for panic.",
+   "note": ""
+  },
+  {
+   "id": "c_solution_to",
+   "chunk": "solution to",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "We found a solution _____ the heating problem.",
+   "answer": "to",
+   "example": "We found a solution to the heating problem.",
+   "note": ""
+  },
+  {
+   "id": "c_answer_to",
+   "chunk": "answer to",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "Nobody knew the answer _____ that question.",
+   "answer": "to",
+   "example": "Nobody knew the answer to that question.",
+   "note": ""
+  },
+  {
+   "id": "c_increase_in",
+   "chunk": "increase in",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "There was a sharp increase _____ costs.",
+   "answer": "in",
+   "example": "There was a sharp increase in costs.",
+   "note": ""
+  },
+  {
+   "id": "c_effect_on",
+   "chunk": "effect on",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "The cold has an effect _____ the machines.",
+   "answer": "on",
+   "example": "The cold has an effect on the machines.",
+   "note": ""
+  },
+  {
+   "id": "c_advantage_of",
+   "chunk": "advantage of",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "The main advantage _____ this method is speed.",
+   "answer": "of",
+   "example": "The main advantage of this method is speed.",
+   "note": ""
+  },
+  {
+   "id": "c_demand_for",
+   "chunk": "demand for",
+   "kind": "preposition",
+   "level": "B2",
+   "prompt": "There is a growing demand _____ copper.",
+   "answer": "for",
+   "example": "There is a growing demand for copper.",
+   "note": ""
+  },
+  {
+   "id": "c_need_for",
+   "chunk": "need for",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "There is no _____ for a second report.",
+   "answer": "need",
+   "example": "There is no need for a second report.",
+   "note": ""
+  },
+  {
+   "id": "c_interest_in",
+   "chunk": "interest in",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "She showed a real _____ in the project.",
+   "answer": "interest",
+   "example": "She showed a real interest in the project.",
+   "note": ""
+  },
+  {
+   "id": "c_respect_for",
+   "chunk": "respect for",
+   "kind": "preposition",
+   "level": "B2",
+   "prompt": "He has great _____ for his teacher.",
+   "answer": "respect",
+   "example": "He has great respect for his teacher.",
+   "note": ""
+  },
+  {
+   "id": "c_on_monday",
+   "chunk": "on Monday",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "The meeting is _____ Monday.",
+   "answer": "on",
+   "example": "The meeting is on Monday.",
+   "note": "Өдөр бол on, сар бол in, цаг бол at."
+  },
+  {
+   "id": "c_in_july",
+   "chunk": "in July",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "We start the survey _____ July.",
+   "answer": "in",
+   "example": "We start the survey in July.",
+   "note": ""
+  },
+  {
+   "id": "c_at_five_o_clock",
+   "chunk": "at five o'clock",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "The bus leaves _____ five o'clock.",
+   "answer": "at",
+   "example": "The bus leaves at five o'clock.",
+   "note": ""
+  },
+  {
+   "id": "c_in_the_morning",
+   "chunk": "in the morning",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "I read _____ the morning.",
+   "answer": "in",
+   "example": "I read in the morning.",
+   "note": ""
+  },
+  {
+   "id": "c_at_night",
+   "chunk": "at night",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "It is very quiet _____ night.",
+   "answer": "at",
+   "example": "It is very quiet at night.",
+   "note": ""
+  },
+  {
+   "id": "c_at_the_weekend",
+   "chunk": "at the weekend",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "We visited my sister _____ the weekend.",
+   "answer": "at",
+   "example": "We visited my sister at the weekend.",
+   "note": ""
+  },
+  {
+   "id": "c_on_time",
+   "chunk": "on time",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "The train left _____ time.",
+   "answer": "on",
+   "example": "The train left on time.",
+   "note": ""
+  },
+  {
+   "id": "c_in_time",
+   "chunk": "in time",
+   "kind": "preposition",
+   "level": "B2",
+   "prompt": "We arrived just _____ time to catch it.",
+   "answer": "in",
+   "example": "We arrived just in time to catch it.",
+   "note": ""
+  },
+  {
+   "id": "c_arrive_at",
+   "chunk": "arrive at",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "We arrive _____ the gate before six.",
+   "answer": "at",
+   "example": "We arrive at the gate before six.",
+   "note": "arrive TO биш: жижиг газарт at, хот улсад in."
+  },
+  {
+   "id": "c_arrive_in",
+   "chunk": "arrive in",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "They arrive _____ Ulaanbaatar tomorrow.",
+   "answer": "in",
+   "example": "They arrive in Ulaanbaatar tomorrow.",
+   "note": ""
+  },
+  {
+   "id": "c_on_the_bus",
+   "chunk": "on the bus",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "I met her _____ the bus.",
+   "answer": "on",
+   "example": "I met her on the bus.",
+   "note": ""
+  },
+  {
+   "id": "c_in_a_car",
+   "chunk": "in a car",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "We were sitting _____ a car outside.",
+   "answer": "in",
+   "example": "We were sitting in a car outside.",
+   "note": ""
+  },
+  {
+   "id": "c_at_home",
+   "chunk": "at home",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "She stayed _____ home yesterday.",
+   "answer": "at",
+   "example": "She stayed at home yesterday.",
+   "note": ""
+  },
+  {
+   "id": "c_in_hospital",
+   "chunk": "in hospital",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "He spent a week _____ hospital.",
+   "answer": "in",
+   "example": "He spent a week in hospital.",
+   "note": ""
+  },
+  {
+   "id": "c_for_two_hours",
+   "chunk": "for two hours",
+   "kind": "preposition",
+   "level": "A2",
+   "prompt": "We waited _____ two hours.",
+   "answer": "for",
+   "example": "We waited for two hours.",
+   "note": ""
+  },
+  {
+   "id": "c_since",
+   "chunk": "since 2019",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "I have worked here _____ 2019.",
+   "answer": "since",
+   "example": "I have worked here since 2019.",
+   "note": "for = хугацааны урт, since = эхэлсэн цэг."
+  },
+  {
+   "id": "c_by_friday",
+   "chunk": "by Friday",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "Send the report _____ Friday.",
+   "answer": "by",
+   "example": "Send the report by Friday.",
+   "note": ""
+  },
+  {
+   "id": "c_during_the_meeting",
+   "chunk": "during the meeting",
+   "kind": "preposition",
+   "level": "B1",
+   "prompt": "Nobody spoke _____ the meeting.",
+   "answer": "during",
+   "example": "Nobody spoke during the meeting.",
+   "note": ""
+  },
+  {
+   "id": "c_make_a_mistake",
+   "chunk": "make a mistake",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "I _____ three mistakes in the form.",
+   "answer": "made",
+   "example": "I made three mistakes in the form.",
+   "note": "Монголоор 'алдаа хийх' — гэхдээ англид do a mistake биш, MAKE."
+  },
+  {
+   "id": "c_make_a_decision",
+   "chunk": "make a decision",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "We have to _____ a decision today.",
+   "answer": "make",
+   "example": "We have to make a decision today.",
+   "note": ""
+  },
+  {
+   "id": "c_make_progress",
+   "chunk": "make progress",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "She is _____ good progress in English.",
+   "answer": "making",
+   "example": "She is making good progress in English.",
+   "note": ""
+  },
+  {
+   "id": "c_make_an_effort",
+   "chunk": "make an effort",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "He made a real _____ to be on time.",
+   "answer": "effort",
+   "example": "He made a real effort to be on time.",
+   "note": ""
+  },
+  {
+   "id": "c_make_a_suggestion",
+   "chunk": "make a suggestion",
+   "kind": "collocation",
+   "level": "B2",
+   "prompt": "Can I make a _____ about the schedule?",
+   "answer": "suggestion",
+   "example": "Can I make a suggestion about the schedule?",
+   "note": ""
+  },
+  {
+   "id": "c_make_money",
+   "chunk": "make money",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "The company _____ money from exports.",
+   "answer": "makes",
+   "example": "The company makes money from exports.",
+   "note": ""
+  },
+  {
+   "id": "c_make_a_noise",
+   "chunk": "make a noise",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "The old heater makes a lot of _____.",
+   "answer": "noise",
+   "example": "The old heater makes a lot of noise.",
+   "note": ""
+  },
+  {
+   "id": "c_make_friends",
+   "chunk": "make friends",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "He makes _____ easily.",
+   "answer": "friends",
+   "example": "He makes friends easily.",
+   "note": ""
+  },
+  {
+   "id": "c_do_homework",
+   "chunk": "do homework",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "My son is _____ his homework.",
+   "answer": "doing",
+   "example": "My son is doing his homework.",
+   "note": "'Гэрийн даалгавар хийх' — энд DO, make биш."
+  },
+  {
+   "id": "c_do_business",
+   "chunk": "do business",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "We do _____ with three suppliers.",
+   "answer": "business",
+   "example": "We do business with three suppliers.",
+   "note": ""
+  },
+  {
+   "id": "c_do_research",
+   "chunk": "do research",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "She is doing _____ on cold weather.",
+   "answer": "research",
+   "example": "She is doing research on cold weather.",
+   "note": ""
+  },
+  {
+   "id": "c_do_the_shopping",
+   "chunk": "do the shopping",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "I do the _____ on Saturday.",
+   "answer": "shopping",
+   "example": "I do the shopping on Saturday.",
+   "note": ""
+  },
+  {
+   "id": "c_do_your_best",
+   "chunk": "do your best",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "Just do your _____ and send it.",
+   "answer": "best",
+   "example": "Just do your best and send it.",
+   "note": ""
+  },
+  {
+   "id": "c_do_the_washing",
+   "chunk": "do the washing",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "He does the _____ at the weekend.",
+   "answer": "washing",
+   "example": "He does the washing at the weekend.",
+   "note": ""
+  },
+  {
+   "id": "c_do_a_favour",
+   "chunk": "do a favour",
+   "kind": "collocation",
+   "level": "B2",
+   "prompt": "Could you do me a _____?",
+   "answer": "favour",
+   "example": "Could you do me a favour?",
+   "note": ""
+  },
+  {
+   "id": "c_have_a_meeting",
+   "chunk": "have a meeting",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "We _____ a long meeting yesterday.",
+   "answer": "had",
+   "example": "We had a long meeting yesterday.",
+   "note": ""
+  },
+  {
+   "id": "c_have_breakfast",
+   "chunk": "have breakfast",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "I have _____ at seven.",
+   "answer": "breakfast",
+   "example": "I have breakfast at seven.",
+   "note": ""
+  },
+  {
+   "id": "c_have_a_shower",
+   "chunk": "have a shower",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "She has a _____ before work.",
+   "answer": "shower",
+   "example": "She has a shower before work.",
+   "note": ""
+  },
+  {
+   "id": "c_have_a_problem",
+   "chunk": "have a problem",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "We have a _____ with the heating.",
+   "answer": "problem",
+   "example": "We have a problem with the heating.",
+   "note": ""
+  },
+  {
+   "id": "c_have_a_look",
+   "chunk": "have a look",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "Can you have a _____ at this report?",
+   "answer": "look",
+   "example": "Can you have a look at this report?",
+   "note": ""
+  },
+  {
+   "id": "c_take_a_photo",
+   "chunk": "take a photo",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "He _____ a photo of the samples.",
+   "answer": "took",
+   "example": "He took a photo of the samples.",
+   "note": ""
+  },
+  {
+   "id": "c_take_a_break",
+   "chunk": "take a break",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "Let us take a short _____.",
+   "answer": "break",
+   "example": "Let us take a short break.",
+   "note": ""
+  },
+  {
+   "id": "c_take_place",
+   "chunk": "take place",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "The training will take _____ in June.",
+   "answer": "place",
+   "example": "The training will take place in June.",
+   "note": ""
+  },
+  {
+   "id": "c_take_part",
+   "chunk": "take part",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "Everybody took _____ in the discussion.",
+   "answer": "part",
+   "example": "Everybody took part in the discussion.",
+   "note": ""
+  },
+  {
+   "id": "c_take_care_of",
+   "chunk": "take care of",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "She takes _____ of the paperwork.",
+   "answer": "care",
+   "example": "She takes care of the paperwork.",
+   "note": ""
+  },
+  {
+   "id": "c_take_a_decision",
+   "chunk": "take a decision",
+   "kind": "collocation",
+   "level": "B2",
+   "prompt": "The board _____ a decision quickly.",
+   "answer": "took",
+   "example": "The board took a decision quickly.",
+   "note": ""
+  },
+  {
+   "id": "c_take_medicine",
+   "chunk": "take medicine",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "He has to take _____ twice a day.",
+   "answer": "medicine",
+   "example": "He has to take medicine twice a day.",
+   "note": ""
+  },
+  {
+   "id": "c_give_advice",
+   "chunk": "give advice",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "She gave me good _____.",
+   "answer": "advice",
+   "example": "She gave me good advice.",
+   "note": ""
+  },
+  {
+   "id": "c_give_a_speech",
+   "chunk": "give a speech",
+   "kind": "collocation",
+   "level": "B2",
+   "prompt": "He gave a short _____ at the end.",
+   "answer": "speech",
+   "example": "He gave a short speech at the end.",
+   "note": ""
+  },
+  {
+   "id": "c_give_somebody_a_lift",
+   "chunk": "give somebody a lift",
+   "kind": "collocation",
+   "level": "B2",
+   "prompt": "My neighbour gave me a _____ to work.",
+   "answer": "lift",
+   "example": "My neighbour gave me a lift to work.",
+   "note": ""
+  },
+  {
+   "id": "c_pay_attention",
+   "chunk": "pay attention",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "Pay _____ to the safety notes.",
+   "answer": "attention",
+   "example": "Pay attention to the safety notes.",
+   "note": ""
+  },
+  {
+   "id": "c_pay_a_visit",
+   "chunk": "pay a visit",
+   "kind": "collocation",
+   "level": "B2",
+   "prompt": "The inspector paid us a _____.",
+   "answer": "visit",
+   "example": "The inspector paid us a visit.",
+   "note": ""
+  },
+  {
+   "id": "c_keep_a_promise",
+   "chunk": "keep a promise",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "He always keeps his _____.",
+   "answer": "promise",
+   "example": "He always keeps his promise.",
+   "note": ""
+  },
+  {
+   "id": "c_keep_in_touch",
+   "chunk": "keep in touch",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "We keep in _____ by email.",
+   "answer": "touch",
+   "example": "We keep in touch by email.",
+   "note": ""
+  },
+  {
+   "id": "c_keep_a_secret",
+   "chunk": "keep a secret",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "She can keep a _____.",
+   "answer": "secret",
+   "example": "She can keep a secret.",
+   "note": ""
+  },
+  {
+   "id": "c_break_a_promise",
+   "chunk": "break a promise",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "He _____ his promise about the deadline.",
+   "answer": "broke",
+   "example": "He broke his promise about the deadline.",
+   "note": ""
+  },
+  {
+   "id": "c_break_the_law",
+   "chunk": "break the law",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "They did not know they were breaking the _____.",
+   "answer": "law",
+   "example": "They did not know they were breaking the law.",
+   "note": ""
+  },
+  {
+   "id": "c_catch_a_cold",
+   "chunk": "catch a cold",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "I _____ a cold on the way home.",
+   "answer": "caught",
+   "example": "I caught a cold on the way home.",
+   "note": ""
+  },
+  {
+   "id": "c_catch_the_bus",
+   "chunk": "catch the bus",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "I have to _____ the bus at six.",
+   "answer": "catch",
+   "example": "I have to catch the bus at six.",
+   "note": ""
+  },
+  {
+   "id": "c_save_time",
+   "chunk": "save time",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "Doing it this way _____ time.",
+   "answer": "saves",
+   "example": "Doing it this way saves time.",
+   "note": ""
+  },
+  {
+   "id": "c_waste_time",
+   "chunk": "waste time",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "Do not _____ time on that.",
+   "answer": "waste",
+   "example": "Do not waste time on that.",
+   "note": ""
+  },
+  {
+   "id": "c_spend_time",
+   "chunk": "spend time",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "We _____ a lot of time on the road.",
+   "answer": "spent",
+   "example": "We spent a lot of time on the road.",
+   "note": ""
+  },
+  {
+   "id": "c_meet_a_deadline",
+   "chunk": "meet a deadline",
+   "kind": "collocation",
+   "level": "B2",
+   "prompt": "The team met the _____.",
+   "answer": "deadline",
+   "example": "The team met the deadline.",
+   "note": ""
+  },
+  {
+   "id": "c_reach_an_agreement",
+   "chunk": "reach an agreement",
+   "kind": "collocation",
+   "level": "B2",
+   "prompt": "They reached an _____ in May.",
+   "answer": "agreement",
+   "example": "They reached an agreement in May.",
+   "note": ""
+  },
+  {
+   "id": "c_solve_a_problem",
+   "chunk": "solve a problem",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "Nobody could _____ the problem quickly.",
+   "answer": "solve",
+   "example": "Nobody could solve the problem quickly.",
+   "note": ""
+  },
+  {
+   "id": "c_tell_the_truth",
+   "chunk": "tell the truth",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "He told the _____ about the delay.",
+   "answer": "truth",
+   "example": "He told the truth about the delay.",
+   "note": ""
+  },
+  {
+   "id": "c_tell_a_lie",
+   "chunk": "tell a lie",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "She never tells a _____.",
+   "answer": "lie",
+   "example": "She never tells a lie.",
+   "note": ""
+  },
+  {
+   "id": "c_tell_a_story",
+   "chunk": "tell a story",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "My father told a _____ about the winter.",
+   "answer": "story",
+   "example": "My father told a story about the winter.",
+   "note": ""
+  },
+  {
+   "id": "c_ask_a_question",
+   "chunk": "ask a question",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "Can I ask a _____?",
+   "answer": "question",
+   "example": "Can I ask a question?",
+   "note": ""
+  },
+  {
+   "id": "c_answer_the_phone",
+   "chunk": "answer the phone",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "Nobody _____ the phone.",
+   "answer": "answered",
+   "example": "Nobody answered the phone.",
+   "note": ""
+  },
+  {
+   "id": "c_get_a_job",
+   "chunk": "get a job",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "She _____ a job at the mine.",
+   "answer": "got",
+   "example": "She got a job at the mine.",
+   "note": ""
+  },
+  {
+   "id": "c_lose_your_temper",
+   "chunk": "lose your temper",
+   "kind": "collocation",
+   "level": "B2",
+   "prompt": "He never loses his _____ at work.",
+   "answer": "temper",
+   "example": "He never loses his temper at work.",
+   "note": ""
+  },
+  {
+   "id": "c_run_a_business",
+   "chunk": "run a business",
+   "kind": "collocation",
+   "level": "B2",
+   "prompt": "She _____ a small business in town.",
+   "answer": "runs",
+   "example": "She runs a small business in town.",
+   "note": ""
+  },
+  {
+   "id": "c_heavy_rain",
+   "chunk": "heavy rain",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "_____ rain closed the road.",
+   "answer": "heavy",
+   "example": "Heavy rain closed the road.",
+   "note": ""
+  },
+  {
+   "id": "c_strong_coffee",
+   "chunk": "strong coffee",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "He drinks _____ coffee in the morning.",
+   "answer": "strong",
+   "example": "He drinks strong coffee in the morning.",
+   "note": "Хүчтэй цай/кофе — англид strong, big эсвэл hard биш."
+  },
+  {
+   "id": "c_fast_food",
+   "chunk": "fast food",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "We do not eat _____ food often.",
+   "answer": "fast",
+   "example": "We do not eat fast food often.",
+   "note": ""
+  },
+  {
+   "id": "c_close_friend",
+   "chunk": "close friend",
+   "kind": "collocation",
+   "level": "B1",
+   "prompt": "He is a _____ friend of mine.",
+   "answer": "close",
+   "example": "He is a close friend of mine.",
+   "note": ""
+  },
+  {
+   "id": "c_bad_weather",
+   "chunk": "bad weather",
+   "kind": "collocation",
+   "level": "A2",
+   "prompt": "_____ weather delayed the flight.",
+   "answer": "bad",
+   "example": "Bad weather delayed the flight.",
+   "note": ""
+  }
+ ],
  "sounds": {
   "verified": false,
   "groups": [

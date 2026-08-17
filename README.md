@@ -47,6 +47,7 @@ python -m src.play grammar     # fix-the-sentence game, covers all 24 systems
 python -m src.play vocab       # word trainer: meaning + spelling, stress-marked
 python -m src.play talk        # conversation drills: type the missing chunk
 python -m src.play verbs       # irregular verbs: go / went / gone
+python -m src.play chunks      # word partners: depend ON, MAKE a mistake
 python -m src.play sounds      # how English letters sound (Cyrillic hints)
 python -m src.play fluency     # 60 timed seconds on what you already know
 python -m src.play read        # read something graded to your level

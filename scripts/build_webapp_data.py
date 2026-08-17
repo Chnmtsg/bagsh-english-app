@@ -29,6 +29,7 @@ from src.knowledge import (  # noqa: E402
 )
 from src.glossary import explain_all, load_glosses  # noqa: E402
 from src.reading import glossary, load_readings  # noqa: E402
+from src.chunks import drill_bank as chunk_bank  # noqa: E402
 from src.sounds import groups as sound_groups, verified as sounds_verified  # noqa: E402
 from src.verbs import drill_bank as verb_bank  # noqa: E402
 from src.quiz import (  # noqa: E402
@@ -100,6 +101,8 @@ def main() -> int:
         # The -ing form is computed in Python and shipped, so the PWA
         # never has to know the doubling rules.
         "verbs": verb_bank(),
+        # word partners: prepositions and collocations (ADR-0014)
+        "chunks": chunk_bank(),
         # the spelling→sound tables (ADR-0012). `verified` is false until a
         # native speaker has read the Cyrillic; the page says so while it is.
         "sounds": {"verified": sounds_verified(), "groups": sound_groups()},
@@ -117,7 +120,7 @@ def main() -> int:
     print(f"wrote {out} — {len(data['grammar'])} grammar items, "
           f"{len(data['vocab'])} words, {len(data['categories'])} categories, "
           f"{len(data['readings'])} texts, {len(data['glosses'])} glosses, "
-          f"{len(data['verbs'])} verb items")
+          f"{len(data['verbs'])} verb items, {len(data['chunks'])} chunks")
     return 0
 
 

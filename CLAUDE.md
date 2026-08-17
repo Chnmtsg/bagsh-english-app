@@ -22,7 +22,7 @@ says "the prompt engineer", it means the subagent.
 ```
 src/            graph.py, state.py, nodes/, llm.py
                 srs.py, error_queue.py, session.py, metrics.py  (learning engine)
-                reading.py, glossary.py, verbs.py, sounds.py
+                reading.py, glossary.py, verbs.py, sounds.py, chunks.py
 prompts/        runtime agent prompts, versioned frontmatter
 knowledge/      error_taxonomy.yaml, top_100_patterns.yaml,
                 contrastive-guide.md, crisis_resources.yaml,
@@ -30,7 +30,8 @@ knowledge/      error_taxonomy.yaml, top_100_patterns.yaml,
                 readings.yaml + core_words.yaml (the graded library),
                 glosses/*.yaml (plain-English meanings, ADR-0010),
                 irregular_verbs.yaml (the four-form table, ADR-0011),
-                sounds.yaml (spelling→sound; Mongolian UNVERIFIED, ADR-0012)
+                sounds.yaml (spelling→sound; Mongolian UNVERIFIED, ADR-0012),
+                chunks.yaml (prepositions + collocations, ADR-0014)
 evals/          regression.jsonl, reports/
 docs/           architecture.md, learning-engine.md, adr/, prompt-principles.md
 scripts/        run_regression.py, validate_patterns.py, category_frequency.py
@@ -111,6 +112,7 @@ python -m src.play today           # the learner's daily session
 python -m src.play fluency         # timed round on mastered items
 python -m src.play read            # the input strand
 python -m src.play verbs           # irregular verb forms
+python -m src.play chunks          # depend ON, MAKE a mistake
 python -m src.play sounds --review # the Cyrillic awaiting a native check
 python -m src.play define --word X # what a word means
 python scripts/validate_readings.py   # every text is graded, or the build fails

@@ -7,6 +7,7 @@ zero LLM cost.
     python -m src.play vocab     # word trainer (meaning + spelling rounds)
     python -m src.play talk      # conversation drills (say the missing chunk)
     python -m src.play verbs     # irregular verb forms (go/went/gone)
+    python -m src.play chunks    # word partners (depend ON, MAKE a mistake)
     python -m src.play fluency   # 60 timed seconds on what you already know
     python -m src.play read      # read something at your level (input strand)
     python -m src.play library   # what there is to read
@@ -28,7 +29,7 @@ import json
 import random
 import time
 
-from . import error_queue, metrics, session, srs, verbs as verbs_mod
+from . import chunks as chunks_mod, error_queue, metrics, session, srs, verbs as verbs_mod
 from .console import utf8_output
 from .game import BADGES, XP, record_activity, stats_line
 from .knowledge import categories
@@ -50,7 +51,7 @@ _WRONG = ["Almost — here it is:", "Not this time. The answer:",
 
 DECK_LABEL = {"errors": "✍️  your sentence", "grammar": "🧱 grammar",
               "vocab": "📚 word", "talk": "🗣️  talk",
-              "verbs": "🔤 verb form"}
+              "verbs": "🔤 verb form", "chunks": "🔗 word partners"}
 
 
 def _ask(prompt: str) -> str:
@@ -172,6 +173,24 @@ def ask_verb(profile: LearnerProfile, item_id: str, store: dict,
     return ok
 
 
+def ask_chunk(profile: LearnerProfile, item_id: str, store: dict,
+              rng: random.Random, badges: list) -> bool:
+    """Which preposition, which verb — the partnerships no rule predicts
+    (ADR-0014). Typed, one word, in a real sentence."""
+    item = chunks_mod.by_id()[item_id]
+    print(f"   {item['prompt']}")
+    answer = _ask("   ✏️  ")
+    ok = check_answer(answer, item["answer"], None, True)
+    print(f"   {rng.choice(_RIGHT) if ok else rng.choice(_WRONG)}")
+    if not ok:
+        print(f"   ✅ {item['answer']}   ({item['chunk']})")
+    print(f"   e.g. {item['example']}")
+    if item["note"]:
+        print(f"   🇲🇳 {item['note']}")
+    badges += _record(profile, "chunks", item_id, store, ok, produced=True)
+    return ok
+
+
 def ask_talk(profile: LearnerProfile, item_id: str, store: dict,
              rng: random.Random, badges: list) -> bool:
     item = {i["id"]: i for i in talk_bank()}[item_id]
@@ -271,7 +290,7 @@ def run_session(profile: LearnerProfile, items: list[dict], header: str) -> None
     rng = random.Random()
     learner_id = profile["learner_id"]
     stores = {deck: srs.load_store(learner_id, deck)
-              for deck in ("grammar", "vocab", "talk", "verbs")}
+              for deck in ("grammar", "vocab", "talk", "verbs", "chunks")}
     queue = error_queue.load(learner_id)
     badges: list[dict] = []
     print(header + "\n")
@@ -290,6 +309,8 @@ def run_session(profile: LearnerProfile, items: list[dict], header: str) -> None
             ok = ask_vocab(profile, item_id, stores["vocab"], rng, badges)
         elif deck == "verbs":
             ok = ask_verb(profile, item_id, stores["verbs"], rng, badges)
+        elif deck == "chunks":
+            ok = ask_chunk(profile, item_id, stores["chunks"], rng, badges)
         else:
             ok = ask_talk(profile, item_id, stores["talk"], rng, badges)
         print()
@@ -489,6 +510,13 @@ def _flash(profile: LearnerProfile, entry: dict) -> tuple[bool, int]:
         answer = _ask("   ✏️  ")
         ok = check_answer(answer, item["answer"], item.get("also_accept"))
         target = item["answer"]
+    elif deck == "chunks":
+        item = chunks_mod.by_id()[item_id]
+        print(f"   {item['prompt']}")
+        started = time.monotonic()
+        answer = _ask("   ✏️  ")
+        ok = check_answer(answer, item["answer"], None, True)
+        target = item["answer"]
     elif deck == "verbs":
         item = verbs_mod.by_id()[item_id]
         print(f"   {item['prompt']}")
@@ -601,6 +629,11 @@ def play_verbs(profile: LearnerProfile, n: int) -> None:
                 "🔤 Irregular verbs — the table, from memory")
 
 
+def play_chunks(profile: LearnerProfile, n: int) -> None:
+    run_session(profile, _deck_session(profile, "chunks", n),
+                "🔗 Word partners — the preposition and the verb that go with it")
+
+
 def play_talk(profile: LearnerProfile, n: int) -> None:
     run_session(profile, _deck_session(profile, "talk", n),
                 "🗣️  Everyday talk")
@@ -631,7 +664,8 @@ def main() -> None:
 
     parser = argparse.ArgumentParser(description="Bagsh study games")
     parser.add_argument("mode", choices=["today", "errors", "grammar", "vocab",
-                                         "talk", "verbs", "fluency", "read", "library",
+                                         "talk", "verbs", "chunks", "fluency", "read",
+                                         "library",
                                          "define", "sounds", "progress", "stats"])
     parser.add_argument("--n", type=int, default=None,
                         help="questions per session (default 12 for today, "
@@ -657,6 +691,8 @@ def main() -> None:
         play_talk(profile, n)
     elif args.mode == "verbs":
         play_verbs(profile, n)
+    elif args.mode == "chunks":
+        play_chunks(profile, n)
     elif args.mode == "fluency":
         play_fluency(profile)
     elif args.mode == "read":

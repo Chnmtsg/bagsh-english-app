@@ -134,7 +134,7 @@ def productive_mature(learner_id: str, attempts: list[dict]) -> dict:
 
     mature = 0
     productive = 0
-    for deck in ("grammar", "vocab", "talk", "verbs"):
+    for deck in ("grammar", "vocab", "talk", "verbs", "chunks"):
         store = srs.load_store(learner_id, deck)
         for item_id, rec in store.items():
             if rec.get("interval", 0) >= MATURE_DAYS and not srs.is_leech(rec):

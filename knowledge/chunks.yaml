@@ -1,0 +1,329 @@
+# Word partners — prepositions and collocations (ADR-0014).
+#
+# The two things a Mongolian learner cannot work out from rules, and which
+# both local courses spend pages on: which preposition a word takes, and which
+# verb goes with which noun. `depend ON`, `interested IN`, `MAKE a mistake`,
+# `DO homework`. There is no rule behind any of it — English simply decided,
+# and the only way in is to meet the whole phrase enough times.
+#
+# This is why the taxonomy marks `prepositions` and `collocation` untreatable
+# (ADR-0007): there is no rule to drill when the learner gets one wrong, so the
+# error queue shows a natural alternative instead of a correction. That is
+# about REPAIRING an error. Teaching the chunk in the first place is a
+# different job, and this is it.
+#
+# Fields:
+#   chunk    — the phrase as you would look it up: "depend on", "make a mistake"
+#   answer   — the word the learner types, in the form the example uses (made,
+#              not make). It must appear EXACTLY ONCE in the example, so the
+#              blank is never ambiguous; a test enforces both.
+#   example  — one sentence, written for this app
+#   kind     — preposition | collocation
+#   level    — A2 / B1 / B2
+#   note     — only where Mongolian pulls the wrong way (unverified Mongolian,
+#              like every bridge outside vocabulary.yaml)
+
+version: 1
+chunks:
+
+  # ── verb + preposition ───────────────────────────────────────────
+  - {chunk: depend on, answer: "on", level: A2, kind: preposition,
+     example: "It depends on the weather."}
+  - {chunk: listen to, answer: to, level: A2, kind: preposition,
+     example: "I listen to the radio every morning."}
+  - {chunk: wait for, answer: for, level: A2, kind: preposition,
+     example: "We waited for the bus in the cold."}
+  - {chunk: look for, answer: for, level: A2, kind: preposition,
+     example: "She is looking for her keys."}
+  - {chunk: look after, answer: after, level: B1, kind: preposition,
+     example: "My sister looks after the children."}
+  - {chunk: ask for, answer: for, level: A2, kind: preposition,
+     example: "He asked for more time."}
+  - {chunk: pay for, answer: for, level: A2, kind: preposition,
+     example: "I paid for the coffee."}
+  - {chunk: belong to, answer: belong, level: B1, kind: preposition,
+     example: "These tools belong to the company."}
+  - {chunk: agree with, answer: with, level: A2, kind: preposition,
+     example: "I agree with your plan.",
+     note: "Монголоор 'би санал нийлж байна' — англид I am agree биш, I agree."}
+  - {chunk: apologise for, answer: for, level: B1, kind: preposition,
+     example: "She apologised for the delay."}
+  - {chunk: apply for, answer: for, level: B1, kind: preposition,
+     example: "I applied for the job last week."}
+  - {chunk: believe in, answer: in, level: B1, kind: preposition,
+     example: "They believe in hard work."}
+  - {chunk: complain about, answer: about, level: B1, kind: preposition,
+     example: "The neighbours complained about the noise."}
+  - {chunk: concentrate on, answer: "on", level: B1, kind: preposition,
+     example: "Please concentrate on the main problem."}
+  - {chunk: consist of, answer: of, level: B1, kind: preposition,
+     example: "The team consists of six engineers."}
+  - {chunk: deal with, answer: with, level: B1, kind: preposition,
+     example: "He deals with the customers."}
+  - {chunk: insist on, answer: "on", level: B2, kind: preposition,
+     example: "She insisted on paying."}
+  - {chunk: participate in, answer: in, level: B2, kind: preposition,
+     example: "Everyone participated in the training."}
+  - {chunk: prepare for, answer: for, level: B1, kind: preposition,
+     example: "We prepared for the inspection."}
+  - {chunk: rely on, answer: "on", level: B1, kind: preposition,
+     example: "You can rely on him."}
+  - {chunk: succeed in, answer: in, level: B2, kind: preposition,
+     example: "They succeeded in finishing early."}
+  - {chunk: suffer from, answer: from, level: B1, kind: preposition,
+     example: "He suffers from headaches."}
+  - {chunk: worry about, answer: about, level: A2, kind: preposition,
+     example: "Do not worry about the money."}
+  - {chunk: think about, answer: about, level: A2, kind: preposition,
+     example: "I am thinking about the offer."}
+  - {chunk: laugh at, answer: at, level: B1, kind: preposition,
+     example: "Nobody laughed at my question."}
+  - {chunk: shout at, answer: at, level: B1, kind: preposition,
+     example: "He never shouts at the crew."}
+  - {chunk: borrow from, answer: from, level: B1, kind: preposition,
+     example: "I borrowed a heater from my neighbour."}
+  - {chunk: lend to, answer: to, level: B1, kind: preposition,
+     example: "She lent her coat to a colleague."}
+  - {chunk: explain to, answer: to, level: A2, kind: preposition,
+     example: "Please explain the rule to me.",
+     note: "Англид explain me биш, explain TO me."}
+  - {chunk: talk to, answer: to, level: A2, kind: preposition,
+     example: "I talked to the manager yesterday."}
+  - {chunk: happen to, answer: to, level: B1, kind: preposition,
+     example: "What happened to your phone?"}
+  - {chunk: translate into, answer: into, level: B1, kind: preposition,
+     example: "He translated the report into Mongolian."}
+  - {chunk: divide into, answer: into, level: B1, kind: preposition,
+     example: "The shift is divided into two halves."}
+  - {chunk: spend on, answer: "on", level: B1, kind: preposition,
+     example: "We spend too much on transport."}
+  - {chunk: invite to, answer: to, level: A2, kind: preposition,
+     example: "They invited me to the meeting."}
+
+  # ── adjective + preposition ──────────────────────────────────────
+  - {chunk: good at, answer: at, level: A2, kind: preposition,
+     example: "She is very good at mathematics.",
+     note: "Монголоор '-д сайн' — англид good in биш, good AT."}
+  - {chunk: bad at, answer: at, level: A2, kind: preposition,
+     example: "I am bad at remembering names."}
+  - {chunk: interested in, answer: in, level: A2, kind: preposition,
+     example: "He is interested in geology."}
+  - {chunk: afraid of, answer: of, level: A2, kind: preposition,
+     example: "I was afraid of saying the wrong thing."}
+  - {chunk: proud of, answer: of, level: A2, kind: preposition,
+     example: "She is proud of her daughter."}
+  - {chunk: tired of, answer: of, level: B1, kind: preposition,
+     example: "I am tired of waiting."}
+  - {chunk: full of, answer: full, level: A2, kind: preposition,
+     example: "The bus was full of people."}
+  - {chunk: married to, answer: to, level: B1, kind: preposition,
+     example: "She is married to an engineer.",
+     note: "married with биш, married TO."}
+  - {chunk: responsible for, answer: for, level: B1, kind: preposition,
+     example: "He is responsible for safety on site."}
+  - {chunk: similar to, answer: to, level: B1, kind: preposition,
+     example: "This case is similar to the last one."}
+  - {chunk: different from, answer: from, level: B1, kind: preposition,
+     example: "Winter here is different from winter in the city."}
+  - {chunk: famous for, answer: for, level: B1, kind: preposition,
+     example: "The region is famous for its horses."}
+  - {chunk: aware of, answer: of, level: B2, kind: preposition,
+     example: "I was not aware of the change."}
+  - {chunk: capable of, answer: of, level: B2, kind: preposition,
+     example: "The machine is capable of much more."}
+  - {chunk: satisfied with, answer: with, level: B1, kind: preposition,
+     example: "The client was satisfied with the result."}
+  - {chunk: worried about, answer: about, level: A2, kind: preposition,
+     example: "She is worried about the deadline."}
+  - {chunk: keen on, answer: keen, level: B2, kind: preposition,
+     example: "He is not very keen on early meetings."}
+  - {chunk: dependent on, answer: dependent, level: B2, kind: preposition,
+     example: "The schedule is dependent on the weather."}
+
+  # ── noun + preposition ───────────────────────────────────────────
+  - {chunk: reason for, answer: for, level: B1, kind: preposition,
+     example: "There is no reason for panic."}
+  - {chunk: solution to, answer: to, level: B1, kind: preposition,
+     example: "We found a solution to the heating problem."}
+  - {chunk: answer to, answer: to, level: B1, kind: preposition,
+     example: "Nobody knew the answer to that question."}
+  - {chunk: increase in, answer: in, level: B1, kind: preposition,
+     example: "There was a sharp increase in costs."}
+  - {chunk: effect on, answer: "on", level: B1, kind: preposition,
+     example: "The cold has an effect on the machines."}
+  - {chunk: advantage of, answer: of, level: B1, kind: preposition,
+     example: "The main advantage of this method is speed."}
+  - {chunk: demand for, answer: for, level: B2, kind: preposition,
+     example: "There is a growing demand for copper."}
+  - {chunk: need for, answer: need, level: B1, kind: preposition,
+     example: "There is no need for a second report."}
+  - {chunk: interest in, answer: interest, level: B1, kind: preposition,
+     example: "She showed a real interest in the project."}
+  - {chunk: respect for, answer: respect, level: B2, kind: preposition,
+     example: "He has great respect for his teacher."}
+
+  # ── prepositions of time and place ───────────────────────────────
+  - {chunk: on Monday, answer: "on", level: A2, kind: preposition,
+     example: "The meeting is on Monday.",
+     note: "Өдөр бол on, сар бол in, цаг бол at."}
+  - {chunk: in July, answer: in, level: A2, kind: preposition,
+     example: "We start the survey in July."}
+  - {chunk: at five o'clock, answer: at, level: A2, kind: preposition,
+     example: "The bus leaves at five o'clock."}
+  - {chunk: in the morning, answer: in, level: A2, kind: preposition,
+     example: "I read in the morning."}
+  - {chunk: at night, answer: at, level: A2, kind: preposition,
+     example: "It is very quiet at night."}
+  - {chunk: at the weekend, answer: at, level: B1, kind: preposition,
+     example: "We visited my sister at the weekend."}
+  - {chunk: on time, answer: "on", level: B1, kind: preposition,
+     example: "The train left on time."}
+  - {chunk: in time, answer: in, level: B2, kind: preposition,
+     example: "We arrived just in time to catch it."}
+  - {chunk: arrive at, answer: at, level: B1, kind: preposition,
+     example: "We arrive at the gate before six.",
+     note: "arrive TO биш: жижиг газарт at, хот улсад in."}
+  - {chunk: arrive in, answer: in, level: B1, kind: preposition,
+     example: "They arrive in Ulaanbaatar tomorrow."}
+  - {chunk: on the bus, answer: "on", level: A2, kind: preposition,
+     example: "I met her on the bus."}
+  - {chunk: in a car, answer: in, level: A2, kind: preposition,
+     example: "We were sitting in a car outside."}
+  - {chunk: at home, answer: at, level: A2, kind: preposition,
+     example: "She stayed at home yesterday."}
+  - {chunk: in hospital, answer: in, level: B1, kind: preposition,
+     example: "He spent a week in hospital."}
+  - {chunk: for two hours, answer: for, level: A2, kind: preposition,
+     example: "We waited for two hours."}
+  - {chunk: since 2019, answer: since, level: B1, kind: preposition,
+     example: "I have worked here since 2019.",
+     note: "for = хугацааны урт, since = эхэлсэн цэг."}
+  - {chunk: by Friday, answer: by, level: B1, kind: preposition,
+     example: "Send the report by Friday."}
+  - {chunk: during the meeting, answer: during, level: B1, kind: preposition,
+     example: "Nobody spoke during the meeting."}
+
+  # ── make / do — the pair Mongolian merges ────────────────────────
+  - {chunk: make a mistake, answer: made, level: A2, kind: collocation,
+     example: "I made three mistakes in the form.",
+     note: "Монголоор 'алдаа хийх' — гэхдээ англид do a mistake биш, MAKE."}
+  - {chunk: make a decision, answer: make, level: B1, kind: collocation,
+     example: "We have to make a decision today."}
+  - {chunk: make progress, answer: making, level: B1, kind: collocation,
+     example: "She is making good progress in English."}
+  - {chunk: make an effort, answer: effort, level: B1, kind: collocation,
+     example: "He made a real effort to be on time."}
+  - {chunk: make a suggestion, answer: suggestion, level: B2, kind: collocation,
+     example: "Can I make a suggestion about the schedule?"}
+  - {chunk: make money, answer: makes, level: B1, kind: collocation,
+     example: "The company makes money from exports."}
+  - {chunk: make a noise, answer: noise, level: A2, kind: collocation,
+     example: "The old heater makes a lot of noise."}
+  - {chunk: make friends, answer: friends, level: A2, kind: collocation,
+     example: "He makes friends easily."}
+  - {chunk: do homework, answer: doing, level: A2, kind: collocation,
+     example: "My son is doing his homework.",
+     note: "'Гэрийн даалгавар хийх' — энд DO, make биш."}
+  - {chunk: do business, answer: business, level: B1, kind: collocation,
+     example: "We do business with three suppliers."}
+  - {chunk: do research, answer: research, level: B1, kind: collocation,
+     example: "She is doing research on cold weather."}
+  - {chunk: do the shopping, answer: shopping, level: A2, kind: collocation,
+     example: "I do the shopping on Saturday."}
+  - {chunk: do your best, answer: best, level: B1, kind: collocation,
+     example: "Just do your best and send it."}
+  - {chunk: do the washing, answer: washing, level: A2, kind: collocation,
+     example: "He does the washing at the weekend."}
+  - {chunk: do a favour, answer: favour, level: B2, kind: collocation,
+     example: "Could you do me a favour?"}
+
+  # ── have / take / give / pay ─────────────────────────────────────
+  - {chunk: have a meeting, answer: had, level: A2, kind: collocation,
+     example: "We had a long meeting yesterday."}
+  - {chunk: have breakfast, answer: breakfast, level: A2, kind: collocation,
+     example: "I have breakfast at seven."}
+  - {chunk: have a shower, answer: shower, level: A2, kind: collocation,
+     example: "She has a shower before work."}
+  - {chunk: have a problem, answer: problem, level: A2, kind: collocation,
+     example: "We have a problem with the heating."}
+  - {chunk: have a look, answer: look, level: B1, kind: collocation,
+     example: "Can you have a look at this report?"}
+  - {chunk: take a photo, answer: took, level: A2, kind: collocation,
+     example: "He took a photo of the samples."}
+  - {chunk: take a break, answer: break, level: A2, kind: collocation,
+     example: "Let us take a short break."}
+  - {chunk: take place, answer: place, level: B1, kind: collocation,
+     example: "The training will take place in June."}
+  - {chunk: take part, answer: part, level: B1, kind: collocation,
+     example: "Everybody took part in the discussion."}
+  - {chunk: take care of, answer: care, level: B1, kind: collocation,
+     example: "She takes care of the paperwork."}
+  - {chunk: take a decision, answer: took, level: B2, kind: collocation,
+     example: "The board took a decision quickly."}
+  - {chunk: take medicine, answer: medicine, level: A2, kind: collocation,
+     example: "He has to take medicine twice a day."}
+  - {chunk: give advice, answer: advice, level: B1, kind: collocation,
+     example: "She gave me good advice."}
+  - {chunk: give a speech, answer: speech, level: B2, kind: collocation,
+     example: "He gave a short speech at the end."}
+  - {chunk: give somebody a lift, answer: lift, level: B2, kind: collocation,
+     example: "My neighbour gave me a lift to work."}
+  - {chunk: pay attention, answer: attention, level: B1, kind: collocation,
+     example: "Pay attention to the safety notes."}
+  - {chunk: pay a visit, answer: visit, level: B2, kind: collocation,
+     example: "The inspector paid us a visit."}
+
+  # ── keep / break / catch / save / meet ───────────────────────────
+  - {chunk: keep a promise, answer: promise, level: B1, kind: collocation,
+     example: "He always keeps his promise."}
+  - {chunk: keep in touch, answer: touch, level: B1, kind: collocation,
+     example: "We keep in touch by email."}
+  - {chunk: keep a secret, answer: secret, level: B1, kind: collocation,
+     example: "She can keep a secret."}
+  - {chunk: break a promise, answer: broke, level: B1, kind: collocation,
+     example: "He broke his promise about the deadline."}
+  - {chunk: break the law, answer: law, level: B1, kind: collocation,
+     example: "They did not know they were breaking the law."}
+  - {chunk: catch a cold, answer: caught, level: A2, kind: collocation,
+     example: "I caught a cold on the way home."}
+  - {chunk: catch the bus, answer: catch, level: A2, kind: collocation,
+     example: "I have to catch the bus at six."}
+  - {chunk: save time, answer: saves, level: B1, kind: collocation,
+     example: "Doing it this way saves time."}
+  - {chunk: waste time, answer: waste, level: B1, kind: collocation,
+     example: "Do not waste time on that."}
+  - {chunk: spend time, answer: spent, level: A2, kind: collocation,
+     example: "We spent a lot of time on the road."}
+  - {chunk: meet a deadline, answer: deadline, level: B2, kind: collocation,
+     example: "The team met the deadline."}
+  - {chunk: reach an agreement, answer: agreement, level: B2, kind: collocation,
+     example: "They reached an agreement in May."}
+  - {chunk: solve a problem, answer: solve, level: B1, kind: collocation,
+     example: "Nobody could solve the problem quickly."}
+  - {chunk: tell the truth, answer: truth, level: A2, kind: collocation,
+     example: "He told the truth about the delay."}
+  - {chunk: tell a lie, answer: lie, level: B1, kind: collocation,
+     example: "She never tells a lie."}
+  - {chunk: tell a story, answer: story, level: A2, kind: collocation,
+     example: "My father told a story about the winter."}
+  - {chunk: ask a question, answer: question, level: A2, kind: collocation,
+     example: "Can I ask a question?"}
+  - {chunk: answer the phone, answer: answered, level: A2, kind: collocation,
+     example: "Nobody answered the phone."}
+  - {chunk: get a job, answer: got, level: A2, kind: collocation,
+     example: "She got a job at the mine."}
+  - {chunk: lose your temper, answer: temper, level: B2, kind: collocation,
+     example: "He never loses his temper at work."}
+  - {chunk: run a business, answer: runs, level: B2, kind: collocation,
+     example: "She runs a small business in town."}
+  - {chunk: heavy rain, answer: heavy, level: B1, kind: collocation,
+     example: "Heavy rain closed the road."}
+  - {chunk: strong coffee, answer: strong, level: B1, kind: collocation,
+     example: "He drinks strong coffee in the morning.",
+     note: "Хүчтэй цай/кофе — англид strong, big эсвэл hard биш."}
+  - {chunk: fast food, answer: fast, level: A2, kind: collocation,
+     example: "We do not eat fast food often."}
+  - {chunk: close friend, answer: close, level: B1, kind: collocation,
+     example: "He is a close friend of mine."}
+  - {chunk: bad weather, answer: bad, level: A2, kind: collocation,
+     example: "Bad weather delayed the flight."}
