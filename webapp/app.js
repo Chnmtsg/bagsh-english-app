@@ -66,7 +66,7 @@ function loadProfile() {
     reading: {},         // textId -> {reads, correct, asked, last}
     wordsRead: 0,        // the input strand's only number
     anchors: { shown: 0, ticked: 0 },   // pseudowords offered / claimed known
-    srs: { grammar: {}, vocab: {}, talk: {} },
+    srs: { grammar: {}, vocab: {}, talk: {}, verbs: {} },
   };
   try {
     const stored = JSON.parse(localStorage.getItem(STORE_KEY)) || {};
@@ -1157,13 +1157,69 @@ function renderVocabItem(id, i, total, onAnswer) {
       }
 }
 
+/* ── Irregular verbs (ADR-0011) ──────────────────────────────────────
+ * The four-form table both Mongolian courses drill in every lesson — as
+ * retrieval, typed, rather than a table to look at. The app has corrected
+ * "I have went there" since its first commit and never taught the forms.
+ * The cue is the table label, not a sentence frame: "yesterday I ___" reads
+ * naturally for `go` and produces nonsense for `cost`. */
+
+function verbIds() {
+  const mine = levelRank(profile.level || "B1");
+  return (DATA.verbs || [])
+    .filter(v => levelRank(v.level) <= mine)
+    .map(v => v.id);
+}
+
+function renderVerbItem(id, i, total, onAnswer) {
+  const item = (DATA.verbs || []).find(v => v.id === id);
+  view.innerHTML = `
+    <div class="card">
+      <h2>🔤 Verb form <span class="pill">${i + 1}/${total}</span></h2>
+      <p class="q-wrong">${esc(item.prompt)}</p>
+      <input type="text" id="ans" autocomplete="off" autocapitalize="off"
+             placeholder="One word…">
+      <button class="primary" id="go">Check</button>
+      <div id="fb"></div>
+    </div>`;
+  const input = document.getElementById("ans");
+  input.focus();
+  const submit = () => {
+    const ok = checkAnswer(input.value, item.answer, item.also_accept, true);
+    const before = (profile.srs.verbs[id] || {}).interval || 0;
+    srsReview(profile.srs.verbs, id, ok);
+    logAttempt("verbs", id, before, ok, true);
+    award(ok ? XP.quizCorrect : XP.quizAttempt, ok ? "quizCorrect" : null);
+    document.getElementById("fb").innerHTML = `
+      <div class="feedback ${ok ? "good" : "bad"}">
+        <p>${ok ? esc(pick(PRAISE)) : esc(pick(MISS))}</p>
+        ${ok ? "" : `<p>✅ <b>${esc(item.answer)}</b>${item.also_accept.length
+          ? ` <span class="muted">(also ${esc(item.also_accept.join(", "))})</span>` : ""}</p>`}
+        <p class="muted">${esc(item.base)} · ${esc(item.answer)} — e.g. ${esc(item.example)}</p>
+        ${item.note ? `<p class="muted">💡 ${esc(item.note)}</p>` : ""}
+      </div>
+      <button class="primary" id="next">Next →</button>`;
+    document.getElementById("go").disabled = true;
+    document.getElementById("next").addEventListener("click", () => onAnswer(ok));
+  };
+  document.getElementById("go").addEventListener("click", submit);
+  input.addEventListener("keydown", e => { if (e.key === "Enter") submit(); });
+}
+
+function startVerbs() {
+  const picked = srsPick(profile.srs.verbs, verbIds(), SESSION_N);
+  runSession(picked.map(id => ({ deck: "verbs", id, kind: "review" })),
+             { kind: "verbs" });
+}
+
 /* ── shared session runner ──────────────────────────────────────────
  * Items are {deck, id, kind}. A miss is put back into the SAME session LAG
  * items later and must be answered again before the session ends — the
  * within-session half of successive relearning (ADR-0007). Mirrors
  * run_session / session.requeue in Python. */
 
-const RENDERERS = { grammar: renderGrammarItem, vocab: renderVocabItem, talk: renderTalkItem };
+const RENDERERS = { grammar: renderGrammarItem, vocab: renderVocabItem,
+                    talk: renderTalkItem, verbs: renderVerbItem };
 
 let sessionBadges = [];
 
@@ -1221,6 +1277,7 @@ function finishSession(asked, correct, mode) {
     if (mode.kind === "today") startToday();
     else if (mode.kind === "grammar") startGrammar(mode.topic);
     else if (mode.kind === "talk") startTalk(mode.dialogueId);
+    else if (mode.kind === "verbs") startVerbs();
     else renderVocabHome();
   });
   document.getElementById("home").addEventListener("click", () => setTab("today"));
@@ -1243,11 +1300,12 @@ function interleave(queues) {
 }
 
 function todayPools() {
-  return { grammar: grammarIds(null), vocab: vocabIds(), talk: talkIds(null) };
+  return { grammar: grammarIds(null), vocab: vocabIds(),
+           talk: talkIds(null), verbs: verbIds() };
 }
 
 function buildToday(n) {
-  const decks = ["grammar", "vocab", "talk"];
+  const decks = ["grammar", "vocab", "talk", "verbs"];
   const pools = todayPools();
   const dueLists = decks.map(d => srsDue(profile.srs[d], pools[d]));
   const backlog = dueLists.reduce((sum, list) => sum + list.length, 0);
@@ -1283,10 +1341,10 @@ function startToday() {
  * fast round must not move intervals that were earned slowly. */
 
 function fluencyPool() {
-  const pools = { grammar: grammarIds(null), vocab: vocabIds(),
+  const pools = { grammar: grammarIds(null), vocab: vocabIds(), verbs: verbIds(),
                   talk: DATA.talk.filter(i => i.kind === "cloze").map(i => i.id) };
   const out = [];
-  for (const deck of ["grammar", "vocab", "talk"]) {
+  for (const deck of ["grammar", "vocab", "talk", "verbs"]) {
     for (const id of pools[deck]) {
       if (srsMastered(profile.srs[deck][id])) out.push({ deck, id });
     }
@@ -1299,6 +1357,11 @@ function flashItem(entry) {
     const q = DATA.grammar.find(x => x.id === entry.id);
     return { cue: "", prompt: q.prompt, answer: q.answer,
              also: q.also_accept, loose: false };
+  }
+  if (entry.deck === "verbs") {
+    const v = DATA.verbs.find(x => x.id === entry.id);
+    return { cue: "", prompt: v.prompt, answer: v.answer,
+             also: v.also_accept, loose: true };
   }
   if (entry.deck === "vocab") {
     const w = DATA.vocab.find(x => x.word === entry.id);
@@ -1388,9 +1451,10 @@ function startFluency() {
 function renderToday() {
   const plan = buildToday(TODAY_N);
   const pool = fluencyPool();
-  const byDeck = { grammar: 0, vocab: 0, talk: 0 };
+  const byDeck = { grammar: 0, vocab: 0, talk: 0, verbs: 0 };
   plan.items.forEach(i => byDeck[i.deck]++);
-  const label = { grammar: "🧱 grammar", vocab: "📚 words", talk: "🗣️ talk" };
+  const label = { grammar: "🧱 grammar", vocab: "📚 words", talk: "🗣️ talk",
+                  verbs: "🔤 verb forms" };
   const rows = Object.keys(byDeck).filter(d => byDeck[d])
     .map(d => `<div class="row"><span class="name">${label[d]}</span>
        <span class="muted">${byDeck[d]}</span></div>`).join("");
@@ -1413,6 +1477,14 @@ function renderToday() {
     </div>
     ${rows ? `<div class="card"><h3>What is waiting</h3>${rows}</div>` : ""}
     <div class="card">
+      <h3>🔤 Irregular verbs</h3>
+      <p class="muted">go / went / gone — the table every English course in
+      Mongolia drills, here as recall instead of a page to stare at.
+      ${DATA.verbs ? DATA.verbs.filter(v => levelRank(v.level) <= levelRank(profile.level || "B1")).length : 0}
+      forms at your level, and they ride along in Today like everything else.</p>
+      <button class="ghost" id="verbBtn">Practise verb forms</button>
+    </div>
+    <div class="card">
       <h3>⏱ Fluency minute</h3>
       ${pool.length >= FLUENCY_MIN_POOL
         ? `<p class="muted">60 seconds on ${pool.length} things you have
@@ -1434,6 +1506,8 @@ function renderToday() {
   if (go) go.addEventListener("click", startToday);
   const flu = document.getElementById("flu");
   if (flu) flu.addEventListener("click", startFluency);
+  const verbBtn = document.getElementById("verbBtn");
+  if (verbBtn) verbBtn.addEventListener("click", startVerbs);
 }
 
 /* ── Read — the input strand (ADR-0009) ─────────────────────────────
@@ -1662,7 +1736,7 @@ function productiveMature() {
   const lastTyped = {};
   for (const a of profile.log || []) lastTyped[a.deck + "|" + a.id] = a.prod;
   let mature = 0, productive = 0;
-  for (const deck of ["grammar", "vocab", "talk"]) {
+  for (const deck of ["grammar", "vocab", "talk", "verbs"]) {
     const store = profile.srs[deck] || {};
     for (const id of Object.keys(store)) {
       if ((store[id].interval || 0) >= MATURE_DAYS && !srsLeech(store[id])) {
@@ -1675,13 +1749,13 @@ function productiveMature() {
 }
 
 function leechCount() {
-  return ["grammar", "vocab", "talk"].reduce((sum, deck) =>
+  return ["grammar", "vocab", "talk", "verbs"].reduce((sum, deck) =>
     sum + Object.keys(profile.srs[deck] || {})
       .filter(id => srsLeech(profile.srs[deck][id])).length, 0);
 }
 
 function masteredCount() {
-  return ["grammar", "vocab", "talk"].reduce((sum, deck) =>
+  return ["grammar", "vocab", "talk", "verbs"].reduce((sum, deck) =>
     sum + Object.keys(profile.srs[deck] || {})
       .filter(id => srsMastered(profile.srs[deck][id])).length, 0);
 }

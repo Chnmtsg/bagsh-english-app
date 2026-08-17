@@ -29,11 +29,12 @@ from datetime import date
 
 from . import error_queue, srs
 from .quiz import grammar_items_for, talk_bank, vocab_items_for
+from .verbs import drill_bank
 from .state import LearnerProfile
 
 DEFAULT_N = 12
 LAG = 3            # how many items later a missed item is asked again
-PRACTICE_DECKS = ("grammar", "vocab", "talk")
+PRACTICE_DECKS = ("grammar", "vocab", "talk", "verbs")
 
 
 def _pool(profile: LearnerProfile, deck: str) -> list[str]:
@@ -41,6 +42,8 @@ def _pool(profile: LearnerProfile, deck: str) -> list[str]:
         return [i["id"] for i in grammar_items_for(profile)]
     if deck == "vocab":
         return [w["word"] for w in vocab_items_for(profile)]
+    if deck == "verbs":
+        return [i["id"] for i in drill_bank(profile)]
     return [i["id"] for i in talk_bank()]
 
 
@@ -123,6 +126,7 @@ def fluency_pool(profile: LearnerProfile) -> list[dict]:
     typed = {
         "grammar": _pool(profile, "grammar"),
         "vocab": _pool(profile, "vocab"),
+        "verbs": _pool(profile, "verbs"),
         # a `reply` drill is multiple choice; only cloze items are produced
         "talk": [i["id"] for i in talk_bank() if i["kind"] == "cloze"],
     }

@@ -53,7 +53,7 @@ only ever replayed from a calm entry. An `elevated` entry still gets its
 correction and still feeds every counter, ranking and fossilisation check. The
 classifier fails toward `elevated`, so failure costs data, never exposure.
 
-## The learning engine (ADR-0007 … ADR-0010)
+## The learning engine (ADR-0007 … ADR-0011)
 
 Evidence review and rankings: `docs/learning-engine.md`. Four modules, all in
 the code layer:
@@ -65,6 +65,7 @@ the code layer:
 | `src/session.py` | The mixed daily session, and the fluency-minute pool. Review interleaved across decks; new material blocked, one deck per day; a miss re-asked later in the same session; new intake stops above `BACKLOG_CAP`. |
 | `src/reading.py` | The input strand. Grades a text by measured lexical coverage against the deck, the core word list, our own curated content and the frequency ranking — in that order of authority, easiest justified level winning between the last three. `scripts/validate_readings.py` gates the library on 95% coverage with every remaining word glossed. |
 | `src/glossary.py` | What a word means, offline: the deck, then the reading glosses, then `knowledge/glosses/*.yaml`, then all three through the stemmer. A test holds A1–B1 at 100% coverage of the frequency list, so the study list can never again tell a learner to find a dictionary. |
+| `src/verbs.py` | The irregular verb table (ADR-0011): 102 verbs, two typed drills each, a fourth deck in the scheduler. The `-ing` form is computed here from the doubling rules and shipped, so the PWA never has to know them. |
 | `src/metrics.py` | Proficiency separated from habit. Errors/100 words *with* entry length, delayed first-attempt accuracy, productive mature count, categories graduated, fluency-round speed. XP and streaks are shown, and never used to answer "am I improving?". |
 
 Two rules that are easy to break by accident: a **pretest guess is never

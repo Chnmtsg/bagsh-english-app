@@ -6,6 +6,7 @@ zero LLM cost.
     python -m src.play grammar   # fix-the-sentence game (all 24 systems)
     python -m src.play vocab     # word trainer (meaning + spelling rounds)
     python -m src.play talk      # conversation drills (say the missing chunk)
+    python -m src.play verbs     # irregular verb forms (go/went/gone)
     python -m src.play fluency   # 60 timed seconds on what you already know
     python -m src.play read      # read something at your level (input strand)
     python -m src.play library   # what there is to read
@@ -26,7 +27,7 @@ import json
 import random
 import time
 
-from . import error_queue, metrics, session, srs
+from . import error_queue, metrics, session, srs, verbs as verbs_mod
 from .console import utf8_output
 from .game import BADGES, XP, record_activity, stats_line
 from .knowledge import categories
@@ -47,7 +48,8 @@ _WRONG = ["Almost — here it is:", "Not this time. The answer:",
           "Close one. Correct form:", "This one comes back later. Answer:"]
 
 DECK_LABEL = {"errors": "✍️  your sentence", "grammar": "🧱 grammar",
-              "vocab": "📚 word", "talk": "🗣️  talk"}
+              "vocab": "📚 word", "talk": "🗣️  talk",
+              "verbs": "🔤 verb form"}
 
 
 def _ask(prompt: str) -> str:
@@ -150,6 +152,25 @@ def ask_vocab(profile: LearnerProfile, word_id: str, store: dict,
     return ok
 
 
+def ask_verb(profile: LearnerProfile, item_id: str, store: dict,
+             rng: random.Random, badges: list) -> bool:
+    """The four-form table both Mongolian courses drill, as retrieval instead
+    of a table to look at. Typed, so it is production (ADR-0011)."""
+    item = verbs_mod.by_id()[item_id]
+    print(f"   {item['prompt']}")
+    answer = _ask("   ✏️  ")
+    ok = check_answer(answer, item["answer"], item["also_accept"], True)
+    print(f"   {rng.choice(_RIGHT) if ok else rng.choice(_WRONG)}")
+    if not ok:
+        alt = f"  (also: {', '.join(item['also_accept'])})" if item["also_accept"] else ""
+        print(f"   ✅ {item['answer']}{alt}")
+    print(f"   e.g. {item['example']}")
+    if item["note"]:
+        print(f"   💡 {item['note']}")
+    badges += _record(profile, "verbs", item_id, store, ok, produced=True)
+    return ok
+
+
 def ask_talk(profile: LearnerProfile, item_id: str, store: dict,
              rng: random.Random, badges: list) -> bool:
     item = {i["id"]: i for i in talk_bank()}[item_id]
@@ -249,7 +270,7 @@ def run_session(profile: LearnerProfile, items: list[dict], header: str) -> None
     rng = random.Random()
     learner_id = profile["learner_id"]
     stores = {deck: srs.load_store(learner_id, deck)
-              for deck in ("grammar", "vocab", "talk")}
+              for deck in ("grammar", "vocab", "talk", "verbs")}
     queue = error_queue.load(learner_id)
     badges: list[dict] = []
     print(header + "\n")
@@ -266,6 +287,8 @@ def run_session(profile: LearnerProfile, items: list[dict], header: str) -> None
             ok = ask_grammar(profile, item_id, stores["grammar"], rng, badges)
         elif deck == "vocab":
             ok = ask_vocab(profile, item_id, stores["vocab"], rng, badges)
+        elif deck == "verbs":
+            ok = ask_verb(profile, item_id, stores["verbs"], rng, badges)
         else:
             ok = ask_talk(profile, item_id, stores["talk"], rng, badges)
         print()
@@ -424,6 +447,13 @@ def _flash(profile: LearnerProfile, entry: dict) -> tuple[bool, int]:
         answer = _ask("   ✏️  ")
         ok = check_answer(answer, item["answer"], item.get("also_accept"))
         target = item["answer"]
+    elif deck == "verbs":
+        item = verbs_mod.by_id()[item_id]
+        print(f"   {item['prompt']}")
+        started = time.monotonic()
+        answer = _ask("   ✏️  ")
+        ok = check_answer(answer, item["answer"], item["also_accept"], True)
+        target = item["answer"]
     elif deck == "vocab":
         w = {x["word"]: x for x in vocab_items_for(profile)}[item_id]
         print(f"   {w['gloss_en']}  —  {cloze(w)}")
@@ -524,6 +554,11 @@ def play_vocab(profile: LearnerProfile, n: int) -> None:
                 "📚 Word trainer — stress marks matter!")
 
 
+def play_verbs(profile: LearnerProfile, n: int) -> None:
+    run_session(profile, _deck_session(profile, "verbs", n),
+                "🔤 Irregular verbs — the table, from memory")
+
+
 def play_talk(profile: LearnerProfile, n: int) -> None:
     run_session(profile, _deck_session(profile, "talk", n),
                 "🗣️  Everyday talk")
@@ -554,7 +589,7 @@ def main() -> None:
 
     parser = argparse.ArgumentParser(description="Bagsh study games")
     parser.add_argument("mode", choices=["today", "errors", "grammar", "vocab",
-                                         "talk", "fluency", "read", "library",
+                                         "talk", "verbs", "fluency", "read", "library",
                                          "define", "progress", "stats"])
     parser.add_argument("--n", type=int, default=None,
                         help="questions per session (default 12 for today, "
@@ -576,6 +611,8 @@ def main() -> None:
         play_vocab(profile, n)
     elif args.mode == "talk":
         play_talk(profile, n)
+    elif args.mode == "verbs":
+        play_verbs(profile, n)
     elif args.mode == "fluency":
         play_fluency(profile)
     elif args.mode == "read":

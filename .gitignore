@@ -17,3 +17,10 @@ data/srs/
 
 # generated eval reports (re-runnable; keep the set, not the outputs)
 evals/reports/*.json
+
+# Source material the learner supplied for reference — copyrighted textbooks
+# (TalkTalk English © TTEC LLC 2022; "Boldoo's english lesson"), 538MB of
+# scans and PDFs. Read to learn what Mongolian learners are actually taught;
+# never redistributed, and no text from them is copied into this repo.
+Belesson/
+TalkTalk/

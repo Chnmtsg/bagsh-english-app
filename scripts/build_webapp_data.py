@@ -29,6 +29,7 @@ from src.knowledge import (  # noqa: E402
 )
 from src.glossary import explain_all, load_glosses  # noqa: E402
 from src.reading import glossary, load_readings  # noqa: E402
+from src.verbs import drill_bank as verb_bank  # noqa: E402
 from src.quiz import (  # noqa: E402
     CONTRACTIONS,
     grammar_bank,
@@ -94,6 +95,10 @@ def main() -> int:
         )),
         # honesty anchors for the coverage check — never teachable content
         "pseudowords": load_pseudowords(),
+        # the irregular-verb table, as drill items (ADR-0011).
+        # The -ing form is computed in Python and shipped, so the PWA
+        # never has to know the doubling rules.
+        "verbs": verb_bank(),
         # the reading library, with each text's glossary resolved against
         # the deck so the PWA never has to do the lookup itself
         "readings": [
@@ -107,7 +112,8 @@ def main() -> int:
                    encoding="utf-8")
     print(f"wrote {out} — {len(data['grammar'])} grammar items, "
           f"{len(data['vocab'])} words, {len(data['categories'])} categories, "
-          f"{len(data['readings'])} texts, {len(data['glosses'])} glosses")
+          f"{len(data['readings'])} texts, {len(data['glosses'])} glosses, "
+          f"{len(data['verbs'])} verb items")
     return 0
 
 

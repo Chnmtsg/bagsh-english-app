@@ -22,13 +22,14 @@ says "the prompt engineer", it means the subagent.
 ```
 src/            graph.py, state.py, nodes/, llm.py
                 srs.py, error_queue.py, session.py, metrics.py  (learning engine)
-                reading.py, glossary.py  (input strand, word meanings)
+                reading.py, glossary.py, verbs.py  (input, meanings, forms)
 prompts/        runtime agent prompts, versioned frontmatter
 knowledge/      error_taxonomy.yaml, top_100_patterns.yaml,
                 contrastive-guide.md, crisis_resources.yaml,
                 pseudowords.yaml (Coverage Check anchors — never teachable),
                 readings.yaml + core_words.yaml (the graded library),
-                glosses/*.yaml (plain-English meanings, ADR-0010)
+                glosses/*.yaml (plain-English meanings, ADR-0010),
+                irregular_verbs.yaml (the four-form table, ADR-0011)
 evals/          regression.jsonl, reports/
 docs/           architecture.md, learning-engine.md, adr/, prompt-principles.md
 scripts/        run_regression.py, validate_patterns.py, category_frequency.py
@@ -107,6 +108,7 @@ python scripts/validate_patterns.py --corpus data/clean_english.txt
 python -m src.play today           # the learner's daily session
 python -m src.play fluency         # timed round on mastered items
 python -m src.play read            # the input strand
+python -m src.play verbs           # irregular verb forms
 python -m src.play define --word X # what a word means
 python scripts/validate_readings.py   # every text is graded, or the build fails
 python -m src.play progress        # the honest metrics

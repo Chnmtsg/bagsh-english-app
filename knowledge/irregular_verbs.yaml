@@ -1,0 +1,569 @@
+# Irregular verbs — the four-form table (ADR-0011).
+#
+# Why this file exists: the app already corrects "I have went there" and "The
+# report was wrote" — `verb_form` is one of the 24 taxonomy categories and has
+# ten deterministic patterns behind it. It had nowhere to send a learner who
+# makes those errors, because the forms themselves were never taught.
+#
+# Both of the courses Mongolian learners actually use drill this table in every
+# lesson: base / past simple / past participle / present participle. Nothing is
+# copied from them — the forms of English irregular verbs are facts, the
+# example sentences here are written for this app, and no Mongolian is invented
+# (the ADR-0006 rule); Mongolian appears only where the verb is already a card
+# in vocabulary.yaml.
+#
+# The present participle is NOT stored: it is regular for every verb here and
+# is computed in src/verbs.py, which knows the doubling and -e rules. Storing a
+# derivable form is one more thing to get wrong.
+#
+# Fields:
+#   base, past, participle — the three forms that must be memorised
+#   level    — when a learner meets it (A1 / A2 / B1)
+#   example  — a sentence using the PAST or the PARTICIPLE, written here
+#   note     — only where a form is genuinely confusable
+#   also_past, also_participle — a second correct form (learnt/learned,
+#              got/gotten). Only where BOTH are genuinely standard.
+
+version: 1
+verbs:
+
+  # ── A1: the verbs a first sentence cannot avoid ──────────────────
+  - base: be
+    past: was
+    participle: been
+    level: A1
+    example: I was at the site all morning.
+    note: was with I/he/she/it, were with you/we/they
+  - base: have
+    past: had
+    participle: had
+    level: A1
+    example: We had a long meeting yesterday.
+  - base: do
+    past: did
+    participle: done
+    level: A1
+    example: I have done the report already.
+  - base: go
+    past: went
+    participle: gone
+    level: A1
+    example: I have gone there twice this month.
+    note: "have gone = still away; have been = went and came back"
+  - base: say
+    past: said
+    participle: said
+    level: A1
+    example: She said the road was closed.
+  - base: get
+    past: got
+    participle: got
+    level: A1
+    also_participle: [gotten]
+    example: I got your message this morning.
+  - base: make
+    past: made
+    participle: made
+    level: A1
+    example: He made three mistakes in the form.
+  - base: know
+    past: knew
+    participle: known
+    level: A1
+    example: I have known him since 2019.
+  - base: think
+    past: thought
+    participle: thought
+    level: A1
+    example: I thought the bus left at seven.
+  - base: take
+    past: took
+    participle: taken
+    level: A1
+    example: She has taken the samples to the office.
+  - base: see
+    past: saw
+    participle: seen
+    level: A1
+    example: I saw the manager near the gate.
+  - base: come
+    past: came
+    participle: come
+    level: A1
+    example: The engineer came on Tuesday.
+  - base: give
+    past: gave
+    participle: given
+    level: A1
+    example: They gave us two more days.
+  - base: find
+    past: found
+    participle: found
+    level: A1
+    example: We found a problem in the data.
+  - base: tell
+    past: told
+    participle: told
+    level: A1
+    example: He told me about the new shift.
+  - base: leave
+    past: left
+    participle: left
+    level: A1
+    example: I left my gloves in the truck.
+  - base: feel
+    past: felt
+    participle: felt
+    level: A1
+    example: I felt tired after the long day.
+  - base: put
+    past: put
+    participle: put
+    level: A1
+    example: I put the keys on the table.
+    note: all three forms are the same
+  - base: eat
+    past: ate
+    participle: eaten
+    level: A1
+    example: We have eaten already, thank you.
+  - base: drink
+    past: drank
+    participle: drunk
+    level: A1
+    example: He drank his tea and left.
+  - base: sleep
+    past: slept
+    participle: slept
+    level: A1
+    example: I slept badly before the interview.
+  - base: read
+    past: read
+    participle: read
+    level: A1
+    example: I read your email last night.
+    note: spelled the same, said differently — the past sounds like "red"
+  - base: write
+    past: wrote
+    participle: written
+    level: A1
+    example: The report was written by my colleague.
+  - base: buy
+    past: bought
+    participle: bought
+    level: A1
+    example: We bought new boots for the crew.
+  - base: run
+    past: ran
+    participle: run
+    level: A1
+    example: She has run this office for ten years.
+  - base: sit
+    past: sat
+    participle: sat
+    level: A1
+    example: We sat in the cold and waited.
+  - base: stand
+    past: stood
+    participle: stood
+    level: A1
+    example: I stood at the bus stop for twenty minutes.
+  - base: hear
+    past: heard
+    participle: heard
+    level: A1
+    example: I heard the news on the radio.
+  - base: speak
+    past: spoke
+    participle: spoken
+    level: A1
+    example: I have spoken to the manager about it.
+  - base: meet
+    past: met
+    participle: met
+    level: A1
+    example: We met at the training last year.
+  - base: send
+    past: sent
+    participle: sent
+    level: A1
+    example: I sent the file yesterday evening.
+  - base: keep
+    past: kept
+    participle: kept
+    level: A1
+    example: He kept the receipt in his wallet.
+  - base: bring
+    past: brought
+    participle: brought
+    level: A1
+    example: She brought the samples to the lab.
+  - base: begin
+    past: began
+    participle: begun
+    level: A1
+    example: The shift had already begun when I arrived.
+  - base: sing
+    past: sang
+    participle: sung
+    level: A1
+    example: They sang at the end of the party.
+
+  # ── A2 ───────────────────────────────────────────────────────────
+  - base: become
+    past: became
+    participle: become
+    level: A2
+    example: The traffic has become much worse.
+  - base: hold
+    past: held
+    participle: held
+    level: A2
+    example: The meeting was held in the small room.
+  - base: mean
+    past: meant
+    participle: meant
+    level: A2
+    example: I meant to call you back.
+  - base: let
+    past: let
+    participle: let
+    level: A2
+    example: They let us finish early on Friday.
+    note: all three forms are the same
+  - base: set
+    past: set
+    participle: set
+    level: A2
+    example: We set the deadline for Monday.
+    note: all three forms are the same
+  - base: pay
+    past: paid
+    participle: paid
+    level: A2
+    example: I have paid the electricity bill.
+  - base: lose
+    past: lost
+    participle: lost
+    level: A2
+    example: I lost my ticket somewhere on the bus.
+  - base: win
+    past: won
+    participle: won
+    level: A2
+    example: Our team won the contract.
+  - base: fall
+    past: fell
+    participle: fallen
+    level: A2
+    example: The temperature has fallen since morning.
+  - base: grow
+    past: grew
+    participle: grown
+    level: A2
+    example: The company has grown very fast.
+  - base: build
+    past: built
+    participle: built
+    level: A2
+    example: The bridge was built in 2019.
+  - base: break
+    past: broke
+    participle: broken
+    level: A2
+    example: The heating has broken again.
+  - base: spend
+    past: spent
+    participle: spent
+    level: A2
+    example: We spent three hours on the road.
+  - base: cut
+    past: cut
+    participle: cut
+    level: A2
+    example: They cut the budget last year.
+    note: all three forms are the same
+  - base: drive
+    past: drove
+    participle: driven
+    level: A2
+    example: He has driven that truck for years.
+  - base: wear
+    past: wore
+    participle: worn
+    level: A2
+    example: I wore two pairs of socks that day.
+  - base: choose
+    past: chose
+    participle: chosen
+    level: A2
+    example: She was chosen for the new position.
+  - base: catch
+    past: caught
+    participle: caught
+    level: A2
+    example: I caught the early bus this morning.
+  - base: teach
+    past: taught
+    participle: taught
+    level: A2
+    example: My sister taught English for six years.
+  - base: forget
+    past: forgot
+    participle: forgotten
+    level: A2
+    example: I had forgotten my gloves again.
+  - base: sell
+    past: sold
+    participle: sold
+    level: A2
+    example: The flat was sold in one week.
+  - base: fly
+    past: flew
+    participle: flown
+    level: A2
+    example: We flew to Seoul for the training.
+  - base: draw
+    past: drew
+    participle: drawn
+    level: A2
+    example: He drew a map on the back of the paper.
+  - base: throw
+    past: threw
+    participle: thrown
+    level: A2
+    example: Somebody had thrown the box away.
+  - base: ride
+    past: rode
+    participle: ridden
+    level: A2
+    example: I have never ridden a horse.
+  - base: swim
+    past: swam
+    participle: swum
+    level: A2
+    example: We swam in the lake last summer.
+  - base: wake
+    past: woke
+    participle: woken
+    level: A2
+    example: I woke at five and could not sleep again.
+  - base: hurt
+    past: hurt
+    participle: hurt
+    level: A2
+    example: My hands hurt after five minutes in that cold.
+    note: all three forms are the same
+  - base: cost
+    past: cost
+    participle: cost
+    level: A2
+    example: The repair cost more than the part.
+    note: all three forms are the same
+  - base: hit
+    past: hit
+    participle: hit
+    level: A2
+    example: The news hit the whole team hard.
+    note: all three forms are the same
+  - base: shut
+    past: shut
+    participle: shut
+    level: A2
+    example: They shut the road for two days.
+    note: all three forms are the same
+  - base: lend
+    past: lent
+    participle: lent
+    level: A2
+    example: My neighbour lent me his heater.
+  - base: rise
+    past: rose
+    participle: risen
+    level: A2
+    example: Prices have risen since the spring.
+    note: rise has no object; raise (regular) takes one
+  - base: understand
+    past: understood
+    participle: understood
+    level: A2
+    example: I understood about half of the meeting.
+  - base: learn
+    past: learnt
+    participle: learnt
+    level: A2
+    also_past: [learned]
+    also_participle: [learned]
+    example: I learnt that phrase from my manager.
+    note: both learnt and learned are correct
+
+  # ── B1 ───────────────────────────────────────────────────────────
+  - base: lead
+    past: led
+    participle: led
+    level: B1
+    example: She led the project for two years.
+  - base: seek
+    past: sought
+    participle: sought
+    level: B1
+    example: They sought advice before signing.
+  - base: deal
+    past: dealt
+    participle: dealt
+    level: B1
+    example: He has dealt with this supplier before.
+  - base: fight
+    past: fought
+    participle: fought
+    level: B1
+    example: The company fought the decision in court.
+  - base: bear
+    past: bore
+    participle: borne
+    level: B1
+    example: The old bridge bore the weight of the trucks for years.
+    note: born is only for birth — she was born in 1994
+  - base: beat
+    past: beat
+    participle: beaten
+    level: B1
+    example: Our team was beaten in the final.
+  - base: hide
+    past: hid
+    participle: hidden
+    level: B1
+    example: The fault was hidden under the panel.
+  - base: shake
+    past: shook
+    participle: shaken
+    level: B1
+    example: The whole building shook for a moment.
+  - base: steal
+    past: stole
+    participle: stolen
+    level: B1
+    example: His phone was stolen at the station.
+  - base: blow
+    past: blew
+    participle: blown
+    level: B1
+    example: The wind blew all night.
+  - base: freeze
+    past: froze
+    participle: frozen
+    level: B1
+    example: The pipe had frozen during the night.
+  - base: forgive
+    past: forgave
+    participle: forgiven
+    level: B1
+    example: She forgave the mistake and moved on.
+  - base: hang
+    past: hung
+    participle: hung
+    level: B1
+    example: A map hung on the office wall.
+    note: hanged is used only for executions
+  - base: spread
+    past: spread
+    participle: spread
+    level: B1
+    example: The news spread through the office in minutes.
+    note: all three forms are the same
+  - base: strike
+    past: struck
+    participle: struck
+    level: B1
+    example: The idea struck me on the way home.
+  - base: swear
+    past: swore
+    participle: sworn
+    level: B1
+    example: He swore he had sent the email.
+  - base: tear
+    past: tore
+    participle: torn
+    level: B1
+    example: The bag tore under the weight.
+  - base: bite
+    past: bit
+    participle: bitten
+    level: B1
+    example: The dog had bitten the postman before.
+  - base: dig
+    past: dug
+    participle: dug
+    level: B1
+    example: They dug the first hole in May.
+  - base: shoot
+    past: shot
+    participle: shot
+    level: B1
+    example: The film was shot in the countryside.
+  - base: sink
+    past: sank
+    participle: sunk
+    level: B1
+    example: The truck sank into the mud.
+  - base: stick
+    past: stuck
+    participle: stuck
+    level: B1
+    example: We were stuck in traffic for an hour.
+  - base: quit
+    past: quit
+    participle: quit
+    level: B1
+    example: He quit the job after three months.
+    note: all three forms are the same
+  - base: split
+    past: split
+    participle: split
+    level: B1
+    example: The cost was split between two departments.
+    note: all three forms are the same
+  - base: ring
+    past: rang
+    participle: rung
+    level: B1
+    example: The phone rang while I was outside.
+  - base: arise
+    past: arose
+    participle: arisen
+    level: B1
+    example: A problem arose with the delivery.
+  - base: feed
+    past: fed
+    participle: fed
+    level: B1
+    example: They fed the animals before the storm.
+  - base: shine
+    past: shone
+    participle: shone
+    level: B1
+    example: The sun shone all week.
+  - base: slide
+    past: slid
+    participle: slid
+    level: B1
+    example: The car slid on the ice.
+  - base: lay
+    past: laid
+    participle: laid
+    level: B1
+    example: He laid the tools on the bench.
+    note: lay takes an object; lie (lay, lain) does not
+  - base: lie
+    past: lay
+    participle: lain
+    level: B1
+    example: The report had lain on his desk for a week.
+    note: this is lie = rest flat; lie = say something untrue is regular
+  - base: prove
+    past: proved
+    participle: proven
+    level: B1
+    also_participle: [proved]
+    example: The method has proven useful.
+    note: proved is also correct as the participle
