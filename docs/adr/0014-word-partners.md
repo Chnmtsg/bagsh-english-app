@@ -28,10 +28,11 @@ preposition + gerund.
 
 ### 1. One deck, because it is one skill
 
-`knowledge/chunks.yaml` holds 139 phrases: **81 prepositions** (verb +, adjective
-+, noun +, and the time/place set) and **58 collocations** (make/do, have, take,
-give, pay, keep, break, catch, and the adjective+noun pairs like *heavy rain*
-and *strong coffee*).
+`knowledge/chunks.yaml` holds 300 phrases: **131 prepositions** (verb +,
+adjective +, noun +, and the time/place set) and **169 collocations** (make/do,
+have, take, give, pay, keep, break, catch, lose, get, the adjective+noun pairs
+like *heavy rain* and *strong coffee*, and the adverb+adjective pairs like
+*bitterly disappointed*).
 
 They are one file and one deck because they are one problem — a phrase where
 one word is not predictable — and the drill for both is identical. Splitting
@@ -62,9 +63,10 @@ gets wrong: *хийх* covers both *make* and *do*, so `do a mistake` and
 
 ### 4. Mongolian only where the L1 actually pulls
 
-Ten entries carry a note, and only where Mongolian pushes toward the wrong
+Seventeen entries carry a note, and only where Mongolian pushes toward the wrong
 English: `good in` for *good at*, `married with` for *married to*, `explain me`
-for *explain to me*, *хийх* for make/do. The rest need no note — an English
+for *explain to me*, `congratulate for` for *congratulate on*, `heavy work` for
+*hard work*, *хийх* for make/do. The rest need no note — an English
 phrase and an English sentence are enough. The notes are unverified Mongolian,
 like every bridge outside `vocabulary.yaml`.
 
@@ -74,9 +76,9 @@ like every bridge outside `vocabulary.yaml`.
   queue. The daily session interleaves all of them, and the new-material
   rotation cycles one deck per day, so the five decks introduce material on a
   five-day cycle rather than competing.
-- 139 more items to master. As with the verbs, this lengthens the road rather
+- 300 more items to master. As with the verbs, this lengthens the road rather
   than the daily session: the scheduler throttles new intake on backlog.
-- `webapp/data.json` reaches ~1.0 MB.
+- `webapp/data.json` reaches ~1.1 MB.
 - The taxonomy is untouched. `prepositions` and `collocation` remain
   untreatable **as errors** — this deck teaches, it does not repair. A learner
   who writes `depend of` still gets an exposure, not a drill, and that
@@ -88,9 +90,17 @@ like every bridge outside `vocabulary.yaml`.
   not here. They are rule-governed in one respect that matters — the pronoun
   splits a separable verb — so they get a lesson with a rule, and this deck is
   for the phrases with no rule at all.
-- **A 300-phrase list.** Boldoo has one; this has 139, chosen for frequency and
-  for the errors the taxonomy already sees. Adding more is mechanical: write
-  the row, and the tests check it.
+- **Boldoo's list verbatim.** The second pass took the deck from 139 to 300 by
+  working through pp.110-137 — the numbered `Хэрэгцээт хэлц үгс` list, items
+  1-593 — but the book is a source for *which partnership to teach*, not for
+  the sentence that teaches it. Its English is not always right (`Go to
+  shopping`, `obsessed by`, `to prevent from illness`), and an app that
+  corrects learners cannot ship a deck that teaches them the error. Every
+  example here is written for this app; where the book's own wording was the
+  mistake, that mistake became the Mongolian note instead (`go shopping`).
+- **Vocabulary from that list.** Roughly half its items gloss a single word
+  (`resilient`, `pitfalls`, `crawl`), not a partnership. Those belong to
+  `glosses/` (ADR-0010), not to a cloze over a fixed phrase.
 - **Receptive multiple choice.** Choosing `on` from four prepositions is
   easier than producing it, and produces knowledge you cannot use when writing
   (`docs/learning-engine.md` §13c). Every item here is typed.
