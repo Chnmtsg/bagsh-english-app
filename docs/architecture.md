@@ -53,7 +53,7 @@ only ever replayed from a calm entry. An `elevated` entry still gets its
 correction and still feeds every counter, ranking and fossilisation check. The
 classifier fails toward `elevated`, so failure costs data, never exposure.
 
-## The learning engine (ADR-0007 … ADR-0012)
+## The learning engine (ADR-0007 … ADR-0013)
 
 Evidence review and rankings: `docs/learning-engine.md`. Four modules, all in
 the code layer:

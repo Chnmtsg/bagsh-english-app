@@ -46,6 +46,7 @@ webapp/         offline PWA — mirrors the scheduler and session builder in JS
 | Implement an accepted ADR | `graph-engineer` |
 | Change what a runtime agent says | `prompt-engineer` |
 | Add a category, rule, bridge, or regex pattern | `linguistics-curator` |
+| Add a grammar TOPIC (not an error category) | `advanced_grammar.yaml`, ADR-0013 |
 | Add a reading text or a core word | `linguistics-curator`, then `validate_readings.py` |
 | Write or fix a word gloss | `linguistics-curator`; `tests/test_glossary.py` is the contract |
 | Measure after any change | `eval-runner` |

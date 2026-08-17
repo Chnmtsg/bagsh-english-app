@@ -169,13 +169,28 @@
      {
       "wrong": "He speaks the English.",
       "right": "He speaks English."
+     },
+     {
+      "wrong": "We meet twice the week.",
+      "right": "We meet twice a week."
+     },
+     {
+      "wrong": "It was such long meeting.",
+      "right": "It was such a long meeting."
+     },
+     {
+      "wrong": "I waited half hour at the gate.",
+      "right": "I waited half an hour at the gate."
      }
     ],
     "how": [
      "Singular thing, new or general → a/an: a café, an idea.",
      "Both people know WHICH one → the: the café we found.",
      "General plurals and names → nothing: apples, Mongolia, English.",
-     "a or an? Listen to the SOUND: an hour, but a university."
+     "a or an? Listen to the SOUND: an hour, but a university.",
+     "Job, nationality, religion → a/an: she is a geologist, he is an Australian.",
+     "How often, how much → a: twice a day, three times a year, 50,000 tugrik a tonne.",
+     "After such / what / half / quite, a comes second: such a long meeting, half an hour."
     ],
     "watch_out": "The second mention flips to 'the': I saw a film. THE film was long.",
     "tip": "Second mention becomes \"the\": a rock … the rock. Languages and countries take no article."
@@ -2934,6 +2949,501 @@
    "explanation": "Register works both ways — Latin words sound absurd in casual talk.",
    "bridge": "Монголоор албан бичигт хэллэг өөрчлөгддөг шиг англид ҮГИЙН САН солигддог: get → obtain, ask for → request, put off → postpone.",
    "cefr": "C2"
+  },
+  {
+   "id": "adv_continuous_0",
+   "category": "adv_continuous",
+   "prompt": "I read a book now.",
+   "answer": "I am reading a book now.",
+   "also_accept": [
+    "I'm reading a book now."
+   ],
+   "explanation": "Happening at this moment takes am + -ing.",
+   "bridge": "Монгол хэлний \"-ж байна\" нь яг энэ утга: уншиж байна = I am reading. Ялгаа нь англид be үйл үг заавал хэрэгтэй, бас мэдэх, хүсэх зэрэг төлөв заасан үйл үг -ing хэлбэр авдаггүй.",
+   "cefr": "A2"
+  },
+  {
+   "id": "adv_continuous_1",
+   "category": "adv_continuous",
+   "prompt": "She is work today.",
+   "answer": "She is working today.",
+   "also_accept": [],
+   "explanation": "After is, the verb takes -ing.",
+   "bridge": "Монгол хэлний \"-ж байна\" нь яг энэ утга: уншиж байна = I am reading. Ялгаа нь англид be үйл үг заавал хэрэгтэй, бас мэдэх, хүсэх зэрэг төлөв заасан үйл үг -ing хэлбэр авдаггүй.",
+   "cefr": "A2"
+  },
+  {
+   "id": "adv_continuous_2",
+   "category": "adv_continuous",
+   "prompt": "I am knowing the answer.",
+   "answer": "I know the answer.",
+   "also_accept": [],
+   "explanation": "Know is a state — it never takes -ing.",
+   "bridge": "Монгол хэлний \"-ж байна\" нь яг энэ утга: уншиж байна = I am reading. Ялгаа нь англид be үйл үг заавал хэрэгтэй, бас мэдэх, хүсэх зэрэг төлөв заасан үйл үг -ing хэлбэр авдаггүй.",
+   "cefr": "A2"
+  },
+  {
+   "id": "adv_continuous_3",
+   "category": "adv_continuous",
+   "prompt": "When you called, I cooked dinner.",
+   "answer": "When you called, I was cooking dinner.",
+   "also_accept": [],
+   "explanation": "The background action takes was + -ing.",
+   "bridge": "Монгол хэлний \"-ж байна\" нь яг энэ утга: уншиж байна = I am reading. Ялгаа нь англид be үйл үг заавал хэрэгтэй, бас мэдэх, хүсэх зэрэг төлөв заасан үйл үг -ing хэлбэр авдаггүй.",
+   "cefr": "A2"
+  },
+  {
+   "id": "adv_continuous_4",
+   "category": "adv_continuous",
+   "prompt": "They was waiting at the gate.",
+   "answer": "They were waiting at the gate.",
+   "also_accept": [],
+   "explanation": "They takes were, not was.",
+   "bridge": "Монгол хэлний \"-ж байна\" нь яг энэ утга: уншиж байна = I am reading. Ялгаа нь англид be үйл үг заавал хэрэгтэй, бас мэдэх, хүсэх зэрэг төлөв заасан үйл үг -ing хэлбэр авдаггүй.",
+   "cefr": "A2"
+  },
+  {
+   "id": "adv_too_enough_0",
+   "category": "adv_too_enough",
+   "prompt": "This coat is enough warm.",
+   "answer": "This coat is warm enough.",
+   "also_accept": [],
+   "explanation": "enough follows the adjective.",
+   "bridge": "Монголоор \"хэтэрхий хүйтэн\" ба \"хангалттай дулаан\" — хоёулаа тэмдэг нэрийн өмнө орно. Англид too нь өмнө, enough нь ХОЙНО байрлана. Байрлалыг нь л санах хэрэгтэй.",
+   "cefr": "A2"
+  },
+  {
+   "id": "adv_too_enough_1",
+   "category": "adv_too_enough",
+   "prompt": "It is too much cold to walk.",
+   "answer": "It is too cold to walk.",
+   "also_accept": [],
+   "explanation": "Before an adjective, too stands alone.",
+   "bridge": "Монголоор \"хэтэрхий хүйтэн\" ба \"хангалттай дулаан\" — хоёулаа тэмдэг нэрийн өмнө орно. Англид too нь өмнө, enough нь ХОЙНО байрлана. Байрлалыг нь л санах хэрэгтэй.",
+   "cefr": "A2"
+  },
+  {
+   "id": "adv_too_enough_2",
+   "category": "adv_too_enough",
+   "prompt": "There are too much people in the office.",
+   "answer": "There are too many people in the office.",
+   "also_accept": [],
+   "explanation": "People can be counted, so too many.",
+   "bridge": "Монголоор \"хэтэрхий хүйтэн\" ба \"хангалттай дулаан\" — хоёулаа тэмдэг нэрийн өмнө орно. Англид too нь өмнө, enough нь ХОЙНО байрлана. Байрлалыг нь л санах хэрэгтэй.",
+   "cefr": "A2"
+  },
+  {
+   "id": "adv_too_enough_3",
+   "category": "adv_too_enough",
+   "prompt": "We have enough of time.",
+   "answer": "We have enough time.",
+   "also_accept": [],
+   "explanation": "enough + noun takes no of.",
+   "bridge": "Монголоор \"хэтэрхий хүйтэн\" ба \"хангалттай дулаан\" — хоёулаа тэмдэг нэрийн өмнө орно. Англид too нь өмнө, enough нь ХОЙНО байрлана. Байрлалыг нь л санах хэрэгтэй.",
+   "cefr": "A2"
+  },
+  {
+   "id": "adv_modals_ability_0",
+   "category": "adv_modals_ability",
+   "prompt": "She can speaks English.",
+   "answer": "She can speak English.",
+   "also_accept": [],
+   "explanation": "After a modal the verb takes no -s.",
+   "bridge": "Монгол хэлэнд \"чадах\", \"болох\" нь үндсэн үйл үгийн ард залгагддаг. Англид эсрэгээрээ — модал үг нь ӨМНӨ нь орж, ард нь үндсэн хэлбэр ирнэ: can go, харин can to go биш.",
+   "cefr": "A2"
+  },
+  {
+   "id": "adv_modals_ability_1",
+   "category": "adv_modals_ability",
+   "prompt": "Yesterday I can not find the file.",
+   "answer": "Yesterday I could not find the file.",
+   "also_accept": [
+    "Yesterday I couldn't find the file."
+   ],
+   "explanation": "Past ability is could.",
+   "bridge": "Монгол хэлэнд \"чадах\", \"болох\" нь үндсэн үйл үгийн ард залгагддаг. Англид эсрэгээрээ — модал үг нь ӨМНӨ нь орж, ард нь үндсэн хэлбэр ирнэ: can go, харин can to go биш.",
+   "cefr": "A2"
+  },
+  {
+   "id": "adv_modals_ability_2",
+   "category": "adv_modals_ability",
+   "prompt": "May I to ask a question?",
+   "answer": "May I ask a question?",
+   "also_accept": [],
+   "explanation": "No to after a modal.",
+   "bridge": "Монгол хэлэнд \"чадах\", \"болох\" нь үндсэн үйл үгийн ард залгагддаг. Англид эсрэгээрээ — модал үг нь ӨМНӨ нь орж, ард нь үндсэн хэлбэр ирнэ: can go, харин can to go биш.",
+   "cefr": "A2"
+  },
+  {
+   "id": "adv_modals_ability_3",
+   "category": "adv_modals_ability",
+   "prompt": "He will can help you tomorrow.",
+   "answer": "He will be able to help you tomorrow.",
+   "also_accept": [],
+   "explanation": "Two modals cannot meet — use be able to.",
+   "bridge": "Монгол хэлэнд \"чадах\", \"болох\" нь үндсэн үйл үгийн ард залгагддаг. Англид эсрэгээрээ — модал үг нь ӨМНӨ нь орж, ард нь үндсэн хэлбэр ирнэ: can go, харин can to go биш.",
+   "cefr": "A2"
+  },
+  {
+   "id": "adv_modals_ability_4",
+   "category": "adv_modals_ability",
+   "prompt": "It might rains later.",
+   "answer": "It might rain later.",
+   "also_accept": [],
+   "explanation": "After might comes the base form.",
+   "bridge": "Монгол хэлэнд \"чадах\", \"болох\" нь үндсэн үйл үгийн ард залгагддаг. Англид эсрэгээрээ — модал үг нь ӨМНӨ нь орж, ард нь үндсэн хэлбэр ирнэ: can go, харин can to go биш.",
+   "cefr": "A2"
+  },
+  {
+   "id": "adv_present_perfect_0",
+   "category": "adv_present_perfect",
+   "prompt": "I have seen him yesterday.",
+   "answer": "I saw him yesterday.",
+   "also_accept": [],
+   "explanation": "Yesterday is finished time, so past simple.",
+   "bridge": "Монгол хэлэнд \"үзсэн\" гэдэг нэг хэлбэр өнгөрсөн ба одоог хоёуланг нь хамарна. Англид цаг нь дууссан эсэхээс хамаарч ХОЁР өөр хэлбэр байдаг тул \"хэзээ\" гэсэн үг аль хэлбэрийг сонгохыг заана.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_present_perfect_1",
+   "category": "adv_present_perfect",
+   "prompt": "She has finished the report two hours ago.",
+   "answer": "She finished the report two hours ago.",
+   "also_accept": [],
+   "explanation": "ago always means finished time.",
+   "bridge": "Монгол хэлэнд \"үзсэн\" гэдэг нэг хэлбэр өнгөрсөн ба одоог хоёуланг нь хамарна. Англид цаг нь дууссан эсэхээс хамаарч ХОЁР өөр хэлбэр байдаг тул \"хэзээ\" гэсэн үг аль хэлбэрийг сонгохыг заана.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_present_perfect_2",
+   "category": "adv_present_perfect",
+   "prompt": "I am working here since 2019.",
+   "answer": "I have worked here since 2019.",
+   "also_accept": [
+    "I have been working here since 2019."
+   ],
+   "explanation": "since plus a period still running takes the present perfect.",
+   "bridge": "Монгол хэлэнд \"үзсэн\" гэдэг нэг хэлбэр өнгөрсөн ба одоог хоёуланг нь хамарна. Англид цаг нь дууссан эсэхээс хамаарч ХОЁР өөр хэлбэр байдаг тул \"хэзээ\" гэсэн үг аль хэлбэрийг сонгохыг заана.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_present_perfect_3",
+   "category": "adv_present_perfect",
+   "prompt": "Did you ever be to Seoul?",
+   "answer": "Have you ever been to Seoul?",
+   "also_accept": [],
+   "explanation": "ever asks about your whole life so far.",
+   "bridge": "Монгол хэлэнд \"үзсэн\" гэдэг нэг хэлбэр өнгөрсөн ба одоог хоёуланг нь хамарна. Англид цаг нь дууссан эсэхээс хамаарч ХОЁР өөр хэлбэр байдаг тул \"хэзээ\" гэсэн үг аль хэлбэрийг сонгохыг заана.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_present_perfect_4",
+   "category": "adv_present_perfect",
+   "prompt": "I know him for five years.",
+   "answer": "I have known him for five years.",
+   "also_accept": [],
+   "explanation": "for plus a period reaching now takes the present perfect.",
+   "bridge": "Монгол хэлэнд \"үзсэн\" гэдэг нэг хэлбэр өнгөрсөн ба одоог хоёуланг нь хамарна. Англид цаг нь дууссан эсэхээс хамаарч ХОЁР өөр хэлбэр байдаг тул \"хэзээ\" гэсэн үг аль хэлбэрийг сонгохыг заана.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_present_perfect_5",
+   "category": "adv_present_perfect",
+   "prompt": "We have went to the mine last week.",
+   "answer": "We went to the mine last week.",
+   "also_accept": [],
+   "explanation": "last week is finished, and `have went` is never correct.",
+   "bridge": "Монгол хэлэнд \"үзсэн\" гэдэг нэг хэлбэр өнгөрсөн ба одоог хоёуланг нь хамарна. Англид цаг нь дууссан эсэхээс хамаарч ХОЁР өөр хэлбэр байдаг тул \"хэзээ\" гэсэн үг аль хэлбэрийг сонгохыг заана.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_modals_obligation_0",
+   "category": "adv_modals_obligation",
+   "prompt": "You must to wear a helmet.",
+   "answer": "You must wear a helmet.",
+   "also_accept": [],
+   "explanation": "must is a modal, so no to.",
+   "bridge": "Монголоор \"ёстой\" гэсэн нэг үгээр илэрхийлэгддэг зүйлийг англид хэн шаардаж байгаагаар нь салгадаг: must (би шаардаж байна), have to (дүрэм ийм байна). Үгүйсгэсэн хэлбэрүүд нь бүр эсрэг утгатай.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_modals_obligation_1",
+   "category": "adv_modals_obligation",
+   "prompt": "Yesterday I must work late.",
+   "answer": "Yesterday I had to work late.",
+   "also_accept": [],
+   "explanation": "must has no past form — use had to.",
+   "bridge": "Монголоор \"ёстой\" гэсэн нэг үгээр илэрхийлэгддэг зүйлийг англид хэн шаардаж байгаагаар нь салгадаг: must (би шаардаж байна), have to (дүрэм ийм байна). Үгүйсгэсэн хэлбэрүүд нь бүр эсрэг утгатай.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_modals_obligation_2",
+   "category": "adv_modals_obligation",
+   "prompt": "You don't must come.",
+   "answer": "You don't have to come.",
+   "also_accept": [],
+   "explanation": "must takes no do; the negative of necessity is don't have to.",
+   "bridge": "Монголоор \"ёстой\" гэсэн нэг үгээр илэрхийлэгддэг зүйлийг англид хэн шаардаж байгаагаар нь салгадаг: must (би шаардаж байна), have to (дүрэм ийм байна). Үгүйсгэсэн хэлбэрүүд нь бүр эсрэг утгатай.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_modals_obligation_3",
+   "category": "adv_modals_obligation",
+   "prompt": "I think you should to ask her.",
+   "answer": "I think you should ask her.",
+   "also_accept": [],
+   "explanation": "should is a modal, so no to.",
+   "bridge": "Монголоор \"ёстой\" гэсэн нэг үгээр илэрхийлэгддэг зүйлийг англид хэн шаардаж байгаагаар нь салгадаг: must (би шаардаж байна), have to (дүрэм ийм байна). Үгүйсгэсэн хэлбэрүүд нь бүр эсрэг утгатай.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_modals_obligation_4",
+   "category": "adv_modals_obligation",
+   "prompt": "He have to finish it today.",
+   "answer": "He has to finish it today.",
+   "also_accept": [],
+   "explanation": "have to still agrees with the subject.",
+   "bridge": "Монголоор \"ёстой\" гэсэн нэг үгээр илэрхийлэгддэг зүйлийг англид хэн шаардаж байгаагаар нь салгадаг: must (би шаардаж байна), have to (дүрэм ийм байна). Үгүйсгэсэн хэлбэрүүд нь бүр эсрэг утгатай.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_first_conditional_0",
+   "category": "adv_first_conditional",
+   "prompt": "If it will rain, we will stay home.",
+   "answer": "If it rains, we will stay home.",
+   "also_accept": [
+    "If it rains, we'll stay home."
+   ],
+   "explanation": "After if comes the present, even about the future.",
+   "bridge": "Монголоор \"бороо орвол\" гэдэг нөхцөл ирээдүйг заасан ч тусгай ирээдүйн хэлбэр авдаггүй. Англид ч мөн адил: if-ийн дараа will хэрэглэдэггүй. Энэ цэг дээр хоёр хэл ижил байгаа нь тус болно.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_first_conditional_1",
+   "category": "adv_first_conditional",
+   "prompt": "If I will see him, I tell him.",
+   "answer": "If I see him, I will tell him.",
+   "also_accept": [
+    "If I see him, I'll tell him."
+   ],
+   "explanation": "Present in the if-half, will in the other.",
+   "bridge": "Монголоор \"бороо орвол\" гэдэг нөхцөл ирээдүйг заасан ч тусгай ирээдүйн хэлбэр авдаггүй. Англид ч мөн адил: if-ийн дараа will хэрэглэдэггүй. Энэ цэг дээр хоёр хэл ижил байгаа нь тус болно.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_first_conditional_2",
+   "category": "adv_first_conditional",
+   "prompt": "When she will arrive, we start.",
+   "answer": "When she arrives, we will start.",
+   "also_accept": [
+    "When she arrives, we'll start."
+   ],
+   "explanation": "when behaves exactly like if here.",
+   "bridge": "Монголоор \"бороо орвол\" гэдэг нөхцөл ирээдүйг заасан ч тусгай ирээдүйн хэлбэр авдаггүй. Англид ч мөн адил: if-ийн дараа will хэрэглэдэггүй. Энэ цэг дээр хоёр хэл ижил байгаа нь тус болно.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_first_conditional_3",
+   "category": "adv_first_conditional",
+   "prompt": "If you don't hurry, you missed the bus.",
+   "answer": "If you don't hurry, you will miss the bus.",
+   "also_accept": [
+    "If you don't hurry, you'll miss the bus."
+   ],
+   "explanation": "A real condition about the future takes will, not the past.",
+   "bridge": "Монголоор \"бороо орвол\" гэдэг нөхцөл ирээдүйг заасан ч тусгай ирээдүйн хэлбэр авдаггүй. Англид ч мөн адил: if-ийн дараа will хэрэглэдэггүй. Энэ цэг дээр хоёр хэл ижил байгаа нь тус болно.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_used_to_0",
+   "category": "adv_used_to",
+   "prompt": "I used to worked in a bank.",
+   "answer": "I used to work in a bank.",
+   "also_accept": [],
+   "explanation": "used to takes the base form.",
+   "bridge": "\"Урьд нь ажилладаг байсан\" (одоо үгүй) ба \"дассан\" гэсэн хоёр огт өөр санааг англи хэл бараг ижил үгээр илэрхийлдэг тул ялгааг нь эхнээс нь цээжлэх нь дээр.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_used_to_1",
+   "category": "adv_used_to",
+   "prompt": "I am used to get up early.",
+   "answer": "I am used to getting up early.",
+   "also_accept": [],
+   "explanation": "In be used to, the to is a preposition, so -ing follows.",
+   "bridge": "\"Урьд нь ажилладаг байсан\" (одоо үгүй) ба \"дассан\" гэсэн хоёр огт өөр санааг англи хэл бараг ижил үгээр илэрхийлдэг тул ялгааг нь эхнээс нь цээжлэх нь дээр.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_used_to_2",
+   "category": "adv_used_to",
+   "prompt": "She didn't used to like coffee.",
+   "answer": "She didn't use to like coffee.",
+   "also_accept": [],
+   "explanation": "did already shows the past, so use loses its d.",
+   "bridge": "\"Урьд нь ажилладаг байсан\" (одоо үгүй) ба \"дассан\" гэсэн хоёр огт өөр санааг англи хэл бараг ижил үгээр илэрхийлдэг тул ялгааг нь эхнээс нь цээжлэх нь дээр.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_used_to_3",
+   "category": "adv_used_to",
+   "prompt": "I use to live in Darkhan.",
+   "answer": "I used to live in Darkhan.",
+   "also_accept": [],
+   "explanation": "A stopped past habit needs the d.",
+   "bridge": "\"Урьд нь ажилладаг байсан\" (одоо үгүй) ба \"дассан\" гэсэн хоёр огт өөр санааг англи хэл бараг ижил үгээр илэрхийлдэг тул ялгааг нь эхнээс нь цээжлэх нь дээр.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_phrasal_verbs_0",
+   "category": "adv_phrasal_verbs",
+   "prompt": "Please turn on it.",
+   "answer": "Please turn it on.",
+   "also_accept": [],
+   "explanation": "A pronoun object goes in the middle.",
+   "bridge": "Монгол хэлэнд \"харах, харж өгөх, хайх\" гэсэн утгуудыг өөр өөр үйл үг буюу дагавраар илэрхийлдэг. Англид нэг үйл үг дээр жижиг үг нэмээд утгыг нь бүрэн өөрчилдөг тул шинэ үг мэт цээжлэх нь зөв.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_phrasal_verbs_1",
+   "category": "adv_phrasal_verbs",
+   "prompt": "He gave up to smoke.",
+   "answer": "He gave up smoking.",
+   "also_accept": [],
+   "explanation": "After a phrasal verb the next verb takes -ing.",
+   "bridge": "Монгол хэлэнд \"харах, харж өгөх, хайх\" гэсэн утгуудыг өөр өөр үйл үг буюу дагавраар илэрхийлдэг. Англид нэг үйл үг дээр жижиг үг нэмээд утгыг нь бүрэн өөрчилдөг тул шинэ үг мэт цээжлэх нь зөв.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_phrasal_verbs_2",
+   "category": "adv_phrasal_verbs",
+   "prompt": "I will pick up you at eight.",
+   "answer": "I will pick you up at eight.",
+   "also_accept": [
+    "I'll pick you up at eight."
+   ],
+   "explanation": "you is a pronoun, so it splits the phrasal verb.",
+   "bridge": "Монгол хэлэнд \"харах, харж өгөх, хайх\" гэсэн утгуудыг өөр өөр үйл үг буюу дагавраар илэрхийлдэг. Англид нэг үйл үг дээр жижиг үг нэмээд утгыг нь бүрэн өөрчилдөг тул шинэ үг мэт цээжлэх нь зөв.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_phrasal_verbs_3",
+   "category": "adv_phrasal_verbs",
+   "prompt": "Can you look after of my bag?",
+   "answer": "Can you look after my bag?",
+   "also_accept": [],
+   "explanation": "look after takes its object directly.",
+   "bridge": "Монгол хэлэнд \"харах, харж өгөх, хайх\" гэсэн утгуудыг өөр өөр үйл үг буюу дагавраар илэрхийлдэг. Англид нэг үйл үг дээр жижиг үг нэмээд утгыг нь бүрэн өөрчилдөг тул шинэ үг мэт цээжлэх нь зөв.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_phrasal_verbs_4",
+   "category": "adv_phrasal_verbs",
+   "prompt": "I looked the word in the dictionary.",
+   "answer": "I looked up the word in the dictionary.",
+   "also_accept": [
+    "I looked the word up in the dictionary."
+   ],
+   "explanation": "Without up, look means something else entirely.",
+   "bridge": "Монгол хэлэнд \"харах, харж өгөх, хайх\" гэсэн утгуудыг өөр өөр үйл үг буюу дагавраар илэрхийлдэг. Англид нэг үйл үг дээр жижиг үг нэмээд утгыг нь бүрэн өөрчилдөг тул шинэ үг мэт цээжлэх нь зөв.",
+   "cefr": "B1"
+  },
+  {
+   "id": "adv_question_tags_0",
+   "category": "adv_question_tags",
+   "prompt": "You are coming, isn't it?",
+   "answer": "You are coming, aren't you?",
+   "also_accept": [
+    "You're coming, aren't you?"
+   ],
+   "explanation": "The tag copies the subject: you becomes aren't you.",
+   "bridge": "Монголоор \"тийм үү?\", \"биз дээ?\" гэсэн нэг хэвшмэл асуулт бүх өгүүлбэрт тохирдог. Англид тийм ганц үг байхгүй — өгүүлбэр бүр өөрийн туслах үйл үг, төлөөний үгээрээ асуултаа үүсгэнэ.",
+   "cefr": "B2"
+  },
+  {
+   "id": "adv_question_tags_1",
+   "category": "adv_question_tags",
+   "prompt": "It is cold today, isn't?",
+   "answer": "It is cold today, isn't it?",
+   "also_accept": [
+    "It's cold today, isn't it?"
+   ],
+   "explanation": "A tag always ends with a pronoun.",
+   "bridge": "Монголоор \"тийм үү?\", \"биз дээ?\" гэсэн нэг хэвшмэл асуулт бүх өгүүлбэрт тохирдог. Англид тийм ганц үг байхгүй — өгүүлбэр бүр өөрийн туслах үйл үг, төлөөний үгээрээ асуултаа үүсгэнэ.",
+   "cefr": "B2"
+  },
+  {
+   "id": "adv_question_tags_2",
+   "category": "adv_question_tags",
+   "prompt": "They have finished, haven't them?",
+   "answer": "They have finished, haven't they?",
+   "also_accept": [],
+   "explanation": "The tag takes the subject pronoun they, not them.",
+   "bridge": "Монголоор \"тийм үү?\", \"биз дээ?\" гэсэн нэг хэвшмэл асуулт бүх өгүүлбэрт тохирдог. Англид тийм ганц үг байхгүй — өгүүлбэр бүр өөрийн туслах үйл үг, төлөөний үгээрээ асуултаа үүсгэнэ.",
+   "cefr": "B2"
+  },
+  {
+   "id": "adv_question_tags_3",
+   "category": "adv_question_tags",
+   "prompt": "You didn't call him, didn't you?",
+   "answer": "You didn't call him, did you?",
+   "also_accept": [],
+   "explanation": "A negative statement takes a positive tag.",
+   "bridge": "Монголоор \"тийм үү?\", \"биз дээ?\" гэсэн нэг хэвшмэл асуулт бүх өгүүлбэрт тохирдог. Англид тийм ганц үг байхгүй — өгүүлбэр бүр өөрийн туслах үйл үг, төлөөний үгээрээ асуултаа үүсгэнэ.",
+   "cefr": "B2"
+  },
+  {
+   "id": "adv_question_tags_4",
+   "category": "adv_question_tags",
+   "prompt": "She works here, isn't she?",
+   "answer": "She works here, doesn't she?",
+   "also_accept": [],
+   "explanation": "No auxiliary in the statement, so the tag uses does.",
+   "bridge": "Монголоор \"тийм үү?\", \"биз дээ?\" гэсэн нэг хэвшмэл асуулт бүх өгүүлбэрт тохирдог. Англид тийм ганц үг байхгүй — өгүүлбэр бүр өөрийн туслах үйл үг, төлөөний үгээрээ асуултаа үүсгэнэ.",
+   "cefr": "B2"
+  },
+  {
+   "id": "adv_reported_questions_0",
+   "category": "adv_reported_questions",
+   "prompt": "He asked me where do I live.",
+   "answer": "He asked me where I lived.",
+   "also_accept": [],
+   "explanation": "Reported questions take normal word order and no do.",
+   "bridge": "Монголоор шууд ба шууд бус асуулт бараг ижил дараалалтай тул англи хэлний \"энгийн дараалал руугаа буцах\" дүрэм анзаарагдахгүй өнгөрдөг. Асуултын дараалал алга болно гэдгийг санах нь гол.",
+   "cefr": "B2"
+  },
+  {
+   "id": "adv_reported_questions_1",
+   "category": "adv_reported_questions",
+   "prompt": "She asked what time is it.",
+   "answer": "She asked what time it was.",
+   "also_accept": [],
+   "explanation": "Subject before verb, and the tense steps back.",
+   "bridge": "Монголоор шууд ба шууд бус асуулт бараг ижил дараалалтай тул англи хэлний \"энгийн дараалал руугаа буцах\" дүрэм анзаарагдахгүй өнгөрдөг. Асуултын дараалал алга болно гэдгийг санах нь гол.",
+   "cefr": "B2"
+  },
+  {
+   "id": "adv_reported_questions_2",
+   "category": "adv_reported_questions",
+   "prompt": "He asked me did I finish the report.",
+   "answer": "He asked me if I finished the report.",
+   "also_accept": [
+    "He asked me whether I finished the report.",
+    "He asked me if I had finished the report."
+   ],
+   "explanation": "A yes/no question needs if or whether.",
+   "bridge": "Монголоор шууд ба шууд бус асуулт бараг ижил дараалалтай тул англи хэлний \"энгийн дараалал руугаа буцах\" дүрэм анзаарагдахгүй өнгөрдөг. Асуултын дараалал алга болно гэдгийг санах нь гол.",
+   "cefr": "B2"
+  },
+  {
+   "id": "adv_reported_questions_3",
+   "category": "adv_reported_questions",
+   "prompt": "I asked her when will she arrive.",
+   "answer": "I asked her when she would arrive.",
+   "also_accept": [],
+   "explanation": "will steps back to would, and the word order straightens.",
+   "bridge": "Монголоор шууд ба шууд бус асуулт бараг ижил дараалалтай тул англи хэлний \"энгийн дараалал руугаа буцах\" дүрэм анзаарагдахгүй өнгөрдөг. Асуултын дараалал алга болно гэдгийг санах нь гол.",
+   "cefr": "B2"
   }
  ],
  "contractions": {
@@ -3572,6 +4082,589 @@
      "wrong": "We will purchase some milk on the way home. (chat)",
      "right": "We will buy some milk on the way home.",
      "explanation": "Register works both ways — Latin words sound absurd in casual talk."
+    }
+   ]
+  },
+  {
+   "id": "adv_continuous",
+   "cefr": "A2",
+   "title": "Happening now, happening then",
+   "explain": "English has a separate shape for an action in progress: be + -ing. Use the present continuous for what is happening now (\"I am reading\"), for a temporary situation (\"I am working nights this month\"), and for a fixed future arrangement (\"We are meeting at nine\"). Use the past continuous for what was already running when something else happened (\"I was cooking when she arrived\"). The trap is that some verbs almost never take -ing at all: know, want, need, like, understand, believe, belong. They describe a state, not an action, and a state cannot be in progress.",
+   "bridge": "Монгол хэлний \"-ж байна\" нь яг энэ утга: уншиж байна = I am reading. Ялгаа нь англид be үйл үг заавал хэрэгтэй, бас мэдэх, хүсэх зэрэг төлөв заасан үйл үг -ing хэлбэр авдаггүй.",
+   "examples": [
+    {
+     "wrong": "I read a book now.",
+     "right": "I am reading a book now."
+    },
+    {
+     "wrong": "I am knowing the answer.",
+     "right": "I know the answer."
+    },
+    {
+     "wrong": "When you called, I cooked dinner.",
+     "right": "When you called, I was cooking dinner."
+    }
+   ],
+   "how": [
+    "Happening at this moment: am/is/are + -ing.",
+    "Running in the background when something cut in: was/were + -ing.",
+    "A state, not an action (know, want, like, need): no -ing at all.",
+    "The be verb is not optional — `She working` is not a sentence."
+   ],
+   "watch_out": "`I am agree` is the same mistake as `I am knowing` — agree is already a verb, so it needs no be. Say `I agree`.",
+   "tip": "Ask yourself whether you could see it happening. Reading, yes. Knowing, no.",
+   "quiz": [
+    {
+     "wrong": "I read a book now.",
+     "right": "I am reading a book now.",
+     "also_accept": [
+      "I'm reading a book now."
+     ],
+     "explanation": "Happening at this moment takes am + -ing."
+    },
+    {
+     "wrong": "She is work today.",
+     "right": "She is working today.",
+     "explanation": "After is, the verb takes -ing."
+    },
+    {
+     "wrong": "I am knowing the answer.",
+     "right": "I know the answer.",
+     "explanation": "Know is a state — it never takes -ing."
+    },
+    {
+     "wrong": "When you called, I cooked dinner.",
+     "right": "When you called, I was cooking dinner.",
+     "explanation": "The background action takes was + -ing."
+    },
+    {
+     "wrong": "They was waiting at the gate.",
+     "right": "They were waiting at the gate.",
+     "explanation": "They takes were, not was."
+    }
+   ]
+  },
+  {
+   "id": "adv_too_enough",
+   "cefr": "A2",
+   "title": "Too much, or just enough",
+   "explain": "Two small words that English puts in opposite places. `too` means more than you want, and it goes BEFORE the adjective: too cold, too expensive. `enough` means as much as you need, and it goes AFTER the adjective: warm enough, old enough. In front of a noun, though, enough comes first: enough money, enough time. With nouns you also choose between too much for things you cannot count and too many for things you can.",
+   "bridge": "Монголоор \"хэтэрхий хүйтэн\" ба \"хангалттай дулаан\" — хоёулаа тэмдэг нэрийн өмнө орно. Англид too нь өмнө, enough нь ХОЙНО байрлана. Байрлалыг нь л санах хэрэгтэй.",
+   "examples": [
+    {
+     "wrong": "This coat is enough warm.",
+     "right": "This coat is warm enough."
+    },
+    {
+     "wrong": "It is too much cold to walk.",
+     "right": "It is too cold to walk."
+    },
+    {
+     "wrong": "There are too much people in the office.",
+     "right": "There are too many people in the office."
+    }
+   ],
+   "how": [
+    "too + adjective: too cold, too late, too difficult.",
+    "adjective + enough: warm enough, old enough, good enough.",
+    "enough + noun: enough money, enough time, enough people.",
+    "Countable, so too many. Uncountable, so too much."
+   ],
+   "watch_out": "`too much cold` mixes the two: much belongs with nouns, not adjectives. Before an adjective, `too` stands alone.",
+   "tip": "Adjective sandwich — too goes in front, enough goes behind.",
+   "quiz": [
+    {
+     "wrong": "This coat is enough warm.",
+     "right": "This coat is warm enough.",
+     "explanation": "enough follows the adjective."
+    },
+    {
+     "wrong": "It is too much cold to walk.",
+     "right": "It is too cold to walk.",
+     "explanation": "Before an adjective, too stands alone."
+    },
+    {
+     "wrong": "There are too much people in the office.",
+     "right": "There are too many people in the office.",
+     "explanation": "People can be counted, so too many."
+    },
+    {
+     "wrong": "We have enough of time.",
+     "right": "We have enough time.",
+     "explanation": "enough + noun takes no of."
+    }
+   ]
+  },
+  {
+   "id": "adv_modals_ability",
+   "cefr": "A2",
+   "title": "Can, could, may, might",
+   "explain": "Modal verbs add ability, permission or possibility, and they all obey one shape: modal + base verb, with no to, no -s and no did. `can` is ability or permission now; `could` is the past of can, and also a softer, more polite version of it. `may` and `might` are possibility, with might the less certain of the two. The future of can is not `will can`, because two modals cannot sit together: it is `will be able to`.",
+   "bridge": "Монгол хэлэнд \"чадах\", \"болох\" нь үндсэн үйл үгийн ард залгагддаг. Англид эсрэгээрээ — модал үг нь ӨМНӨ нь орж, ард нь үндсэн хэлбэр ирнэ: can go, харин can to go биш.",
+   "examples": [
+    {
+     "wrong": "She can speaks English.",
+     "right": "She can speak English."
+    },
+    {
+     "wrong": "He will can help you tomorrow.",
+     "right": "He will be able to help you tomorrow."
+    },
+    {
+     "wrong": "It might rains later.",
+     "right": "It might rain later."
+    }
+   ],
+   "how": [
+    "modal + base verb: can go, could see, may ask, might rain.",
+    "Never modal + to — `can to swim` is wrong.",
+    "Never two modals: will can becomes will be able to.",
+    "Past of can is could. Politeness uses could too: Could you help me?"
+   ],
+   "watch_out": "`Yesterday I can not find it` needs the past: `could not`. Modals show time by changing form, never by adding did.",
+   "tip": "After a modal the verb is bare — no to, no -s, no -ed.",
+   "quiz": [
+    {
+     "wrong": "She can speaks English.",
+     "right": "She can speak English.",
+     "explanation": "After a modal the verb takes no -s."
+    },
+    {
+     "wrong": "Yesterday I can not find the file.",
+     "right": "Yesterday I could not find the file.",
+     "also_accept": [
+      "Yesterday I couldn't find the file."
+     ],
+     "explanation": "Past ability is could."
+    },
+    {
+     "wrong": "May I to ask a question?",
+     "right": "May I ask a question?",
+     "explanation": "No to after a modal."
+    },
+    {
+     "wrong": "He will can help you tomorrow.",
+     "right": "He will be able to help you tomorrow.",
+     "explanation": "Two modals cannot meet — use be able to."
+    },
+    {
+     "wrong": "It might rains later.",
+     "right": "It might rain later.",
+     "explanation": "After might comes the base form."
+    }
+   ]
+  },
+  {
+   "id": "adv_present_perfect",
+   "cefr": "B1",
+   "title": "Present perfect, or past simple?",
+   "explain": "The single most confusing choice in English for a Mongolian speaker, and the rule is simpler than it looks: if the time is finished, use the past simple; if the time still includes now, use the present perfect. `I saw him yesterday` — yesterday is over. `I have seen him today` — today is not. That is why yesterday, last week, in 2019 and two hours ago force the past simple, while since, for, already, yet, just, ever and never pull the present perfect. Present perfect is have or has plus the past participle, which is the third column of the verb table: gone, written, seen, done.",
+   "bridge": "Монгол хэлэнд \"үзсэн\" гэдэг нэг хэлбэр өнгөрсөн ба одоог хоёуланг нь хамарна. Англид цаг нь дууссан эсэхээс хамаарч ХОЁР өөр хэлбэр байдаг тул \"хэзээ\" гэсэн үг аль хэлбэрийг сонгохыг заана.",
+   "examples": [
+    {
+     "wrong": "I have seen him yesterday.",
+     "right": "I saw him yesterday."
+    },
+    {
+     "wrong": "I am working here since 2019.",
+     "right": "I have worked here since 2019."
+    },
+    {
+     "wrong": "Did you ever be to Seoul?",
+     "right": "Have you ever been to Seoul?"
+    }
+   ],
+   "how": [
+    "Finished time word (yesterday, last week, ago, in 2019): past simple.",
+    "Time still open (today, this week, since, for): have/has + participle.",
+    "ever, never, already, yet, just: present perfect.",
+    "The participle is column three — go/went/GONE, write/wrote/WRITTEN."
+   ],
+   "watch_out": "`I have went` puts the past simple where the participle belongs. If have or has is in front, the third form follows: `I have gone`.",
+   "tip": "Find the time word first. It chooses the tense before you do.",
+   "quiz": [
+    {
+     "wrong": "I have seen him yesterday.",
+     "right": "I saw him yesterday.",
+     "explanation": "Yesterday is finished time, so past simple."
+    },
+    {
+     "wrong": "She has finished the report two hours ago.",
+     "right": "She finished the report two hours ago.",
+     "explanation": "ago always means finished time."
+    },
+    {
+     "wrong": "I am working here since 2019.",
+     "right": "I have worked here since 2019.",
+     "also_accept": [
+      "I have been working here since 2019."
+     ],
+     "explanation": "since plus a period still running takes the present perfect."
+    },
+    {
+     "wrong": "Did you ever be to Seoul?",
+     "right": "Have you ever been to Seoul?",
+     "explanation": "ever asks about your whole life so far."
+    },
+    {
+     "wrong": "I know him for five years.",
+     "right": "I have known him for five years.",
+     "explanation": "for plus a period reaching now takes the present perfect."
+    },
+    {
+     "wrong": "We have went to the mine last week.",
+     "right": "We went to the mine last week.",
+     "explanation": "last week is finished, and `have went` is never correct."
+    }
+   ]
+  },
+  {
+   "id": "adv_modals_obligation",
+   "cefr": "B1",
+   "title": "Must, have to, should",
+   "explain": "Three ways to say something is necessary, and they are not interchangeable. `must` is the speaker's own authority — the rule I am giving you. `have to` is an outside rule: the law, the company, the timetable. `should` is advice, not obligation. The pair that catches everybody is the negative: `mustn't` means it is forbidden, while `don't have to` means it is not necessary — opposite meanings from similar-looking words. And must has no past at all; yesterday it becomes `had to`.",
+   "bridge": "Монголоор \"ёстой\" гэсэн нэг үгээр илэрхийлэгддэг зүйлийг англид хэн шаардаж байгаагаар нь салгадаг: must (би шаардаж байна), have to (дүрэм ийм байна). Үгүйсгэсэн хэлбэрүүд нь бүр эсрэг утгатай.",
+   "examples": [
+    {
+     "wrong": "You must to wear a helmet.",
+     "right": "You must wear a helmet."
+    },
+    {
+     "wrong": "Yesterday I must work late.",
+     "right": "Yesterday I had to work late."
+    },
+    {
+     "wrong": "You don't must come.",
+     "right": "You don't have to come."
+    }
+   ],
+   "how": [
+    "My rule, right now: must + base verb.",
+    "Somebody else's rule: have to or has to.",
+    "Advice: should + base verb.",
+    "Past: had to, for both must and have to.",
+    "Forbidden: mustn't. Not necessary: don't have to."
+   ],
+   "watch_out": "`You mustn't come` and `You don't have to come` are opposites, not synonyms. One bans you; the other frees you.",
+   "tip": "Ask who says so. If it is you, must. If it is the world, have to.",
+   "quiz": [
+    {
+     "wrong": "You must to wear a helmet.",
+     "right": "You must wear a helmet.",
+     "explanation": "must is a modal, so no to."
+    },
+    {
+     "wrong": "Yesterday I must work late.",
+     "right": "Yesterday I had to work late.",
+     "explanation": "must has no past form — use had to."
+    },
+    {
+     "wrong": "You don't must come.",
+     "right": "You don't have to come.",
+     "explanation": "must takes no do; the negative of necessity is don't have to."
+    },
+    {
+     "wrong": "I think you should to ask her.",
+     "right": "I think you should ask her.",
+     "explanation": "should is a modal, so no to."
+    },
+    {
+     "wrong": "He have to finish it today.",
+     "right": "He has to finish it today.",
+     "explanation": "have to still agrees with the subject."
+    }
+   ]
+  },
+  {
+   "id": "adv_first_conditional",
+   "cefr": "B1",
+   "title": "If it rains — the real condition",
+   "explain": "When something is genuinely possible, English uses a shape that looks wrong to almost every learner: the if-half stays in the PRESENT even though it is about the future. `If it rains tomorrow, we will stay home` — not `if it will rain`. The same rule covers when, as soon as, until, before and after: the time clause takes the present and the main clause takes will. This is different from the unreal conditional used for imaginary situations, which moves everything one step back.",
+   "bridge": "Монголоор \"бороо орвол\" гэдэг нөхцөл ирээдүйг заасан ч тусгай ирээдүйн хэлбэр авдаггүй. Англид ч мөн адил: if-ийн дараа will хэрэглэдэггүй. Энэ цэг дээр хоёр хэл ижил байгаа нь тус болно.",
+   "examples": [
+    {
+     "wrong": "If it will rain, we will stay home.",
+     "right": "If it rains, we will stay home."
+    },
+    {
+     "wrong": "When she will arrive, we start.",
+     "right": "When she arrives, we will start."
+    },
+    {
+     "wrong": "If you don't hurry, you missed the bus.",
+     "right": "If you don't hurry, you will miss the bus."
+    }
+   ],
+   "how": [
+    "if / when / as soon as / until + present tense — never will.",
+    "The other half takes will + base verb.",
+    "Either half can come first, and the meaning does not change.",
+    "Comma only when the if-half comes first."
+   ],
+   "watch_out": "`If I will see him` is the commonest version of this error. In the real conditional the rule has no exceptions: after if, the present.",
+   "tip": "Two futures, one will — and the if-half never gets it.",
+   "quiz": [
+    {
+     "wrong": "If it will rain, we will stay home.",
+     "right": "If it rains, we will stay home.",
+     "also_accept": [
+      "If it rains, we'll stay home."
+     ],
+     "explanation": "After if comes the present, even about the future."
+    },
+    {
+     "wrong": "If I will see him, I tell him.",
+     "right": "If I see him, I will tell him.",
+     "also_accept": [
+      "If I see him, I'll tell him."
+     ],
+     "explanation": "Present in the if-half, will in the other."
+    },
+    {
+     "wrong": "When she will arrive, we start.",
+     "right": "When she arrives, we will start.",
+     "also_accept": [
+      "When she arrives, we'll start."
+     ],
+     "explanation": "when behaves exactly like if here."
+    },
+    {
+     "wrong": "If you don't hurry, you missed the bus.",
+     "right": "If you don't hurry, you will miss the bus.",
+     "also_accept": [
+      "If you don't hurry, you'll miss the bus."
+     ],
+     "explanation": "A real condition about the future takes will, not the past."
+    }
+   ]
+  },
+  {
+   "id": "adv_used_to",
+   "cefr": "B1",
+   "title": "Used to — and be used to",
+   "explain": "Two expressions that look almost identical and mean completely different things. `used to + base verb` is a past habit that has stopped: \"I used to work in a bank\" means I do not now. `be used to + -ing` means accustomed: \"I am used to getting up early\" means it feels normal to me. The first is about the past, the second about how something feels. In the negative and the question, used to loses its d, because did already carries the past: didn't use to, did you use to.",
+   "bridge": "\"Урьд нь ажилладаг байсан\" (одоо үгүй) ба \"дассан\" гэсэн хоёр огт өөр санааг англи хэл бараг ижил үгээр илэрхийлдэг тул ялгааг нь эхнээс нь цээжлэх нь дээр.",
+   "examples": [
+    {
+     "wrong": "I used to worked in a bank.",
+     "right": "I used to work in a bank."
+    },
+    {
+     "wrong": "I am used to get up early.",
+     "right": "I am used to getting up early."
+    },
+    {
+     "wrong": "She didn't used to like coffee.",
+     "right": "She didn't use to like coffee."
+    }
+   ],
+   "how": [
+    "Past habit, now stopped: used to + base verb.",
+    "Accustomed, feels normal: am/is/are used to + -ing.",
+    "Negative and question: did + use to, with no d.",
+    "There is no present form — for a present habit use the present simple."
+   ],
+   "watch_out": "`I use to go` with no d is not a present habit; it is a spelling mistake. The present habit is simply `I go`.",
+   "tip": "Base form after it means past habit. An -ing form means accustomed.",
+   "quiz": [
+    {
+     "wrong": "I used to worked in a bank.",
+     "right": "I used to work in a bank.",
+     "explanation": "used to takes the base form."
+    },
+    {
+     "wrong": "I am used to get up early.",
+     "right": "I am used to getting up early.",
+     "explanation": "In be used to, the to is a preposition, so -ing follows."
+    },
+    {
+     "wrong": "She didn't used to like coffee.",
+     "right": "She didn't use to like coffee.",
+     "explanation": "did already shows the past, so use loses its d."
+    },
+    {
+     "wrong": "I use to live in Darkhan.",
+     "right": "I used to live in Darkhan.",
+     "explanation": "A stopped past habit needs the d."
+    }
+   ]
+  },
+  {
+   "id": "adv_phrasal_verbs",
+   "cefr": "B1",
+   "title": "Phrasal verbs — verb plus small word",
+   "explain": "A phrasal verb is a verb plus a small word that together mean something new. `look` is to use your eyes, but `look up` is to find in a dictionary, `look after` is to take care of, and `look for` is to search. Two things decide how you use them. Some can be split by their object and some cannot: you can say `turn the light on` or `turn on the light`, but `look after my bag` has only one order. And when the object is a pronoun, a splittable phrasal verb MUST split: `turn it on`, never `turn on it`.",
+   "bridge": "Монгол хэлэнд \"харах, харж өгөх, хайх\" гэсэн утгуудыг өөр өөр үйл үг буюу дагавраар илэрхийлдэг. Англид нэг үйл үг дээр жижиг үг нэмээд утгыг нь бүрэн өөрчилдөг тул шинэ үг мэт цээжлэх нь зөв.",
+   "examples": [
+    {
+     "wrong": "Please turn on it.",
+     "right": "Please turn it on."
+    },
+    {
+     "wrong": "He gave up to smoke.",
+     "right": "He gave up smoking."
+    },
+    {
+     "wrong": "I will pick up you at eight.",
+     "right": "I will pick you up at eight."
+    }
+   ],
+   "how": [
+    "Learn the whole phrase as one word, with its meaning.",
+    "Pronoun object (it, him, them) goes in the MIDDLE: turn it on.",
+    "After a phrasal verb, a following verb takes -ing: give up smoking.",
+    "Some never split: look after, look for, deal with, get on."
+   ],
+   "watch_out": "`Turn on it` and `pick up me` are the two errors a Mongolian speaker makes most here, because the pronoun feels like it belongs at the end.",
+   "tip": "If the object is it, him, her or them, put it in the middle.",
+   "quiz": [
+    {
+     "wrong": "Please turn on it.",
+     "right": "Please turn it on.",
+     "explanation": "A pronoun object goes in the middle."
+    },
+    {
+     "wrong": "He gave up to smoke.",
+     "right": "He gave up smoking.",
+     "explanation": "After a phrasal verb the next verb takes -ing."
+    },
+    {
+     "wrong": "I will pick up you at eight.",
+     "right": "I will pick you up at eight.",
+     "also_accept": [
+      "I'll pick you up at eight."
+     ],
+     "explanation": "you is a pronoun, so it splits the phrasal verb."
+    },
+    {
+     "wrong": "Can you look after of my bag?",
+     "right": "Can you look after my bag?",
+     "explanation": "look after takes its object directly."
+    },
+    {
+     "wrong": "I looked the word in the dictionary.",
+     "right": "I looked up the word in the dictionary.",
+     "also_accept": [
+      "I looked the word up in the dictionary."
+     ],
+     "explanation": "Without up, look means something else entirely."
+    }
+   ]
+  },
+  {
+   "id": "adv_question_tags",
+   "cefr": "B2",
+   "title": "Question tags — isn't it?",
+   "explain": "A question tag turns a statement into a check: \"You are coming, aren't you?\" English builds the tag from the sentence's own auxiliary and flips it: a positive statement takes a negative tag, a negative statement takes a positive one. If the statement has no auxiliary, do steps in — \"She works here, doesn't she?\" The pronoun in the tag must match the subject, which is why `isn't it?` cannot be attached to a sentence about people. English has no single all-purpose tag.",
+   "bridge": "Монголоор \"тийм үү?\", \"биз дээ?\" гэсэн нэг хэвшмэл асуулт бүх өгүүлбэрт тохирдог. Англид тийм ганц үг байхгүй — өгүүлбэр бүр өөрийн туслах үйл үг, төлөөний үгээрээ асуултаа үүсгэнэ.",
+   "examples": [
+    {
+     "wrong": "You are coming, isn't it?",
+     "right": "You are coming, aren't you?"
+    },
+    {
+     "wrong": "It is cold today, isn't?",
+     "right": "It is cold today, isn't it?"
+    },
+    {
+     "wrong": "They have finished, haven't them?",
+     "right": "They have finished, haven't they?"
+    }
+   ],
+   "how": [
+    "Take the auxiliary from the statement: is, are, have, can, will.",
+    "Flip it — positive statement, negative tag, and the reverse.",
+    "No auxiliary? Use do, does or did.",
+    "The tag's pronoun copies the subject: he, she, it, they, you."
+   ],
+   "watch_out": "`isn't it?` is not a general-purpose tag. Attached to `You are coming` it is simply wrong: the subject is you, so the tag is `aren't you?`",
+   "tip": "Statement positive, tag negative. Same auxiliary, matching pronoun.",
+   "quiz": [
+    {
+     "wrong": "You are coming, isn't it?",
+     "right": "You are coming, aren't you?",
+     "also_accept": [
+      "You're coming, aren't you?"
+     ],
+     "explanation": "The tag copies the subject: you becomes aren't you."
+    },
+    {
+     "wrong": "It is cold today, isn't?",
+     "right": "It is cold today, isn't it?",
+     "also_accept": [
+      "It's cold today, isn't it?"
+     ],
+     "explanation": "A tag always ends with a pronoun."
+    },
+    {
+     "wrong": "They have finished, haven't them?",
+     "right": "They have finished, haven't they?",
+     "explanation": "The tag takes the subject pronoun they, not them."
+    },
+    {
+     "wrong": "You didn't call him, didn't you?",
+     "right": "You didn't call him, did you?",
+     "explanation": "A negative statement takes a positive tag."
+    },
+    {
+     "wrong": "She works here, isn't she?",
+     "right": "She works here, doesn't she?",
+     "explanation": "No auxiliary in the statement, so the tag uses does."
+    }
+   ]
+  },
+  {
+   "id": "adv_reported_questions",
+   "cefr": "B2",
+   "title": "Reporting a question",
+   "explain": "When you report a question it stops being a question. The word order goes back to normal, subject before verb; the do, does or did disappears; and there is no question mark. \"Where do you live?\" becomes \"He asked me where I lived.\" A yes/no question needs a joining word, if or whether, because there is no question word to do that job: \"Do you have time?\" becomes \"She asked if I had time.\" The tense usually steps back one, exactly as in reported statements.",
+   "bridge": "Монголоор шууд ба шууд бус асуулт бараг ижил дараалалтай тул англи хэлний \"энгийн дараалал руугаа буцах\" дүрэм анзаарагдахгүй өнгөрдөг. Асуултын дараалал алга болно гэдгийг санах нь гол.",
+   "examples": [
+    {
+     "wrong": "He asked me where do I live.",
+     "right": "He asked me where I lived."
+    },
+    {
+     "wrong": "She asked what time is it.",
+     "right": "She asked what time it was."
+    },
+    {
+     "wrong": "He asked me did I finish the report.",
+     "right": "He asked me if I finished the report."
+    }
+   ],
+   "how": [
+    "Put the subject back before the verb: where I lived, not where did I live.",
+    "Delete do, does and did — the main verb carries the tense.",
+    "No question word? Add if or whether.",
+    "Step the tense back: live becomes lived, is becomes was, will becomes would."
+   ],
+   "watch_out": "The question mark goes too. `He asked me where I lived?` is not a question — it is a statement about a question.",
+   "tip": "A reported question is not a question. Straighten the word order.",
+   "quiz": [
+    {
+     "wrong": "He asked me where do I live.",
+     "right": "He asked me where I lived.",
+     "explanation": "Reported questions take normal word order and no do."
+    },
+    {
+     "wrong": "She asked what time is it.",
+     "right": "She asked what time it was.",
+     "explanation": "Subject before verb, and the tense steps back."
+    },
+    {
+     "wrong": "He asked me did I finish the report.",
+     "right": "He asked me if I finished the report.",
+     "also_accept": [
+      "He asked me whether I finished the report.",
+      "He asked me if I had finished the report."
+     ],
+     "explanation": "A yes/no question needs if or whether."
+    },
+    {
+     "wrong": "I asked her when will she arrive.",
+     "right": "I asked her when she would arrive.",
+     "explanation": "will steps back to would, and the word order straightens."
     }
    ]
   }

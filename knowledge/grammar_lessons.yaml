@@ -80,11 +80,17 @@ lessons:
       - {wrong: "We found new café.", right: "We found a new café."}
       - {wrong: "I saw a rock. A rock was heavy.", right: "I saw a rock. The rock was heavy."}
       - {wrong: "He speaks the English.", right: "He speaks English."}
+      - {wrong: "We meet twice the week.", right: "We meet twice a week."}
+      - {wrong: "It was such long meeting.", right: "It was such a long meeting."}
+      - {wrong: "I waited half hour at the gate.", right: "I waited half an hour at the gate."}
     how:
       - "Singular thing, new or general → a/an: a café, an idea."
       - "Both people know WHICH one → the: the café we found."
       - "General plurals and names → nothing: apples, Mongolia, English."
       - "a or an? Listen to the SOUND: an hour, but a university."
+      - "Job, nationality, religion → a/an: she is a geologist, he is an Australian."
+      - "How often, how much → a: twice a day, three times a year, 50,000 tugrik a tonne."
+      - "After such / what / half / quite, a comes second: such a long meeting, half an hour."
     watch_out: >-
       The second mention flips to 'the': I saw a film. THE film was long.
     tip: >-

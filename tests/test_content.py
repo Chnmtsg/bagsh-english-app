@@ -13,11 +13,15 @@ LEVELS = {"A1", "A2", "B1", "B2"}
 ALL_LEVELS = {"A1", "A2", "B1", "B2", "C1", "C2"}
 
 
-def test_supplementary_grammar_completes_b1_to_c2():
+def test_supplementary_grammar_covers_the_syllabus():
+    """The file started as C1/C2 padding and is now the constructive syllabus
+    from A2 up (ADR-0013): the topics a Mongolian course teaches that the
+    error taxonomy has no category for — continuous aspect, modals, phrasal
+    verbs, question tags."""
     topics = load_advanced_grammar()
     by_level = {}
     for t in topics:
-        assert t["cefr"] in ("B1", "B2", "C1", "C2"), t["id"]
+        assert t["cefr"] in ("A2", "B1", "B2", "C1", "C2"), t["id"]
         assert t["id"].startswith("adv_"), "supplementary ids must not collide with categories"
         assert t["id"] not in categories(), "supplementary topics are not error categories"
         assert len(t.get("explain", "")) > 100, f"{t['id']}: explain too thin"
@@ -29,6 +33,7 @@ def test_supplementary_grammar_completes_b1_to_c2():
             assert q["wrong"] != q["right"], t["id"]
             assert q.get("explanation"), t["id"]
         by_level.setdefault(t["cefr"], []).append(t["id"])
+    assert len(by_level.get("A2", [])) >= 3   # continuous, too/enough, can/could/may
     assert len(by_level.get("B1", [])) >= 3   # narrative tenses, gerund/infinitive, passive
     assert len(by_level.get("B2", [])) >= 4   # deduction, wishes, causative, unreal conditionals
     assert len(by_level.get("C1", [])) >= 2   # participle clauses, hedging
