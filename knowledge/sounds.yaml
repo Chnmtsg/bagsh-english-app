@@ -1,0 +1,349 @@
+# How English letters sound — the spelling→sound tables (ADR-0012).
+#
+# ⚠️ MONGOLIAN NOT YET VERIFIED. Every Cyrillic string in this file is a first
+# draft written by the app, not by a native speaker. `mongolian_verified` below
+# stays false until somebody who speaks Mongolian has read the `cy` and `hint`
+# fields and corrected them. The app shows a notice while it is false.
+# This is the same rule ADR-0006 set for every other Mongolian string here.
+#
+# What this file adds that the repo did not have:
+#   knowledge/contrastive-guide.md §1.5–1.7 already covers word stress, the six
+#   consonant enemies and the vowel contrasts — in English, and in the
+#   sound→mouth direction ("how do I make /θ/"). It has nothing for the
+#   direction a reader actually needs: I see `ea`, what sound is that? These
+#   tables are that direction, with a Cyrillic approximation for each sound.
+#
+# What a Cyrillic approximation is and is not:
+#   It is a foothold, not a transcription. Mongolian has no /θ/, no /æ/, and
+#   its в covers both English v and w. Where the two languages genuinely differ
+#   the row says so rather than pretending a Cyrillic letter will do.
+#
+# Rules for this file:
+#   1. Example words MUST contain the spelling pattern — a test checks every
+#      one. They SHOULD be words the app already teaches, and a test holds the
+#      proportion above 85%, but a pronunciation example has to be the clearest
+#      example of the sound first: `sheep`/`ship` is the pair for /iː/ vs /ɪ/
+#      and no more familiar pair does the job.
+#   2. Minimal pairs come from the contrastive guide where it has them, so the
+#      two files cannot drift apart on what the hard contrasts are.
+#   3. No word is invented to make a pattern look tidier than it is. English
+#      spelling is irregular; a table that hides that is lying.
+
+version: 1
+mongolian_verified: false
+
+# ── vowels: the letters, and the sound they usually make ────────────
+vowels:
+  - id: long_e
+    ipa: "/iː/"
+    cy: "ий"
+    name: long ee
+    spellings:
+      - {pattern: ee, examples: [see, meet, need, week, three, green]}
+      - {pattern: ea, examples: [eat, speak, read, mean, tea, cheap]}
+      - {pattern: ie, examples: [field, piece, believe]}
+      - {pattern: e_e, examples: [these, complete]}
+    contrast:
+      ipa: "/ɪ/"
+      cy: "и"
+      pairs: [[sheep, ship], [leave, live], [seat, sit], [reach, rich]]
+      why: >-
+        Not just a shorter /iː/ — the mouth is more open and the tongue
+        relaxed. Mongolian has long and short vowels already, which is a head
+        start, but these two differ in quality as well as length.
+    guide_ref: "§1.6"
+
+  - id: short_i
+    ipa: "/ɪ/"
+    cy: "и"
+    name: short i
+    spellings:
+      - {pattern: i, examples: [sit, big, this, will, city, minute]}
+      - {pattern: "y", examples: [system, city, busy]}
+    guide_ref: "§1.6"
+
+  - id: short_e
+    ipa: "/e/"
+    cy: "э"
+    name: short e
+    spellings:
+      - {pattern: e, examples: [red, bed, send, tell, next, help]}
+      - {pattern: ea, examples: [bread, ready, weather, heavy]}
+    note: "`ea` is the trap: it is /iː/ in `speak` and /e/ in `bread`."
+
+  - id: ash
+    ipa: "/æ/"
+    cy: "э (ам илүү ангайлгаж)"
+    name: the wide a
+    spellings:
+      - {pattern: a, examples: [bad, hand, man, black, back, thank]}
+    contrast:
+      ipa: "/e/"
+      cy: "э"
+      pairs: [[bad, bed], [man, men], [sand, send]]
+      why: >-
+        Mongolian has nothing between these two, so both land on э. For /æ/
+        the mouth opens much wider than feels natural.
+    guide_ref: "§1.6"
+
+  - id: long_a_ah
+    ipa: "/ɑː/"
+    cy: "аа"
+    name: long ah
+    spellings:
+      - {pattern: ar, examples: [car, hard, part, start, large]}
+      - {pattern: a, examples: [father, ask, past, class]}
+    contrast:
+      ipa: "/ʌ/"
+      cy: "а"
+      pairs: [[cart, cut], [heart, hut]]
+      why: "/ʌ/ is short and central: cut, dust, some, money."
+    guide_ref: "§1.6"
+
+  - id: strut
+    ipa: "/ʌ/"
+    cy: "а"
+    name: short u
+    spellings:
+      - {pattern: u, examples: [cut, but, bus, much, summer, sun]}
+      - {pattern: o, examples: [some, come, money, mother, love]}
+    note: "`o` says /ʌ/ in some very common words — some, come, money, love."
+
+  - id: short_o
+    ipa: "/ɒ/"
+    cy: "о"
+    name: short o
+    spellings:
+      - {pattern: o, examples: [stop, hot, box, cost, job, shop]}
+      - {pattern: wa, examples: [want, wash, was, watch]}
+    note: "After `w`, the letter `a` usually says /ɒ/: want, wash, watch."
+
+  - id: long_o_aw
+    ipa: "/ɔː/"
+    cy: "оо"
+    name: long aw
+    spellings:
+      - {pattern: or, examples: [for, short, sport, morning, north]}
+      - {pattern: ore, examples: [more, before, store]}
+      - {pattern: al, examples: [all, small, ball, wall, talk, walk]}
+      - {pattern: au, examples: [because, autumn]}
+      - {pattern: aw, examples: [saw, draw, law]}
+    note: "`l` is silent in talk and walk."
+
+  - id: goat
+    ipa: "/əʊ/"
+    cy: "өу"
+    name: the o that says its name
+    spellings:
+      - {pattern: o_e, examples: [note, hope, home, close, alone]}
+      - {pattern: oa, examples: [road, coat, boat, coal]}
+      - {pattern: ow, examples: [know, snow, slow, window]}
+      - {pattern: old, examples: [old, cold, hold, gold, told]}
+    contrast:
+      ipa: "/aʊ/"
+      cy: "ау"
+      pairs: [[know, now], [slow, allow], [low, loud]]
+      why: "`ow` is /əʊ/ in snow and /aʊ/ in town. Only the word tells you."
+
+  - id: mouth
+    ipa: "/aʊ/"
+    cy: "ау"
+    name: the ow of town
+    spellings:
+      - {pattern: ow, examples: [town, down, brown, how, now]}
+      - {pattern: ou, examples: [out, about, sound, house, mouth, hour]}
+
+  - id: face
+    ipa: "/eɪ/"
+    cy: "эй"
+    name: the a that says its name
+    spellings:
+      - {pattern: a_e, examples: [late, make, name, date, same, take]}
+      - {pattern: ai, examples: [rain, wait, train, main]}
+      - {pattern: ay, examples: [say, day, play, way, stay]}
+      - {pattern: eigh, examples: [eight, weight]}
+
+  - id: price
+    ipa: "/aɪ/"
+    cy: "ай"
+    name: the i that says its name
+    spellings:
+      - {pattern: i_e, examples: [time, like, life, write, drive, white]}
+      - {pattern: igh, examples: [right, night, light, high]}
+      - {pattern: ild, examples: [child, wild]}
+      - {pattern: ind, examples: [find, mind, kind, behind]}
+      - {pattern: "y", examples: [try, why, my, dry]}
+
+  - id: nurse
+    ipa: "/ɜː/"
+    cy: "өө"
+    name: the er sound
+    spellings:
+      - {pattern: er, examples: [her, term, person, service]}
+      - {pattern: ir, examples: [first, girl, third, birthday]}
+      - {pattern: ur, examples: [turn, church, return, burn]}
+      - {pattern: ear, examples: [learn, earth, early]}
+      - {pattern: wor, examples: [work, word, world, worse]}
+    note: >-
+      Five different spellings, one sound. It does not exist in Mongolian:
+      the tongue is flat and central, and the lips are not rounded.
+    guide_ref: "§1.6"
+
+  - id: schwa
+    ipa: "/ə/"
+    cy: "э (маш сул)"
+    name: the weak vowel
+    spellings:
+      - {pattern: a, examples: [about, again, woman, national]}
+      - {pattern: er, examples: [teacher, water, under, other]}
+      - {pattern: e, examples: [problem, open, listen, system]}
+      - {pattern: o, examples: [today, second, doctor]}
+    note: >-
+      The commonest sound in English, and it only ever appears in UNSTRESSED
+      syllables. Any vowel letter can become it. This is why word stress has to
+      be learned with the word — the stress decides which vowels survive.
+    guide_ref: "§1.5"
+
+  - id: goose
+    ipa: "/uː/"
+    cy: "уу"
+    name: long oo
+    spellings:
+      - {pattern: oo, examples: [food, soon, room, school, moon]}
+      - {pattern: u_e, examples: [use, huge, June]}
+      - {pattern: ew, examples: [new, few, knew]}
+    contrast:
+      ipa: "/ʊ/"
+      cy: "у"
+      pairs: [[fool, full], [pool, pull]]
+      why: "`oo` is short in good, book, look, foot — and long in food, soon."
+
+# ── consonants: the ones Mongolian does not have ─────────────────────
+consonants:
+  - id: th_voiceless
+    ipa: "/θ/"
+    cy: "с ч биш, т ч биш"
+    name: th in think
+    spellings:
+      - {pattern: th, examples: [think, three, thirty, thick, north, month]}
+    hint: Хэлний үзүүрээ шүдний хооронд гаргаад үлээ.
+    hint_en: Tongue tip between the teeth, blow air. Your tongue must be visible.
+    contrast:
+      ipa: "/s/, /t/"
+      cy: "с, т"
+      pairs: [[think, sink], [thick, sick], [three, tree], [path, pass]]
+      why: Mongolian has no /θ/, so the mouth reaches for с or т instead.
+    guide_ref: "§1.6"
+
+  - id: th_voiced
+    ipa: "/ð/"
+    cy: "з ч биш, д ч биш"
+    name: th in this
+    spellings:
+      - {pattern: th, examples: [this, that, they, there, mother, weather]}
+    hint: Мөн адил, гэхдээ хоолойгоо чичрүүлнэ.
+    hint_en: Same tongue position, but with voice — the throat vibrates.
+    note: "The commonest words in English start with it: the, this, that, they."
+    guide_ref: "§1.6"
+
+  - id: v_and_w
+    ipa: "/v/ vs /w/"
+    cy: "в (хоёулаа биш!)"
+    name: v and w
+    spellings:
+      - {pattern: v, examples: [very, visit, give, save, seven]}
+      - {pattern: w, examples: [we, want, work, week, water, winter]}
+    hint: v — шүдээ уруул дээрээ тавь. w — уруулаа дугуйлж, шүд хүрэхгүй.
+    hint_en: >-
+      /v/ = upper teeth on the lower lip, buzzing. /w/ = lips rounded, teeth
+      touching nothing at all.
+    contrast:
+      ipa: "/v/ ↔ /w/"
+      cy: ""
+      pairs: [[vest, west], [vine, wine], [very, wary]]
+      why: Mongolian в covers both, so the two English sounds merge into one.
+    guide_ref: "§1.6"
+
+  - id: f_and_p
+    ipa: "/f/ vs /p/"
+    cy: "ф / п"
+    name: f and p
+    spellings:
+      - {pattern: f, examples: [fine, find, food, first, before, life]}
+      - {pattern: ph, examples: [phone, photo]}
+    hint: ф — агаар тасралтгүй урсана. п — уруул хаагдаад дэлбэрнэ.
+    hint_en: >-
+      /f/ flows and can be held forever. /p/ stops the air and bursts — it
+      cannot be held.
+    contrast:
+      ipa: "/f/ ↔ /p/"
+      cy: ""
+      pairs: [[fine, pine], [fit, pit], [coffee, copy]]
+      why: Mongolian /f/ appears only in loanwords, so /p/ takes over.
+    guide_ref: "§1.6"
+
+  - id: english_r
+    ipa: "/r/"
+    cy: "р (хэл юунд ч хүрэхгүй)"
+    name: the English r
+    spellings:
+      - {pattern: r, examples: [red, right, room, read, very, three]}
+    hint: Хэлээ ямар ч зүйлд хүргэхгүй. Чичрэх дуу гарвал буруу.
+    hint_en: >-
+      Mongolian р is a trill or tap. English /r/ never touches anything — pull
+      the tongue back, round the lips slightly, let the tip float. If you hear
+      tapping, it is wrong.
+    guide_ref: "§1.6"
+
+  - id: dark_l
+    ipa: "/l/ and /ɫ/"
+    cy: "л (исгэрэхгүй)"
+    name: the two Ls
+    spellings:
+      - {pattern: l, examples: [look, large, level, cold, small, still]}
+    hint: Монгол л шиг хажуугаараа исгэрүүлж болохгүй — хоолойгоо чичрүүл.
+    hint_en: >-
+      Clear L at the start of a syllable (look, level); dark L at the end
+      (cold, small) with the back of the tongue raised, closer to "oo".
+      Mongolian л is often a voiceless hiss, which English never has.
+    guide_ref: "§1.6"
+
+  - id: ng
+    ipa: "/ŋ/"
+    cy: "нг (г-г дуудахгүй)"
+    name: the -ing ending
+    spellings:
+      - {pattern: ng, examples: [going, working, morning, long, thing, young]}
+    hint_en: >-
+      One sound, not two. The back of the tongue closes and the air goes
+      through the nose — there is no hard g at the end.
+
+# ── endings: the two that change sound without changing spelling ─────
+endings:
+  - id: ed_ending
+    name: the -ed ending
+    ipa: "/t/, /d/, /ɪd/"
+    rules:
+      - {sound: "/ɪd/", cy: "ид", after: "t or d", examples: [wanted, needed, started, decided]}
+      - {sound: "/t/", cy: "т", after: "a voiceless sound (p, k, f, s, sh, ch)",
+         examples: [worked, asked, stopped, watched, finished]}
+      - {sound: "/d/", cy: "д", after: "everything else",
+         examples: [played, lived, opened, arrived, learned]}
+    note: >-
+      Three sounds, one spelling. Only after t or d does -ed add a syllable:
+      `wanted` has two, `worked` has one. Mongolian speakers often add the
+      extra syllable everywhere, which turns `worked` into `work-ed`.
+
+  - id: s_ending
+    name: the -s ending
+    ipa: "/s/, /z/, /ɪz/"
+    rules:
+      - {sound: "/ɪz/", cy: "из", after: "s, sh, ch, x, ge",
+         examples: [buses, watches, changes, boxes]}
+      - {sound: "/s/", cy: "с", after: "a voiceless sound (p, t, k, f)",
+         examples: [books, cats, works, laughs]}
+      - {sound: "/z/", cy: "з", after: "everything else",
+         examples: [days, boys, cars, jobs, rooms]}
+    note: >-
+      The same three-way split as -ed, and it matters for the verb ending the
+      taxonomy calls verb_agreement: he works /s/, he lives /z/, he watches /ɪz/.

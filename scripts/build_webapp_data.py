@@ -29,6 +29,7 @@ from src.knowledge import (  # noqa: E402
 )
 from src.glossary import explain_all, load_glosses  # noqa: E402
 from src.reading import glossary, load_readings  # noqa: E402
+from src.sounds import groups as sound_groups, verified as sounds_verified  # noqa: E402
 from src.verbs import drill_bank as verb_bank  # noqa: E402
 from src.quiz import (  # noqa: E402
     CONTRACTIONS,
@@ -99,6 +100,9 @@ def main() -> int:
         # The -ing form is computed in Python and shipped, so the PWA
         # never has to know the doubling rules.
         "verbs": verb_bank(),
+        # the spelling→sound tables (ADR-0012). `verified` is false until a
+        # native speaker has read the Cyrillic; the page says so while it is.
+        "sounds": {"verified": sounds_verified(), "groups": sound_groups()},
         # the reading library, with each text's glossary resolved against
         # the deck so the PWA never has to do the lookup itself
         "readings": [

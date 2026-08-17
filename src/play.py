@@ -11,6 +11,7 @@ zero LLM cost.
     python -m src.play read      # read something at your level (input strand)
     python -m src.play library   # what there is to read
     python -m src.play define --word snow   # what a word means
+    python -m src.play sounds    # how English letters sound (Cyrillic hints)
     python -m src.play progress  # what you can do — the honest metrics
     python -m src.play stats     # XP, streak, badges
     options: --n 5  --learner ID
@@ -392,6 +393,47 @@ def play_read(profile: LearnerProfile, text_id: str | None = None) -> None:
     print("Next text: python -m src.play read")
 
 
+def show_sounds(review: bool = False) -> None:
+    """The spelling→sound tables (ADR-0012). `--review` prints only the
+    Mongolian, which is the list a native speaker has to check."""
+    from . import sounds
+
+    if review:
+        print("Mongolian strings awaiting a native speaker's check\n")
+        for sound_id, field, text in sounds.mongolian_strings():
+            print(f"  {sound_id:16} {field:20} {text}")
+        print(f"\n{len(sounds.mongolian_strings())} strings. When they are "
+              "right, set mongolian_verified: true in knowledge/sounds.yaml")
+        return
+
+    if not sounds.verified():
+        print("⚠️  The Mongolian below is a first draft — no native speaker "
+              "has checked it yet.\n    Corrections: "
+              "python -m src.play sounds --review\n")
+    section = None
+    for group in sounds.groups():
+        if group["section"] != section:
+            section = group["section"]
+            print(f"\n── {section.upper()} " + "─" * 40)
+        head = f"{group['ipa']:14} {group.get('cy', ''):24} {group['name']}"
+        print(f"\n{head}")
+        for spelling in group.get("spellings") or []:
+            print(f"    {spelling['pattern']:6} → {', '.join(spelling['examples'])}")
+        for rule in group.get("rules") or []:
+            print(f"    {rule['sound']:6} {rule.get('cy', ''):4} after {rule['after']}")
+            print(f"           {', '.join(rule['examples'])}")
+        if group.get("hint"):
+            print(f"    🇲🇳 {group['hint']}")
+        if group.get("hint_en"):
+            print(f"    {group['hint_en']}")
+        contrast = group.get("contrast")
+        if contrast:
+            pairs = " · ".join(f"{a}/{b}" for a, b in contrast["pairs"])
+            print(f"    vs {contrast['ipa']} {contrast.get('cy', '')}: {pairs}")
+        if group.get("note"):
+            print(f"    {group['note'].strip()}")
+
+
 def define_word(word: str | None) -> None:
     """What a word means, from the same glossary the study list uses."""
     from . import glossary
@@ -590,13 +632,15 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Bagsh study games")
     parser.add_argument("mode", choices=["today", "errors", "grammar", "vocab",
                                          "talk", "verbs", "fluency", "read", "library",
-                                         "define", "progress", "stats"])
+                                         "define", "sounds", "progress", "stats"])
     parser.add_argument("--n", type=int, default=None,
                         help="questions per session (default 12 for today, "
                              "else 5)")
     parser.add_argument("--learner", default="default")
     parser.add_argument("--id", help="which text to read")
     parser.add_argument("--word", help="the word to explain")
+    parser.add_argument("--review", action="store_true",
+                        help="sounds: list the Mongolian awaiting a check")
     args = parser.parse_args()
 
     profile = load_profile(args.learner)
@@ -621,6 +665,8 @@ def main() -> None:
         list_readings(profile)
     elif args.mode == "define":
         define_word(args.word)
+    elif args.mode == "sounds":
+        show_sounds(args.review)
     elif args.mode == "progress":
         show_progress(profile)
     else:

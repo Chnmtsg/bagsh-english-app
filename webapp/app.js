@@ -835,6 +835,13 @@ function renderVocabHome() {
       ${action}</div>
     <div class="card">${rows}</div>
     <div class="card">
+      <h3>🔊 Дуудлага — how the letters sound</h3>
+      <p class="muted">Which letters make which sound, with the closest
+      Mongolian for each. The tables a reader needs, not the mouth positions:
+      ${(DATA.sounds && DATA.sounds.groups.length) || 0} sounds.</p>
+      <button class="ghost" id="soundsBtn">Open the sound tables</button>
+    </div>
+    <div class="card">
       <h3>📊 Coverage check — Хэр олон үг мэдэх вэ?</h3>
       <p class="muted">A separate, optional tool: the ${DATA.wordlist.levels[current].length}
       most frequent ${current}-band words from a public frequency dataset.
@@ -855,6 +862,8 @@ function renderVocabHome() {
     CEFR-J-based dataset (MIT), used for coverage only.</p>`;
 
   document.getElementById("checkBtn").addEventListener("click", startCheck);
+  const soundsBtn = document.getElementById("soundsBtn");
+  if (soundsBtn) soundsBtn.addEventListener("click", renderSounds);
   const studyBtn = document.getElementById("studyBtn");
   if (studyBtn) studyBtn.addEventListener("click", startVocab);
   const listBtn = document.getElementById("listBtn");
@@ -865,6 +874,68 @@ function renderVocabHome() {
     recordActivity(20);  // level-up bonus
     renderVocabHome();
   });
+}
+
+/* ── Sounds — how the letters are read (ADR-0012) ────────────────────
+ * The one thing a text-only app can honestly do about pronunciation: show
+ * which letters make which sound, with a Mongolian foothold for each. It is
+ * reference, not a deck — the app cannot hear you, and a pronunciation drill
+ * it cannot mark would be a drill of guesses. */
+
+function renderSounds() {
+  const data = DATA.sounds || { groups: [] };
+  const sectionTitle = {
+    vowels: "Эгшиг — vowels",
+    consonants: "Гийгүүлэгч — the consonants Mongolian does not have",
+    endings: "Төгсгөл — the endings that change sound",
+  };
+  let section = null;
+  const blocks = data.groups.map(g => {
+    let head = "";
+    if (g.section !== section) {
+      section = g.section;
+      head = `<h3>${esc(sectionTitle[section] || section)}</h3>`;
+    }
+    const spellings = (g.spellings || []).map(s =>
+      `<div class="row"><span class="st"><code>${esc(s.pattern)}</code></span>
+        <span class="name plain">${esc(s.examples.join(", "))}</span></div>`).join("");
+    const rules = (g.rules || []).map(r =>
+      `<div class="row"><span class="st">${esc(r.sound)} ${esc(r.cy || "")}</span>
+        <span class="name plain">after ${esc(r.after)}<br>
+        <span class="muted">${esc(r.examples.join(", "))}</span></span></div>`).join("");
+    const contrast = g.contrast ? `<p class="muted">↔ ${esc(g.contrast.ipa)}
+      ${esc(g.contrast.cy || "")} — ${g.contrast.pairs.map(
+        pair => `<b>${esc(pair[0])}</b>/${esc(pair[1])}`).join(" · ")}
+      ${g.contrast.why ? `<br>${esc(g.contrast.why)}` : ""}</p>` : "";
+    return `${head}
+      <div class="card">
+        <h2>${esc(g.ipa)} <span class="pill">${esc(g.cy || "")}</span>
+          <span class="muted" style="font-weight:400">${esc(g.name)}</span></h2>
+        ${spellings}${rules}
+        ${g.hint ? `<p class="mn">🇲🇳 ${esc(g.hint)}</p>` : ""}
+        ${g.hint_en ? `<p class="muted">${esc(g.hint_en)}</p>` : ""}
+        ${contrast}
+        ${g.note ? `<p class="muted">${esc(g.note)}</p>` : ""}
+      </div>`;
+  }).join("");
+
+  view.innerHTML = `
+    <div class="card">
+      <h2>🔊 Дуудлага — how the letters sound</h2>
+      <p class="muted">You cannot hear this app, so it does the next best
+      thing: which letters make which sound, and the closest Mongolian
+      approximation. A foothold, not a transcription — English has sounds
+      Mongolian does not, and those rows say so instead of pretending.</p>
+      ${data.verified ? "" : `<div class="feedback bad">
+        <p>⚠️ The Mongolian here is a <b>first draft</b> written by the app —
+        no native speaker has checked it yet. If a row is wrong, it is wrong;
+        tell me and it gets fixed.</p></div>`}
+      <button class="ghost" id="backWords">← Back to words</button>
+    </div>
+    ${blocks}
+    <p class="muted" style="padding:0 6px">Stress, and how to make each sound
+    with your mouth, are in the contrastive guide §1.5–1.7.</p>`;
+  document.getElementById("backWords").addEventListener("click", renderVocabHome);
 }
 
 /* check-yourself: fast ✓/✗ through the level's official-size list, with
