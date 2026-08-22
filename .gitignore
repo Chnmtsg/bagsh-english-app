@@ -21,13 +21,12 @@ evals/reports/*.json
 # Source material the learner supplied for reference — copyrighted textbooks
 # (TalkTalk English © TTEC LLC 2022; "Boldoo's english lesson"), 538MB of
 # scans and PDFs. Read to learn what Mongolian learners are actually taught;
-# never committed, never redistributed.
+# never committed — they are 538MB and the app does not need them.
 #
-# ⚠ THIS REPOSITORY IS PRIVATE, AND MUST STAY PRIVATE.
-# boldoo/content/lessons.js DOES contain a transcription of pages 6–22 of
-# "Boldoo's english lesson" — the study app is built from it, so the text had
-# to come in. The scans below are excluded; the transcribed text is not.
-# Do not make this repo public without removing that file first.
+# Note: boldoo/content/lessons.js contains a transcription of pages 6–22 of
+# "Boldoo's english lesson", because the study app is built from it. The repo
+# owner has chosen to publish that transcription; only the scans are excluded
+# here. Attribution for the source book is in boldoo/README.md.
 BE_Lesson/
 TalkTalk/
 

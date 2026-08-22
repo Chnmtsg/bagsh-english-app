@@ -169,3 +169,30 @@ numbering starts at 2. Pages 23–153 are photographed but not yet transcribed.
 
 Progress lives in `localStorage` under `boldoo.srs.v1`, settings under
 `boldoo.settings.v1`. Nothing leaves the device.
+
+## Sources and attribution
+
+The teaching content in this app is not original. It comes from two documents,
+and every item in the app is labelled with which one:
+
+**«Boldoo's english lesson»** — a Mongolian-language English grammar textbook.
+Pages 6–22 are transcribed in `content/lessons.js`: the pronoun and question-word
+tables, the irregular verb table, the 16-tense grid, the spelling-to-sound
+tables, the preposition and conjunction tables, ХИЧЭЭЛ 2–4, and the exercise
+sets. Copyright in that book belongs to its author. The photographs it was
+transcribed from are not included in this repository.
+
+**English–Mongolian Contrastive Guide** — supplied by the repository owner.
+`content/contrastive.js` draws on it for the pronunciation, stress, article,
+do-support, word-order, preposition and verb-tense units, and for the
+commentary attached to the book pages. Section numbers are cited on every item.
+
+Where the two disagree, both are shown. The book is reproduced as printed
+except where it would teach something false, and those three cases are marked
+in place.
+
+The code, the exercise generators, the scheduler and the interface are original
+to this repository. IBM Plex is used under the SIL Open Font License 1.1.
+
+If you are the rights holder for either document and would like the
+transcription removed, open an issue.
