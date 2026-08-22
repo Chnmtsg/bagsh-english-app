@@ -21,6 +21,16 @@ evals/reports/*.json
 # Source material the learner supplied for reference — copyrighted textbooks
 # (TalkTalk English © TTEC LLC 2022; "Boldoo's english lesson"), 538MB of
 # scans and PDFs. Read to learn what Mongolian learners are actually taught;
-# never redistributed, and no text from them is copied into this repo.
-Belesson/
+# never committed, never redistributed.
+#
+# ⚠ THIS REPOSITORY IS PRIVATE, AND MUST STAY PRIVATE.
+# boldoo/content/lessons.js DOES contain a transcription of pages 6–22 of
+# "Boldoo's english lesson" — the study app is built from it, so the text had
+# to come in. The scans below are excluded; the transcribed text is not.
+# Do not make this repo public without removing that file first.
+BE_Lesson/
 TalkTalk/
+
+# Design bundle for the Small Step interface — 1.7MB, kept locally.
+# The visual system it encodes is described in boldoo/README.md.
+boldoo/Zam - English Study App.html
