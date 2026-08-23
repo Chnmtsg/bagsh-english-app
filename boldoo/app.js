@@ -942,18 +942,24 @@
     const TAXC = (window.BOLDOO_TAXONOMY || {}).categories || {};
     let h = '<div class="wi-check">';
     if (!r.edits.length) {
-      h += '<p class="ok">Засах зүйл алга. <span class="fine">Энэ нэг удаагийн дүгнэлт — ' +
-        'мэдсэн гэдгийг давталт л батална.</span></p>';
+      h += '<p class="ok">' + (r.offline ? CORRECT.patternCount() + ' дүрмийн аль нь ч алдаа олсонгүй.'
+          : 'Засах зүйл алга.') +
+        ' <span class="fine">' + (r.offline ? 'Дүрмүүд зөвхөн мэддэг алдаагаа олдог; зөв гэсэн үг биш.'
+          : 'Энэ нэг удаагийн дүгнэлт — мэдсэн гэдгийг давталт л батална.') + '</span></p>';
     } else {
-      h += '<p class="fine">' + r.edits.length + ' засвар. Засварыг код тооцоолсон; загвар зөвхөн ' +
-        'засварласан өгүүлбэр буцааж, ангиллыг нь нэрлэсэн.</p><ul class="edits">';
+      h += '<p class="fine">' + r.edits.length + ' засвар. ' + (r.offline
+        ? 'Бүгдийг дүрэм олсон — загвар дуудагдаагүй.'
+        : 'Дүрэм эхлээд, дараа нь загвар. Засварыг код тооцоолсон; загвар зөвхөн ' +
+          'засварласан өгүүлбэр буцааж, ангиллыг нь нэрлэсэн.') + '</p><ul class="edits">';
       r.edits.forEach(function (e) {
         const cat = e.category ? TAXC[e.category] : null;
         h += '<li><span class="from">' + (e.original ? esc(e.original) : '∅') + '</span> → ' +
           '<span class="to">' + (e.corrected ? esc(e.corrected) : '∅') + '</span>' +
           (e.category ? '<span class="cat' + (cat && cat.treatable === false ? ' soft' : '') + '">' +
             esc(e.category.replace(/_/g, ' ')) + '</span>' : '') +
-          (cat && cat.rule_a2 ? '<div class="rule">' + esc(cat.rule_a2) + '</div>' : '') +
+          (e.source === 'pattern' ? '<span class="cat pat">дүрэм</span>' : '') +
+          (e.source === 'pattern' && e.explanation ? '<div class="rule">' + esc(e.explanation) + '</div>'
+            : cat && cat.rule_a2 ? '<div class="rule">' + esc(cat.rule_a2) + '</div>' : '') +
           (cat && cat.treatable === false
             ? '<div class="rule">Дүрэм биш, заншил — дасгал болгохгүй, дахин харуулна.</div>' : '') +
           '</li>';
@@ -984,9 +990,10 @@
         ? '<p class="fine" style="margin-top:10px">Өөрөө үнэлнэ — энэ хэсгийн үр дүн нарийвчлалын тоонд ' +
           'ордоггүй. «Шалгуулах» дарвал бичсэн англи өгүүлбэр тань Anthropic-ийн сервер рүү ' +
           'илгээгдэж, засварласан хувилбар буцаж ирнэ. Алдааг код тооцоолж, маргаашийн дасгалд оруулна.</p>'
-        : '<p class="fine" style="margin-top:10px">Эдгээрийг машин шалгаж чадахгүй. Өөрөө бичээд ' +
-          'үнэлнэ үү — энэ хэсгийн үр дүн нарийвчлалын тоонд ордоггүй. ' +
-          '<a href="#/settings">Тохиргоонд</a> API түлхүүр оруулбал засуулж болно.</p>');
+        : '<p class="fine" style="margin-top:10px">Өөрөө үнэлнэ — энэ хэсгийн үр дүн нарийвчлалын тоонд ' +
+          'ордоггүй. «Дүрмээр шалгах» ' + CORRECT.patternCount() + ' тогтсон дүрмээр, төхөөрөмж дээрээ, ' +
+          'юу ч илгээлгүй шалгана — олсон алдаа нь маргаашийн дасгалд орно. ' +
+          '<a href="#/settings">Тохиргоонд</a> API түлхүүр оруулбал бусад алдааг ч засуулж болно.</p>');
 
     picked.forEach(function (w, i) {
       const isMarked = marked[w.id];
@@ -1004,10 +1011,9 @@
           ? '<button class="btn guide" data-act="w-reveal" data-id="' + esc(w.id) + '">' +
             (revealed[w.id] ? 'Нуух' : 'Загвар хариу') + '</button>'
           : '') +
-        (CORRECT.enabled()
-          ? '<button class="btn primary" data-act="w-check" data-id="' + esc(w.id) + '"' +
-            (checks[w.id] && checks[w.id].busy ? ' disabled' : '') + '>Шалгуулах</button>'
-          : '') +
+        '<button class="btn primary" data-act="w-check" data-id="' + esc(w.id) + '"' +
+        (checks[w.id] && checks[w.id].busy ? ' disabled' : '') + '>' +
+        (CORRECT.enabled() ? 'Шалгуулах' : 'Дүрмээр шалгах') + '</button>' +
         '</div>' +
         (checks[w.id] ? renderCheck(w, checks[w.id]) : '');
 
@@ -1045,6 +1051,12 @@
     const w = writeItems().filter(function (x) { return x.id === id; })[0];
     const text = String(drafts[id] || '').trim();
     if (!w || !text) return;
+    if (!CORRECT.enabled()) {
+      const r = CORRECT.checkOffline(text);
+      r.queued = ERRQ.fold(r.edits, id + ':' + hashStr(text), r.text);
+      checks[id] = { result: r };
+      return viewWrite();
+    }
     checks[id] = { busy: true };
     viewWrite();
     CORRECT.check(text, w.mn).then(function (r) {

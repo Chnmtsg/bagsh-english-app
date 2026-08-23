@@ -37,7 +37,7 @@ const sandbox = {
 sandbox.window = sandbox;
 vm.createContext(sandbox);
 const load = f => vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), sandbox, { filename: f });
-['content/taxonomy.js', 'correct.js', 'errors.js'].forEach(load);
+['content/taxonomy.js', 'content/patterns.js', 'correct.js', 'errors.js'].forEach(load);
 const { CORRECT } = sandbox;
 
 let pass = 0, fail = 0; const failures = [];
@@ -50,7 +50,7 @@ function group(t) { console.log('\n' + t); }
 // ------------------------------------------------------------------ diff
 group('diff parity with difflib');
 JSON.parse(fs.readFileSync(path.join(__dirname, 'diff_cases.json'), 'utf8')).forEach(c => {
-  eq('diff: ' + c.o, CORRECT.diff(c.o, c.c), c.edits);
+  eq('diff: ' + c.o, CORRECT.diff(c.o, c.c).map(e => ({ original: e.original, corrected: e.corrected, start: e.start, end: e.end })), c.edits);
 });
 eq('identical text has no edits', CORRECT.diff('Hello there.', 'Hello there.'), []);
 ok('every edit is a real substring',
@@ -170,14 +170,47 @@ group('queue: old files load');
 E.importState(JSON.stringify({ items: {} }));
 eq('missing fields default', E.summary().entries, 0);
 
+// --------------------------------------------------------------- matcher
+group('deterministic patterns (code before model)');
+const PAT = sandbox.BOLDOO_PATTERNS.patterns;
+eq('all 64 deterministic patterns shipped', PAT.length, 64);
+eq('all compile under JS', CORRECT.patternCount(), 64);
+const corpus = fs.readFileSync(path.join(ROOT, '..', 'data', 'clean_english.txt'), 'utf8').split(/\r?\n/).filter(Boolean);
+ok('corpus loaded', corpus.length > 20);
+const fp = [];
+corpus.forEach((line, i) => { const m = CORRECT.match(line); if (m.length) fp.push([i + 1, m[0].patternId, m[0].original]); });
+eq('ZERO pattern hits on the clean corpus', fp, []);
+const pm = CORRECT.match('I am geologist. I go to the work at 9.');
+eq('pattern 1 fires with its category, narrowed to the changed span', [pm[0].patternId, pm[0].category, pm[0].original, pm[0].corrected], [1, 'articles', '', 'a']);
+ok('pattern edits carry curated explanations', pm.every(e => e.source === 'pattern' && e.explanation.length > 0));
+ok('pattern edits are real substrings', pm.every(e => 'I am geologist. I go to the work at 9.'.slice(e.start, e.end) === e.original));
+eq('applyEdits rebuilds the corrected text', CORRECT.applyEdits('I am geologist.', CORRECT.match('I am geologist.')), 'I am a geologist.');
+eq('nothing fires on correct English', CORRECT.match('I am a geologist and I go to work at 9.'), []);
+const off = CORRECT.checkOffline('I am geologist.');
+eq('offline check has the same shape and is flagged', [off.offline, off.edits.length, off.corrected], [true, 1, 'I am a geologist.']);
+eq('model edit overlapping a pattern span is dropped',
+   CORRECT.diff('I am geologist.', 'I am a geologist.', CORRECT.match('I am geologist.')), []);
+eq('model edits elsewhere survive',
+   CORRECT.diff('I am geologist and she have cat.', 'I am a geologist and she has a cat.', CORRECT.match('I am geologist and she have cat.')).map(e => e.original),
+   ['have']);
+const Ep = sandbox.ERRQ; Ep.reset();
+Ep.fold(CORRECT.match('I am geologist.'), 'p1', 'I am geologist.');
+const pit = Ep.item('articles:+a');
+eq('pattern edit queues without any model', [pit.source, pit.patternId], ['pattern', 1]);
+ok('drill uses the pattern explanation', Ep.toDrill(pit).explain.indexOf('Job words') !== -1);
+eq('repair blanks only the missing article', pit.prompt, 'I am _____geologist.');
+Ep.reset();
+
 // -------------------------------------------------------------- pipeline
 group('check() against a stubbed fetch');
 CORRECT.setKey('sk-test');
-fetchQueue = ['<corrected>\nI am a geologist.\n</corrected>', '[{"index":0,"category":"articles"}]'];
-CORRECT.check('I am geologist.', 'Би геологич.').then(r => {
-  eq('edits come from diff, not the model', r.edits.map(e => [e.original, e.corrected]), [['', 'a']]);
-  eq('label applied', r.edits[0].category, 'articles');
+fetchQueue = ['<corrected>\nI am a geologist and she has a cat.\n</corrected>', '[{"index":0,"category":"verb_agreement"}]'];
+CORRECT.check('I am geologist and she have cat.', 'Би геологич, тэр муурт.').then(r => {
+  eq('patterns first, then model edits, sorted', r.edits.map(e => [e.source, e.original, e.corrected]),
+     [['pattern', '', 'a'], ['model', 'have', 'has a']]);
+  eq('pattern category from the file, model labels from the labeller', r.edits.map(e => e.category), ['articles', 'verb_agreement']);
   eq('two calls: corrector then labeller', fetchCalls.length, 2);
+  ok('labeller only saw the model edits', fetchCalls[1].opts.messages[0].content.indexOf('0. "have"') !== -1);
   ok('corrector is never asked for errors',
      fetchCalls[0].opts.system.indexOf('Do not list, count, or explain errors') !== -1);
   ok('labeller sees the closed list', fetchCalls[1].opts.system.indexOf('`copula`') !== -1);
@@ -186,10 +219,14 @@ CORRECT.check('I am geologist.', 'Би геологич.').then(r => {
   eq('model', fetchCalls[0].opts.model, 'claude-opus-5');
   ok('no sampling params sent', !('temperature' in fetchCalls[0].opts));
   ok('source Mongolian passed for meaning', fetchCalls[0].opts.messages[0].content.indexOf('Би геологич') !== -1);
+  fetchQueue = ['<corrected>\nI am a geologist.\n</corrected>'];
+  return CORRECT.check('I am geologist.');
+}).then(r => {
+  eq('pattern-only result: corrector called, labeller not', [r.edits.length, r.edits[0].source, fetchCalls.length], [1, 'pattern', 3]);
   fetchQueue = ['<corrected>Hello.</corrected>'];
   return CORRECT.check('Hello.');
 }).then(r => {
-  eq('no edits → no labeller call', [r.edits.length, fetchCalls.length], [0, 3]);
+  eq('no edits → no labeller call', [r.edits.length, fetchCalls.length], [0, 4]);
   fetchQueue = ['<corrected>\nHe goes.\n</corrected>', 'not json'];
   return CORRECT.check('He go.');
 }).then(r => {

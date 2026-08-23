@@ -396,7 +396,14 @@ Built 2026-08-23 in `correct.js` + `errors.js`, a port of the journal app's
 `src/error_queue.py`. Active only when the learner has entered an Anthropic
 API key in Settings; only the Write screen's translation drafts are sent.
 
-**What the model does (two calls per checked draft):**
+**What code does first, at zero cost (standing rule 2):** the 64
+deterministic patterns from `knowledge/top_100_patterns.yaml` run on the
+device before any call — each re-validated under JS semantics with zero
+hits on the clean-English corpus. A pattern edit carries its category and
+curated explanation and never goes near a model; a model edit that overlaps
+a pattern span is dropped. With no key, this layer is the whole check.
+
+**What the model does (two calls per checked draft, when a key is set):**
 
 1. **Correct** — returns the draft with only clear errors fixed
    (`prompts/corrector.md` v1.0.0 verbatim; Mongolian source supplied for

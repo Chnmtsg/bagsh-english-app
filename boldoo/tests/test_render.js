@@ -74,7 +74,7 @@ vm.createContext(sandbox);
 // Skip onboarding for most of the sweep; it gets its own checks below.
 store['boldoo.settings.v1'] = JSON.stringify({ onboarded: true });
 
-['content/lessons.js', 'content/contrastive.js', 'content/taxonomy.js', 'settings.js', 'srs.js', 'correct.js', 'errors.js',
+['content/lessons.js', 'content/contrastive.js', 'content/taxonomy.js', 'content/patterns.js', 'settings.js', 'srs.js', 'correct.js', 'errors.js',
  'exercises.js', 'app.js'].forEach(f => {
   vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), sandbox, { filename: f });
 });
@@ -306,7 +306,10 @@ vm.runInContext(fs.readFileSync(path.join(ROOT, 'srs.js'), 'utf8'), sandbox, { f
 // ------------------------------------------------- learner's own errors (ADR-0015)
 console.log('own errors');
 const CORRECT = sandbox.CORRECT, ERRQ = sandbox.ERRQ;
-ok('write screen points to settings without a key', go('#/write').indexOf('Шалгуулах') === -1);
+const wNoKey = go('#/write');
+ok('write screen offers the rule check without a key', wNoKey.indexOf('Дүрмээр шалгах') !== -1);
+ok('write screen says how many rules', wNoKey.indexOf('64 тогтсон дүрмээр') !== -1);
+ok('write screen does not offer the model check without a key', wNoKey.indexOf('Шалгуулах') === -1);
 ok('settings shows the key field', go('#/settings').indexOf('id="apikey"') !== -1);
 CORRECT.setKey('sk-test');
 const wk = go('#/write');

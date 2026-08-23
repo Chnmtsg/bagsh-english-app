@@ -115,6 +115,8 @@ window.ERRQ = (function () {
       key: key, category: category, treatable: cat.treatable !== false,
       form: edit.original || '', target: edit.corrected || '',
       sentence: repair.sentence, prompt: repair.prompt, answer: repair.answer, mode: repair.mode,
+      source: edit.source || 'model', patternId: edit.patternId || null,
+      explanation: edit.explanation || '',
       entryIds: [], seen: 0, firstSeen: t, lastSeen: t, seenAt: 0,
       state: 'queued',          // queued | drilling | graduated | leech | disputed
       box: 0, days: [], lapses: 0, due: t, shown: 0
@@ -279,8 +281,8 @@ window.ERRQ = (function () {
       promptNote: item.mode === 'chunk' ? 'Дутуу үгийг бич.' : 'Тэмдэглэсэн үггүйгээр өгүүлбэрийг бич.',
       answer: item.answer, accept: acceptable(item.answer),
       sentence: item.sentence, category: item.category,
-      explain: (cat.rule_a2 || '') + (cat.bridge ? '\n' + cat.bridge : ''),
-      source: 'таны бичсэн', seen: item.seen
+      explain: (item.explanation || cat.rule_a2 || '') + (cat.bridge ? '\n' + cat.bridge : ''),
+      source: item.source === 'pattern' ? 'таны бичсэн · дүрэм' : 'таны бичсэн', seen: item.seen
     };
   }
 

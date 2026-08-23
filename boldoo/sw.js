@@ -1,9 +1,9 @@
 /* Offline shell. Cache-first: the app never changes at runtime. */
-const CACHE = 'smallstep-v4';
+const CACHE = 'smallstep-v5';
 const ASSETS = [
   './', './index.html', './style.css', './fonts.css', './app.js', './settings.js',
   './srs.js', './exercises.js', './correct.js', './errors.js',
-  './content/lessons.js', './content/contrastive.js', './content/taxonomy.js',
+  './content/lessons.js', './content/contrastive.js', './content/taxonomy.js', './content/patterns.js',
   './manifest.webmanifest',
   './icon-192.png', './icon-512.png', './icon-maskable-512.png',
   './fonts/plex-sans-var-latin.woff2', './fonts/plex-sans-var-cyrillic.woff2',

@@ -26,6 +26,7 @@ window.CORRECT = (function () {
   const MODEL = 'claude-opus-5';
   const VERSION = '2023-06-01';
   const TAX = (window.BOLDOO_TAXONOMY && window.BOLDOO_TAXONOMY.categories) || {};
+  const PATTERNS = (window.BOLDOO_PATTERNS && window.BOLDOO_PATTERNS.patterns) || [];
 
   // --------------------------------------------------------------- key
   function getKey() {
@@ -38,6 +39,49 @@ window.CORRECT = (function () {
     } catch (e) { /* blocked storage */ }
   }
   function enabled() { return !!getKey(); }
+
+  // ----------------------------------------------------------- matcher
+  // Port of src/nodes/matcher.py. Standing rule 2: code before model. The
+  // deterministic patterns run first, at zero cost and zero hallucination
+  // risk; each carries its category and curated explanation from the
+  // pattern file, so these edits never go near the labeller either.
+  let compiled = null;
+  function compiledPatterns() {
+    if (compiled) return compiled;
+    compiled = [];
+    PATTERNS.forEach(function (p) {
+      try { compiled.push({ p: p, re: new RegExp(p.find, p.flags + 'g') }); } catch (e) { /* skip */ }
+    });
+    return compiled;
+  }
+
+  /** Pattern edits, first pattern wins an overlapping span, sorted by start. */
+  function match(text) {
+    const edits = [], claimed = [];
+    compiledPatterns().forEach(function (cp) {
+      cp.re.lastIndex = 0;
+      let m;
+      while ((m = cp.re.exec(text)) !== null) {
+        if (m[0] === '') { cp.re.lastIndex += 1; continue; }
+        const start = m.index, end = m.index + m[0].length;
+        if (claimed.some(function (c) { return c[0] < end && start < c[1]; })) continue;
+        const corrected = m[0].replace(new RegExp(cp.p.find, cp.p.flags), cp.p.replace);
+        if (corrected === m[0]) continue;
+        claimed.push([start, end]);
+        // Narrow the edit to the tokens that change, so the repair blanks
+        // "a", not the whole matched phrase. Falls back to the full match
+        // when the change is not a single contiguous span.
+        const sub = diff(m[0], corrected);
+        const e = sub.length === 1
+          ? { original: sub[0].original, corrected: sub[0].corrected, start: start + sub[0].start, end: start + sub[0].end }
+          : { original: m[0], corrected: corrected, start: start, end: end };
+        e.source = 'pattern'; e.category = cp.p.category; e.explanation = cp.p.explanation; e.patternId = cp.p.id;
+        edits.push(e);
+      }
+    });
+    edits.sort(function (a, b) { return a.start - b.start; });
+    return edits;
+  }
 
   // -------------------------------------------------------------- diff
   // Port of src/nodes/diff.py. Tokens are words (with internal apostrophes)
@@ -96,8 +140,13 @@ window.CORRECT = (function () {
     return out;
   }
 
-  /** Edits from original → corrected. Never from a model. */
-  function diff(original, corrected) {
+  /**
+   * Edits from original → corrected. Never from a model. A model edit whose
+   * span overlaps a pattern edit is dropped — the pattern already owns that
+   * span, with curated wording (src/nodes/diff.py does the same).
+   */
+  function diff(original, corrected, patternEdits) {
+    const owned = (patternEdits || []).map(function (e) { return [e.start, e.end]; });
     const A = tokenize(original), B = tokenize(corrected);
     const edits = [];
     opcodes(A.tokens, B.tokens).forEach(function (op) {
@@ -109,7 +158,12 @@ window.CORRECT = (function () {
         start = A.spans[op[1]][0];
         end = A.spans[op[2] - 1][1];
       }
+      const overlaps = owned.some(function (o) {
+        return start === end ? (o[0] <= start && start <= o[1]) : (o[0] < end && start < o[1]);
+      });
+      if (overlaps) return;
       edits.push({
+        source: 'model',
         original: original.slice(start, end),
         corrected: B.tokens.slice(op[3], op[4]).join(' '),
         start: start, end: end
@@ -254,36 +308,68 @@ window.CORRECT = (function () {
   }
 
   // ---------------------------------------------------------- pipeline
+  /** Apply pattern edits to the text — the corrected form with no model. */
+  function applyEdits(text, edits) {
+    let out = '', pos = 0;
+    edits.forEach(function (e) {
+      let ins = e.corrected;
+      if (e.start === e.end && ins) {
+        // an insertion between tokens needs the spaces the tokens lost
+        if (e.start > 0 && !/\s/.test(text[e.start - 1])) ins = ' ' + ins;
+        if (e.start < text.length && !/\s/.test(text[e.start])) ins = ins + ' ';
+      }
+      out += text.slice(pos, e.start) + ins; pos = e.end;
+    });
+    return out + text.slice(pos);
+  }
+
+  /**
+   * The zero-cost check: patterns only. Works offline and with no key.
+   * Same result shape as check(), with `offline: true`.
+   */
+  function checkOffline(text) {
+    const clean = String(text).trim();
+    const pe = match(clean);
+    return { text: clean, corrected: applyEdits(clean, pe), edits: pe, ambiguity: [],
+             offline: true, versions: { patterns: (window.BOLDOO_PATTERNS || {}).version || 0 } };
+  }
+
   /**
    * Correct one draft. Resolves to
-   *   { text, corrected, edits:[{original,corrected,start,end,category}],
-   *     ambiguity:[...], versions:{corrector,labeller} }
-   * `edits` is computed by diff(); `category` is the only model-labelled
-   * field, and it is null when the label was missing or not in the enum.
+   *   { text, corrected, edits:[{source,original,corrected,start,end,category}],
+   *     ambiguity:[...], versions:{...} }
+   * Order: patterns (code) → corrector (model) → diff (code) → labels (model,
+   * only for model edits). `category` on a model edit is the one
+   * model-labelled field; it is null when the label was missing or not in
+   * the enum. Pattern edits carry their category and explanation from the
+   * pattern file.
    */
   function check(text, sourceMn) {
     const clean = String(text).trim();
     if (!clean) return Promise.reject(new Error('empty'));
+    const pe = match(clean);
     const user = (sourceMn ? 'Mongolian source (for meaning only):\n' + sourceMn + '\n\n' : '') +
       "Learner's English:\n" + clean;
     return call(CORRECTOR, user, 2048, 'medium').then(function (raw) {
       const p = parseCorrected(raw);
-      const edits = diff(clean, p.corrected);
-      const base = { text: clean, corrected: p.corrected, edits: edits, ambiguity: p.ambiguity,
-                     versions: { corrector: CORRECTOR_VERSION, labeller: LABELLER_VERSION } };
-      if (!edits.length) return base;
-      const listing = edits.map(function (e, i) {
+      const me = diff(clean, p.corrected, pe);
+      const all = pe.concat(me).sort(function (a, b) { return a.start - b.start; });
+      const base = { text: clean, corrected: p.corrected, edits: all, ambiguity: p.ambiguity,
+                     versions: { corrector: CORRECTOR_VERSION, labeller: LABELLER_VERSION,
+                                 patterns: (window.BOLDOO_PATTERNS || {}).version || 0 } };
+      if (!me.length) return base;
+      const listing = me.map(function (e, i) {
         return i + '. "' + e.original + '" → "' + e.corrected + '"';
       }).join('\n');
       return call(labellerPrompt(), 'Text:\n' + clean + '\n\nEdits:\n' + listing, 512, 'low')
         .then(function (raw2) {
-          const labels = parseLabels(raw2, edits.length);
-          edits.forEach(function (e, i) { e.category = labels[i]; });
+          const labels = parseLabels(raw2, me.length);
+          me.forEach(function (e, i) { e.category = labels[i]; });
           return base;
         }).catch(function () {
           // A failed labelling is not a failed correction: the diff stands,
           // the items just cannot be queued until they have a category.
-          edits.forEach(function (e) { e.category = null; });
+          me.forEach(function (e) { e.category = null; });
           return base;
         });
     });
@@ -291,7 +377,8 @@ window.CORRECT = (function () {
 
   return {
     getKey: getKey, setKey: setKey, enabled: enabled,
-    tokenize: tokenize, diff: diff, opcodes: opcodes,
+    tokenize: tokenize, diff: diff, opcodes: opcodes, match: match, applyEdits: applyEdits,
+    checkOffline: checkOffline, patternCount: function () { return compiledPatterns().length; },
     parseCorrected: parseCorrected, parseLabels: parseLabels,
     check: check,
     MODEL: MODEL,

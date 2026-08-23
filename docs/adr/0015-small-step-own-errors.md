@@ -93,14 +93,30 @@ edits.
   a draft is one or two sentences. No batching, no caching — the system
   prompt is under the cacheable minimum.
 
-## Not done, and why
+## Addendum (same day) — deterministic patterns before the corrector
 
-- **Deterministic patterns before the corrector** (`top_100_patterns.yaml`,
-  standing rule 2). They would catch the most common Mongolian-L1 errors at
-  zero cost before any call. Deferred: the pattern file is Python-regex with
-  per-pattern false-positive validation against a corpus; porting it without
-  that validation would ship unvalidated patterns. A `build_boldoo_patterns`
-  step with the same corpus check is the right follow-up.
+Standing rule 2, code before model, now holds in Small Step too.
+`scripts/build_boldoo_patterns.py` exports the 64 deterministic patterns to
+`boldoo/content/patterns.js` and **re-validates every one under JavaScript
+regex semantics in Node** — round-trip of its own example, no hit on its own
+corrected form, zero hits on `data/clean_english.txt`. A pattern that fails
+under JS is dropped from the export and named; none currently fail.
+`tests/test_errors.js` repeats the corpus check at test time.
+
+Order in `CORRECT.check()`: patterns (code) → corrector (model) → diff
+(code, dropping any model edit whose span overlaps a pattern span — the
+pattern owns it with curated wording, as `nodes/diff.py` does) → labeller
+(model, model edits only). Each pattern edit is narrowed to the tokens that
+actually change, so the repair blanks `a`, not the whole matched phrase, and
+its key lines up with the model path (`articles:+a`).
+
+Consequence worth stating: **the Write screen now checks drafts with no key
+and no network** — `Дүрмээр шалгах` runs the 64 patterns on the device, and
+what they find enters the queue exactly as a model-found error would. The
+button says how many rules it has and the result says a clean pass means
+"no known error found", not "correct".
+
+## Not done, and why
 - **Tutor explanations at the learner's level.** The taxonomy's `rule_a2`
   and `bridge` are shown as written. The labeller is not asked to explain
   (ADR-0007's tutor is); one fewer thing a model writes to a learner.

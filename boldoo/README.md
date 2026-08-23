@@ -31,9 +31,10 @@ node boldoo/tests/test_contrastive.js  # the guide layer stays separable and gra
 node boldoo/tests/test_render.js       # every screen renders, against a stub DOM
 node boldoo/tests/test_errors.js       # the corrector loop, against a stubbed fetch; diff parity with difflib
 python scripts/build_boldoo_taxonomy.py  # after any knowledge/error_taxonomy.yaml change
+python scripts/build_boldoo_patterns.py  # after any top_100_patterns.yaml change; re-validates under JS
 ```
 
-Four dependency-free Node scripts, 7,053 assertions. None touch the network.
+Four dependency-free Node scripts, 7,072 assertions. None touch the network.
 
 ## Two sources
 
@@ -98,7 +99,9 @@ phone. The guide's commentary appears under the page it bears on.
 because no code here can honestly grade a free translation. Ten prompts carry a
 model answer because the model came from a source; the book's own 81 Орчуулга
 prompts have no answer key, so they say so rather than showing an invented one.
-With an API key (Settings), **Шалгуулах** sends the draft to the corrector:
+**Дүрмээр шалгах** runs 64 deterministic patterns on the device — no key, no
+network — and queues what they find. With an API key (Settings), **Шалгуулах**
+runs the patterns first, then sends the draft to the corrector:
 it returns the minimally corrected text, code computes the edits, a second
 call labels each edit from the closed taxonomy, and every labelled error
 becomes a repair due tomorrow — your own sentence with the span blanked,
@@ -170,6 +173,7 @@ boldoo/
 ├── correct.js              the corrector: fetch → corrected text → code diff → labels
 ├── errors.js               the learner's-own-errors queue (port of src/error_queue.py)
 ├── content/taxonomy.js     GENERATED from knowledge/error_taxonomy.yaml
+├── content/patterns.js     GENERATED from knowledge/top_100_patterns.yaml, JS-validated
 ├── LEARNING.md             the evidence review every scheduling rule cites
 ├── exercises.js            generators and deterministic graders
 ├── content/lessons.js      the book transcription
