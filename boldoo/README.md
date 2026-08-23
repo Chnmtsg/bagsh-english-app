@@ -5,11 +5,14 @@ speakers — read, drill, write, place.
 
 Standalone and offline. Independent of the Багш journal app in this repo:
 separate folder, separate storage keys, no shared code. Nothing here can break
-`src/`, `webapp/` or the parent test suite.
+`src/`, `webapp/` or the parent test suite. One optional feature talks to a
+model: with your own Anthropic API key, the Write screen can have a draft
+corrected and your own errors scheduled back to you (ADR-0015). Everything
+else works with no key and no network.
 
 ## Run it
 
-No build step, no dependencies, no API key.
+No build step, no dependencies. No API key unless you want the corrector.
 
 ```bash
 python -m http.server 8000 --directory boldoo
@@ -26,9 +29,11 @@ installable to a home screen) only registers over http(s).
 node boldoo/tests/test_boldoo.js       # book content, exercise generation, grading, scheduler
 node boldoo/tests/test_contrastive.js  # the guide layer stays separable and grades correctly
 node boldoo/tests/test_render.js       # every screen renders, against a stub DOM
+node boldoo/tests/test_errors.js       # the corrector loop, against a stubbed fetch; diff parity with difflib
+python scripts/build_boldoo_taxonomy.py  # after any knowledge/error_taxonomy.yaml change
 ```
 
-Three dependency-free Node scripts, 6,879 assertions.
+Four dependency-free Node scripts, 7,053 assertions. None touch the network.
 
 ## Two sources
 
@@ -71,12 +76,19 @@ shown once. Skippable.
 for review, and what has not been started. One gold call to action. Then every
 unit with its source chip, mastery bar and counts.
 
-**Дасгал / Drill** — one question at a time. Multiple choice where typing would
-be unfair (Cyrillic, long structures), typed answers for verb forms and error
-correction. Distractors are always real answers from the same table.
+**Дасгал / Drill** — one question at a time. Due reviews first, most overdue
+first, mixed across units; new items fill what review leaves, from one unit
+at a time. Multiple choice where typing would be unfair (Cyrillic, long
+structures), typed answers for verb forms and error correction — and a choice
+item with a short English answer becomes a typed one once it has been
+answered right. Distractors are always real answers from the same table. A
+miss comes back at the end of the same session.
 
-**Дүн / Results** — score, what was missed, and a reminder that one correct
-answer is not knowing.
+**Хурд / Fluency** — once six items are mastered: ten of them, timed, never
+graded into the schedule. The only number is seconds-to-correct.
+
+**Дүн / Results** — today's score on first attempts, what was missed, and a
+reminder that one correct answer is not knowing.
 
 **Унших / Reader** — the book rendered properly. The 16-tense grid is printed
 sideways across a page in the original; here it is a table you can read on a
@@ -86,11 +98,19 @@ phone. The guide's commentary appears under the page it bears on.
 because no code here can honestly grade a free translation. Ten prompts carry a
 model answer because the model came from a source; the book's own 81 Орчуулга
 prompts have no answer key, so they say so rather than showing an invented one.
+With an API key (Settings), **Шалгуулах** sends the draft to the corrector:
+it returns the minimally corrected text, code computes the edits, a second
+call labels each edit from the closed taxonomy, and every labelled error
+becomes a repair due tomorrow — your own sentence with the span blanked,
+asked before the answer is shown. A correction you disagree with can be
+disputed and is never asked again.
 
 **Түвшин тогтоох / Placement** — two questions per unit, then a recommended
 order, weakest first.
 
-**Ахиц / Progress** — mastered, accuracy, learning, not started. Nothing else.
+**Ахиц / Progress** — mastered, delayed first-attempt accuracy (answers given
+7+ days after the last), items mastered by typing, learning. Raw accuracy is
+a footnote; today's score never appears here.
 
 **Тохиргоо / Settings** — sitting length, English gloss, source labels, strict
 typing. Every switch does something; the design's audio and reminder toggles are
@@ -98,17 +118,23 @@ left out until there is something behind them.
 
 ## Design rules
 
-1. **The content files are the only source of English.** Exercises are generated
-   and graded by code. Nothing is produced by a model at runtime, so an exercise
-   cannot invent English the sources do not contain, and a right answer cannot be
-   marked wrong on a whim.
+1. **The content files are the only source of English in the book drills,
+   and the model never produces the error list.** Exercises are generated and
+   graded by code. The one model in the app (opt-in, ADR-0015) returns a
+   corrected sentence and labels edits that code has already computed; it
+   cannot invent an error, and it never writes an answer for a book item. The
+   repair answer *is* model text — which is why it can be disputed.
 2. **Two sources, never merged.** Separate files, separate id namespaces, every
    item labelled.
 3. **Mastery is a criterion, not an event.** Three correct answers on three
    *different* days. This is not a setting — the app makes claims against it.
+   A re-ask within the same session is never graded; four lapses make a
+   leech, which is not quizzed again until its page has been re-read.
 4. **Habit numbers are never progress.** No streaks, no XP, no badges. Progress
    answers two questions: how much is mastered, and how accurate you are.
-5. **New work and review are counted separately, never summed.**
+5. **New work and review are counted separately, never summed.** Review is
+   served first; new items fill what is left, from one unit at a time.
+   The evidence for each of these rules is in `LEARNING.md`.
 6. **Free translation is self-assessed and excluded from accuracy.**
 7. **The book's typos are recorded, not taught.** Where the printed text would
    teach something false, the corrected form is drilled and the original is
@@ -140,7 +166,11 @@ boldoo/
 ├── fonts.css + fonts/      IBM Plex, subset and bundled
 ├── app.js                  screens, routing, session builder
 ├── settings.js             the settings that actually do something
-├── srs.js                  scheduler, mastery, honest stats
+├── srs.js                  scheduler, leeches, first-attempt log, honest stats
+├── correct.js              the corrector: fetch → corrected text → code diff → labels
+├── errors.js               the learner's-own-errors queue (port of src/error_queue.py)
+├── content/taxonomy.js     GENERATED from knowledge/error_taxonomy.yaml
+├── LEARNING.md             the evidence review every scheduling rule cites
 ├── exercises.js            generators and deterministic graders
 ├── content/lessons.js      the book transcription
 ├── content/contrastive.js  the guide layer — notes, units, write models
@@ -167,8 +197,11 @@ add a `cg-` prefixed unit and place it in `pathAfter`.
 `ХИЧЭЭЛ‑1` is on pages 1–5, which are not in the photograph set, so lesson
 numbering starts at 2. Pages 23–153 are photographed but not yet transcribed.
 
-Progress lives in `localStorage` under `boldoo.srs.v1`, settings under
-`boldoo.settings.v1`. Nothing leaves the device.
+Progress lives in `localStorage` under `boldoo.srs.v1`, the error queue under
+`boldoo.errors.v1`, settings under `boldoo.settings.v1`, and the API key —
+if you enter one — under `boldoo.apikey.v1`, which is never exported. Nothing
+leaves the device except a Write-screen draft you explicitly send for
+correction.
 
 ## Sources and attribution
 

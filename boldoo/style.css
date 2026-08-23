@@ -442,3 +442,34 @@ tbody tr:last-child td { border-bottom: none; }
   .prompt { font-size: 23px; }
   .hero-nums { gap: 18px; }
 }
+
+/* Evidence review additions (LEARNING.md) */
+.btn-sub { display: block; font: 400 11px var(--mono); letter-spacing: .06em; opacity: .75; margin-top: 3px; }
+.btn.outline { background: transparent; border: 1px solid rgba(255,255,255,.35); color: var(--bg); margin-top: 10px; }
+.callout.leech { border-left-color: var(--ochre); }
+.callout.leech .k { color: var(--ochre); }
+.callout.leech .btn { margin-right: 6px; }
+.retry { font: 600 9.5px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ochre); }
+.stat.plain .n { color: var(--ink); }
+
+/* Learner's own errors (ADR-0015) */
+.callout.expo { border-left-color: var(--green); }
+.callout.expo .k { color: var(--green); }
+.callout .t.small { font-size: 12.5px; color: var(--muted); }
+.callout .t s { color: var(--red); }
+.btn.small { padding: 8px 12px; font-size: 12.5px; margin-top: 10px; }
+.wi-check { margin-top: 9px; padding: 11px 13px; border-radius: 11px; background: var(--fill); font: 400 13.5px/1.45 var(--sans); }
+.wi-check.busy { color: var(--muted); }
+.wi-check.err { color: var(--red); }
+.wi-check .ok { color: var(--green); font-weight: 600; }
+.wi-check .edits { list-style: none; margin: 8px 0; padding: 0; }
+.wi-check .edits li { padding: 6px 0; border-top: 1px solid var(--line); }
+.wi-check .from { color: var(--red); text-decoration: line-through; }
+.wi-check .to { color: var(--green); font-weight: 600; }
+.wi-check .cat { margin-left: 8px; font: 600 9.5px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--navy); }
+.wi-check .cat.soft { color: var(--muted); }
+.wi-check .rule { font-size: 12.5px; color: var(--ink-2); margin-top: 3px; }
+.wi-check .corrected { margin-top: 8px; font: 500 14px var(--mono); color: var(--ink); overflow-wrap: anywhere; }
+.set-row.col { flex-direction: column; align-items: stretch; }
+.keyrow { display: flex; gap: 8px; margin-top: 8px; }
+.keyrow input { flex: 1; min-width: 0; padding: 10px 12px; font: 400 14px var(--mono); border: 1px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--ink); }

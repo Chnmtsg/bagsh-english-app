@@ -106,6 +106,7 @@ this conversation.
 pytest tests/ -q
 node tests/grader_parity.js        # the PWA's grader AND scheduler match Python
 python scripts/build_webapp_data.py   # after any knowledge/*.yaml change
+python scripts/build_boldoo_taxonomy.py  # after error_taxonomy.yaml changes (Small Step copy, ADR-0015)
 python scripts/run_regression.py --set evals/regression.jsonl
 python scripts/validate_patterns.py --corpus data/clean_english.txt
 python -m src.play today           # the learner's daily session

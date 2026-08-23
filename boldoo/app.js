@@ -59,6 +59,12 @@
   }
 
   function unitItems(u) { return EX.forUnit(u).map(function (i) { return i.id; }); }
+  /** Item ids are "<unitId>:<block>:<n>[:dir]" — the unit is everything before the first colon. */
+  function unitOf(id) { return String(id).split(':')[0]; }
+  const FLUENCY_MIN = 6;      // mastered items needed before a timed round is offered
+  const FLUENCY_ROUND = 10;   // items per round
+  const NEW_PER_SESSION = 3;  // new items per session once reviews exist (LEARNING.md §3)
+  const REPAIRS_PER_SESSION = 2; // the learner's own errors, ahead of the book (ADR-0015)
   function hasWrite(u) { return u.blocks.some(function (b) { return b.t === 'translate'; }); }
 
   const WEEKDAY = ['Ням', 'Даваа', 'Мягмар', 'Лхагва', 'Пүрэв', 'Баасан', 'Бямба'];
@@ -104,7 +110,12 @@
     ordered.forEach(function (u) { allIds.push.apply(allIds, unitItems(u)); });
     const d = SRS.dueBreakdown(allIds);
     const st = SRS.stats(allIds);
-    const n = Math.min(S.get('sessionLength'), d.total || S.get('sessionLength'));
+    const plan = SRS.plan(allIds, S.get('sessionLength'), unitOf, NEW_PER_SESSION);
+    const n = plan.queue.length;
+    const leechIds = SRS.leeches(allIds);
+    const fluencyN = SRS.fluencyPool(allIds).length;
+    const repairs = ERRQ.due(REPAIRS_PER_SESSION).length;
+    const exposure = ERRQ.exposures(1)[0] || null;
 
     let h = '<div class="screen">' +
       '<header class="topline">' +
@@ -122,10 +133,26 @@
       '<div class="mn">шинэ</div><div class="en">not started</div></div>' +
       '</div>' +
       '<p class="hero-note">Хоёр тоог хэзээ ч нэмдэггүй — эхлээгүй зүйлийг «давтах» гэж тоолохгүй.</p>' +
-      (d.total
-        ? '<button class="btn gold block" data-go="#/study">Хичээллэх · ' + n + ' асуулт</button>'
+      (n + repairs
+        ? '<button class="btn gold block" data-go="#/study">Хичээллэх · ' + (n + repairs) + ' асуулт' +
+          (repairs ? ' <span class="btn-sub">' + repairs + ' таны өгүүлбэр</span>' : '') +
+          (plan.review.length && plan.fresh.length
+            ? ' <span class="btn-sub">' + plan.review.length + ' давтах + ' + plan.fresh.length + ' шинэ</span>'
+            : plan.review.length ? ' <span class="btn-sub">бүгд давтах</span>'
+            : ' <span class="btn-sub">бүгд шинэ</span>') +
+          '</button>'
         : '<button class="btn gold block" disabled>Өнөөдөрт дууссан</button>') +
+      (plan.review.length >= S.get('sessionLength') && d.fresh
+        ? '<p class="hero-note">Давтах зүйл сешнийг дүүргэж байна — шинэ зүйл давталт багасахаар ирнэ. ' +
+          'Энэ бол зөв дараалал: давталт эхлээд, шинэ зүйл дараа.</p>'
+        : '') +
+      (fluencyN >= FLUENCY_MIN
+        ? '<button class="btn block outline" data-go="#/fluency">Хурд · 1 минут' +
+          ' <span class="btn-sub">' + fluencyN + ' эзэмшсэн зүйл дээр</span></button>'
+        : '') +
       '</section>' +
+      (leechIds.length ? leechCallout(leechIds) : '') +
+      (exposure ? exposureCallout(exposure) : '') +
 
       '<div class="sectionhead">' +
       '<span class="eyebrow">Нэгжүүд · Units</span>' +
@@ -175,6 +202,38 @@
     h += '<p class="gap-note">' + esc(B.meta.gap_note) + '</p>' +
       tabbar('#/') + '</div>';
     render(h);
+  }
+
+  /** Items the scheduler has given up testing; each names its page. */
+  function leechCallout(ids) {
+    const units = {};
+    ids.forEach(function (id) { units[unitOf(id)] = (units[unitOf(id)] || 0) + 1; });
+    return '<aside class="callout leech">' +
+      '<div class="k">Дахин унших · Read again</div>' +
+      '<p class="t">' + ids.length + ' зүйлийг ' + SRS.LEECH_LAPSES + ' удаа алдсан. ' +
+      'Дахин асуухгүй — мэдэхгүй зүйлийг шалгах нь сургадаггүй. Хуудсыг нь дахин уншсаны дараа л эргэж ирнэ.</p>' +
+      Object.keys(units).map(function (uid) {
+        const u = byId[uid];
+        return u ? '<a class="btn guide" href="#/read/' + uid + '">' + esc(u.title_mn) + ' · ' + units[uid] + '</a>' : '';
+      }).join(' ') +
+      '</aside>';
+  }
+
+  /**
+   * An untreatable error — word choice, collocation, register — shown, not
+   * quizzed. Rendering it is the whole event: it is marked shown here and
+   * pushed out; nothing is scored (ADR-0015, Ferris 1999).
+   */
+  function exposureCallout(item) {
+    const x = ERRQ.toExposure(item);
+    ERRQ.markShown(item.key);
+    return '<aside class="callout expo">' +
+      '<div class="k">Илүү зөв хувилбар · More natural</div>' +
+      '<p class="t">Та бичсэн: <s>' + esc(x.yours || '—') + '</s> → <b>' + esc(x.natural) + '</b></p>' +
+      '<p class="t small">' + esc(x.sentence) + '</p>' +
+      (x.bridge ? '<p class="t small">' + esc(x.bridge) + '</p>' : '') +
+      '<p class="t small">Энэ дүрэм биш, хэлний заншил. Асуухгүй, дүгнэхгүй — дахин харуулна.</p>' +
+      '</aside>';
   }
 
   function firstGapNote() {
@@ -418,6 +477,9 @@
     const u = byId[unitId];
     if (!u) return viewHome();
     const k = kindOf(u);
+    // Re-reading the page is what re-admits a leech to the queue. Reading is
+    // not retrieval, so nothing else on the record changes.
+    const readmitted = SRS.reteach(unitItems(u));
 
     let h = '<div class="screen">' +
       '<div class="crumb"><a class="iconbtn" href="#/" style="display:grid;place-items:center;' +
@@ -443,6 +505,12 @@
       h += '</section>';
     }
 
+    if (readmitted) {
+      h += '<aside class="callout leech"><div class="k">Дахин унших · Read again</div>' +
+        '<p class="t">' + readmitted + ' зүйл дасгалд эргэж орлоо. Уншсан нь мэдсэн гэсэн үг биш — ' +
+        'дахин ' + SRS.MASTERY_DAYS + ' өөр өдөр зөв хариулах хэрэгтэй.</p></aside>';
+    }
+
     h += '<div class="thumb">' +
       '<a class="btn primary block" href="#/study/' + u.id + '">Энэ нэгжийг дасгалжуулах · ' +
       S.get('sessionLength') + ' асуулт</a></div></div>';
@@ -452,17 +520,54 @@
   // --------------------------------------------------------------- drill
   let session = null;
 
+  /**
+   * Recognition may introduce; only production may certify (Webb 2005;
+   * Morris, Bransford & Franks 1977). A multiple-choice item whose answer is
+   * a short English word or phrase becomes a typed item once it has been
+   * answered correctly at least once. Cyrillic answers and formulas stay as
+   * choices — typing them would test spelling and patience, not English.
+   */
+  function promote(it) {
+    if (it.kind !== 'choice') return it;
+    const r = SRS.record(it.id);
+    if (!r || r.right === 0) return it;
+    if (!/^[a-z][a-z' \/-]*$/i.test(it.answer) || it.answer.split(/\s+/).length > 3) return it;
+    const out = {};
+    Object.keys(it).forEach(function (k) { out[k] = it[k]; });
+    out.kind = 'type';
+    out.options = null;
+    out.promoted = true;
+    out.accept = EX.acceptable(it.answer);
+    out.promptNote = (it.promptNote ? it.promptNote + ' ' : '') + 'Энэ удаа өөрөө бич.';
+    return out;
+  }
+
+  /**
+   * One session:
+   *   1. everything due, most overdue first, interleaved across units
+   *   2. new items fill what review leaves — from one unit, at most
+   *      NEW_PER_SESSION once there is anything to review at all
+   *   3. a miss is re-asked at the end of the same session (relearning);
+   *      the re-ask is never graded into the record
+   */
   function buildSession(unitId) {
     const units = unitId ? [byId[unitId]] : ordered;
     const items = EX.forUnits(units);
     const index = {};
     items.forEach(function (i) { index[i.id] = i; });
-    const ids = SRS.pick(items.map(function (i) { return i.id; }), S.get('sessionLength'));
+    const n = S.get('sessionLength');
+    const plan = SRS.plan(items.map(function (i) { return i.id; }), n, unitOf, NEW_PER_SESSION);
+    const ids = plan.queue;
+    // The learner's own errors come first, in the mixed session only: they
+    // are the one personalised signal this app has (ADR-0015).
+    const repairs = unitId ? [] : ERRQ.due(REPAIRS_PER_SESSION).map(ERRQ.toDrill);
+    const queue = repairs.concat(ids.map(function (id) { return promote(index[id]); }));
     return {
       unitId: unitId || null,
       label: unitId ? byId[unitId].title_mn : 'Холимог',
-      queue: ids.map(function (id) { return index[id]; }),
-      pos: 0, right: 0, missed: [],
+      queue: queue,
+      first: queue.length,
+      pos: 0, right: 0, missed: [], retried: 0, retriedRight: 0,
       picked: null, checked: false, typed: ''
     };
   }
@@ -517,12 +622,15 @@
       '<span class="count">' + (s.pos + 1) + '/' + s.queue.length + '</span>' +
       '</div>' +
       '<div class="q"><div class="q-top">' +
-      '<span class="eyebrow tight">' + esc(it.tag || (u ? u.title_mn : '')) + '</span>' +
+      '<span class="eyebrow tight">' + esc(it.tag || (u ? u.title_mn : '')) +
+      (it.retry ? ' · <span class="retry">дахин</span>' : '') + '</span>' +
       (S.get('showSource')
         ? '<span class="q-src" style="color:' + tone + '">' + esc(it.source) + '</span>' : '') +
       '</div>' +
       '<h1 class="prompt' + (it.prompt.length > 42 ? ' small' : '') + '">' + esc(it.prompt) + '</h1>' +
       (it.promptNote ? '<p class="q-note">' + esc(it.promptNote) + '</p>' : '') +
+      (it.kind === 'repair' && it.seen > 1
+        ? '<p class="q-note">Энэ алдаа ' + it.seen + ' удаа гарсан.</p>' : '') +
       '</div>' + body;
 
     if (s.checked) {
@@ -532,6 +640,10 @@
         '</div>' +
         (ok ? '' : '<div class="fb-answer">' + esc(it.answer) + '</div>') +
         (it.explain ? '<div class="fb-explain">' + esc(it.explain).replace(/\n/g, '<br>') + '</div>' : '') +
+        (it.kind === 'repair' && !ok && !it.retry
+          ? '<button class="btn small" data-act="dispute" data-key="' + esc(it.key) + '">' +
+            'Миний хувилбар зөв байсан</button>'
+          : '') +
         '</div>';
     }
 
@@ -553,6 +665,12 @@
     return EX.check(it, s.typed).correct;
   }
 
+  /** Precision over recall: a correction the learner rejects is never drilled again. */
+  actions['dispute'] = function (el) {
+    ERRQ.dispute(el.getAttribute('data-key'));
+    el.outerHTML = '<p class="q-note">Тэмдэглэлээ. Энэ өгүүлбэрийг дахин асуухгүй.</p>';
+  };
+
   actions['pick'] = function (el) {
     if (session.checked) return;
     session.picked = parseInt(el.getAttribute('data-i'), 10);
@@ -567,15 +685,37 @@
       if (inp) s.typed = inp.value;
       if (it.kind === 'choice' && s.picked == null) return;   // nothing chosen yet
       const ok = isCorrect(it);
-      SRS.grade(it.id, ok);
-      if (ok) s.right += 1;
-      else s.missed.push({
-        prompt: it.prompt,
-        given: it.kind === 'choice'
-          ? (s.picked == null ? '—' : it.options[s.picked])
-          : (String(s.typed).trim() || '—'),
-        answer: it.answer
-      });
+      if (it.retry) {
+        // Relearning, not scoring. Wrong again → once more, later — but at
+        // most twice: after that it is tomorrow's problem, not tonight's.
+        s.retried += 1;
+        if (ok) s.retriedRight += 1;
+        else if (it.retries < 2) {
+          const more = {};
+          Object.keys(it).forEach(function (k) { more[k] = it[k]; });
+          more.retries = it.retries + 1;
+          s.queue.push(more);
+        }
+      } else {
+        if (it.kind === 'repair') ERRQ.record(it.key, ok);
+        else SRS.grade(it.id, ok, { typed: it.kind === 'type' });
+        if (ok) s.right += 1;
+        else {
+          s.missed.push({
+            prompt: it.prompt,
+            given: it.kind === 'choice'
+              ? (s.picked == null ? '—' : it.options[s.picked])
+              : (String(s.typed).trim() || '—'),
+            answer: it.answer,
+            leech: SRS.isLeech(it.id)
+          });
+          const again = {};
+          Object.keys(it).forEach(function (k) { again[k] = it[k]; });
+          again.retry = true;
+          again.retries = 1;
+          s.queue.push(again);
+        }
+      }
       s.checked = true;
       return renderCard();
     }
@@ -588,14 +728,15 @@
   function viewResults() {
     if (!session) return viewHome();
     const s = session;
-    const total = s.queue.length;
+    const total = s.first;
     const again = total - s.right;
 
     let h = '<div class="screen"><div class="res">' +
       '<div class="res-head">' +
       '<div class="eyebrow">Дууслаа · Session done</div>' +
       '<div class="res-score">' + pct(s.right / total) + '</div>' +
-      '<p class="res-line">' + s.right + ' / ' + total + ' зөв · ' + esc(s.label) + '</p>' +
+      '<p class="res-line">' + s.right + ' / ' + total + ' анхны оролдлогоор зөв · ' + esc(s.label) + '</p>' +
+      '<p class="fine">Энэ өнөөдрийн гүйцэтгэл. Сурсан эсэхийг долоо хоногийн дараа давтахад л харна.</p>' +
       '</div>' +
       '<div class="res-cards">' +
       '<div class="res-card green"><div class="n">' + s.right + '</div>' +
@@ -603,14 +744,17 @@
       '<div class="s">Эзэмшсэн гэхэд ' + SRS.MASTERY_DAYS + ' өөр өдөр зөв</div></div>' +
       '<div class="res-card ochre"><div class="n">' + again + '</div>' +
       '<div class="l">дахин ирнэ</div>' +
-      '<div class="s">Удахгүй давтагдана</div></div>' +
+      '<div class="s">' + (s.retried
+        ? 'Өнөөдөр ' + s.retried + ' удаа дахин асуусан, тоонд ороогүй'
+        : 'Удахгүй давтагдана') + '</div></div>' +
       '</div>';
 
     if (s.missed.length) {
       h += '<div class="sectionhead" style="padding-left:4px;padding-right:4px">' +
         '<span class="eyebrow tight">Алдсан зүйл · Missed</span></div>' +
         '<div class="missed">' + s.missed.map(function (m) {
-          return '<div class="row"><div class="p">' + esc(m.prompt) + '</div>' +
+          return '<div class="row"><div class="p">' + esc(m.prompt) +
+            (m.leech ? ' <span class="retry">хуудсаа дахин унш</span>' : '') + '</div>' +
             '<div class="g">' + esc(m.given) + '</div>' +
             '<div class="a">' + esc(m.answer) + '</div></div>';
         }).join('') + '</div>';
@@ -622,6 +766,136 @@
     h += '</div><div class="thumb">' +
       '<a class="btn primary block" href="#/">Зам руу буцах</a></div></div>';
     render(h);
+  }
+
+  // ----------------------------------------------------------- fluency
+  // Nation's fourth strand: easy, known material under mild time pressure.
+  // Nothing here is new, nothing is graded into the scheduler; the only
+  // number that comes out is milliseconds-to-correct on mastered items.
+  let fl = null;
+
+  function viewFluency() {
+    const allIds = [];
+    ordered.forEach(function (u) { allIds.push.apply(allIds, unitItems(u)); });
+    const pool = SRS.fluencyPool(allIds);
+    if (pool.length < FLUENCY_MIN) {
+      return render('<div class="screen"><div class="empty">' +
+        '<h2>Хурдны тойрог хараахан алга</h2>' +
+        '<p>Эзэмшсэн зүйл ' + FLUENCY_MIN + ' хүрэхэд нээгдэнэ. Одоо ' + pool.length + '.</p>' +
+        '<a class="btn primary" href="#/">Зам руу буцах</a></div>' + tabbar('#/') + '</div>');
+    }
+    const items = EX.forUnits(ordered);
+    const index = {};
+    items.forEach(function (i) { index[i.id] = i; });
+    // Rotate through the pool by day so the same ten do not come every time.
+    const start = (SRS.today() / 86400000) % pool.length;
+    const ids = [];
+    for (let i = 0; i < Math.min(FLUENCY_ROUND, pool.length); i++) {
+      ids.push(pool[(start + i) % pool.length]);
+    }
+    fl = { queue: ids.map(function (id) { return index[id]; }), pos: 0, right: 0,
+           times: [], t0: 0, picked: null, checked: false, typed: '' };
+    renderFluency();
+  }
+
+  function renderFluency() {
+    const f = fl;
+    const it = f.queue[f.pos];
+    let body;
+    if (it.kind === 'choice') {
+      body = '<div class="opts">' + it.options.map(function (o, i) {
+        let cls = '';
+        if (f.checked) {
+          if (EX.norm(o) === EX.norm(it.answer)) cls = ' right';
+          else if (f.picked === i) cls = ' wrong';
+        }
+        return '<button class="opt' + cls + '" data-act="fl-pick" data-i="' + i + '"' +
+          (f.checked ? ' disabled' : '') + '>' +
+          '<span class="k">' + String.fromCharCode(65 + i) + '</span><span>' + esc(o) + '</span></button>';
+      }).join('') + '</div>';
+    } else {
+      body = '<div class="typed"><input id="answer" type="text" autocomplete="off" autocapitalize="off" ' +
+        'autocorrect="off" spellcheck="false" placeholder="Хурдан бич" value="' + esc(f.typed) + '"' +
+        (f.checked ? ' disabled' : '') + '></div>';
+    }
+    let h = '<div class="screen">' +
+      '<div class="drillbar">' +
+      '<button class="iconbtn" data-go="#/">✕</button>' +
+      '<div class="track"><i style="width:' + pctw(f.pos, f.queue.length) + '"></i></div>' +
+      '<span class="count">' + (f.pos + 1) + '/' + f.queue.length + '</span></div>' +
+      '<div class="q"><div class="q-top"><span class="eyebrow tight">Хурд · Fluency</span>' +
+      '<span class="q-src">эзэмшсэн</span></div>' +
+      '<h1 class="prompt' + (it.prompt.length > 42 ? ' small' : '') + '">' + esc(it.prompt) + '</h1>' +
+      '<p class="q-note">Мэддэг зүйл. Бодолгүй, хурдан.</p></div>' + body;
+    if (f.checked) {
+      const last = f.times[f.times.length - 1];
+      h += '<div class="fb ' + (last.ok ? 'good' : 'bad') + '"><div class="fb-top">' +
+        '<span class="fb-verdict">' + (last.ok ? 'Зөв' : 'Буруу') + '</span>' +
+        '<span class="fb-src">' + (last.ms / 1000).toFixed(1) + ' с</span></div>' +
+        (last.ok ? '' : '<div class="fb-answer">' + esc(it.answer) + '</div>') + '</div>';
+    }
+    h += '<div class="thumb"><button class="btn primary block" data-act="fl-next">' +
+      (f.checked ? (f.pos + 1 >= f.queue.length ? 'Дүн харах' : 'Дараах') : 'Шалгах') +
+      '</button></div></div>';
+    render(h);
+    if (!f.checked) f.t0 = Date.now();
+    const inp = document.getElementById('answer');
+    if (inp && !f.checked) inp.focus();
+  }
+
+  function flCheck() {
+    const f = fl, it = f.queue[f.pos];
+    const ms = Date.now() - f.t0;
+    let ok;
+    if (it.kind === 'choice') ok = f.picked != null && EX.norm(it.options[f.picked]) === EX.norm(it.answer);
+    else ok = EX.check(it, f.typed).correct;
+    f.times.push({ ok: ok, ms: ms });
+    if (ok) f.right += 1;
+    SRS.fluency(it.id, ok, ms);
+    f.checked = true;
+  }
+
+  actions['fl-pick'] = function (el) {
+    if (fl.checked) return;
+    fl.picked = parseInt(el.getAttribute('data-i'), 10);
+    flCheck();           // a choice is an answer; no second tap, the clock matters
+    renderFluency();
+  };
+
+  actions['fl-next'] = function () {
+    const f = fl;
+    if (!f.checked) {
+      const inp = document.getElementById('answer');
+      if (inp) f.typed = inp.value;
+      const it = f.queue[f.pos];
+      if (it.kind === 'choice' && f.picked == null) return;
+      flCheck();
+      return renderFluency();
+    }
+    if (f.pos + 1 >= f.queue.length) return renderFluencyResult();
+    f.pos += 1; f.picked = null; f.checked = false; f.typed = '';
+    renderFluency();
+  };
+
+  function renderFluencyResult() {
+    const f = fl;
+    const okMs = f.times.filter(function (t) { return t.ok; }).map(function (t) { return t.ms; })
+      .sort(function (a, b) { return a - b; });
+    const med = okMs.length ? okMs[okMs.length >> 1] : null;
+    const fs = SRS.fluencyStats();
+    render('<div class="screen"><div class="res">' +
+      '<div class="res-head"><div class="eyebrow">Хурд · Fluency</div>' +
+      '<div class="res-score">' + (med == null ? '—' : (med / 1000).toFixed(1) + ' с') + '</div>' +
+      '<p class="res-line">зөв хариултын дундаж хугацаа · ' + f.right + ' / ' + f.queue.length + ' зөв</p>' +
+      '<p class="fine">Энд шинэ зүйл байхгүй, давталтын хуваарьт ч нөлөөлөхгүй. ' +
+      'Мэддэг зүйлээ хурдан гаргаж сурах нь тусдаа ур чадвар (DeKeyser).</p></div>' +
+      (fs.earlierMs != null
+        ? '<div class="res-cards"><div class="res-card green"><div class="n">' + (fs.recentMs / 1000).toFixed(1) + '</div>' +
+          '<div class="l">сүүлийн 20</div><div class="s">секунд, дундаж</div></div>' +
+          '<div class="res-card"><div class="n">' + (fs.earlierMs / 1000).toFixed(1) + '</div>' +
+          '<div class="l">өмнөх 40</div><div class="s">буурч байвал автоматжиж байна</div></div></div>'
+        : '') +
+      '</div><div class="thumb"><a class="btn primary block" href="#/">Зам руу буцах</a></div></div>');
   }
 
   // ------------------------------------------------------------- write
@@ -644,6 +918,55 @@
   const revealed = {};
   const marked = {};
   const drafts = {};
+  const checks = {};     // id -> { busy, error, result }
+
+  function hashStr(s) {
+    let h = 2166136261;
+    for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return (h >>> 0).toString(36);
+  }
+
+  /** Your text and the correction, edit by edit, with the taxonomy's own rule. */
+  function renderCheck(w, c) {
+    if (c.busy) return '<p class="wi-check busy">Шалгаж байна…</p>';
+    if (c.error) {
+      const msg = c.error === 'no-key' ? 'API түлхүүр алга.'
+        : c.error === 'refusal' ? 'Загвар хариулахаас татгалзлаа.'
+        : /^api-4/.test(c.error) ? 'Түлхүүр буруу эсвэл хүсэлт хүлээн авагдсангүй (' + c.error + ').'
+        : /^api-/.test(c.error) ? 'Сервер хариулсангүй (' + c.error + ').'
+        : 'Холболт алга — дараа дахин оролдоно уу.';
+      return '<p class="wi-check err">' + esc(msg) + '</p>';
+    }
+    const r = c.result;
+    if (!r) return '';
+    const TAXC = (window.BOLDOO_TAXONOMY || {}).categories || {};
+    let h = '<div class="wi-check">';
+    if (!r.edits.length) {
+      h += '<p class="ok">Засах зүйл алга. <span class="fine">Энэ нэг удаагийн дүгнэлт — ' +
+        'мэдсэн гэдгийг давталт л батална.</span></p>';
+    } else {
+      h += '<p class="fine">' + r.edits.length + ' засвар. Засварыг код тооцоолсон; загвар зөвхөн ' +
+        'засварласан өгүүлбэр буцааж, ангиллыг нь нэрлэсэн.</p><ul class="edits">';
+      r.edits.forEach(function (e) {
+        const cat = e.category ? TAXC[e.category] : null;
+        h += '<li><span class="from">' + (e.original ? esc(e.original) : '∅') + '</span> → ' +
+          '<span class="to">' + (e.corrected ? esc(e.corrected) : '∅') + '</span>' +
+          (e.category ? '<span class="cat' + (cat && cat.treatable === false ? ' soft' : '') + '">' +
+            esc(e.category.replace(/_/g, ' ')) + '</span>' : '') +
+          (cat && cat.rule_a2 ? '<div class="rule">' + esc(cat.rule_a2) + '</div>' : '') +
+          (cat && cat.treatable === false
+            ? '<div class="rule">Дүрэм биш, заншил — дасгал болгохгүй, дахин харуулна.</div>' : '') +
+          '</li>';
+      });
+      h += '</ul><p class="corrected">' + esc(r.corrected) + '</p>' +
+        (r.queued ? '<p class="fine">' + r.queued + ' өгүүлбэр маргаашийн дасгалд орлоо — засварыг уншаад ' +
+          'өнгөрөөх биш, өөрөө засна.</p>' : '');
+    }
+    if (r.ambiguity && r.ambiguity.length) {
+      h += '<p class="fine">Тодорхойгүй: ' + esc(r.ambiguity.join(' ')) + '</p>';
+    }
+    return h + '</div>';
+  }
 
   function viewWrite() {
     const all = writeItems();
@@ -657,8 +980,13 @@
       '<span class="eyebrow">Small Step · Free translation</span>' +
       '<span class="metaline">' + all.length + '</span></header>' +
       '<h1 class="h1" style="padding:0 20px">Орчуулга</h1>' +
-      '<p class="fine" style="margin-top:10px">Эдгээрийг машин шалгаж чадахгүй. Өөрөө бичээд ' +
-      'үнэлнэ үү — энэ хэсгийн үр дүн нарийвчлалын тоонд ордоггүй.</p>';
+      (CORRECT.enabled()
+        ? '<p class="fine" style="margin-top:10px">Өөрөө үнэлнэ — энэ хэсгийн үр дүн нарийвчлалын тоонд ' +
+          'ордоггүй. «Шалгуулах» дарвал бичсэн англи өгүүлбэр тань Anthropic-ийн сервер рүү ' +
+          'илгээгдэж, засварласан хувилбар буцаж ирнэ. Алдааг код тооцоолж, маргаашийн дасгалд оруулна.</p>'
+        : '<p class="fine" style="margin-top:10px">Эдгээрийг машин шалгаж чадахгүй. Өөрөө бичээд ' +
+          'үнэлнэ үү — энэ хэсгийн үр дүн нарийвчлалын тоонд ордоггүй. ' +
+          '<a href="#/settings">Тохиргоонд</a> API түлхүүр оруулбал засуулж болно.</p>');
 
     picked.forEach(function (w, i) {
       const isMarked = marked[w.id];
@@ -676,7 +1004,12 @@
           ? '<button class="btn guide" data-act="w-reveal" data-id="' + esc(w.id) + '">' +
             (revealed[w.id] ? 'Нуух' : 'Загвар хариу') + '</button>'
           : '') +
-        '</div>';
+        (CORRECT.enabled()
+          ? '<button class="btn primary" data-act="w-check" data-id="' + esc(w.id) + '"' +
+            (checks[w.id] && checks[w.id].busy ? ' disabled' : '') + '>Шалгуулах</button>'
+          : '') +
+        '</div>' +
+        (checks[w.id] ? renderCheck(w, checks[w.id]) : '');
 
       if (w.model && revealed[w.id]) {
         h += '<div class="wi-model"><div class="m">' + esc(w.model) + '</div>' +
@@ -707,6 +1040,25 @@
     const id = el.getAttribute('data-id');
     marked[id] = false; SRS.grade(id, false); viewWrite();
   };
+  actions['w-check'] = function (el) {
+    const id = el.getAttribute('data-id');
+    const w = writeItems().filter(function (x) { return x.id === id; })[0];
+    const text = String(drafts[id] || '').trim();
+    if (!w || !text) return;
+    checks[id] = { busy: true };
+    viewWrite();
+    CORRECT.check(text, w.mn).then(function (r) {
+      // Only edits with a category from the closed enum can be scheduled.
+      const entryId = id + ':' + hashStr(text);
+      r.queued = ERRQ.fold(r.edits, entryId, r.text);
+      checks[id] = { result: r };
+      if (location.hash === '#/write') viewWrite();
+    }, function (err) {
+      checks[id] = { error: (err && err.message) || 'network' };
+      if (location.hash === '#/write') viewWrite();
+    });
+  };
+
   actions['w-reveal'] = function (el) {
     const id = el.getAttribute('data-id');
     revealed[id] = !revealed[id]; viewWrite();
@@ -806,28 +1158,46 @@
     ordered.forEach(function (u) { allIds.push.apply(allIds, unitItems(u)); });
     const s = SRS.stats(allIds);
     const d = SRS.dueBreakdown(allIds);
+    const fs = SRS.fluencyStats();
 
     let h = '<div class="screen">' +
       '<header class="topline"><span class="eyebrow">Small Step · Progress</span></header>' +
       '<h1 class="h1" style="padding:0 20px">Ахиц</h1>' +
-      '<p class="fine" style="margin-top:10px">Хоёрхон тоо чухал: хэдийг эзэмшсэн, хэр зөв ' +
-      'хариулсан. Дараалсан өдөр, оноо, тэмдэг энд байхгүй — тэдгээр нь дадал зуршлыг ' +
+      '<p class="fine" style="margin-top:10px">Сурсан эсэхийг өнөөдрийн оноо хэлдэггүй — долоо хоногийн ' +
+      'дараа санаж байгаа эсэх л хэлнэ. Дараалсан өдөр, оноо, тэмдэг энд байхгүй: тэдгээр нь дадлыг ' +
       'хэмждэг болохоос ахиц дэвшлийг хэмждэггүй.</p>' +
 
       '<div class="stats">' +
       '<div class="stat green"><div class="n">' + s.mastered + '</div>' +
       '<div class="l">эзэмшсэн</div>' +
       '<div class="s">' + SRS.MASTERY_DAYS + ' өөр өдөр зөв хариулсан</div></div>' +
-      '<div class="stat plain"><div class="n">' + pct(s.accuracy) + '</div>' +
-      '<div class="l">нарийвчлал</div>' +
-      '<div class="s">' + s.answers + ' хариултаас</div></div>' +
-      '<div class="stat navy"><div class="n">' + s.learning + '</div>' +
+      '<div class="stat plain"><div class="n">' + pct(s.delayed) + '</div>' +
+      '<div class="l">хойшлуулсан нарийвчлал</div>' +
+      '<div class="s">' + (s.delayedAnswers
+        ? SRS.DELAYED_DAYS + '+ хоногийн дараах ' + s.delayedAnswers + ' анхны хариултаас'
+        : SRS.DELAYED_DAYS + '+ хоногийн дараах давталт хараахан алга') + '</div></div>' +
+      '<div class="stat navy"><div class="n">' + s.mature + '</div>' +
+      '<div class="l">бичиж эзэмшсэн</div>' +
+      '<div class="s">16+ хоногийн зайтай, сүүлд өөрөө бичсэн</div></div>' +
+      '<div class="stat ochre"><div class="n">' + s.learning + '</div>' +
       '<div class="l">сурч байгаа</div>' +
-      '<div class="s">эхэлсэн, эзэмшээгүй</div></div>' +
-      '<div class="stat ochre"><div class="n">' + d.fresh + '</div>' +
-      '<div class="l">эхлээгүй</div>' +
-      '<div class="s">нийт ' + s.known + '-аас</div></div>' +
+      '<div class="s">эхэлсэн, эзэмшээгүй · ' + d.fresh + ' эхлээгүй</div></div>' +
       '</div>' +
+      errorSummary() +
+      (s.leeches
+        ? '<p class="fine" style="margin-top:10px">' + s.leeches + ' зүйл ' + SRS.LEECH_LAPSES +
+          ' удаа алдсан тул хуудсаа дахин уншихыг хүлээж байна. Эзэмшсэнд тооцохгүй.</p>'
+        : '') +
+      (fs.recentMs != null
+        ? '<p class="fine" style="margin-top:10px">Хурд: эзэмшсэн зүйлд зөв хариулах дундаж ' +
+          (fs.recentMs / 1000).toFixed(1) + ' с' +
+          (fs.earlierMs != null ? ' (өмнө ' + (fs.earlierMs / 1000).toFixed(1) + ' с)' : '') +
+          ' · ' + fs.answers + ' хариултаас.</p>'
+        : '') +
+      (s.answers
+        ? '<p class="fine" style="margin-top:10px">Бүх оролдлогын түүхий нарийвчлал ' + pct(s.accuracy) +
+          ' (' + s.answers + '). Энэ тоог толгойд бүү тавь — шинэ зүйл дээр хийсэн алдаа сурч байгаагийн шинж.</p>'
+        : '') +
 
       '<div class="sectionhead"><span class="eyebrow">Нэгжээр · By unit</span></div>' +
       '<ul class="prog-list">';
@@ -849,6 +1219,28 @@
 
     h += '</ul><div class="spacer"></div>' + tabbar('#/progress') + '</div>';
     render(h);
+  }
+
+  /** The learner's own errors: graduated only by absence from checked drafts. */
+  function errorSummary() {
+    const q = ERRQ.summary();
+    if (!q.tracked) return '';
+    return '<div class="sectionhead"><span class="eyebrow">Таны алдаа · Your errors</span>' +
+      '<span class="metaline">' + q.entries + ' шалгуулсан</span></div>' +
+      '<div class="stats">' +
+      '<div class="stat green"><div class="n">' + q.graduated + '</div><div class="l">төгссөн</div>' +
+      '<div class="s">' + ERRQ.MASTERY_DAYS + ' өдөр зөв засаад, ' + ERRQ.CLEAN_ENTRIES + ' бичвэрт дахин гараагүй</div></div>' +
+      '<div class="stat navy"><div class="n">' + q.queued + '</div><div class="l">дасгалд</div>' +
+      '<div class="s">' + q.tracked + ' бүртгэгдсэнээс · ' + q.due + ' өнөөдөр</div></div>' +
+      '</div>' +
+      (q.categoriesGraduated.length
+        ? '<p class="fine" style="margin-top:10px">Төгссөн ангилал: ' +
+          esc(q.categoriesGraduated.join(', ').replace(/_/g, ' ')) + '</p>' : '') +
+      (q.leeches
+        ? '<p class="fine" style="margin-top:10px">' + q.leeches + ' өгүүлбэрийг ' + ERRQ.LEECH_LAPSES +
+          ' удаа засаж чадсангүй — дасгалаас түр гаргалаа; дүрмийг нь уншсаны дараа эргэж ирнэ.</p>' : '') +
+      (q.disputed
+        ? '<p class="fine" style="margin-top:10px">' + q.disputed + ' засварыг та буруу гэж үзсэн; дахин асуухгүй.</p>' : '');
   }
 
   // ----------------------------------------------------------- settings
@@ -881,6 +1273,17 @@
       sw('showSource', 'Эх сурвалжийн шошго', 'Show НОМ / ГАРЫН АВЛАГА / ХОЁУЛАА labels') +
       sw('strictTyping', 'Хатуу шалгалт', 'Typed answers must match case and punctuation') +
       '</div>' +
+
+      '<div class="set-group">' +
+      '<div class="set-row col"><div class="set-label">' +
+      '<div class="mn">Бичвэр засуулах · Anthropic API түлхүүр</div>' +
+      '<div class="en">' + (CORRECT.enabled() ? 'Идэвхтэй · ' + CORRECT.MODEL : 'Хоосон — Бичих хэсэгт засвар байхгүй') + '</div></div>' +
+      '<div class="keyrow"><input id="apikey" type="password" autocomplete="off" placeholder="sk-ant-…" ' +
+      'value="' + esc(CORRECT.getKey()) + '">' +
+      '<button class="btn" data-act="savekey">Хадгалах</button></div>' +
+      '<p class="fine">Зөвхөн Бичих хэсгийн орчуулгууд илгээгдэнэ; дасгал, уншлага хэзээ ч илгээгдэхгүй. ' +
+      'Загвар засварласан өгүүлбэр л буцаана — алдааны жагсаалтыг код тооцоолно. Түлхүүр энэ төхөөрөмж дээр ' +
+      'хадгалагдаж, ахицын экспортод орохгүй.</p></div></div>' +
 
       '<p class="fine">Эзэмшсэн гэдгийг ' + SRS.MASTERY_DAYS + ' өөр өдөр зөв хариулсан гэж ' +
       'тодорхойлно. Энэ нь тохиргоо биш — апп ахицынхаа тухай мэдэгдлийг үүн дээр ' +
@@ -915,6 +1318,11 @@
     S.set('sessionLength', parseInt(el.getAttribute('data-n'), 10));
     viewSettings();
   };
+  actions['savekey'] = function () {
+    const inp = document.getElementById('apikey');
+    CORRECT.setKey(inp ? inp.value : '');
+    viewSettings();
+  };
   actions['export'] = function () {
     const blob = SRS.exportState();
     if (navigator.clipboard) {
@@ -928,6 +1336,7 @@
   actions['reset'] = function () {
     if (!resetArmed) { resetArmed = true; return viewSettings(); }
     SRS.reset();
+    ERRQ.reset();
     resetArmed = false;
     location.hash = '#/';
   };
@@ -948,6 +1357,7 @@
       case 'onboarding': return viewOnboarding();
       case 'read': return viewRead(parts[1]);
       case 'study': return viewStudy(parts[1]);
+      case 'fluency': return viewFluency();
       case 'results': return viewResults();
       case 'write': return viewWrite();
       case 'placement': return viewPlacement();
@@ -961,7 +1371,7 @@
   document.addEventListener('keydown', function (e) {
     const tag = document.activeElement ? document.activeElement.tagName : '';
     if (e.key === 'Enter') {
-      const d = app.querySelector('[data-act="drill"]');
+      const d = app.querySelector('[data-act="drill"]') || app.querySelector('[data-act="fl-next"]');
       if (d) { e.preventDefault(); d.click(); return; }
     }
     if (tag === 'INPUT' || tag === 'TEXTAREA') return;

@@ -74,7 +74,7 @@ vm.createContext(sandbox);
 // Skip onboarding for most of the sweep; it gets its own checks below.
 store['boldoo.settings.v1'] = JSON.stringify({ onboarded: true });
 
-['content/lessons.js', 'content/contrastive.js', 'settings.js', 'srs.js',
+['content/lessons.js', 'content/contrastive.js', 'content/taxonomy.js', 'settings.js', 'srs.js', 'correct.js', 'errors.js',
  'exercises.js', 'app.js'].forEach(f => {
   vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), sandbox, { filename: f });
 });
@@ -226,8 +226,10 @@ clean('placement', pl);
 console.log('progress');
 const pr = go('#/progress');
 has('progress shows mastered', pr, 'эзэмшсэн');
-has('progress shows accuracy', pr, 'нарийвчлал');
+has('progress headlines delayed accuracy', pr, 'хойшлуулсан нарийвчлал');
+has('progress counts productive mature items', pr, 'бичиж эзэмшсэн');
 has('progress refuses habit numbers', pr, 'ахиц дэвшлийг хэмждэггүй');
+ok('progress does not headline raw accuracy', pr.indexOf('<div class="l">нарийвчлал</div>') === -1);
 has('progress lists units', pr, 'class="prog-list"');
 UNITS.forEach(u => has('progress rows ' + u.id, pr, u.title_mn));
 clean('progress', pr);
@@ -245,6 +247,105 @@ has('settings says data stays local', set, 'Хаашаа ч илгээгддэг
 clean('settings', set);
 ok('settings has no fake audio toggle', set.indexOf('Дуудлагын сонсгол') === -1);
 ok('settings has no fake reminder toggle', set.indexOf('сануулга') === -1);
+
+// ------------------------------------------------------------ evidence review
+console.log('review before new');
+delete store['boldoo.srs.v1'];
+vm.runInContext(fs.readFileSync(path.join(ROOT, 'srs.js'), 'utf8'), sandbox, { filename: 'srs.js' });
+const fresh = go('#/');
+has('home says a cold session is all new', fresh, 'бүгд шинэ');
+ok('home has no leech callout cold', fresh.indexOf('callout leech') === -1);
+ok('home offers no fluency round cold', fresh.indexOf('#/fluency') === -1);
+has('fluency screen explains itself cold', go('#/fluency'), 'Хурдны тойрог хараахан алга');
+
+// Seed: ten mastered items, one leech, one due item that was answered right once.
+const T0 = sandbox.SRS.today();
+const DAYMS = 86400000;
+const allItems = sandbox.EX.forUnits(UNITS);
+const seed = { items: {}, log: [], fluency: [] };
+const mastered = allItems.filter(i => i.kind === 'choice').slice(0, 10);
+mastered.forEach(i => { seed.items[i.id] = { box: 4, due: T0 + 9 * DAYMS, seen: 3, right: 3, wrong: 0,
+  days: [T0 - 2 * DAYMS, T0 - DAYMS, T0], lapses: 0, leech: false, typed: false }; });
+const leechItem = allItems.filter(i => !seed.items[i.id])[0];
+seed.items[leechItem.id] = { box: 0, due: T0, seen: 9, right: 4, wrong: 5, days: [T0 - DAYMS], lapses: 4, leech: true, typed: false };
+const promoted = allItems.find(i => i.kind === 'choice' && !seed.items[i.id] &&
+  /^[a-z][a-z' \/-]*$/i.test(i.answer) && i.answer.split(/\s+/).length <= 3);
+seed.items[promoted.id] = { box: 1, due: T0 - DAYMS, seen: 1, right: 1, wrong: 0, days: [T0 - DAYMS], lapses: 0, leech: false, typed: false };
+store['boldoo.srs.v1'] = JSON.stringify(seed);
+vm.runInContext(fs.readFileSync(path.join(ROOT, 'srs.js'), 'utf8'), sandbox, { filename: 'srs.js' });
+
+const warm = go('#/');
+has('home shows review + new split', warm, '1 давтах + 3 шинэ');
+has('home surfaces the leech', warm, 'callout leech');
+has('leech callout names its unit', warm, '#/read/' + leechItem.unitId);
+has('home offers the fluency round', warm, '#/fluency');
+clean('home warm', warm);
+
+const flHtml = go('#/fluency');
+has('fluency renders a prompt', flHtml, 'class="prompt');
+has('fluency is labelled', flHtml, 'Хурд · Fluency');
+clean('fluency', flHtml);
+
+const studyWarm = go('#/study/' + promoted.unitId);
+has('a once-right choice item is asked typed the second time', studyWarm, 'Энэ удаа өөрөө бич');
+has('the promoted item is a typed input', studyWarm, 'id="answer"');
+clean('study warm', studyWarm);
+
+const readLeech = go('#/read/' + leechItem.unitId);
+has('reading the page readmits the leech', readLeech, 'дасгалд эргэж орлоо');
+ok('leech flag cleared by reading', !sandbox.SRS.isLeech(leechItem.id));
+ok('home drops the callout once readmitted', go('#/').indexOf('callout leech') === -1);
+
+sandbox.SRS.fluency(mastered[0].id, true, 1200);
+const prWarm = go('#/progress');
+has('progress shows the fluency line when there is data', prWarm, 'Хурд:');
+clean('progress warm', prWarm);
+delete store['boldoo.srs.v1'];
+vm.runInContext(fs.readFileSync(path.join(ROOT, 'srs.js'), 'utf8'), sandbox, { filename: 'srs.js' });
+
+// ------------------------------------------------- learner's own errors (ADR-0015)
+console.log('own errors');
+const CORRECT = sandbox.CORRECT, ERRQ = sandbox.ERRQ;
+ok('write screen points to settings without a key', go('#/write').indexOf('Шалгуулах') === -1);
+ok('settings shows the key field', go('#/settings').indexOf('id="apikey"') !== -1);
+CORRECT.setKey('sk-test');
+const wk = go('#/write');
+has('write screen offers checking with a key', wk, 'Шалгуулах');
+has('write screen says what is sent', wk, 'Anthropic');
+has('settings shows the model when enabled', go('#/settings'), CORRECT.MODEL);
+ok('progress hides the error block when nothing is tracked', go('#/progress').indexOf('Таны алдаа') === -1);
+
+// Seed one treatable and one untreatable error, both due today.
+const e1 = CORRECT.diff('I am geologist.', 'I am a geologist.'); e1[0].category = 'articles';
+const e2 = CORRECT.diff('I did a photo.', 'I took a photo.'); e2[0].category = 'collocation';
+ERRQ.fold(e1, 'r1', 'I am geologist.'); ERRQ.fold(e2, 'r2', 'I did a photo.');
+let eraw = JSON.parse(store['boldoo.errors.v1']);
+Object.keys(eraw.items).forEach(k => { eraw.items[k].due = ERRQ.today(); });
+store['boldoo.errors.v1'] = JSON.stringify(eraw);
+vm.runInContext(fs.readFileSync(path.join(ROOT, 'errors.js'), 'utf8'), sandbox, { filename: 'errors.js' });
+
+const homeE = go('#/');
+has('home counts the repair in the session', homeE, 'таны өгүүлбэр');
+has('home shows the untreatable as an exposure', homeE, 'callout expo');
+has('exposure shows the natural form', homeE, 'took');
+ok('exposure was marked shown', sandbox.ERRQ.item('collocation:did').shown === 1);
+ok('home drops the exposure once shown', go('#/').indexOf('callout expo') === -1);
+clean('home with errors', homeE);
+
+const stE = go('#/study');
+has('mixed session opens with the learner\'s own sentence', stE, 'Таны өгүүлбэр');
+has('repair blanks the span', stE, 'I am _____geologist.');
+has('repair is typed', stE, 'id="answer"');
+clean('study with repair', stE);
+ok('unit drill has no repairs', go('#/study/' + UNITS[0].id).indexOf('Таны өгүүлбэр') === -1);
+
+const prE = go('#/progress');
+has('progress shows the error block', prE, 'Таны алдаа');
+has('progress counts queued errors', prE, 'дасгалд');
+clean('progress with errors', prE);
+
+CORRECT.setKey('');
+sandbox.ERRQ.reset();
 
 // ---------------------------------------------------------------- routing
 console.log('routing');
