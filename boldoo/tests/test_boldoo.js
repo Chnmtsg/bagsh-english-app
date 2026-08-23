@@ -231,6 +231,112 @@ eq('a session is 12 items', first.length, 12);
 eq('a session has no repeats', new Set(first).size, 12);
 ok('pick is stable for the same state', S4.pick(everyId, 12).join() === first.join());
 
+// ------------------------------------------------- evidence review (LEARNING.md)
+group('review before new, blocked introduction, interleaved review');
+
+store = {};
+vm.runInContext(fs.readFileSync(path.join(ROOT, 'srs.js'), 'utf8'), sandbox, { filename: 'srs.js' });
+const S5 = sandbox.SRS;
+const unitOf = id => id.split(':')[0];
+const P = ['u1:0:0', 'u1:0:1', 'u1:0:2', 'u1:0:3', 'u2:0:0', 'u2:0:1', 'u2:0:2', 'u3:0:0'];
+
+let pl = S5.plan(P, 6, unitOf);
+eq('day 1: nothing to review', pl.review.length, 0);
+eq('day 1: new items fill the session', pl.fresh.length, 4);
+ok('day 1: new items come from ONE unit', pl.fresh.every(id => unitOf(id) === 'u1'), pl.fresh.join(','));
+
+// Make u1:0:0, u2:0:0, u2:0:1 and u3:0:0 overdue, u1:0:1 scheduled ahead.
+let st5 = JSON.parse(store['boldoo.srs.v1'] || '{"items":{},"log":[]}');
+const mk = (due, extra) => Object.assign({ box: 1, due, seen: 1, right: 1, wrong: 0, days: [T], lapses: 0, leech: false, typed: false }, extra || {});
+st5.items['u1:0:0'] = mk(T - 5 * DAY);
+st5.items['u2:0:0'] = mk(T - 2 * DAY);
+st5.items['u2:0:1'] = mk(T - 1 * DAY);
+st5.items['u3:0:0'] = mk(T);
+st5.items['u1:0:1'] = mk(T + 3 * DAY);
+store['boldoo.srs.v1'] = JSON.stringify(st5);
+vm.runInContext(fs.readFileSync(path.join(ROOT, 'srs.js'), 'utf8'), sandbox, { filename: 'srs.js' });
+const S6 = sandbox.SRS;
+pl = S6.plan(P, 6, unitOf);
+eq('due items are all reviewed', pl.review.length, 4);
+ok('review comes before new', pl.queue.indexOf(pl.fresh[0]) >= pl.review.length);
+ok('review is interleaved across units',
+   pl.review.slice(1).every((id, i) => unitOf(id) !== unitOf(pl.review[i])), pl.review.join(','));
+eq('most overdue item opens the session', pl.review[0], 'u1:0:0');
+ok('scheduled-ahead item is not in the session', pl.queue.indexOf('u1:0:1') === -1);
+eq('new items fill only what review leaves', pl.fresh.length, 2);
+eq('a new-item cap applies once there is review', S6.plan(P, 6, unitOf, 1).fresh.length, 1);
+eq('the cap does not apply to a cold start', S5.plan(P, 6, unitOf, 1).fresh.length, 4);
+ok('pick() also serves due before unseen', S6.pick(P, 1)[0] === 'u1:0:0');
+eq('interleave keeps order within a unit',
+   S6.interleave(['a:1', 'a:2', 'b:1'], unitOf).join(), 'a:1,b:1,a:2');
+
+group('leeches');
+const lid = 'u9:0:0';
+S6.grade(lid, true); S6.grade(lid, true); S6.grade(lid, true);
+for (let i = 0; i < S6.LEECH_LAPSES; i++) { S6.grade(lid, false); S6.grade(lid, true); }
+ok('four lapses make a leech', S6.isLeech(lid));
+eq('leech counted in stats', S6.stats([lid]).leeches, 1);
+ok('leech is never picked', S6.pick([lid], 1).length === 0);
+ok('leech is never planned', S6.plan([lid], 1, unitOf).queue.length === 0);
+ok('leech is not in the fluency pool', S6.fluencyPool([lid]).length === 0);
+eq('re-reading the page readmits it', S6.reteach([lid, 'nope']), 1);
+ok('readmitted item is due today', S6.isDue(lid) && !S6.isLeech(lid));
+eq('reteach is idempotent', S6.reteach([lid]), 0);
+ok('readmitting does not add a mastery day', S6.record(lid).days.length <= 3);
+
+group('delayed first-attempt accuracy');
+store = {};
+vm.runInContext(fs.readFileSync(path.join(ROOT, 'srs.js'), 'utf8'), sandbox, { filename: 'srs.js' });
+const S7 = sandbox.SRS;
+S7.grade('d:0:0', true); S7.grade('d:0:0', false);
+eq('same-day answers are not delayed', S7.stats(['d:0:0']).delayedAnswers, 0);
+ok('delayed is null with no delayed answers', S7.stats(['d:0:0']).delayed === null);
+// An item sitting at box 3 (7-day gap) answered now counts; at box 2 (3 days) it does not.
+let st7 = JSON.parse(store['boldoo.srs.v1']);
+st7.items['d:0:1'] = mk(T, { box: 3 });
+st7.items['d:0:2'] = mk(T, { box: 2 });
+store['boldoo.srs.v1'] = JSON.stringify(st7);
+vm.runInContext(fs.readFileSync(path.join(ROOT, 'srs.js'), 'utf8'), sandbox, { filename: 'srs.js' });
+const S8 = sandbox.SRS;
+S8.grade('d:0:1', true, { typed: true });
+S8.grade('d:0:2', false);
+const st8 = S8.stats(['d:0:0', 'd:0:1', 'd:0:2']);
+eq('only the 7-day answer is delayed', st8.delayedAnswers, 1);
+eq('delayed accuracy from that answer', st8.delayed, 1);
+eq('raw accuracy still counts everything', st8.answers, 6);
+eq('log records the interval the answer was scheduled at',
+   JSON.parse(store['boldoo.srs.v1']).log.find(r => r.id === 'd:0:1').ivl, 7);
+
+group('productive mature');
+let st9 = JSON.parse(store['boldoo.srs.v1']);
+st9.items['m:0:0'] = mk(T + 10 * DAY, { box: 4, typed: true, days: [T - 2 * DAY, T - DAY, T] });
+st9.items['m:0:1'] = mk(T + 10 * DAY, { box: 4, typed: false, days: [T - 2 * DAY, T - DAY, T] });
+st9.items['m:0:2'] = mk(T + 10 * DAY, { box: 3, typed: true });
+store['boldoo.srs.v1'] = JSON.stringify(st9);
+vm.runInContext(fs.readFileSync(path.join(ROOT, 'srs.js'), 'utf8'), sandbox, { filename: 'srs.js' });
+const S10 = sandbox.SRS;
+const st10 = S10.stats(['m:0:0', 'm:0:1', 'm:0:2']);
+eq('mature needs 16+ days AND a typed answer', st10.mature, 1);
+eq('mastered still counts recognition', st10.mastered, 2);
+ok('a correct typed answer marks the record typed', S10.grade('m:0:2', true, { typed: true }).typed === true);
+ok('a correct picked answer clears it', S10.grade('m:0:2', true, {}).typed === false);
+
+group('fluency');
+eq('fluency pool is the mastered, non-leech items', S10.fluencyPool(['m:0:0', 'm:0:1', 'm:0:2']).length, 2);
+const before = JSON.stringify(S10.record('m:0:0'));
+S10.fluency('m:0:0', true, 1400);
+S10.fluency('m:0:0', false, 3000);
+eq('fluency never touches the record', JSON.stringify(S10.record('m:0:0')), before);
+const fst = S10.fluencyStats();
+eq('fluency counts answers', fst.answers, 2);
+eq('fluency median is over correct answers only', fst.recentMs, 1400);
+ok('no earlier window yet', fst.earlierMs === null);
+
+group('import keeps older files working');
+S10.importState(JSON.stringify({ items: { 'x:0:0': { box: 1, due: 0, seen: 1, right: 1, wrong: 0, days: [T], lapses: 0 } } }));
+ok('old record without leech/typed/log loads', S10.stats(['x:0:0']).touched === 1 && S10.stats(['x:0:0']).delayed === null);
+ok('old record is not a leech', !S10.isLeech('x:0:0'));
+
 // ------------------------------------------------------------------ report
 console.log('\n' + '-'.repeat(46));
 if (fail) {
