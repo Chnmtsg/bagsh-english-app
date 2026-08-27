@@ -1,0 +1,322 @@
+[
+{
+"id": 1,
+"wrong": "I am geologist.",
+"right": "I am a geologist."
+},
+{
+"id": 2,
+"wrong": "She is engineer.",
+"right": "She is an engineer."
+},
+{
+"id": 3,
+"wrong": "I work in mining industry.",
+"right": "I work in the mining industry."
+},
+{
+"id": 6,
+"wrong": "I live in the Mongolia.",
+"right": "I live in Mongolia."
+},
+{
+"id": 8,
+"wrong": "I go to the work at 8.",
+"right": "I go to work at 8."
+},
+{
+"id": 10,
+"wrong": "It took a hour.",
+"right": "It took an hour."
+},
+{
+"id": 11,
+"wrong": "She is an university student.",
+"right": "She is a university student."
+},
+{
+"id": 13,
+"wrong": "We collected three sample.",
+"right": "We collected three samples."
+},
+{
+"id": 14,
+"wrong": "many informations",
+"right": "much information"
+},
+{
+"id": 15,
+"wrong": "We bought new equipments.",
+"right": "We bought new equipment."
+},
+{
+"id": 16,
+"wrong": "He gave me an advice.",
+"right": "He gave me a piece of advice."
+},
+{
+"id": 17,
+"wrong": "The news are good.",
+"right": "The news is good."
+},
+{
+"id": 19,
+"wrong": "We did two researches.",
+"right": "We did two research projects."
+},
+{
+"id": 20,
+"wrong": "The datas show a trend.",
+"right": "The data show a trend."
+},
+{
+"id": 23,
+"wrong": "He work here.",
+"right": "He works here."
+},
+{
+"id": 24,
+"wrong": "She don't know.",
+"right": "She doesn't know."
+},
+{
+"id": 25,
+"wrong": "I work here since 2019.",
+"right": "I have worked here since 2019."
+},
+{
+"id": 26,
+"wrong": "I am knowing the answer.",
+"right": "I know the answer."
+},
+{
+"id": 27,
+"wrong": "I am agree.",
+"right": "I agree."
+},
+{
+"id": 28,
+"wrong": "He is teacher.",
+"right": "He is a teacher."
+},
+{
+"id": 30,
+"wrong": "I have went there.",
+"right": "I have gone there."
+},
+{
+"id": 31,
+"wrong": "The report was wrote.",
+"right": "The report was written."
+},
+{
+"id": 32,
+"wrong": "The accident was happened.",
+"right": "The accident happened."
+},
+{
+"id": 33,
+"wrong": "I didn't went.",
+"right": "I didn't go."
+},
+{
+"id": 34,
+"wrong": "He can to swim.",
+"right": "He can swim."
+},
+{
+"id": 35,
+"wrong": "He cans drive.",
+"right": "He can drive."
+},
+{
+"id": 36,
+"wrong": "I enjoy to work here.",
+"right": "I enjoy working here."
+},
+{
+"id": 37,
+"wrong": "I look forward to hear from you.",
+"right": "I look forward to hearing from you."
+},
+{
+"id": 38,
+"wrong": "He suggested me to go.",
+"right": "He suggested that I go."
+},
+{
+"id": 40,
+"wrong": "I am interesting in geology.",
+"right": "I am interested in geology."
+},
+{
+"id": 50,
+"wrong": "We arrived to the site.",
+"right": "We arrived at the site."
+},
+{
+"id": 51,
+"wrong": "Let's discuss about it.",
+"right": "Let's discuss it."
+},
+{
+"id": 52,
+"wrong": "Explain me the data.",
+"right": "Explain the data to me."
+},
+{
+"id": 53,
+"wrong": "It depends of the grade.",
+"right": "It depends on the grade."
+},
+{
+"id": 54,
+"wrong": "I listen music every day.",
+"right": "I listen to music every day."
+},
+{
+"id": 55,
+"wrong": "She is married with him.",
+"right": "She is married to him."
+},
+{
+"id": 56,
+"wrong": "I read it in the internet.",
+"right": "I read it on the internet."
+},
+{
+"id": 60,
+"wrong": "He is responsible of safety.",
+"right": "He is responsible for safety."
+},
+{
+"id": 61,
+"wrong": "We started on July.",
+"right": "We started in July."
+},
+{
+"id": 62,
+"wrong": "He entered into the room.",
+"right": "He entered the room."
+},
+{
+"id": 63,
+"wrong": "My wife, he works in a school.",
+"right": "My wife, she works in a school."
+},
+{
+"id": 64,
+"wrong": "Its ready.",
+"right": "It's ready."
+},
+{
+"id": 65,
+"wrong": "the deposit and it's grade",
+"right": "the deposit and its grade"
+},
+{
+"id": 66,
+"wrong": "Have you read the my report?",
+"right": "Have you read my report?"
+},
+{
+"id": 67,
+"wrong": "He is a my friend.",
+"right": "He is a friend of mine."
+},
+{
+"id": 68,
+"wrong": "We need another samples.",
+"right": "We need other samples."
+},
+{
+"id": 69,
+"wrong": "Every students know the rule.",
+"right": "Every student knows the rule."
+},
+{
+"id": 70,
+"wrong": "I have somes.",
+"right": "I have some."
+},
+{
+"id": 71,
+"wrong": "Where you work?",
+"right": "Where do you work?"
+},
+{
+"id": 73,
+"wrong": "Does she works here?",
+"right": "Does she work here?"
+},
+{
+"id": 74,
+"wrong": "He asked where did I work.",
+"right": "He asked where I worked."
+},
+{
+"id": 75,
+"wrong": "I no have time.",
+"right": "I don't have time."
+},
+{
+"id": 76,
+"wrong": "I don't have no samples.",
+"right": "I don't have any samples."
+},
+{
+"id": 79,
+"wrong": "i am a geologist.",
+"right": "I am a geologist."
+},
+{
+"id": 80,
+"wrong": "I speak english.",
+"right": "I speak English."
+},
+{
+"id": 83,
+"wrong": "We drilled a 500-metres hole.",
+"right": "We drilled a 500-metre hole."
+},
+{
+"id": 85,
+"wrong": "We did a decision.",
+"right": "We made a decision."
+},
+{
+"id": 86,
+"wrong": "We make research on rocks.",
+"right": "We do research on rocks."
+},
+{
+"id": 87,
+"wrong": "Please open the light.",
+"right": "Please turn on the light."
+},
+{
+"id": 88,
+"wrong": "He said me the results.",
+"right": "He told me the results."
+},
+{
+"id": 89,
+"wrong": "She learned me English.",
+"right": "She taught me English."
+},
+{
+"id": 94,
+"wrong": "Please look the samples after.",
+"right": "Please look after the samples."
+},
+{
+"id": 101,
+"wrong": "He gave me informations.",
+"right": "He gave me information."
+},
+{
+"id": 102,
+"wrong": "This method is more better.",
+"right": "This method is better."
+}
+]

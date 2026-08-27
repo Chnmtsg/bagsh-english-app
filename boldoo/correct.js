@@ -55,6 +55,12 @@ window.CORRECT = (function () {
     return compiled;
   }
 
+  /** $1..$9 from the match groups. Re-running the regex on m[0] alone would
+   *  lose a lookahead/lookbehind context and miss its own match. */
+  function expand(template, m) {
+    return template.replace(/\$(\d)/g, function (_, n) { return m[+n] || ''; });
+  }
+
   /** Pattern edits, first pattern wins an overlapping span, sorted by start. */
   function match(text) {
     const edits = [], claimed = [];
@@ -65,7 +71,7 @@ window.CORRECT = (function () {
         if (m[0] === '') { cp.re.lastIndex += 1; continue; }
         const start = m.index, end = m.index + m[0].length;
         if (claimed.some(function (c) { return c[0] < end && start < c[1]; })) continue;
-        const corrected = m[0].replace(new RegExp(cp.p.find, cp.p.flags), cp.p.replace);
+        const corrected = expand(cp.p.replace, m);
         if (corrected === m[0]) continue;
         claimed.push([start, end]);
         // Narrow the edit to the tokens that change, so the repair blanks
@@ -320,7 +326,8 @@ window.CORRECT = (function () {
       }
       out += text.slice(pos, e.start) + ins; pos = e.end;
     });
-    return out + text.slice(pos);
+    // a deleted word leaves two spaces behind; a deletion before punctuation leaves one
+    return (out + text.slice(pos)).replace(/ {2,}/g, ' ').replace(/ ([.,;!?])/g, '$1');
   }
 
   /**

@@ -956,6 +956,7 @@
         h += '<li><span class="from">' + (e.original ? esc(e.original) : '∅') + '</span> → ' +
           '<span class="to">' + (e.corrected ? esc(e.corrected) : '∅') + '</span>' +
           (e.category ? '<span class="cat' + (cat && cat.treatable === false ? ' soft' : '') + '">' +
+            (TRACK.codeOf(e.category) ? TRACK.codeOf(e.category) + ' · ' : '') +
             esc(e.category.replace(/_/g, ' ')) + '</span>' : '') +
           (e.source === 'pattern' ? '<span class="cat pat">дүрэм</span>' : '') +
           (e.source === 'pattern' && e.explanation ? '<div class="rule">' + esc(e.explanation) + '</div>'
@@ -965,6 +966,7 @@
           '</li>';
       });
       h += '</ul><p class="corrected">' + esc(r.corrected) + '</p>' +
+        (r.measure ? numbersLine(r.measure) : '') +
         (r.queued ? '<p class="fine">' + r.queued + ' өгүүлбэр маргаашийн дасгалд орлоо — засварыг уншаад ' +
           'өнгөрөөх биш, өөрөө засна.</p>' : '');
     }
@@ -994,6 +996,11 @@
           'ордоггүй. «Дүрмээр шалгах» ' + CORRECT.patternCount() + ' тогтсон дүрмээр, төхөөрөмж дээрээ, ' +
           'юу ч илгээлгүй шалгана — олсон алдаа нь маргаашийн дасгалд орно. ' +
           '<a href="#/settings">Тохиргоонд</a> API түлхүүр оруулбал бусад алдааг ч засуулж болно.</p>');
+
+    h += freeBox() + tutorBox();
+
+    h += '<div class="sectionhead"><span class="eyebrow">Орчуулга · Translation</span>' +
+      '<span class="metaline">' + picked.length + ' / ' + all.length + '</span></div>';
 
     picked.forEach(function (w, i) {
       const isMarked = marked[w.id];
@@ -1031,12 +1038,148 @@
     render(h);
   }
 
+  // ---------------------------------------------------- own text (ADR-0016)
+  // The plan's daily production task and the 3-minute transcripts. Personal
+  // writing, so: corrector only, no coach voice, and an opt-out from the
+  // queue for a text the learner does not want replayed as a drill.
+  const FREE_ID = 'free';
+  let freeState = { text: '', minutes: '', noQueue: false };
+
+  function numbersLine(m) {
+    return '<p class="nums">' +
+      '<b>' + m.words + '</b> үг · <b>' + (m.per100 == null ? '—' : m.per100) + '</b> алдаа/100 үг · ' +
+      '<b>' + (m.art100 == null ? '—' : m.art100) + '</b> ART/100 · ' +
+      '<b>' + m.clausesPerSentence + '</b> өгүүлбэр тутмын дэд өгүүлбэр (тооцоо)' +
+      (m.wpm ? ' · <b>' + m.wpm + '</b> үг/мин' : '') +
+      (m.dominant ? ' · давамгай: <b>' + esc(m.dominant.replace(/_/g, ' ')) + '</b>' : '') + '</p>';
+  }
+
+  function freeBox() {
+    const c = checks[FREE_ID];
+    const isBaseline = !TRACK.baseline();
+    return '<section class="write-item free"><div class="wi-b">' +
+      '<div class="sectionhead tight"><span class="eyebrow">Өөрийн бичвэр · Own text</span>' +
+      (isBaseline ? '<span class="metaline base">эхний шалгалт = суурь үзүүлэлт</span>' : '') + '</div>' +
+      '<p class="fine">Өдрийн 10 өгүүлбэр, эсвэл 3 минутын бичлэгийн тэмдэглэл — үг үгээр, өөрөө буулгасан. ' +
+      'Энд зөвхөн засвар ирнэ; тайлбар, урам өгөх үг ирэхгүй.</p>' +
+      '<textarea rows="5" data-act="free-draft" placeholder="Today I worked on…">' + esc(freeState.text) + '</textarea>' +
+      '<div class="wi-actions">' +
+      '<label class="minutes">бичлэг <input id="free-min" type="number" min="0" step="0.5" inputmode="decimal" ' +
+      'value="' + esc(freeState.minutes) + '" placeholder="—"> мин</label>' +
+      '<label class="chk"><input type="checkbox" id="free-noq"' + (freeState.noQueue ? ' checked' : '') +
+      '> дасгалд бүү оруул</label>' +
+      '<button class="btn primary" data-act="free-check"' + (c && c.busy ? ' disabled' : '') + '>' +
+      (CORRECT.enabled() ? 'Шалгуулах' : 'Дүрмээр шалгах') + '</button></div>' +
+      (c ? renderCheck({ id: FREE_ID }, c) : '') +
+      '</div></section>';
+  }
+
+  actions['free-draft'] = function () { /* value read on input below */ };
+  actions['free-check'] = function () {
+    const text = String(freeState.text).trim();
+    if (!text) return;
+    const minEl = document.getElementById('free-min');
+    const noqEl = document.getElementById('free-noq');
+    freeState.minutes = minEl ? minEl.value : '';
+    freeState.noQueue = !!(noqEl && noqEl.checked);
+    const minutes = parseFloat(freeState.minutes) || 0;
+    const finish = function (r) {
+      const entryId = 'free:' + hashStr(text);
+      r.queued = freeState.noQueue ? 0 : ERRQ.fold(r.edits, entryId, r.text);
+      r.measure = TRACK.measure(r.text, r.edits, minutes);
+      TRACK.log(r.text, r.edits, { kind: 'free', minutes: minutes, offline: !!r.offline });
+      checks[FREE_ID] = { result: r };
+      if (location.hash === '#/write') viewWrite();
+    };
+    if (!CORRECT.enabled()) return finish(CORRECT.checkOffline(text));
+    checks[FREE_ID] = { busy: true };
+    viewWrite();
+    CORRECT.check(text).then(finish, function (err) {
+      checks[FREE_ID] = { error: (err && err.message) || 'network' };
+      if (location.hash === '#/write') viewWrite();
+    });
+  };
+
+  // ------------------------------------------------- tutor's list (ADR-0016)
+  // "wrong → right", one per line. Code diffs each pair; the learner names
+  // the code; nothing is sent anywhere. QQ English's correction hours land
+  // in the same queue as everything else.
+  let tutorState = { text: '', result: null };
+  const TUTOR_CODES = Object.keys(TRACK.CODES);
+
+  function parseTutorLines(text) {
+    return String(text).split(/\r?\n/).map(function (line) {
+      const m = /^(.*?)\s*(?:→|->|=>|\|)\s*(.*)$/.exec(line.trim());
+      if (!m || !m[1].trim() || !m[2].trim()) return null;
+      const wrong = m[1].trim(), right = m[2].trim();
+      const edits = CORRECT.diff(wrong, right);
+      return { wrong: wrong, right: right, edits: edits };
+    }).filter(Boolean);
+  }
+
+  function tutorBox() {
+    const r = tutorState.result;
+    let h = '<section class="write-item tutor"><div class="wi-b">' +
+      '<div class="sectionhead tight"><span class="eyebrow">Багш хэлсэн · From your tutor</span></div>' +
+      '<p class="fine">Багшийн бичсэн алдааны жагсаалтыг мөр бүрт <code>буруу → зөв</code> гэж буулга. ' +
+      'Юу ч илгээгдэхгүй: ялгааг код тооцоолж, ангиллыг та нэрлэнэ.</p>' +
+      '<textarea rows="3" data-act="tutor-draft" placeholder="I work as operator → I work as an operator">' + esc(tutorState.text) + '</textarea>' +
+      '<div class="wi-actions"><button class="btn" data-act="tutor-parse">Ялгааг харах</button></div>';
+    if (r) {
+      if (!r.length) h += '<p class="wi-check err">Мөр олдсонгүй. Мөр бүр «буруу → зөв» хэлбэртэй байх ёстой.</p>';
+      else {
+        h += '<div class="wi-check"><ul class="edits">';
+        r.forEach(function (row, i) {
+          row.edits.forEach(function (e, j) {
+            h += '<li><span class="from">' + (e.original ? esc(e.original) : '∅') + '</span> → ' +
+              '<span class="to">' + (e.corrected ? esc(e.corrected) : '∅') + '</span> ' +
+              '<select data-tutor="' + i + ':' + j + '"><option value="">ангилал…</option>' +
+              TUTOR_CODES.map(function (c) {
+                return '<option value="' + TRACK.CODES[c] + '"' + (e.category === TRACK.CODES[c] ? ' selected' : '') + '>' +
+                  c + ' · ' + TRACK.CODES[c].replace(/_/g, ' ') + '</option>';
+              }).join('') + '</select>' +
+              '<div class="rule">' + esc(row.wrong) + '</div></li>';
+          });
+        });
+        h += '</ul><div class="wi-actions"><button class="btn primary" data-act="tutor-add">Дасгалд оруулах</button></div></div>';
+      }
+    }
+    return h + '</div></section>';
+  }
+
+  actions['tutor-draft'] = function () {};
+  actions['tutor-parse'] = function () {
+    tutorState.result = parseTutorLines(tutorState.text);
+    viewWrite();
+  };
+  actions['tutor-add'] = function () {
+    const r = tutorState.result || [];
+    app.querySelectorAll('select[data-tutor]').forEach(function (sel) {
+      const ij = sel.getAttribute('data-tutor').split(':');
+      const e = r[+ij[0]] && r[+ij[0]].edits[+ij[1]];
+      if (e) e.category = sel.value || null;
+    });
+    let added = 0, all = [];
+    r.forEach(function (row, i) {
+      const labelled = row.edits.filter(function (e) { return e.category; });
+      labelled.forEach(function (e) { e.source = 'tutor'; });
+      all = all.concat(labelled);
+      if (labelled.length) added += ERRQ.fold(labelled, 'tutor:' + hashStr(row.wrong), row.wrong);
+    });
+    if (all.length) TRACK.log(r.map(function (x) { return x.wrong; }).join(' '), all, { kind: 'tutor' });
+    tutorState = { text: '', result: null, added: added, skipped: r.reduce(function (n, row) {
+      return n + row.edits.filter(function (e) { return !e.category; }).length; }, 0) };
+    viewWrite();
+  };
+
   actions['draft'] = function () { /* value read on blur below */ };
   app.addEventListener('input', function (e) {
     const t = e.target;
     if (t && t.getAttribute && t.getAttribute('data-act') === 'draft') {
       drafts[t.getAttribute('data-id')] = t.value;
     }
+    if (t && t.getAttribute && t.getAttribute('data-act') === 'free-draft') freeState.text = t.value;
+    if (t && t.getAttribute && t.getAttribute('data-act') === 'tutor-draft') tutorState.text = t.value;
   });
   actions['w-ok'] = function (el) {
     const id = el.getAttribute('data-id');
@@ -1054,6 +1197,7 @@
     if (!CORRECT.enabled()) {
       const r = CORRECT.checkOffline(text);
       r.queued = ERRQ.fold(r.edits, id + ':' + hashStr(text), r.text);
+      TRACK.log(r.text, r.edits, { kind: 'translate', offline: true });
       checks[id] = { result: r };
       return viewWrite();
     }
@@ -1063,6 +1207,7 @@
       // Only edits with a category from the closed enum can be scheduled.
       const entryId = id + ':' + hashStr(text);
       r.queued = ERRQ.fold(r.edits, entryId, r.text);
+      TRACK.log(r.text, r.edits, { kind: 'translate' });
       checks[id] = { result: r };
       if (location.hash === '#/write') viewWrite();
     }, function (err) {
@@ -1195,7 +1340,7 @@
       '<div class="l">сурч байгаа</div>' +
       '<div class="s">эхэлсэн, эзэмшээгүй · ' + d.fresh + ' эхлээгүй</div></div>' +
       '</div>' +
-      errorSummary() +
+      errorSummary() + trackingSheet() +
       (s.leeches
         ? '<p class="fine" style="margin-top:10px">' + s.leeches + ' зүйл ' + SRS.LEECH_LAPSES +
           ' удаа алдсан тул хуудсаа дахин уншихыг хүлээж байна. Эзэмшсэнд тооцохгүй.</p>'
@@ -1231,6 +1376,32 @@
 
     h += '</ul><div class="spacer"></div>' + tabbar('#/progress') + '</div>';
     render(h);
+  }
+
+  /** The plan's four numbers: baseline vs the last three checks. */
+  function trackingSheet() {
+    const b = TRACK.baseline();
+    if (!b) return '';
+    const r = TRACK.recent(3);
+    const v = TRACK.verdict();
+    const VERDICT = {
+      working: 'Алдаа буурч, өгүүлбэр уртсаж байна — ажиллаж байна.',
+      safe: 'Алдаа буурсан ч өгүүлбэр уртсаагүй — аюулгүй тоглож байна. Урт бүтэц оролд.',
+      stretching: 'Алдаа буураагүй ч өгүүлбэр уртсаж байна — хэцүү бүтэц оролдож байна. Хэвийн.',
+      flat: 'Хоёулаа хэвээр — засуулсан бичвэр дутуу. Илүү суралцах биш, илүү засуулах.'
+    };
+    const cell = function (x, suffix) { return x == null ? '—' : x + (suffix || ''); };
+    const fmt = function (t) { const d = new Date(t); return d.getUTCMonth() + 1 + '.' + d.getUTCDate(); };
+    return '<div class="sectionhead"><span class="eyebrow">Дөрвөн тоо · Tracking</span>' +
+      '<span class="metaline">' + TRACK.all().length + ' шалгалт</span></div>' +
+      '<div class="scroll"><table class="sheet"><tr><th></th><th>үг</th><th>алдаа/100</th><th>ART/100</th><th>дэд өг./өг.</th><th>үг/мин</th></tr>' +
+      '<tr><td>суурь · ' + fmt(b.t) + '</td><td>' + b.words + '</td><td>' + cell(b.per100) + '</td><td>' + cell(b.art100) + '</td><td>' + b.cps + '</td><td>' + cell(b.wpm) + '</td></tr>' +
+      (r && TRACK.all().length > 1
+        ? '<tr><td>сүүлийн ' + r.n + '</td><td>' + cell(r.words) + '</td><td>' + cell(r.per100) + '</td><td>' + cell(r.art100) + '</td><td>' + cell(r.cps) + '</td><td>' + cell(r.wpm) + '</td></tr>'
+        : '') +
+      '</table></div>' +
+      (v ? '<p class="fine" style="margin-top:10px">' + VERDICT[v] + '</p>'
+         : '<p class="fine" style="margin-top:10px">Дүгнэлт 4 шалгалтын дараа гарна. Алдаа/100 үгийг ганцаараа бүү унш — богино өгүүлбэр бичвэл буурдаг.</p>');
   }
 
   /** The learner's own errors: graduated only by absence from checked drafts. */
@@ -1349,6 +1520,7 @@
     if (!resetArmed) { resetArmed = true; return viewSettings(); }
     SRS.reset();
     ERRQ.reset();
+    TRACK.reset();
     resetArmed = false;
     location.hash = '#/';
   };

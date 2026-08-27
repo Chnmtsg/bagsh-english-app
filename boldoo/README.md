@@ -34,7 +34,7 @@ python scripts/build_boldoo_taxonomy.py  # after any knowledge/error_taxonomy.ya
 python scripts/build_boldoo_patterns.py  # after any top_100_patterns.yaml change; re-validates under JS
 ```
 
-Four dependency-free Node scripts, 7,072 assertions. None touch the network.
+Four dependency-free Node scripts, 7,105 assertions. None touch the network.
 
 ## Two sources
 
@@ -108,6 +108,14 @@ becomes a repair due tomorrow — your own sentence with the span blanked,
 asked before the answer is shown. A correction you disagree with can be
 disputed and is never asked again.
 
+Two more boxes on the same screen (ADR-0016): **Өөрийн бичвэр** — your own
+sentences or a transcript, checked the same way, with the plan's four numbers
+(words, errors/100w, ART/100w, clauses/sentence, WPM) logged to Ахиц; the
+first check is the baseline and is never overwritten. **Багш хэлсэн** — paste
+a tutor's `wrong → right` list, name the category, and it enters the queue
+without anything being sent. `PLAN.md` is the 84-day plan that uses all of
+this, on the clock.
+
 **Түвшин тогтоох / Placement** — two questions per unit, then a recommended
 order, weakest first.
 
@@ -172,6 +180,8 @@ boldoo/
 ├── srs.js                  scheduler, leeches, first-attempt log, honest stats
 ├── correct.js              the corrector: fetch → corrected text → code diff → labels
 ├── errors.js               the learner's-own-errors queue (port of src/error_queue.py)
+├── track.js                the four tracking numbers, baseline kept (ADR-0016)
+├── PLAN.md                 the 84-day study plan, on the clock
 ├── content/taxonomy.js     GENERATED from knowledge/error_taxonomy.yaml
 ├── content/patterns.js     GENERATED from knowledge/top_100_patterns.yaml, JS-validated
 ├── LEARNING.md             the evidence review every scheduling rule cites
@@ -202,7 +212,7 @@ add a `cg-` prefixed unit and place it in `pathAfter`.
 numbering starts at 2. Pages 23–153 are photographed but not yet transcribed.
 
 Progress lives in `localStorage` under `boldoo.srs.v1`, the error queue under
-`boldoo.errors.v1`, settings under `boldoo.settings.v1`, and the API key —
+`boldoo.errors.v1`, the tracking rows under `boldoo.track.v1`, settings under `boldoo.settings.v1`, and the API key —
 if you enter one — under `boldoo.apikey.v1`, which is never exported. Nothing
 leaves the device except a Write-screen draft you explicitly send for
 correction.

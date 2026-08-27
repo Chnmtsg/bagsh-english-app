@@ -438,7 +438,10 @@ good. Precision over recall (standing rule 4): a false correction teaches a
 learner their correct English was wrong, and no scheduler is worth that.
 
 **Metric it unlocks** (Part 5 #4 of the journal review): categories
-graduated, and leeches outstanding, both shown on Progress. The trajectory
+graduated, and leeches outstanding, both shown on Progress. ADR-0016 adds
+the free-production metric from Part 5 #1 of the journal review —
+errors/100 words, never shown without words and clauses/sentence — with
+the first check kept as a one-shot baseline (`track.js`). The trajectory
 to expect: first graduations at 4–6 weeks of regular checking, architecture
 categories (copula, word order) first.
 

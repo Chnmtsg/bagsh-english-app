@@ -37,7 +37,7 @@ const sandbox = {
 sandbox.window = sandbox;
 vm.createContext(sandbox);
 const load = f => vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), sandbox, { filename: f });
-['content/taxonomy.js', 'content/patterns.js', 'correct.js', 'errors.js'].forEach(load);
+['content/taxonomy.js', 'content/patterns.js', 'correct.js', 'errors.js', 'track.js'].forEach(load);
 const { CORRECT } = sandbox;
 
 let pass = 0, fail = 0; const failures = [];
@@ -186,6 +186,14 @@ ok('pattern edits carry curated explanations', pm.every(e => e.source === 'patte
 ok('pattern edits are real substrings', pm.every(e => 'I am geologist. I go to the work at 9.'.slice(e.start, e.end) === e.original));
 eq('applyEdits rebuilds the corrected text', CORRECT.applyEdits('I am geologist.', CORRECT.match('I am geologist.')), 'I am a geologist.');
 eq('nothing fires on correct English', CORRECT.match('I am a geologist and I go to work at 9.'), []);
+eq('a lookahead pattern still fires (context outside the match)',
+   CORRECT.match('Yesterday I go to the work at 9.').map(e => [e.patternId, e.original, e.corrected]), [[8, 'the', '']]);
+// every shipped pattern must fire on its own `wrong` example through match(), not only in the build validator
+const patSpec = JSON.parse(fs.readFileSync(path.join(ROOT, 'tests', 'pattern_examples.json'), 'utf8'));
+const silent = patSpec.filter(p => !CORRECT.match(p.wrong).some(e => e.patternId === p.id)).map(p => p.id);
+eq('every pattern fires on its own example via match()', silent, []);
+const wrongFix = patSpec.filter(p => CORRECT.applyEdits(p.wrong, CORRECT.match(p.wrong)) !== p.right).map(p => [p.id, CORRECT.applyEdits(p.wrong, CORRECT.match(p.wrong)), p.right]);
+eq('every pattern repairs its own example to `right`', wrongFix, []);
 const off = CORRECT.checkOffline('I am geologist.');
 eq('offline check has the same shape and is flagged', [off.offline, off.edits.length, off.corrected], [true, 1, 'I am a geologist.']);
 eq('model edit overlapping a pattern span is dropped',
@@ -200,6 +208,38 @@ eq('pattern edit queues without any model', [pit.source, pit.patternId], ['patte
 ok('drill uses the pattern explanation', Ep.toDrill(pit).explain.indexOf('Job words') !== -1);
 eq('repair blanks only the missing article', pit.prompt, 'I am _____geologist.');
 Ep.reset();
+
+// --------------------------------------------------------------- tracking
+group('tracking sheet (ADR-0016)');
+const TR = sandbox.TRACK;
+TR.reset();
+eq('code map covers the plan', Object.keys(TR.CODES).sort().join(), 'APO,ART,COLL,IQ,PREP,SVA,TNS,WF,WO');
+eq('category → code', [TR.codeOf('articles'), TR.codeOf('verb_agreement'), TR.codeOf('modifier_placement'), TR.codeOf('copula')], ['ART', 'SVA', 'WO', null]);
+eq('words', TR.words("I'm a geologist, and I work on site."), 8);
+eq('sentences', TR.sentences('One. Two! Three?'), 3);
+eq('clauses estimate counts linkers', TR.clauses('I work because I need money, and I like it.'), 3);
+const txt = 'I am geologist. I go to work and I very tired.';
+const eds = [{ category: 'articles' }, { category: 'tense_aspect' }, { category: 'copula' }];
+const m = TR.measure(txt, eds, 0.5);
+eq('per 100 words', [m.words, m.errors, m.per100, m.art100], [11, 3, 27.3, 9.1]);
+eq('clauses per sentence', m.clausesPerSentence, 1.5);
+eq('wpm from minutes', m.wpm, 22);
+eq('dominant category (first max wins)', m.dominant, 'articles');
+ok('no minutes → no wpm', TR.measure(txt, eds, 0).wpm === null);
+const b = TR.log(txt, eds, { kind: 'free', minutes: 0.5 });
+ok('first log is the baseline', b.baseline && TR.baseline() === TR.all()[0]);
+ok('no verdict before four checks', TR.verdict() === null);
+TR.log('I am a geologist. I went to work, and I was very tired because it was hot.', [{ category: 'articles' }], { kind: 'free' });
+TR.log('I am a geologist, and I work on site. I like it.', [], { kind: 'free' });
+TR.log('I write because I want to learn, and it works.', [], { kind: 'free' });
+eq('four rows', TR.all().length, 4);
+ok('baseline never moves', TR.baseline().per100 === 27.3);
+eq('verdict reads errors down + clauses up as working', TR.verdict(), 'working');
+const rec = TR.recent(3);
+ok('recent averages the last three', rec.n === 3 && rec.per100 < 10);
+TR.importState(JSON.stringify([{ t: 1, words: 10, per100: 10, art100: 5, cps: 1, wpm: null, baseline: true }]));
+eq('import keeps the file', TR.all().length, 1);
+TR.reset();
 
 // -------------------------------------------------------------- pipeline
 group('check() against a stubbed fetch');

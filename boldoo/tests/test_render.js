@@ -74,7 +74,7 @@ vm.createContext(sandbox);
 // Skip onboarding for most of the sweep; it gets its own checks below.
 store['boldoo.settings.v1'] = JSON.stringify({ onboarded: true });
 
-['content/lessons.js', 'content/contrastive.js', 'content/taxonomy.js', 'content/patterns.js', 'settings.js', 'srs.js', 'correct.js', 'errors.js',
+['content/lessons.js', 'content/contrastive.js', 'content/taxonomy.js', 'content/patterns.js', 'settings.js', 'srs.js', 'correct.js', 'errors.js', 'track.js',
  'exercises.js', 'app.js'].forEach(f => {
   vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), sandbox, { filename: f });
 });
@@ -307,6 +307,19 @@ vm.runInContext(fs.readFileSync(path.join(ROOT, 'srs.js'), 'utf8'), sandbox, { f
 console.log('own errors');
 const CORRECT = sandbox.CORRECT, ERRQ = sandbox.ERRQ;
 const wNoKey = go('#/write');
+has('write has the own-text box', wNoKey, 'Өөрийн бичвэр');
+has('own text says the first check is the baseline', wNoKey, 'суурь үзүүлэлт');
+has('own text can opt out of the queue', wNoKey, 'id="free-noq"');
+has('write has the tutor box', wNoKey, 'Багш хэлсэн');
+has('tutor box explains the format', wNoKey, 'буруу → зөв');
+ok('progress hides the sheet with no checks', go('#/progress').indexOf('Дөрвөн тоо') === -1);
+sandbox.TRACK.log('I am geologist.', [{ category: 'articles' }], { kind: 'free', minutes: 1 });
+const prT = go('#/progress');
+has('progress shows the sheet after a check', prT, 'Дөрвөн тоо');
+has('sheet has the baseline row', prT, 'суурь');
+has('sheet says the verdict waits for four checks', prT, '4 шалгалтын дараа');
+clean('progress with tracking', prT);
+sandbox.TRACK.reset();
 ok('write screen offers the rule check without a key', wNoKey.indexOf('Дүрмээр шалгах') !== -1);
 ok('write screen says how many rules', wNoKey.indexOf('64 тогтсон дүрмээр') !== -1);
 ok('write screen does not offer the model check without a key', wNoKey.indexOf('Шалгуулах') === -1);
