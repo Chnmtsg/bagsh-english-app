@@ -74,7 +74,7 @@ vm.createContext(sandbox);
 // Skip onboarding for most of the sweep; it gets its own checks below.
 store['boldoo.settings.v1'] = JSON.stringify({ onboarded: true });
 
-['content/lessons.js', 'content/contrastive.js', 'content/taxonomy.js', 'content/patterns.js', 'settings.js', 'srs.js', 'correct.js', 'errors.js', 'track.js',
+['content/lessons.js', 'content/contrastive.js', 'content/taxonomy.js', 'content/patterns.js', 'settings.js', 'srs.js', 'correct.js', 'errors.js', 'track.js', 'log.js',
  'exercises.js', 'app.js'].forEach(f => {
   vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), sandbox, { filename: f });
 });
@@ -362,6 +362,28 @@ clean('progress with errors', prE);
 
 CORRECT.setKey('');
 sandbox.ERRQ.reset();
+
+// -------------------------------------------------------------- study log
+console.log('study log');
+const lg = go('#/log');
+has('log renders', lg, 'Тэмдэглэл');
+has('log has the tab', lg, 'href="#/log"');
+has('log shows the 14-day strip', lg, 'class="strip"');
+has('log has the code grid', lg, 'class="codes"');
+sandbox.LOG.CODES.forEach(c => has('log lists code ' + c, lg, '>' + c + '<'));
+has('log has minutes chips', lg, 'data-act="log-min"');
+has('log has a save', lg, 'data-act="log-save"');
+has('log states it is a habit record', lg, 'ахиц биш');
+ok('log shows no streak', lg.indexOf('streak') === -1 && lg.indexOf('цуврал') === -1);
+has('tab bar includes the log', go('#/'), 'Тэмдэглэл');
+clean('log', lg);
+sandbox.LOG.put(sandbox.LOG.today(), { min: 45, task: 'Speaking', errors: { ART: 2 } });
+const lg2 = go('#/log');
+has('logged day shows minutes', lg2, '45м');
+has('rank appears after marks', lg2, 'class="rank"');
+has('clear offered for a logged day', lg2, 'data-act="log-clear"');
+clean('log with entry', lg2);
+sandbox.LOG.reset();
 
 // ---------------------------------------------------------------- routing
 console.log('routing');

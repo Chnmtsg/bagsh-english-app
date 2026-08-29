@@ -91,6 +91,7 @@
   const TABS = [
     ['#/', 'Зам', 'PATH'],
     ['#/write', 'Бичих', 'WRITE'],
+    ['#/log', 'Тэмдэглэл', 'LOG'],
     ['#/progress', 'Ахиц', 'PROGRESS'],
     ['#/settings', 'Тохиргоо', 'SETTINGS']
   ];
@@ -1426,6 +1427,150 @@
         ? '<p class="fine" style="margin-top:10px">' + q.disputed + ' засварыг та буруу гэж үзсэн; дахин асуухгүй.</p>' : '');
   }
 
+  // ---------------------------------------------------------- study log
+  // The plan's daily habit sheet (log.js). Habit numbers only — minutes
+  // produced and hand-marked codes; nothing here answers "am I improving".
+  let logSel = null;
+  let logDraft = null;
+
+  function logOpen(day) {
+    logSel = day || LOG.today();
+    const e = LOG.get(logSel);
+    logDraft = e ? JSON.parse(JSON.stringify(e)) : LOG.blank();
+  }
+
+  function viewLog() {
+    if (!logSel) logOpen();
+    const days = LOG.days();
+    const t = LOG.totals();
+    const rank = LOG.rank();
+    const persistent = LOG.persistent();
+    const max = Math.max(LOG.TARGET, Math.max.apply(null, days.map(function (d) { return (LOG.get(d) || {}).min || 0; })));
+    const WD = ['Ня', 'Да', 'Мя', 'Лх', 'Пү', 'Ба', 'Бя'];
+
+    let h = '<div class="screen">' +
+      '<header class="topline"><span class="eyebrow">Small Step · Study log</span>' +
+      '<span class="metaline">' + t.minutes + ' мин · 14 хоног</span></header>' +
+      '<h1 class="h1" style="padding:0 20px">Тэмдэглэл</h1>' +
+      '<p class="fine" style="margin-top:10px">Өдөр бүр, код нээхээсээ өмнө. Зөвхөн <b>үйлдвэрлэсэн</b> минут тоологдоно — ' +
+      'бичсэн эсвэл ярьсан; уншсан нь орохгүй. Энэ бол дадлын тэмдэглэл, ахиц биш.</p>' +
+
+      '<div class="stats three">' +
+      '<div class="stat navy"><div class="n">' + t.logged + '<span class="of">/' + t.days + '</span></div><div class="l">тэмдэглэсэн</div><div class="s">сүүлийн 14 хоног</div></div>' +
+      '<div class="stat plain"><div class="n">' + t.marksPerSession + '</div><div class="l">тэмдэг / өдөр</div><div class="s">өөрөө тэмдэглэсэн алдаа</div></div>' +
+      '<div class="stat ' + (LOG.twoDayBreach() ? 'ochre' : 'green') + '"><div class="n">' + (LOG.twoDayBreach() ? '2' : '✓') + '</div>' +
+      '<div class="l">хоёр өдрийн дүрэм</div><div class="s">' + (LOG.twoDayBreach() ? 'хоёр өдөр дараалан алгассан — өнөөдөр 10 минут' : 'дараалан алгасаагүй') + '</div></div>' +
+      '</div>';
+
+    if (persistent.length) {
+      h += '<aside class="callout leech"><div class="k">Дөрөв дэх долоо хоног · Fossilisation</div>' +
+        '<p class="t">' + esc(persistent.join(', ')) + ' — дөрвөн долоо хоног дараалан тэмдэглэгдэж байна. ' +
+        'Багштайгаа зориулалтын дасгал зохио; Бичих хэсэгт энэ ангиллын өгүүлбэрээ шалгуул.</p></aside>';
+    }
+
+    // ---- the 14-day strip
+    h += '<div class="sectionhead"><span class="eyebrow">Сүүлийн 14 хоног</span><span class="metaline">мин · тэмдэг</span></div>' +
+      '<div class="strip">';
+    days.forEach(function (d) {
+      const e = LOG.get(d);
+      const dt = LOG.fromIso(d);
+      const min = e ? e.min : 0;
+      const pct = min ? Math.max(6, Math.round(min / max * 100)) : 0;
+      const mk = LOG.marks(e);
+      h += '<button class="lrow' + (d === logSel ? ' sel' : '') + (min ? '' : ' off') + '" data-act="log-day" data-d="' + d + '">' +
+        '<span class="dcell"><span class="wd">' + WD[dt.getDay()] + '</span> ' + (dt.getMonth() + 1) + '.' + String(dt.getDate()).padStart(2, '0') + '</span>' +
+        '<span class="track">' + (min
+          ? '<i class="lbar' + (min >= LOG.TARGET ? ' over' : '') + '" style="width:' + pct + '%"></i>' +
+            '<span class="lbl">' + min + 'м' + (e.task ? ' · ' + esc(e.task.toLowerCase()) : '') + '</span>'
+          : '<span class="empty">—</span>') + '</span>' +
+        '<span class="ticks">' + (mk ? '<b>' + mk + '</b>' : '') + '</span></button>';
+    });
+    h += '</div>';
+
+    // ---- rank
+    if (rank.length) {
+      const top = rank[0][1];
+      h += '<div class="sectionhead"><span class="eyebrow">Алдааны код · 14 хоног</span></div><ul class="rank">' +
+        rank.slice(0, 5).map(function (r) {
+          return '<li><span class="k">' + r[0] + '</span><span class="b"><i style="width:' + Math.round(r[1] / top * 100) + '%"></i></span><span class="n">' + r[1] + '</span></li>';
+        }).join('') + '</ul>';
+    }
+
+    // ---- the entry card
+    const dt = LOG.fromIso(logSel);
+    const isToday = logSel === LOG.today();
+    h += '<section class="write-item logcard"><div class="wi-b">' +
+      '<div class="sectionhead tight"><span class="eyebrow">' + WD[dt.getDay()] + ' · ' + (dt.getMonth() + 1) + '.' + dt.getDate() + '</span>' +
+      (isToday ? '<span class="metaline base">өнөөдөр</span>' : '') + '</div>' +
+      '<label class="fld">Үйлдвэрлэсэн минут</label><div class="chips">' +
+      [15, 20, 30, 45, 60].map(function (m) {
+        return '<button class="chip' + (logDraft.min === m ? ' on' : '') + '" data-act="log-min" data-m="' + m + '">' + m + '</button>';
+      }).join('') +
+      '<input id="log-min" type="number" min="0" max="600" step="5" inputmode="numeric" value="' + (logDraft.min || '') + '" placeholder="0"></div>' +
+      '<label class="fld">Даалгавар</label><div class="chips">' +
+      LOG.TASKS.map(function (tk) {
+        return '<button class="chip' + (logDraft.task === tk ? ' on' : '') + '" data-act="log-task" data-t="' + tk + '">' + tk + '</button>';
+      }).join('') + '</div>' +
+      '<label class="fld">Тэмдэглэсэн алдаа</label><div class="codes">' +
+      LOG.CODES.map(function (c) {
+        const n = logDraft.errors[c] || 0;
+        return '<div class="code' + (n ? ' hit' : '') + '"><span class="k">' + c + '</span>' +
+          '<button data-act="log-dec" data-c="' + c + '" aria-label="' + c + ' −">−</button>' +
+          '<span class="n">' + n + '</span>' +
+          '<button data-act="log-inc" data-c="' + c + '" aria-label="' + c + ' +">+</button></div>';
+      }).join('') + '</div>' +
+      '<label class="fld">Нэг мөр — юу хэцүү байсан</label>' +
+      '<input id="log-note" type="text" maxlength="120" value="' + esc(logDraft.note || '') + '" placeholder="e.g. lost articles in long sentences">' +
+      '<div class="wi-actions"><button class="btn primary" data-act="log-save">Хадгалах</button>' +
+      (LOG.get(logSel) ? '<button class="btn" data-act="log-clear">Энэ өдрийг арилгах</button>' : '') + '</div>' +
+      '</div></section>';
+
+    h += '<p class="fine">Ахиулах дүрэм: нэг код гурван удаа дараалан 2-оос доош тэмдэгтэй байвал дараагийн түвшин рүү.</p>' +
+      '<div class="spacer"></div>' + tabbar('#/log') + '</div>';
+    render(h);
+  }
+
+  function logReadInputs() {
+    const m = document.getElementById('log-min');
+    const n = document.getElementById('log-note');
+    if (m && String(m.value).trim() !== '') logDraft.min = Math.max(0, Number(m.value) || 0);
+    if (n) logDraft.note = n.value;
+  }
+  actions['log-day'] = function (el) { logOpen(el.getAttribute('data-d')); viewLog(); };
+  actions['log-min'] = function (el) {
+    logReadInputs();
+    const v = Number(el.getAttribute('data-m'));
+    logDraft.min = logDraft.min === v ? 0 : v; viewLog();
+  };
+  actions['log-task'] = function (el) {
+    logReadInputs();
+    const t = el.getAttribute('data-t');
+    logDraft.task = logDraft.task === t ? '' : t; viewLog();
+  };
+  actions['log-inc'] = function (el) {
+    logReadInputs();
+    const c = el.getAttribute('data-c');
+    logDraft.errors[c] = (logDraft.errors[c] || 0) + 1; viewLog();
+  };
+  actions['log-dec'] = function (el) {
+    logReadInputs();
+    const c = el.getAttribute('data-c');
+    logDraft.errors[c] = Math.max(0, (logDraft.errors[c] || 0) - 1);
+    if (!logDraft.errors[c]) delete logDraft.errors[c];
+    viewLog();
+  };
+  actions['log-save'] = function () {
+    logReadInputs();
+    if (!logDraft.min) { window.alert('Эхлээд минутаа оруул.'); return; }
+    LOG.put(logSel, logDraft);
+    viewLog();
+  };
+  actions['log-clear'] = function () {
+    LOG.clear(logSel);
+    logOpen(logSel);
+    viewLog();
+  };
+
   // ----------------------------------------------------------- settings
   let resetArmed = false;
 
@@ -1521,6 +1666,7 @@
     SRS.reset();
     ERRQ.reset();
     TRACK.reset();
+    LOG.reset();
     resetArmed = false;
     location.hash = '#/';
   };
@@ -1546,6 +1692,7 @@
       case 'write': return viewWrite();
       case 'placement': return viewPlacement();
       case 'progress': return viewProgress();
+      case 'log': return viewLog();
       case 'settings': return viewSettings();
       default: return viewHome();
     }

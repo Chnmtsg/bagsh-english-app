@@ -77,6 +77,26 @@ in the build validator.
   unit to open on each day of Block 1 — with L7/L8/L10/L11 named as not in
   the app's content yet.
 
+## Addendum (same day) — the study log
+
+The owner's `study-log.html` (a daily habit sheet: minutes produced, task,
+hand-marked error codes, one line on what was hard, a 14-day strip) was
+reviewed and ported as `log.js` + the `Тэмдэглэл` tab. Ported, not dropped
+in, for four reasons: it saved through `window.storage`, an artifact-runtime
+API that does not exist on GitHub Pages; it headlined a **day streak**,
+which rule 4 and LEARNING.md §13b refuse; it used its own fonts and palette
+from Google Fonts, which breaks the offline bundle; and long-press-to-
+decrement fights the mobile context menu.
+
+What survived: the data model (one entry per local calendar day), the
+strip, the code rank, the note, the plan's own error codes (now shared
+with `track.js`). What changed: `localStorage` under `boldoo.log.v1`; the
+streak replaced by **logged/14** and the plan's **two-day rule** flag; a
+**four-week fossilisation detector** (a code marked in each of the last
+four weeks) that names the codes to take to the tutor; −/+ buttons; the
+app's own type and colours. It is labelled a habit record and never feeds
+Ахиц's progress figures.
+
 ## Not done
 
 - **Porting L7–L11** (relative clauses, passive, hedging, connectors) from

@@ -37,7 +37,7 @@ const sandbox = {
 sandbox.window = sandbox;
 vm.createContext(sandbox);
 const load = f => vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), sandbox, { filename: f });
-['content/taxonomy.js', 'content/patterns.js', 'correct.js', 'errors.js', 'track.js'].forEach(load);
+['content/taxonomy.js', 'content/patterns.js', 'correct.js', 'errors.js', 'track.js', 'log.js'].forEach(load);
 const { CORRECT } = sandbox;
 
 let pass = 0, fail = 0; const failures = [];
@@ -240,6 +240,33 @@ ok('recent averages the last three', rec.n === 3 && rec.per100 < 10);
 TR.importState(JSON.stringify([{ t: 1, words: 10, per100: 10, art100: 5, cps: 1, wpm: null, baseline: true }]));
 eq('import keeps the file', TR.all().length, 1);
 TR.reset();
+
+// -------------------------------------------------------------- study log
+group('study log (habit sheet, no streak)');
+const LG = sandbox.LOG;
+LG.reset();
+eq('codes shared with the tracking sheet', LG.CODES.join(), Object.keys(sandbox.TRACK.CODES).join());
+eq('window is 14 days', LG.days().length, 14);
+ok('today first', LG.days()[0] === LG.today());
+eq('shift arithmetic', LG.shift(-1, '2026-03-01'), '2026-02-28');
+ok('an entry without minutes is refused', LG.put(LG.today(), { min: 0, task: 'Drill' }) === false);
+ok('an entry with minutes is kept', LG.put(LG.today(), { min: 30, task: 'Writing', errors: { ART: 3, PREP: 1 }, note: 'x' }));
+eq('marks counted', LG.marks(LG.get(LG.today())), 4);
+LG.put(LG.shift(-1), { min: 15, task: 'Drill', errors: { ART: 1 } });
+const tot = LG.totals();
+eq('totals', [tot.logged, tot.minutes, tot.marksPerSession], [2, 45, 2.5]);
+ok('no streak anywhere in totals', !('streak' in tot));
+eq('rank by marks', LG.rank().map(r => r.join(':')).join(), 'ART:4,PREP:1');
+ok('two-day rule not breached with yesterday logged', !LG.twoDayBreach());
+LG.clear(LG.shift(-1)); LG.put(LG.shift(-3), { min: 20 });
+ok('two-day rule breached when yesterday and the day before are empty', LG.twoDayBreach());
+eq('nothing persistent after one week', LG.persistent(), []);
+[0, 7, 14, 21].forEach(d => LG.put(LG.shift(-d), { min: 20, errors: { ART: 1 } }));
+eq('a code marked in four consecutive weeks is persistent', LG.persistent(), ['ART']);
+LG.importState(JSON.stringify({ entries: {} }));
+eq('import replaces', LG.totals().logged, 0);
+let threwL = false; try { LG.importState('[]'); } catch (e) { threwL = true; } ok('bad import throws', threwL);
+LG.reset();
 
 // -------------------------------------------------------------- pipeline
 group('check() against a stubbed fetch');
